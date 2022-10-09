@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Academic Laura's webpage
+title: Laura Moreno's webpage
 email: laura.morenomartinez@unipd.it
 description: >- # this means to ignore newlines until "baseurl:"
 twitter_username: username
@@ -57,8 +57,9 @@ plugins:
 author:
   name   : "Laura Moreno Martínez"
   avatar : "/assets/images/laura2020.jpeg"
-  bio    : "Postdoctoral researcher at University of Padua."
+  bio    : "Postdoctoral researcher at University of Padua, Italy."
   #"Torre Archimede, Office 330, va Trieste 63, 35121 Padova"
+  location : "Padova, Italia"
   links:
     - label: "laura.morenomartinez@unipd.it"
       icon: "fas fa-fw fa-envelope-open"
@@ -80,6 +81,9 @@ author:
       #url: "https://instagram.com/"
     - label: "ResearchGate"
       icon: "fab fa-fw fa-researchgate"
+    - label: "ORCID: 0000-0002-8163-0877"
+      icon: "fab fa-fw fa-orcid"
+      url: "https://orcid.org/0000-0002-8163-0877"
       url: "https://www.researchgate.net/profile/Laura-Moreno-17"
     - label: "Google Scholar"
       icon: "fab fa-fw fa-scholar"
@@ -90,9 +94,7 @@ author:
     - label: "Scopus ID: 57209293676"
       icon: "fab fa-fw fa-scopus-id"
       url: "https://www.scopus.com/authid/detail.uri?authorId=57209293676"
-    - label: "ORCID: 0000-0002-8163-0877"
-      icon: "fab fa-fw fa-orcid"
-      url: "https://orcid.org/0000-0002-8163-0877"
+
 
 sass:
   sass_dir: _sass

@@ -9,7 +9,7 @@ title: "CV"
 }
 </style>
 
-[Download here my full CV](https://laura-moreno.github.io/assets/doc/CV_220919.pdf)
+[Download here my full CV](https://laura-moreno.github.io/assets/docs/CV_220919.pdf)
 
 ## Current Position
 **Post-doctoral researcher** \
@@ -34,9 +34,10 @@ Compostela, Spain
 **Doctor of Philosophy (Ph.D.) in Structural Analysis**\
 23/09/2021 - 22/09/2021\
 Department of Civil Engineering, Universitat Politècnica de Catalunya, Barcelona, Spain\
-<u>Title</u>: *Numerical modelling of viscoelastic flows based on a log-conformation formulation*.\
+<u>Title</u>: *Numerical modelling of viscoelastic flows based on a log-conformation formulation*. [Link](https://laura-moreno.github.io/assets/docs/PhDThesisLauraMoreno.pdf)\
 <u>Supervisors</u>: Ramon Codina i Rovira and Joan Baiges Aznar.\
 <u>Qualification</u>: Excellent cum laude.
+
 
 **M.Sc. Industrial Mathematics**\
 01/09/2013 - 25/07/2015\
