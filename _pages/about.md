@@ -1,6 +1,7 @@
 ---
 permalink: /about/
 title: "CV"
+layout: single
 ---
 
 <style type="text/css">
