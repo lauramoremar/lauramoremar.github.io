@@ -1,11 +1,11 @@
 main:
-  - title: "About"
+  - title: "CV"
     url: /about/
   - title: "Research"
     url: /research/
   - title: "Publications"
     url: /publications/
-  - title: "Presentations and Workshops"
+  - title: "Presentations"
     url: /presentations/    
   #- title: "Posts"
     #url: /posts/

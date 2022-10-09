@@ -1,8 +1,16 @@
 ---
 title: Publications
 permalink: /publications/
-author_profile: true
+author_profile: false
+layout: splash
 ---
+
+<style type="text/css">
+  body{
+  font-size: 14pt;
+}
+</style>
+
 
 ### Journal Articles
 
