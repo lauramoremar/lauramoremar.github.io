@@ -31,7 +31,6 @@ Department of Applied Mathematics, Unidersidade de Santiago de Compostela, Santi
 Compostela, Spain
 
 ## Education
-
 **Doctor of Philosophy (Ph.D.) in Structural Analysis**\
 23/09/2021 - 22/09/2021\
 Department of Civil Engineering, Universitat Politècnica de Catalunya, Barcelona, Spain\
