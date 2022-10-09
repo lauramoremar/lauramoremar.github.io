@@ -38,7 +38,7 @@ Department of Applied Mathematics, Universidade de Santiago de Compostela, Spain
 *Numerical methods in the finite element framework to compute different physical problems
 related to industry processes.*
 
-**B.Sc. Mathematics** (01/09/2008 - 05/07/2013\)
+**B.Sc. Mathematics** (01/09/2008 - 05/07/2013)\
 Universidad de Alicante, Spain
 
 ## Fellowships and awards
