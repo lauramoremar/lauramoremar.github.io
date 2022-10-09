@@ -17,10 +17,10 @@ layout: splash
 **Submitted**
 
 7.- Numerical simulation of Fluid-Structure Interaction problems with viscoelastic fluids using a log-conformation reformulation.\
-Moreno L., Castañar I., Codina R., Baiges J. & Cattoni D.\
+Moreno L., Castañar I., Codina R., Baiges J. & Cattoni D.
 
 6.- An embedded strategy for large scale incompressible flow simulations in moving domains.\
-Codina R., Baiges J., Castañar I., Martínez-Suárez I., Moreno L. & Parada S.\
+Codina R., Baiges J., Castañar I., Martínez-Suárez I., Moreno L. & Parada S.
 
 **Published**
 
@@ -45,7 +45,8 @@ Moreno L., Codina R. & Baiges J.\
 *Computer Methods in Applied Mechanics and Engineering* Vol. 367 (2020) , 113074.\
 [DOI: 10.1016/j.cma.2020.113074](https://doi.org/10.1016/j.cma.2020.113074)
 
-1.- Logarithmic conformation reformulation in viscoelastic flow problems approximated by a VMS-type stabilized finite element formulation. [[Post-print]](https://laura-moreno.github.io/assets/docs/artweb001-lm.pdf)\
+1.- Logarithmic conformation reformulation in viscoelastic flow problems approximated by a VMS-type stabilized finite element formulation.\
+[[Post-print]](https://laura-moreno.github.io/assets/docs/artweb001-lm.pdf)\
 Moreno L., Codina R., Baiges J. & Castillo E.\
 *Computer Methods in Applied Mechanics and Engineering* Vol. 354 (2019), 706-731.\
 [DOI: 10.1016/j.cma.2019.06.001](https://doi.org/10.1016/j.cma.2019.06.001).
