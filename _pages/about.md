@@ -10,6 +10,8 @@ layout: single
 }
 </style>
 
+
+
 [Download here my full CV](https://laura-moreno.github.io/assets/docs/CV_220919.pdf)
 
 ## Current Position
