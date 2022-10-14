@@ -4,15 +4,9 @@ title: "CV"
 layout: single
 ---
 
-<style type="text/css">
-  body{
-  font-size: 14pt;
-}
-</style>
 
 
-
-[Download here my full CV](https://laura-moreno.github.io/assets/docs/CV_220919.pdf)
+[Download the CV resume](https://laura-moreno.github.io/assets/docs/CV_220919.pdf)
 
 ## Current Position
 **Post-doctoral researcher** (01/10/2021 - present)\
@@ -45,6 +39,8 @@ related to industry processes.*
 Universidad de Alicante, Spain
 
 ## Fellowships and awards
-* 2021 - 2022 Post-doc fellowship awarded in UNIPD.
-* 2017 - 2021 PhD thesis mark with honors (Excellent Cum Laude)
-* 2017 - 2021 4-years Spanish government PhD scholarship. FPI: DPI2015-67857-R
+2021 - 2022 Post-doc fellowship awarded in UNIPD.
+
+2017 - 2021 PhD thesis mark with honors (Excellent Cum Laude)
+
+2017 - 2021 4-years Spanish government PhD scholarship. FPI: DPI2015-67857-R

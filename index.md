@@ -3,12 +3,17 @@ title: "Hello!"
 author_profile: true
 layout: single
 ---
-<style type="text/css">
-  body{
-  font-size: 14pt;
-}
-</style>
+
+My name is Laura Moreno and I'm originally from Elda, a small city in Alicante, Spain.
+
+Actually I'm a postdoctoral researcher at University of Padua (Italy) working under the supervision of the Professor [Antonia Larese](https://www.math.unipd.it/~antonia/). My currently research is about the Material Point Method, a kind of particle method particularly suitable for simulating water hazard events and which take the advantages of the classical Finite Element Methods.
+
+Regarding my background, I finished my 5 years M.S. in Mathematics in 2013, at the University of Alicante. While I studied my degree, I really enjoy the subjects related to the applied matemathics (solution of edo, numerical methods, numerical calculus etc), and for this reason I decided study the Master degree in Industrial Mathematics, in the University of Santiago de Compostela in Galicia, Spain. This gave me the basis of the finite element world and the main physical models employed in numerical simulation of indutrial processes.
+
+In September 2016 I started as a predoctoral student in the Technical University of Catalunya, under the supervision of [Ramon Codina](https://deca.upc.edu/en/people/ramon.codina) and [Joan Baiges](https://sites.google.com/site/joanbaiges/home). These were around five years in which I worked in the development of mathematical models and numerical methods to achieve computational simulations with viscoelastic flows with high elasticity. Finally I defended [my thesis](https://www.tdx.cat/handle/10803/672679#page=1) on 22nd September 2021 achieving a qualification of *Excellent Cum Laude*.
 
 
-
-My research consists in the development of mathematical models and numerical methods to achieve computational simulations with viscoelastic flows with elastic-turbulence, including thermal effects. These models are being implemented in a high performance computing environment, in order to make them usable for real applications, in particular for the evaluation and optimization of industrial processes in which non-isothermal viscoelastic fluid flows are involved.
+<img src="/assets/images/IMG_4848.JPG" alt="">
+<p align = "center">
+Alicante
+</p>
