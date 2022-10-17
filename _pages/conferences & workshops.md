@@ -1,14 +1,11 @@
 ---
-title: Presentations and Workshops
+title: Conferences
 permalink: /presentations/
 author_profile: false
 layout: splash
 ---
 
-1. [Oral presentations](#oral-presentations)
-2. [Participation on Workshops](#participation-on-workshops)
-
-## Oral presentations
+## Oral presentations in conferences and seminars
 
 <!--   <img style="float: right; text-align:center;" src="/assets/images/IMG_9552.JPG" alt="" width="500" > -->
 <!--
@@ -60,12 +57,4 @@ L. Moreno, J. Baiges, R. Codina.
 Barcelona, Spain, February 11th, 2019.\
 <u>Title</u>: *Heat transfer processes using viscoelastic fluids in laminar and turbulence regimes.* [[Slides](/assets/docs/Slides/Presentation_WomenResearchers_LauraMoreno.pdf)]
 
-
-## Participation on workshops
-
-* *Numerical Analysis of protected systems*, in Geobrugg installations, Romanshorn, Switzerland.\
-Organized by [Geobrugg company](https://www.geobrugg.com/en/Geobrugg-Safety-is-our-nature-114435.html). June 20-22, 2022.
-
-* *Fortran Modernisation Workshop Programme* in Universitat Politècnica de Catalunya (UPC), BarcelonaTech, Spain. [[Link](http://aulas.cimne.com/vnews/10048/workshop---fortran-modernisation-workshop])]\
-Organized by [NAG](https://www.nag.com/). July 24 - 26, 2017.
 
