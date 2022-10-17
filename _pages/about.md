@@ -7,6 +7,9 @@ layout: single
 [Download CV resume in .pdf](https://laura-moreno.github.io/assets/docs/CV_220919.pdf)
 
 ## Resume:
+
+<img style="float: right; text-align:center;" src="/assets/images/IMG_9687.JPG" alt="" width="300" >
+
 1-. [Experience](#1-experience) \
 2-. [Education](#2-education) \
 3-. [Fellowships and awards](#3-fellowships-and-awards) \
