@@ -13,10 +13,7 @@ laura.morenomartinez@unipd.it
 
 **Phone:**-
 
-<figure style="float: right;">
-  <img alt="" src="/assets/images/IMG_4798.JPG" width="500"/>
-  <figcaption>Torre Specola, Padova, Italy</figcaption>
-</figure>-->
+<img alt="" src="/assets/images/IMG_4798.JPG" width="500" style="float: right;"/>
 
 
 
