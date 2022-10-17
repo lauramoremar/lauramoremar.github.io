@@ -4,11 +4,11 @@ title: "Curriculum Vitae"
 layout: single
 ---
 
+<img style="float: right; text-align:center;" src="/assets/images/IMG_9687.JPG" alt="" width="400" >
+
 [Download CV resume in .pdf](https://laura-moreno.github.io/assets/docs/CV_220919.pdf)
 
 ## Resume:
-
-<img style="float: right; text-align:center;" src="/assets/images/IMG_9687.JPG" alt="" width="300" >
 
 1-. [Experience](#1-experience) \
 2-. [Education](#2-education) \
