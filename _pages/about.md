@@ -44,7 +44,7 @@ Department of Civil Engineering, Universitat Politècnica de Catalunya, Barcelon
 Department of Applied Mathematics, Universidade de Santiago de Compostela, Spain\
 <u>Title Mater's thesis</u>: *Simulación magnetohidrodinámica del efecto de elevació de una columna de metal fundido con una máquina de inducción lineal.* \
 <u>Supervisors</u>: Alfredo Bermúdez de Castro.\
-<u>Company</u>: Fundación CIDAUT.
+<u>Company</u>: Fundación CIDAUT.\
 <u>Qualification</u>: 10/10.
 
 **B.Sc. Mathematics** (01/09/2008 - 05/07/2013)\
