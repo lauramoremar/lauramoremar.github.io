@@ -9,12 +9,12 @@ layout: single
 
 ## Resume:
 
-1. [Experience](#1.-experience)
-2. [Education](#2.-education)
-3. [Fellowships and awards](#3.-fellowships-and-awards)
-4. [Participation in research projects](#4.-participation-in-research-projects)
-5. [Membership of scientific societies](#5.-membership-of-scientific-societies)
-6. [Workshops](#6.-participation-on-workshops)
+1. [Experience](#1-experience)
+2. [Education](#2-education)
+3. [Fellowships and awards](#3-fellowships-and-awards)
+4. [Participation in research projects](#4-participation-in-research-projects)
+5. [Membership of scientific societies](#5-membership-of-scientific-societies)
+6. [Workshops](#6-participation-on-workshops)
 7. [Publications](https://laura-moreno.github.io/publications/)
 8. [Conferences](https://laura-moreno.github.io/presentations/)
 
