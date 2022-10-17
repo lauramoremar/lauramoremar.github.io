@@ -15,5 +15,5 @@ In September 2016 I started as a predoctoral student in the Technical University
 
 <img src="/assets/images/IMG_4848.JPG" alt="">
 <p align = "center">
-Alicante
+Views from Volvo's gateway, in Alicante
 </p>
