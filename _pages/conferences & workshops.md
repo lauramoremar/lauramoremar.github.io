@@ -5,7 +5,10 @@ author_profile: false
 layout: splash
 ---
 
-## Presentations on conferences and seminars:
+1. [Oral presentations](#oral-presentations)
+2. [Participation on Workshops](#participation-on-workshops)
+
+## Oral presentations
 
 <!--   <img style="float: right; text-align:center;" src="/assets/images/IMG_9552.JPG" alt="" width="500" > -->
 <!--
@@ -19,7 +22,7 @@ Las Palmas de Gran Canaria, Spain, September 12th – 15 th 2022.\
 <u>Title</u>: *A VMS-Stabilized Mixed Formulation for Non-Linear Incompressible solid mechanics problems Using the Implicit Material Point Method.*  [[Slides](/assets/docs/Slides/CMN2022_LauraMoreno.pdf)]\
 L. Moreno, Alessandro Contri, A. Larese.
 
-* Oral conference speaker in 8th European Congress on **Computational Methods in Applied Sciences and Engineering (ECCOMAS 2022)** [[Link](https://www.eccomas.org/2021/01/22/3542/)]\
+* Oral conference speaker in **8th European Congress on Computational Methods in Applied Sciences and Engineering (ECCOMAS 2022)** [[Link](https://www.eccomas.org/2021/01/22/3542/)]\
 Oslo, Norway, June 5th - 9th 2022.\
 <u>Title</u>: *Stabilized mixed formulation for an implicit MPM for viscoplastic fluids by using a variational subgrid-scale framework.*\
 L. Moreno, Alessandro Contri, A. Larese.
@@ -58,4 +61,11 @@ Barcelona, Spain, February 11th, 2019.\
 <u>Title</u>: *Heat transfer processes using viscoelastic fluids in laminar and turbulence regimes.* [[Slides](/assets/docs/Slides/Presentation_WomenResearchers_LauraMoreno.pdf)]
 
 
+## Participation on workshops
+
+* *Numerical Analysis of protected systems*, in Geobrugg installations, Romanshorn, Switzerland.\
+Organized by [Geobrugg company](https://www.geobrugg.com/en/Geobrugg-Safety-is-our-nature-114435.html). June 20-22, 2022.
+
+* *Fortran Modernisation Workshop Programme* in Universitat Politècnica de Catalunya (UPC), BarcelonaTech, Spain. [[Link](http://aulas.cimne.com/vnews/10048/workshop---fortran-modernisation-workshop])]\
+Organized by [NAG](https://www.nag.com/). July 24 - 26, 2017.
 
