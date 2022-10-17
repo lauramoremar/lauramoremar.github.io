@@ -3,8 +3,9 @@ permalink: /about/
 title: "Curriculum Vitae"
 layout: single
 ---
-
-<img style="float: right; text-align:center;" src="/assets/images/IMG_9687.JPG" alt="" width="300" >
+<kbd>
+<img style="float: right; text-align:center;" src="/assets/images/IMG_9687.JPG" alt="" width="250" >
+</kbd>
 
 [Download my Curriculum Vitae in pdf](https://laura-moreno.github.io/assets/docs/CV_220919.pdf)
 
