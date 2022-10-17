@@ -4,22 +4,22 @@ title: "Curriculum Vitae"
 layout: single
 ---
 
-<center>
-[Download CV resume in .pdf](https://laura-moreno.github.io/assets/docs/CV_220919.pdf)
-</center>
 
-Resume:
-1. [Experience](#experience)
-2. [Education](#education)
-3. [Fellowships and awards](#fellowships-and-awards)
-4. [Participation in research projects](#participation-in-research-projects)
-5. [Membership of scientific societies](#membership-of-scientific-societies)
-6. [Workshops](#participation-on-workshops)
+[Download CV resume in .pdf](https://laura-moreno.github.io/assets/docs/CV_220919.pdf)
+
+## Resume:
+
+1. [Experience](#1.-experience)
+2. [Education](#2.-education)
+3. [Fellowships and awards](#3.-fellowships-and-awards)
+4. [Participation in research projects](#4.-participation-in-research-projects)
+5. [Membership of scientific societies](#5.-membership-of-scientific-societies)
+6. [Workshops](#6.-participation-on-workshops)
 7. [Publications](https://laura-moreno.github.io/publications/)
 8. [Conferences](https://laura-moreno.github.io/presentations/)
 
 
-## Experience
+## 1. Experience
 **Post-doctoral researcher** (01/10/2021 - present)\
 Department of Mathematics ”Tullio Levi Civita”, Università degli Studi di Padova, Italy
 
@@ -33,7 +33,7 @@ EVERIS, Barcelona, Spain
 Department of Applied Mathematics, Unidersidade de Santiago de Compostela, Santiago de
 Compostela, Spain
 
-## Education
+## 2. Education
 **Doctor of Philosophy (Ph.D.) in Structural Analysis** (01/09/2016 - 22/09/2021)\
 Department of Civil Engineering, Universitat Politècnica de Catalunya, Barcelona, Spain\
 <u>Title</u>: *Numerical modelling of viscoelastic flows based on a log-conformation formulation*. [[Link](https://laura-moreno.github.io/assets/docs/PhDThesisLauraMoreno.pdf)]\
@@ -50,7 +50,7 @@ Department of Applied Mathematics, Universidade de Santiago de Compostela, Spain
 **B.Sc. Mathematics** (01/09/2008 - 05/07/2013)\
 Universidad de Alicante, Spain
 
-## Fellowships and awards
+## 3. Fellowships and awards
 
 * Post-doc fellowship awarded in UNIPD, 01/10/2021
 
@@ -58,7 +58,7 @@ Universidad de Alicante, Spain
 
 * 4-years Spanish government PhD scholarship. FPI: DPI2015-67857-R, 18/04/2017
 
-## Participation in research projects
+## 4. Participation in research projects
 
 **a) National and International projects:**
 1. **SID2020-NEMESIS.** NumErical MEthods for the SImulation of the impact of extreme hazards on Structures and landscape.\
@@ -92,12 +92,14 @@ From 01/03/2020 to 31/08/2020.
 PI: Ramon Codina and Joan Baiges.\
 From 01/03/2020 to 31/08/2020.
 
-## Membership of scientific societies
+## 5. Membership of scientific societies
 
 * Member of the Spanish Association for Numerical Methods in Engineering (SEMNI), since 2018. 
+
+
 * Member of National Association of Mathematic’s Students (ANEM), since 2011. 
 
-## Participation on workshops
+## 6. Participation on workshops
 
 * *Numerical Analysis of protected systems*, in Geobrugg installations, Romanshorn, Switzerland.\
 Organized by [Geobrugg company](https://www.geobrugg.com/en/Geobrugg-Safety-is-our-nature-114435.html). June 20-22, 2022.
