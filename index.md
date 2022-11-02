@@ -1,5 +1,5 @@
 ---
-title: "Hello!"
+title: "About me"
 author_profile: true
 layout: single
 ---
@@ -11,7 +11,7 @@ Regarding my background, I finished my 5 years M.S. in Mathematics in 2013, at t
 In September 2016 I started as a predoctoral student in the Technical University of Catalunya (UPC), under the supervision of Prof. [Ramon Codina](https://deca.upc.edu/en/people/ramon.codina) and Prof. [Joan Baiges](https://sites.google.com/site/joanbaiges/home). These were around five years in which I worked in the development of mathematical models and numerical methods to achieve computational simulations with viscoelastic flows with high elasticity. Finally I defended [my thesis](https://www.tdx.cat/handle/10803/672679#page=1) on 22nd September 2021 achieving a qualification of *Excellent Cum Laude*.
 
 
-<img src="/assets/images/IMG_4848.JPG" alt="">
+<!--<img src="/assets/images/IMG_4848.JPG" alt="">
 <p align = "center">
 Views from Volvo's gateway, in Alicante
-</p>
+</p>-->
