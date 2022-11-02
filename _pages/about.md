@@ -3,9 +3,9 @@ permalink: /about/
 title: "Curriculum Vitae"
 layout: single
 ---
-<kbd>
+<!--<kbd>
 <img style="float: right; text-align:center;" src="/assets/images/IMG_9687.JPG" alt="" width="250" >
-</kbd>
+</kbd>-->
 
 [Download my Curriculum Vitae in pdf](https://lauramoremar.github.io/assets/docs/CV.pdf)
 
@@ -18,6 +18,7 @@ layout: single
 7-. [Publications](https://lauramoremar.github.io/publications/) \
 8-. [Conferences](https://lauramoremar.github.io/presentations/)
 
+<div class="text-justify">
 
 ## 1. Experience
 **Post-doctoral researcher** (01/10/2021 - present)\
@@ -107,4 +108,4 @@ Organized by [Geobrugg company](https://www.geobrugg.com/en/Geobrugg-Safety-is-o
 
 * *Fortran Modernisation Workshop Programme* in Universitat Politècnica de Catalunya (UPC), BarcelonaTech, Spain. [[Link](http://aulas.cimne.com/vnews/10048/workshop---fortran-modernisation-workshop])]\
 Organized by [NAG](https://www.nag.com/). July 24 - 26, 2017.
-
+</div>
