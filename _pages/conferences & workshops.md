@@ -43,7 +43,7 @@ L. Moreno, J. Baiges, R. Codina.
   [[Abstract](/assets/docs/Abstracts/2021COUPLED_Abstract_LauraMoreno.pdf)] and [[Slides](/assets/docs/Slides/COUPLED2021_LauraMoreno.pdf)]\
 L. Moreno, R. Codina, J. Baiges.
 
-* Oral conference speaker in **14th World Congress on Computational Mechanics (WCCM 2020)**.  [[Link]([https://www.ictam2020.org/](http://wccm-eccomas2020.org/frontal/))] \
+* Oral conference speaker in **14th World Congress on Computational Mechanics (WCCM 2020)**.  [[Link](http://wccm-eccomas2020.org/frontal/)] \
 Virtual Congress,Paris, France, 11-15 January 2021.\
 <u>Title</u>: *Solution of transient viscoelastic flow problems approximated by a VMS stabilized finite element formulation using time-dependent subrid-scales.*\
 L. Moreno, J. Baiges, R. Codina.
