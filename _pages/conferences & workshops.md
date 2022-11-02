@@ -1,18 +1,19 @@
 ---
 title: Conferences
 permalink: /presentations/
-author_profile: false
 layout: splash
 ---
 
 ## Oral presentations in conferences and seminars
 
-<!--   <img style="float: right; text-align:center;" src="/assets/images/IMG_9552.JPG" alt="" width="500" > -->
-<!--
-<figure style="float: right;">
-  <img alt="" src="/assets/images/IMG_9552.JPG" width="500"/>
-  <figcaption>CMN 2022</figcaption>
-</figure>-->
+
+<div style = "float: right;text-align:center;">
+	 <img src="/assets/images/IMG_9566.JPG" width="350" />
+	 <p>
+	 Las Palmas de Gran Canaria (Spain)
+	 </p>
+</div>
+
 
 * Oral conference speaker in **Congress on Numerical Methods in Engineering (CMN 2022)**[[Link](https://congress.cimne.com/cmn2022/frontal/default.asp)]\
 Las Palmas de Gran Canaria, Spain, September 12th – 15 th 2022.\

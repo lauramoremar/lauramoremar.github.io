@@ -3,7 +3,13 @@ title: "Contact"
 permalink: /contact/
 layout: single
 ---
-<img style="float: right;" src="/assets/images/IMG_4798.JPG" width="500" />
+
+<div style = "float: right;text-align:center;">
+	 <img src="/assets/images/IMG_4798.JPG" width="500" />
+	 <p>
+	 Torre Specola, Padova (Italy)
+	 </p>
+</div>
 
 **Address:**\
 Department of Mathematics “Tullio Levi Civita”\

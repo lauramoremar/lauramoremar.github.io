@@ -1,10 +1,8 @@
 ---
 title: Publications
 permalink: /publications/
-author_profile: false
 layout: splash
 ---
-
 
 
 ## Publications: Journal Articles
