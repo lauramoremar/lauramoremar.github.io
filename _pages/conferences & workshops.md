@@ -8,9 +8,9 @@ layout: splash
 
 
 <div style = "float: right;text-align:center;">
-	 <img src="/assets/images/IMG_9566.JPG" width="350" />
+	 <img src="/assets/images/IMG_9566.JPG" width="300" />
 	 <p>
-	 Las Palmas de Gran Canaria (Spain)
+	 CMN 2022, Las Palmas de Gran Canaria (Spain)
 	 </p>
 </div>
 
