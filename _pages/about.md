@@ -9,6 +9,7 @@ layout: single
 
 [Download my Curriculum Vitae in pdf](https://lauramoremar.github.io/assets/docs/CV.pdf)
 
+**Resume:**\
 1-. [Experience](#1-experience) \
 2-. [Education](#2-education) \
 3-. [Fellowships and awards](#3-fellowships-and-awards) \
@@ -17,26 +18,6 @@ layout: single
 6-. [Workshops](#6-participation-on-workshops) \
 7-. [Publications](https://lauramoremar.github.io/publications/) \
 8-. [Conferences](https://lauramoremar.github.io/presentations/)
-
-
-<table border="0">
- <tr>
-    <td>1-. [Experience](#1-experience) </td>
-    <td>5-. [Membership of scientific societies](#5-membership-of-scientific-societies)</td>
- </tr>
- <tr>
-    <td>2-. [Education](#2-education)</td>
-    <td>6-. [Workshops](#6-participation-on-workshops)</td>
- </tr>
-   <tr>
-    <td>3-. [Fellowships and awards](#3-fellowships-and-awards) </td>
-    <td>7-. [Publications](https://lauramoremar.github.io/publications/)</td>
- </tr>
-   <tr>
-    <td>4-. [Participation in research projects](#4-participation-in-research-projects)</td>
-    <td>8-. [Conferences](https://lauramoremar.github.io/presentations/)</td>
- </tr>
-</table>
 
 
 ## 1. Experience
