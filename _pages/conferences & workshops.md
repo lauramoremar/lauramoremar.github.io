@@ -55,7 +55,7 @@ Barcelona, Spain, December 11th, 2019.\
 * Oral conference speaker in the **VIII International Conference on Coupled Problems in Science and Engineering (COUPLED 2019)** [[Link](https://congress.cimne.com/coupled2019/frontal/default.asp)]\
 Sitges, Spain. June 3-6 2019\
 <u>Title</u>: *Simulation of non-isothermal viscoelastic fluid flow problem using a VMS stabilized Formulation*.\
-[[Abstract](/assets/docs/Slides/2019COUPLED_Abstract_LauraMoreno.pdf)] and [[Slides](/assets/docs/Slides/COUPLED2019_LauraMoreno.pdf)]\
+[[Abstract](/assets/docs/Abstracts/2019COUPLED_Abstract_LauraMoreno.pdf)] and [[Slides](/assets/docs/Slides/COUPLED2019_LauraMoreno.pdf)]\
 L. Moreno, J. Baiges, R. Codina.
 
 * Oral presentation in **Lecture Series: Women researchers at CIMNE for the International Day of Women and Girls in Science** [[Link]](https://www.cimne.com/vnews/2/10411/cimne-celebrates-the-international-day-of-women-and-girls-in-science)\
