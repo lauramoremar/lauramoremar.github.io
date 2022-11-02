@@ -7,7 +7,7 @@ layout: single
 <img style="float: right; text-align:center;" src="/assets/images/IMG_9687.JPG" alt="" width="250" >
 </kbd>
 
-[Download my Curriculum Vitae in pdf](https://laura-moreno.github.io/assets/docs/CV_220919.pdf)
+[Download my Curriculum Vitae in pdf](https://lauramoremar.github.io/assets/docs/CV_220919.pdf)
 
 1-. [Experience](#1-experience) \
 2-. [Education](#2-education) \
@@ -15,8 +15,8 @@ layout: single
 4-. [Participation in research projects](#4-participation-in-research-projects) \
 5-. [Membership of scientific societies](#5-membership-of-scientific-societies) \
 6-. [Workshops](#6-participation-on-workshops) \
-7-. [Publications](https://laura-moreno.github.io/publications/) \
-8-. [Conferences](https://laura-moreno.github.io/presentations/)
+7-. [Publications](https://lauramoremar.github.io/publications/) \
+8-. [Conferences](https://lauramoremar.github.io/presentations/)
 
 
 ## 1. Experience
@@ -36,7 +36,7 @@ Compostela, Spain
 ## 2. Education
 **Doctor of Philosophy (Ph.D.) in Structural Analysis** (01/09/2016 - 22/09/2021)\
 Department of Civil Engineering, Universitat Politècnica de Catalunya, Barcelona, Spain\
-<u>Title</u>: *Numerical modelling of viscoelastic flows based on a log-conformation formulation*. [[Link](https://laura-moreno.github.io/assets/docs/PhDThesisLauraMoreno.pdf)]\
+<u>Title</u>: *Numerical modelling of viscoelastic flows based on a log-conformation formulation*. [[Link](https://lauramoremar.github.io/assets/docs/PhDThesisLauraMoreno.pdf)]\
 <u>Supervisors</u>: Ramon Codina i Rovira and Joan Baiges Aznar.\
 <u>Qualification</u>: Excellent cum laude.
 
