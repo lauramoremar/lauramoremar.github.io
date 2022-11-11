@@ -103,6 +103,9 @@ From 01/03/2020 to 31/08/2020.
 
 ## 6. Participation on workshops
 
+* *Kratos Workshop 2022*, in Deltares installations, Delft, Netherlands. [[Link](https://softwaredays.deltares.nl/-/kratos-workshop-2022-day-1)]\
+Organized by [Deltares company](https://www.deltares.nl/en/). November 9-10, 2022
+
 * *Numerical Analysis of protected systems*, in Geobrugg installations, Romanshorn, Switzerland.\
 Organized by [Geobrugg company](https://www.geobrugg.com/en/Geobrugg-Safety-is-our-nature-114435.html). June 20-22, 2022.
 

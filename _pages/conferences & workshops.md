@@ -7,12 +7,12 @@ layout: splash
 ## Oral presentations in conferences and seminars
 
 
-<div style = "float: right;text-align:center;">
+<!--<div style = "float: center;text-align:center;">
 	 <img src="/assets/images/IMG_9566.JPG" width="300" />
 	 <p>
 	 CMN 2022, Las Palmas de Gran Canaria (Spain)
 	 </p>
-</div>
+</div>-->
 
 
 * Oral conference speaker in **Congress on Numerical Methods in Engineering (CMN 2022)**[[Link](https://congress.cimne.com/cmn2022/frontal/default.asp)]\
@@ -20,6 +20,7 @@ Las Palmas de Gran Canaria, Spain, September 12th – 15 th 2022.\
 <u>Title</u>: *A VMS-Stabilized Mixed Formulation for Non-Linear Incompressible solid mechanics problems Using the Implicit Material Point Method.*\
 [[Abstract](/assets/docs/Abstracts/2022CMN_Abstract_LauraMoreno.pdf)] and  [[Slides](/assets/docs/Slides/CMN2022_LauraMoreno.pdf)]\
 L. Moreno, Alessandro Contri, A. Larese.
+<!-- ![CMN 2022](/assets/images/IMG_9566.JPG) -->
 
 * Oral conference speaker in **8th European Congress on Computational Methods in Applied Sciences and Engineering (ECCOMAS 2022)** [[Link](https://www.eccomas.org/2021/01/22/3542/)]\
 Oslo, Norway, June 5th - 9th 2022.\
