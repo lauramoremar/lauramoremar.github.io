@@ -3,16 +3,12 @@ title: "Research"
 permalink: /research/
 layout: single
 ---
+# Research lines
 
-2- [Material Point Method](#2-material-point-method)\
-1- [Numerical simulations of viscoelastic fluid flow with high elasticity](#1-numerical-simulations-of-viscoelastic-fluid-flow-with-high-elasticity)
-
-## 2. Material Point Method
-
-Currently, I'm developing new stabilized algorithms for incompressible materials using the Material Point Method. All the implementations are performed in [Kratos Multiphysics](https://github.com/KratosMultiphysics), an open-source code prepared for running multiphysics problems written in C++ and Python.
+[1. Numerical simulations of viscoelastic fluid flow with high elasticity](#1-numerical-simulations-of-viscoelastic-fluid-flow-with-high-elasticity)\
+[2. Material Point Method](#2-material-point-method)
 
 ## 1. Numerical simulations of viscoelastic fluid flow with high elasticity
-
 This research line was addressed in my predoctoral stage. The study was performed in a Finite Element (FE) framework, and the formulations were stabilized using the Variational MultiScale Method (VMS), developed originally by Hughes et al. 1998.
 All the implementations were performed in the in-house finite element code Femuss,  an object-oriented finite element code developed in Fortran and able of solving three-dimensional fluid dynamics (incompressible and compressible), solid mechanics, fluid-structure interaction problems or coupled thermal problems among others, in a high performance environment.\
 The main points studied are the following:\
@@ -33,8 +29,12 @@ The approximations used in Variational Multiscale (VMS) methods usually neglect 
 
 ### 1.4. Study of the purely elastic instabilities
 
-The flow patterns in viscoelastic fluids can be highly dynamic and in some cases chaotic, due to the elastic component of the fluid and the convective nature of the constitutive equation, even in quasi non-inertial flows, where non-linear rheological effects can manifest through the generation of large normal stresses which result in complex flow phenomena causing a purely elastic instability, and in some cases producing elastic instability. In our work, problems which exhibit the purely elastic instability phenomena have been studied, and different tools have been employed to obtain an accurate and efficient solution.
+The flow patterns in viscoelastic fluids can be highly dynamic and in some cases chaotic, due to the elastic component of the fluid and the convective nature of the constitutive equation, even in quasi non-inertial flows, where non-linear rheological effects can manifest through the generation of large normal stresses which result in complex flow phenomena causing a purely elastic instability, and in some cases producing elastic instability. Here, problems which exhibit the purely elastic instability phenomena have been studied, and different tools have been employed to obtain an accurate and efficient solution.
 
 ### 1.5. Numerical analysis of stability and convergence of developed methods
 
-Finally, an important topic in numerical analysis is the study of stability and convergence of the applied methods, such a the logarithmic reformulation stabilized using subgrid scales. Due to the fact that a complete analysis of the non-linear problem requires more exhaustive and deep study, in this work we restrict ourselves to analyze the linearized problem.
+An important topic in numerical analysis is the study of stability and convergence of the applied methods, such a the logarithmic reformulation stabilized using subgrid scales. Due to the fact that a complete analysis of the non-linear problem requires more exhaustive and deep study, we restrict ourselves to analyze the linearized problem.
+
+## 2. Material Point Method
+
+Currently, I'm developing new stabilized algorithms for incompressible materials using the Material Point Method. All the implementations are performed in [Kratos Multiphysics](https://github.com/KratosMultiphysics), an open-source code prepared for running multiphysics problems written in C++ and Python.
