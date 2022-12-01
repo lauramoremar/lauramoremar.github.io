@@ -1,11 +1,8 @@
 ---
-title: Conferences
+title: Oral presentations
 permalink: /presentations/
 layout: single
 ---
-
-## Oral presentations
-
 
 <!--<div style = "float: center;text-align:center;">
 	 <img src="/assets/images/IMG_9566.JPG" width="300" />
