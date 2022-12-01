@@ -16,13 +16,13 @@ layout: single
 Las Palmas de Gran Canaria, Spain, September 12th – 15 th 2022.\
 <u>Title</u>: *A VMS-Stabilized Mixed Formulation for Non-Linear Incompressible solid mechanics problems Using the Implicit Material Point Method.*\
 [[Abstract](/assets/docs/Abstracts/2022CMN_Abstract_LauraMoreno.pdf)] and  [[Slides](/assets/docs/Slides/CMN2022_LauraMoreno.pdf)]\
-L. Moreno, Alessandro Contri, A. Larese.
+L. Moreno, A. Contri, A. Larese.
 <!-- ![CMN 2022](/assets/images/IMG_9566.JPG) -->
 
 * Oral conference speaker in **8th European Congress on Computational Methods in Applied Sciences and Engineering (ECCOMAS 2022)** [[Link](https://www.eccomas.org/2021/01/22/3542/)]\
 Oslo, Norway, June 5th - 9th 2022.\
 <u>Title</u>: *Stabilized mixed formulation for an implicit MPM for viscoplastic fluids by using a variational subgrid-scale framework.*\
-L. Moreno, Alessandro Contri, A. Larese.
+L. Moreno, A.Contri, A. Larese.
 
 * Oral conference speaker in **XLII Ibero-Latin-American Congress on Computational Methods in Engineering (CILAMCE-2021)**. [[Link](https://cilamce.com.br/anais/index.php?ano=2021)]\
 Virtual Congress, Río de Janeiro, Brazil, November 9th-12th 2021. \
