@@ -8,8 +8,9 @@ layout: single
 [2. Material Point Method](#2-material-point-method)
 
 ## 1. Numerical simulations of viscoelastic fluid flow with high elasticity
-This research line was addressed overall in my predoctoral stage. The study was performed in a Finite Element (FE) framework, and the formulations were stabilized using the Variational MultiScale Method (VMS), developed originally by Hughes et al. 1998.
-All the implementations were performed in the in-house finite element code Femuss,  an object-oriented finite element code developed in Fortran and able of solving three-dimensional fluid dynamics (incompressible and compressible), solid mechanics, fluid-structure interaction problems or coupled thermal problems among others, in a high performance environment. (For information about the papers resulted see [Publications page](https://lauramoremar.github.io/publications/))\
+(For information about the papers resulted see [Publications page](https://lauramoremar.github.io/publications/))\
+This research line was addressed overall in my predoctoral stage. The study was performed in a Finite Element (FE) framework, and the formulations were stabilized using the Variational MultiScale Method (VMS), developed originally by Hughes et al. 1998.\
+All the implementations were performed in Femuss,  an object-oriented finite element code developed in Fortran and able of solving three-dimensional fluid dynamics, solid mechanics, fluid-structure interaction problems or coupled thermal problems among others, in a high performance environment.\
 The main points studied are the following:
 
 ### 1.1. Log-conformation reformulation
