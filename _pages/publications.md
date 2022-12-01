@@ -5,7 +5,7 @@ layout: single
 ---
 
 
-## Publications: Journal Articles
+## Journal Articles
 
 **Submitted**
 
