@@ -1,10 +1,10 @@
 ---
 title: Conferences
 permalink: /presentations/
-layout: splash
+layout: single
 ---
 
-## Oral presentations in conferences and seminars
+## Oral presentations
 
 
 <!--<div style = "float: center;text-align:center;">
