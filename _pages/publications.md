@@ -1,5 +1,5 @@
 ---
-title: Publications: Journal Articles
+title: Journal Articles
 permalink: /publications/
 layout: single
 ---
