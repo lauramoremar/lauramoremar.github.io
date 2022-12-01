@@ -10,7 +10,7 @@ layout: single
 ## 1. Numerical simulations of viscoelastic fluid flow with high elasticity
 This research line was addressed overall in my predoctoral stage. The study was performed in a Finite Element (FE) framework, and the formulations were stabilized using the Variational MultiScale Method (VMS), developed originally by Hughes et al. 1998.
 All the implementations were performed in the in-house finite element code Femuss,  an object-oriented finite element code developed in Fortran and able of solving three-dimensional fluid dynamics (incompressible and compressible), solid mechanics, fluid-structure interaction problems or coupled thermal problems among others, in a high performance environment. (For information about the papers resulted see [Publications page](https://lauramoremar.github.io/publications/))\
-The main points studied are the following:\
+The main points studied are the following:
 
 ### 1.1. Log-conformation reformulation
 The log-conformation reformulation was applied (Fattal and Kupferman 2004). It is a reformulation of  traditional constitutive equations of viscoelastic fluids, which eliminates the instability and linearizes the exponential stress profiles near the stress singularities. Therefore, the formulation seeks to treat the exponential growth of the elastic stresses, allowing to extend the range of Weissenberg numbers for which a numerical solution can be obtained. This reformulation is carried out through a change of variables in function of the conformation tensor which indicates the macromolecular configuration of the polymeric chains.
