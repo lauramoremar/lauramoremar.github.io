@@ -1,11 +1,8 @@
 ---
-title: Publications
+title: Publications: Journal Articles
 permalink: /publications/
 layout: single
 ---
-
-
-## Journal Articles
 
 **Submitted**
 
