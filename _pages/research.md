@@ -1,44 +1,41 @@
 ---
 title: "Research"
 permalink: /research/
-layout: splash
+layout: single
 ---
-
-
-## Research
 
 1. [Material Point Method](#material-point-method)
 2. [Numerical simulations of viscoelastic fluid flow with high elasticity](#numerical-simulations-of-viscoelastic-fluid-flow-with-high-elasticity)
 
 
-### Material Point Method
+## Material Point Method
 
 Currently, I'm developing new stabilized algorithms for incompressible materials using the Material Point Method. All the implementations are performed in [Kratos Multiphysics](https://github.com/KratosMultiphysics), an open-source code prepared for running multiphysics problems written in C++ and Python.
 
-### Numerical simulations of viscoelastic fluid flow with high elasticity
+## Numerical simulations of viscoelastic fluid flow with high elasticity
 
 This research line was addressed in my predoctoral stage. The study was performed in a Finite Element (FE) framework, and the formulations were stabilized using the Variational MultiScale Method (VMS), developed originally by Hughes et al. 1998.
 All the implementations were performed in the in-house finite element code Femuss,  an object-oriented finite element code developed in Fortran and able of solving three-dimensional fluid dynamics (incompressible and compressible), solid mechanics, fluid-structure interaction problems or coupled thermal problems among others, in a high performance environment.\
 The main points studied are the following:\
 (For information about the papers resulted see [Publications page](https://lauramoremar.github.io/publications/))
 
-#### 1. Log-conformation reformulation
+### 1. Log-conformation reformulation
 
 The log-conformation reformulation was applied (Fattal and Kupferman 2004). It is a reformulation of  traditional constitutive equations of viscoelastic fluids, which eliminates the instability and linearizes the exponential stress profiles near the stress singularities. Therefore, the formulation seeks to treat the exponential growth of the elastic stresses, allowing to extend the range of Weissenberg numbers for which a numerical solution can be obtained. This reformulation is carried out through a change of variables in function of the conformation tensor which indicates the macromolecular configuration of the polymeric chains.
 
-#### 2. Thermal coupling putting the focus in the effect of viscous dissipation
+### 2. Thermal coupling putting the focus in the effect of viscous dissipation
 
 Thermal coupling with the viscoelastic fluid flow is also a relevant topic in many industrial processes. In comparison with Newtonian cases, now we will need to consider a dependence of temperature in the viscoelastic properties. On the other hand, the study of the effect of viscous dissipation will be particularly interesting, due to the fact that fluids reach higher temperatures caused by the internal work. This effect is displayed as a term in the energy equation which accounts for the mechanical part of the viscoelastic fluid that is transformed into heat, i.e., Joule’s effect. To address the coupled problem we have to consider an iterative algorithm which updates the parameters needed at each time step, due to the four variables being strongly coupled.
 
-#### 3. Implementation of the dynamic sub-grid scales
+### 3. Implementation of the dynamic sub-grid scales
 
 Recent studies indicate that classical residual-based stabilized methods for unsteady incompressible flows may experience difficulties when the time step is small relative to the spatial grid size. These problems can happen, for instance, when small time steps result from the necessity of accuracy to solve transient problems due to the presence of non-linear terms in the differential equations, a very common issue in viscoelastic flow formulations.
 The approximations used in Variational Multiscale (VMS) methods usually neglect the time derivative of the sub-grid scales, consequently, anisotropic space-time discretizations cannot guarantee stability. We propose the design of stabilization techniques that allow one to compute time-dependent viscoelastic flow problems with high elasticity (or Weissenberg number) and with an anisotropic space-time discretization.
 
-#### 4. Study of the purely elastic instabilities
+### 4. Study of the purely elastic instabilities
 
 The flow patterns in viscoelastic fluids can be highly dynamic and in some cases chaotic, due to the elastic component of the fluid and the convective nature of the constitutive equation, even in quasi non-inertial flows, where non-linear rheological effects can manifest through the generation of large normal stresses which result in complex flow phenomena causing a purely elastic instability, and in some cases producing elastic instability. In our work, problems which exhibit the purely elastic instability phenomena have been studied, and different tools have been employed to obtain an accurate and efficient solution.
 
-#### 5. Numerical analysis of stability and convergence of developed methods
+### 5. Numerical analysis of stability and convergence of developed methods
 
 Finally, an important topic in numerical analysis is the study of stability and convergence of the applied methods, such a the logarithmic reformulation stabilized using subgrid scales. Due to the fact that a complete analysis of the non-linear problem requires more exhaustive and deep study, in this work we restrict ourselves to analyze the linearized problem.
