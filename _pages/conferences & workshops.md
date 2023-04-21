@@ -11,7 +11,6 @@ layout: single
 	 </p>
 </div>-->
 
-
 * Oral conference speaker in **Congress on Numerical Methods in Engineering (CMN 2022)**[[Link](https://congress.cimne.com/cmn2022/frontal/default.asp)]\
 Las Palmas de Gran Canaria, Spain, September 12th – 15 th 2022.\
 <u>Title</u>: *A VMS-Stabilized Mixed Formulation for Non-Linear Incompressible solid mechanics problems Using the Implicit Material Point Method.*\

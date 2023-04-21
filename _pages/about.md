@@ -9,15 +9,15 @@ layout: single
 
 [Download my Curriculum Vitae in pdf](https://lauramoremar.github.io/assets/docs/CV.pdf)
 
-**Sections:**\
-[1. Experience](#1-experience) \
-[2. Education](#2-education) \
+**Index:**\
+[1. Experience](#1-experience) &nbsp;
+[2. Education](#2-education) &nbsp;
 [3. Fellowships and awards](#3-fellowships-and-awards) \
-[4. Participation in research projects](#4-participation-in-research-projects) \
+[4. Participation in research projects](#4-participation-in-research-projects) &nbsp;
 [5. Membership of scientific societies](#5-membership-of-scientific-societies) \
-[6. Workshops](#6-participation-on-workshops) \
-[7. Publications](https://lauramoremar.github.io/publications/) \
-[8. Conferences](https://lauramoremar.github.io/presentations/)
+[6. Workshops](#6-participation-on-workshops) &nbsp;
+[7. Publications](https://lauramoremar.github.io/publications/) &nbsp;
+[8. Talks](https://lauramoremar.github.io/presentations/)
 
 
 ## 1. Experience
@@ -48,8 +48,8 @@ Department of Applied Mathematics, Universidade de Santiago de Compostela, Spain
 <u>Company</u>: Fundación CIDAUT.\
 <u>Qualification</u>: 10/10.
 
-**B.Sc. Mathematics** (01/09/2008 - 05/07/2013)\
-Universidad de Alicante, Spain
+**M.Sc. Mathematics** (01/09/2008 - 05/07/2013)\
+Faculty of science, Universidad de Alicante, Spain
 
 ## 3. Fellowships and awards
 
@@ -97,9 +97,12 @@ From 01/03/2020 to 31/08/2020.
 
 ## 5. Membership of scientific societies
 
+* Member of the Istituto Nazionale di Alta Matematica "Francesco Severi" (INDAM) - Gruppo Nazionale per il Calcolo Scientifico (GNCS), since 2023
+
 * Member of the Spanish Association for Numerical Methods in Engineering (SEMNI), since 2018.
 
 * Member of National Association of Mathematic’s Students (ANEM), since 2011.
+
 
 ## 6. Participation on workshops
 
