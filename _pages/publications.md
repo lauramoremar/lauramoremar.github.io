@@ -4,10 +4,11 @@ permalink: /publications/
 layout: single
 ---
 
-**Submitted**
+**Accepted**
 
 **7.-** An embedded strategy for large scale incompressible flow simulations in moving domains.\
-Codina R., Baiges J., Castañar I., Martínez-Suárez I., Moreno L. & Parada S.
+Codina R., Baiges J., Castañar I., Martínez-Suárez I., Moreno L. & Parada S.\
+*Journal of Computational Physics*
 
 **Published**
 
