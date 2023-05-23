@@ -4,13 +4,14 @@ permalink: /publications/
 layout: single
 ---
 
-**Accepted**
-
-**7.-** An embedded strategy for large scale incompressible flow simulations in moving domains.\
-Codina R., Baiges J., Castañar I., Martínez-Suárez I., Moreno L. & Parada S.\
-*Journal of Computational Physics*
+<!-- **Accepted** -->
 
 **Published**
+
+**7.-** An embedded strategy for large scale incompressible flow simulations in moving domains. [[Post-print]](https://lauramoremar.github.io/assets/docs/artweb007-lm.pdf)\
+Codina R., Baiges J., Castañar I., Martínez-Suárez I., Moreno L. & Parada S.\
+*Journal of Computational Physics*, Vol. 488 (2023) 112181. \
+[DOI: 10.1016/j.jcp.2023.112181](https://doi.org/10.1016/j.jcp.2023.112181)
 
 **6.-** Numerical simulation of Fluid-Structure Interaction problems with viscoelastic fluids using a log-conformation reformulation. [[Post-print]](https://lauramoremar.github.io/assets/docs/artweb006-lm.pdf)\
 Moreno L., Castañar I., Codina R., Baiges J. & Cattoni D.\

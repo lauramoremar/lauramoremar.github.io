@@ -7,7 +7,7 @@ layout: single
 <img style="float: right; text-align:center;" src="/assets/images/IMG_9687.JPG" alt="" width="250" >
 </kbd>-->
 
-[Download my Curriculum Vitae in pdf](https://lauramoremar.github.io/assets/docs/CV.pdf)
+[Download my Curriculum Vitae in pdf](https://lauramoremar.github.io/assets/docs/CV_LauraMoreno.pdf)
 
 **Index:**\
 [1. Experience](#1-experience) &nbsp;
