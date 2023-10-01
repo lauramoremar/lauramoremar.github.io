@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: "Laura Moreno's web-page"
+title: "Laura Moreno Martínez"
 email: laura.morenomartinez@unipd.it
 description: >- # this means to ignore newlines until "baseurl:"
 twitter_username: username
@@ -57,16 +57,18 @@ plugins:
 author:
   name   : "Laura Moreno Martínez"
   avatar : "/assets/images/laura2020.jpeg"
-  bio    : "Postdoctoral researcher at University of Padua, Italy."
+  bio    : "Postdoctoral reasearcher at Institut für Statik und Dynamik (TUBS)"
+  #"Postdoctoral researcher at University of Padua, Italy."
   #"Torre Archimede, Office 330, va Trieste 63, 35121 Padova"
-  location : "Padova, Italia"
+  location : "Braunschweig, Germany"
+  # "Padova, Italia"
   links:
-    - label: "laura.morenomartinez@unipd.it"
+    - label: "Email TUBS (Braunschweig)"
+      icon: "fas fa-fw fa-envelope-open"
+      url: "mailto: laura.moreno-martinez@tu-braunschweig.de"
+    - label: "Email Unipd (Padova)"
       icon: "fas fa-fw fa-envelope-open"
       url: "mailto: laura.morenomartinez@unipd.it"
-    #- label: "Website"
-    #  icon: "fas fa-fw fa-link"
-    #  url: "https://laura-moreno.github.io"
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://www.linkedin.com/in/lauramoremar/"

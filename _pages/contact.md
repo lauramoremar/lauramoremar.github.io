@@ -7,16 +7,26 @@ layout: single
 <div style = "float: right;text-align:center;">
 	 <img src="/assets/images/IMG_4798.JPG" width="500" />
 	 <p>
-	 Torre Specola, Padova (Italy)
 	 </p>
 </div>
 
-**Address:**\
-Department of Mathematics “Tullio Levi Civita”\
-Torre Archimede, Office 4BC3, via Trieste 63\
-35121 Padova PD, Italy
+<!--<div style = "float: right;text-align:center;">
+	 <img src="/assets/images/IMG_4798.JPG" width="500" />
+	 <p>
+	 Torre Specola, Padova (Italy)
+	 </p>
+</div>-->
 
-**Email:**\
+**Address:**\
+Institut für Statik und Dynamik\
+Beethovenstraße 51,\
+38106 Braunschweig, Germany
+<!--Department of Mathematics “Tullio Levi Civita”\
+Torre Archimede, Office 4BC3, via Trieste 63\
+35121 Padova PD, Italy-->
+
+**Email adress:**\
+laura.moreno-martinez@tu-braunschweig.de\
 laura.morenomartinez@unipd.it
 
 

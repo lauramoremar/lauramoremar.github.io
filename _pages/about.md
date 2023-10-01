@@ -17,12 +17,18 @@ layout: single
 [5. Membership of scientific societies](#5-membership-of-scientific-societies) \
 [6. Workshops](#6-participation-on-workshops) &nbsp;
 [7. Publications](https://lauramoremar.github.io/publications/) &nbsp;
-[8. Talks](https://lauramoremar.github.io/presentations/)
+[8. Talks](https://lauramoremar.github.io/presentations/) &nbsp;
+[9. Teaching](https://lauramoremar.github.io/teaching/)
 
 
 ## 1. Experience
-**Post-doctoral researcher** (01/10/2021 - present)\
-Department of Mathematics ”Tullio Levi Civita”, Università degli Studi di Padova, Italy
+**Post-doctoral researcher** (18/09/2023 - present)\
+Institut für Statik un Dynamik, Technical University of Braunschweig, Germany\
+Supervisor: Prof. [Roland Wuechner](https://www.cee.ed.tum.de/st/mitarbeiterinnen/roland-wuechner/)
+
+**Post-doctoral researcher** (01/10/2021 - 14/09/2023)\
+Department of Mathematics ”Tullio Levi Civita”, Università degli Studi di Padova, Italy\
+Supervisor: Prof. [Antonia Larese](https://www.math.unipd.it/~antonia/)
 
 **Pre-doctoral researcher** (01/09/2016 - 22/09/2021)\
 CIMNE, Universitat Politècnica de Catalunya, Barcelona, Spain
@@ -37,8 +43,8 @@ Compostela, Spain
 ## 2. Education
 **Doctor of Philosophy (Ph.D.) in Structural Analysis** (01/09/2016 - 22/09/2021)\
 Department of Civil Engineering, Universitat Politècnica de Catalunya, Barcelona, Spain\
-<u>Title</u>: *Numerical modelling of viscoelastic flows based on a log-conformation formulation*. [[Link](https://lauramoremar.github.io/assets/docs/PhDThesisLauraMoreno.pdf)]\
-<u>Supervisors</u>: Ramon Codina i Rovira and Joan Baiges Aznar.\
+<u>Title</u>: *Numerical modelling of viscoelastic flows based on a log-conformation formulation*. [[Link](https://www.tdx.cat/handle/10803/672679#page=1)]\
+<u>Supervisors</u>: Prof. [Ramon Codina](https://deca.upc.edu/en/people/ramon.codina) i Rovira and Prof. [Joan Baiges](https://sites.google.com/site/joanbaiges/home).\
 <u>Qualification</u>: Excellent cum laude.
 
 **M.Sc. Industrial Mathematics** (01/09/2013 - 25/07/2015)\
@@ -52,6 +58,7 @@ Department of Applied Mathematics, Universidade de Santiago de Compostela, Spain
 Faculty of science, Universidad de Alicante, Spain
 
 ## 3. Fellowships and awards
+* Post-doc vacancy awarded at Resarch Training Group GRK 2075\2
 
 * Post-doc fellowship awarded at UNIPD, 01/10/2021
 
@@ -105,6 +112,8 @@ From 01/03/2020 to 31/08/2020.
 
 
 ## 6. Participation on workshops
+
+* *Workshop GRK 2075*. September 25th, 2023
 
 * *Kratos Workshop 2022*, in Deltares installations, Delft, Netherlands. [[Link](https://softwaredays.deltares.nl/-/kratos-workshop-2022-day-1)]\
 Organized by [Deltares company](https://www.deltares.nl/en/). November 9-10, 2022

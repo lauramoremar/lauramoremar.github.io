@@ -4,6 +4,17 @@ permalink: /presentations/
 layout: single
 ---
 
+* Oral conference speaker in **10th International Congress on Industrial and Applied Mathematics (ICIAM 2023)** [[Link](https://iciam2023.org/)]\
+Waseda University, Tokyo, Japan, August 19 - 25, 2023.\
+<u>Title</u>: *Numerical modelling of viscoelastic flows with high elasticity.*\
+L. Moreno, J. Baiges and R. Codina.
+
+* Oral conference speaker in **SIAM Conference on Mathematical & Computational Issues in the Geosciences (GS23)** [[Link](https://www.siam.org/conferences/cm/conference/gs23)]\
+Radisson Blu Royal Hotel, Bergen, Norway, June 19 - 22, 2023.\
+<u>Title</u>: *Simulation of Coupled Multiphysics Problems in Large Deformation Regime.*\
+L. Moreno, V.Singer, N. Crescenzio, A. Boerst and A. Larese.
+
+
 <!--<div style = "float: center;text-align:center;">
 	 <img src="/assets/images/IMG_9566.JPG" width="300" />
 	 <p>
@@ -12,7 +23,7 @@ layout: single
 </div>-->
 
 * Oral conference speaker in **Congress on Numerical Methods in Engineering (CMN 2022)**[[Link](https://congress.cimne.com/cmn2022/frontal/default.asp)]\
-Las Palmas de Gran Canaria, Spain, September 12th – 15 th 2022.\
+Las Palmas de Gran Canaria, Spain, September 12th – 15th 2022.\
 <u>Title</u>: *A VMS-Stabilized Mixed Formulation for Non-Linear Incompressible solid mechanics problems Using the Implicit Material Point Method.*\
 [[Abstract](/assets/docs/Abstracts/2022CMN_Abstract_LauraMoreno.pdf)] and  [[Slides](/assets/docs/Slides/CMN2022_LauraMoreno.pdf)]\
 L. Moreno, A. Contri, A. Larese.
@@ -22,6 +33,13 @@ L. Moreno, A. Contri, A. Larese.
 Oslo, Norway, June 5th - 9th 2022.\
 <u>Title</u>: *Stabilized mixed formulation for an implicit MPM for viscoplastic fluids by using a variational subgrid-scale framework.*\
 L. Moreno, A.Contri, A. Larese.
+
+<!--<div style = "float: center;text-align:center;">
+	 <img src="/assets/images/IMG_9566.JPG" width="300" />
+	 <p>
+	 CMN 2022, Las Palmas de Gran Canaria (Spain)
+	 </p>
+</div>-->
 
 * Oral conference speaker in **XLII Ibero-Latin-American Congress on Computational Methods in Engineering (CILAMCE-2021)**. [[Link](https://cilamce.com.br/anais/index.php?ano=2021)]\
 Virtual Congress, Río de Janeiro, Brazil, November 9th-12th 2021. \
@@ -45,6 +63,13 @@ L. Moreno, R. Codina, J. Baiges.
 Virtual Congress,Paris, France, 11-15 January 2021.\
 <u>Title</u>: *Solution of transient viscoelastic flow problems approximated by a VMS stabilized finite element formulation using time-dependent subrid-scales.*\
 L. Moreno, J. Baiges, R. Codina.
+
+<!--<div style = "float: center;text-align:center;">
+	 <img src="/assets/images/IMG_9566.JPG" width="300" />
+	 <p>
+	 CMN 2022, Las Palmas de Gran Canaria (Spain)
+	 </p>
+</div>-->
 
 * Oral presentation in a **CIMNE Coffee Talk** [[Link]](https://www.cimne.com/vnews/10826)\
 Barcelona, Spain, December 11th, 2019.\
