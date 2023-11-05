@@ -53,7 +53,9 @@ plugins:
   #- jekyll-feed
   - jemoji
   - jekyll-include-cache
-
+  - jekyll-paginate  
+github: [metadata]
+ 
 author:
   name   : "Laura Moreno Martínez"
   avatar : "/assets/images/laura2020.jpeg"

@@ -4,6 +4,11 @@ permalink: /presentations/
 layout: single
 ---
 
+* Oral conference speaker in **VIII Inernational Conference in Particle Mechanics (Particles 2023)** [[Link](https://particles2023.cimne.com/)]\
+Milan, Italy, Octuber 9 - 11, 2023.\
+<u>Title</u>: *Stabilized mixed formulation for incompressible materials by using VMS in a Material Point Method framework.*\
+L. Moreno, A. Larese and R. Wüchner.
+
 * Oral conference speaker in **10th International Congress on Industrial and Applied Mathematics (ICIAM 2023)** [[Link](https://iciam2023.org/)]\
 Waseda University, Tokyo, Japan, August 19 - 25, 2023.\
 <u>Title</u>: *Numerical modelling of viscoelastic flows with high elasticity.*\
@@ -14,7 +19,7 @@ Radisson Blu Royal Hotel, Bergen, Norway, June 19 - 22, 2023.\
 <u>Title</u>: *Simulation of Coupled Multiphysics Problems in Large Deformation Regime.*\
 L. Moreno, V.Singer, N. Crescenzio, A. Boerst and A. Larese.
 
-
+<!-- FOTO -->
 <!--<div style = "float: center;text-align:center;">
 	 <img src="/assets/images/IMG_9566.JPG" width="300" />
 	 <p>
@@ -34,6 +39,7 @@ Oslo, Norway, June 5th - 9th 2022.\
 <u>Title</u>: *Stabilized mixed formulation for an implicit MPM for viscoplastic fluids by using a variational subgrid-scale framework.*\
 L. Moreno, A.Contri, A. Larese.
 
+<!--FOTO  -->
 <!--<div style = "float: center;text-align:center;">
 	 <img src="/assets/images/IMG_9566.JPG" width="300" />
 	 <p>
@@ -64,6 +70,7 @@ Virtual Congress,Paris, France, 11-15 January 2021.\
 <u>Title</u>: *Solution of transient viscoelastic flow problems approximated by a VMS stabilized finite element formulation using time-dependent subrid-scales.*\
 L. Moreno, J. Baiges, R. Codina.
 
+<!--FOTO  -->
 <!--<div style = "float: center;text-align:center;">
 	 <img src="/assets/images/IMG_9566.JPG" width="300" />
 	 <p>
