@@ -25,9 +25,9 @@ Beethovenstraße 51,\
 Torre Archimede, Office 4BC3, via Trieste 63\
 35121 Padova PD, Italy-->
 
-**Email adress:**\
+**Email adresses:**\
 laura.moreno-martinez@tu-braunschweig.de\
-laura.morenomartinez@unipd.it
+moremar.laura@gmail.com
 
 
 

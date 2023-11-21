@@ -12,8 +12,8 @@ Hello! My name is Laura Moreno Martínez and I'm a **postdoctoral researcher** a
 
 <!-- FOTO -->
 
-Although currently my research is mostly in engineering...  am not an engineer.
-Some years ago I studied mathematics in Spain. After finishing the degree, I was a very entusiastic mathematician with the wish of specialising me in applied mathematics.  So I got an additional **Master**, which gave me the expertise on mathematical modelization for the numerical simulation of physical phenomena.  During **my PhD** in the Technical University of Catalunya (UPC) I worked on the development of mathematical models to simulate <ins>viscoelastic flows</ins> with high elasticity, a very delicate topic.  It was a challenge for me to tackle this problem, but I think that I do my bit.
+Although currently my research is mostly in engineering... I am not an engineer.
+Some years ago I studied mathematics in Alicante, Spain. After finishing the degree, I was a very entusiastic mathematician with the wish of specialising me in applied mathematics.  So I got an additional **Master**, which gave me the expertise on mathematical modelization for the numerical simulation of physical phenomena.  During **my PhD** in the Technical University of Catalunya (UPC) I worked on the development of mathematical models to simulate <ins>viscoelastic flows</ins> with high elasticity.  To tackle this problem was a really challenge for me. I think that I do my bit.
 Then I moved to the University of Padua (UNIPD), in Italy, as a **postdoctoral researcher** at the Department of Mathematics. Here, I was working in the MPM at the first time for studying the numerical simulation of structures subjected to extreme natural phenomena.
 
 <!-- FOTO -->

@@ -6,7 +6,7 @@ layout: single
 
 <!-- **Accepted** -->
 
-**Published**
+## Published
 
 **7.-** An embedded strategy for large scale incompressible flow simulations in moving domains. [[Post-print]](https://lauramoremar.github.io/assets/docs/artweb007-lm.pdf)\
 Codina R., Baiges J., Castañar I., Martínez-Suárez I., Moreno L. & Parada S.\
@@ -27,7 +27,6 @@ Moreno L., Codina R. & Baiges J. \
 Castillo E., Moreno L., Codina R. & Baiges J.\
 *Archives of Computational Methods in Engineering* Vol. 28 (2021) , 1-33.\
 [DOI: 10.1007/s11831-020-09526-x](https://doi.org/10.1007/s11831-020-09526-x)
-
 
 **3.-** Analysis of a stabilized finite element approximation for a linearized logarithm reformulation of the viscoelastic flow problem.[[Post-print]](https://lauramoremar.github.io/assets/docs/artweb003-lm.pdf)\
 Codina R. & Moreno L.\
