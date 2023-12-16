@@ -1,0 +1,13 @@
+current directory: /home/laura/Desktop/lauramoremar.github.io/vendor/bundle/ruby/3.0.0/gems/json-2.6.2/ext/json
+/usr/bin/ruby3.0 -I /usr/lib/ruby/vendor_ruby -r ./siteconf20231001-24492-f4atmi.rb extconf.rb
+creating Makefile
+
+current directory: /home/laura/Desktop/lauramoremar.github.io/vendor/bundle/ruby/3.0.0/gems/json-2.6.2/ext/json
+make DESTDIR\= clean
+
+current directory: /home/laura/Desktop/lauramoremar.github.io/vendor/bundle/ruby/3.0.0/gems/json-2.6.2/ext/json
+make DESTDIR\=
+make: Nothing to be done for 'all'.
+
+current directory: /home/laura/Desktop/lauramoremar.github.io/vendor/bundle/ruby/3.0.0/gems/json-2.6.2/ext/json
+make DESTDIR\= install
