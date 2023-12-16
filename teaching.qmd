@@ -1,0 +1,33 @@
+---
+title: "Teaching"
+---
+
+## Academic training
+
+### Undergratudate courses
+**2022/2023 Calcolo Numerico**\
+Degree: Ingegneria Chimica e dei materiali\
+Dipartimento di Matematica, University of Padua, Italy\
+Language: Italian\
+Teaching type: Laboratorio numerico (24 h)\
+Description: Practical exercises of numerical calculus using the software MATLAB.
+
+### Master courses
+
+**2022/2023 Numerical methods for continuous systems**\
+Degree: Master in Mathematical engineering\
+Dipartimento di Ingengeria Civile, Edile e Ambientale, University of Padua, Italy\
+Language: English\
+Teaching type: Mentoring (12 h)\
+Description: Support in projects, practical exercises and elaboration of educative material.
+
+## Mentoring
+
+**Master thesis co-supervisor**\
+Title: An Updated Lagrangian displacemente-based formulation for free surface incompressible fluids using MPM\
+Data of defense: December 2021\
+Student: Alessandro Contri\
+Supervisor: Antonia Larese\
+Master's defree: Master in Mathematical engineering\
+Dipartimento di Matematica, Università degli Studio di Padova, Italia
+

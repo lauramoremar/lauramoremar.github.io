@@ -1,0 +1,177 @@
+[
+  {
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "publications.html",
+    "href": "publications.html",
+    "title": "Publications",
+    "section": "",
+    "text": "7.- An embedded strategy for large scale incompressible flow simulations in moving domains. [Post-print]\nCodina R., Baiges J., Castañar I., Martínez-Suárez I., Moreno L. & Parada S.\nJournal of Computational Physics, Vol. 488 (2023) 112181.\nDOI: 10.1016/j.jcp.2023.112181\n6.- Numerical simulation of Fluid-Structure Interaction problems with viscoelastic fluids using a log-conformation reformulation. [Post-print]\nMoreno L., Castañar I., Codina R., Baiges J. & Cattoni D.\nComputer Methods in Applied Mechanics and Engineering, Vol. 410 (2023), 115986.\nDOI: 10.1016/j.cma.2023.115986\n\n\n\n5.- Numerical simulation of non-isothermal viscoelastic fluid flows using a VMS stabilized Finite Element formulation. [Post-print]\nMoreno L., Codina R. & Baiges J.\nJournal of Non-Newtonian Fluids Mechanics Vol. 296 (2021) 104640.\nDOI: 10.1016/j.jnnfm.2021.104640\n4.- Stabilised Variational Multi-Scale Finite Element formulations for Viscoelastic Fluids.[Post-print]\nCastillo E., Moreno L., Codina R. & Baiges J.\nArchives of Computational Methods in Engineering Vol. 28 (2021) , 1-33.\nDOI: 10.1007/s11831-020-09526-x\n3.- Analysis of a stabilized finite element approximation for a linearized logarithm reformulation of the viscoelastic flow problem.[Post-print]\nCodina R. & Moreno L.\nESAIM. Mathematical Modelling and Numerical Analysis Vol. 55 (2021), 279-300.\nDOI: 10.1051/m2an/2020038\n\n\n\n2.- Solution of transient viscoelastic flow problems approximated by a term-by-term VMS stabilized finite element formulation using time-dependent subgrid-scales.[Post-print]\nMoreno L., Codina R. & Baiges J.\nComputer Methods in Applied Mechanics and Engineering Vol. 367 (2020) , 113074.\nDOI: 10.1016/j.cma.2020.113074\n\n\n\n1.- Logarithmic conformation reformulation in viscoelastic flow problems approximated by a VMS-type stabilized finite element formulation.[Post-print]\nMoreno L., Codina R., Baiges J. & Castillo E.\nComputer Methods in Applied Mechanics and Engineering Vol. 354 (2019), 706-731.\nDOI: 10.1016/j.cma.2019.06.001."
+  },
+  {
+    "objectID": "publications.html#published",
+    "href": "publications.html#published",
+    "title": "Publications",
+    "section": "",
+    "text": "7.- An embedded strategy for large scale incompressible flow simulations in moving domains. [Post-print]\nCodina R., Baiges J., Castañar I., Martínez-Suárez I., Moreno L. & Parada S.\nJournal of Computational Physics, Vol. 488 (2023) 112181.\nDOI: 10.1016/j.jcp.2023.112181\n6.- Numerical simulation of Fluid-Structure Interaction problems with viscoelastic fluids using a log-conformation reformulation. [Post-print]\nMoreno L., Castañar I., Codina R., Baiges J. & Cattoni D.\nComputer Methods in Applied Mechanics and Engineering, Vol. 410 (2023), 115986.\nDOI: 10.1016/j.cma.2023.115986\n\n\n\n5.- Numerical simulation of non-isothermal viscoelastic fluid flows using a VMS stabilized Finite Element formulation. [Post-print]\nMoreno L., Codina R. & Baiges J.\nJournal of Non-Newtonian Fluids Mechanics Vol. 296 (2021) 104640.\nDOI: 10.1016/j.jnnfm.2021.104640\n4.- Stabilised Variational Multi-Scale Finite Element formulations for Viscoelastic Fluids.[Post-print]\nCastillo E., Moreno L., Codina R. & Baiges J.\nArchives of Computational Methods in Engineering Vol. 28 (2021) , 1-33.\nDOI: 10.1007/s11831-020-09526-x\n3.- Analysis of a stabilized finite element approximation for a linearized logarithm reformulation of the viscoelastic flow problem.[Post-print]\nCodina R. & Moreno L.\nESAIM. Mathematical Modelling and Numerical Analysis Vol. 55 (2021), 279-300.\nDOI: 10.1051/m2an/2020038\n\n\n\n2.- Solution of transient viscoelastic flow problems approximated by a term-by-term VMS stabilized finite element formulation using time-dependent subgrid-scales.[Post-print]\nMoreno L., Codina R. & Baiges J.\nComputer Methods in Applied Mechanics and Engineering Vol. 367 (2020) , 113074.\nDOI: 10.1016/j.cma.2020.113074\n\n\n\n1.- Logarithmic conformation reformulation in viscoelastic flow problems approximated by a VMS-type stabilized finite element formulation.[Post-print]\nMoreno L., Codina R., Baiges J. & Castillo E.\nComputer Methods in Applied Mechanics and Engineering Vol. 354 (2019), 706-731.\nDOI: 10.1016/j.cma.2019.06.001."
+  },
+  {
+    "objectID": "research.html",
+    "href": "research.html",
+    "title": "Research",
+    "section": "",
+    "text": "I am working on large deformation problems in structural mechanics. It is especially interesting because civil structures can suffer deformations, and even fractures, caused by strong impacts. I am using an enriched finite element based technique to solve this problem, called Material Point Method. My research focuses on the development and implementation of the Variational Multiscale Method to get stable formulations to deal with incompressible materials in solid and fluid mechanics problems."
+  },
+  {
+    "objectID": "research.html#material-point-method",
+    "href": "research.html#material-point-method",
+    "title": "Research",
+    "section": "",
+    "text": "I am working on large deformation problems in structural mechanics. It is especially interesting because civil structures can suffer deformations, and even fractures, caused by strong impacts. I am using an enriched finite element based technique to solve this problem, called Material Point Method. My research focuses on the development and implementation of the Variational Multiscale Method to get stable formulations to deal with incompressible materials in solid and fluid mechanics problems."
+  },
+  {
+    "objectID": "research.html#computational-fluid-dynamics",
+    "href": "research.html#computational-fluid-dynamics",
+    "title": "Research",
+    "section": "Computational fluid dynamics",
+    "text": "Computational fluid dynamics\n\nNumerical simulations of viscoelastic fluid flow with high elasticity\nThe global goal of my thesis was the development of mathematical models and numerical methods to simulate viscoelastic flows with high elasticity using the Finite Element Method. The equations that modelized the viscoelastic fluid flow present a large number of non-linearities and additionally, when the elasticity of the fluid is dominant respect to the convection forces, new instabilities must be treated. Reproducing it accurately is considered one of the biggest challenges in computational rheology, as classical methods fails to reproduce high elasticity levels.\n\n\nOther projects in fluid dynamics\n\nNumerical analysis of the aerodynamic loads on a tunnel wall separation\nIn this project we study the influence of a telescope over another one concerning the optical parameters. To carry out the study, we solved the Navier Stokes equations on real terrain taking into account the temperature and considering the Smagorinsky model to capture the turbulence. And then we calculated the optical parameters that were influenced by the air temperature.\n\n\nNumerical analysis of the optical quality over a telescope\nEvaluation of the aerodynamic loads at the end of the constructed sections caused by the transient flows due to the train motion along the Mont-Royal tunnel. We carried out a CFD simulation using moving domains, where the geometry of the tunnel was fixed while the train was moving inside it. We used an arbitrary Lagrangian-Eulerian strategy, solving the Navier Stokes equations considering this motion."
+  },
+  {
+    "objectID": "research.html#other-projects-in-computational-mechanics",
+    "href": "research.html#other-projects-in-computational-mechanics",
+    "title": "Research",
+    "section": "Other projects in computational mechanics",
+    "text": "Other projects in computational mechanics\n\nThe numerical simulation of electromagnetic processes with hysteresis\nThe goal was the study and the numerical simulation of electromagnetic processes with hysteresis, with specific application on crankshafts. In this project I had to simulate the magnetisation process of the crankshafts and, subsequently, the demagnetisation process. This process is commonly used in automotive factories to detect fractures in crankshafts, using fluorescent metal shavings.\n\n\nNumerical solver based on spectral methods\nin order to reproduce the sound wave propagation in a well."
+  },
+  {
+    "objectID": "presentations.html",
+    "href": "presentations.html",
+    "title": "Presentations",
+    "section": "",
+    "text": "Oral conference speaker in VIII Inernational Conference in Particle Mechanics (Particles 2023) [Link]\nMilan, Italy, Octuber 9 - 11, 2023.\nTitle: Stabilized mixed formulation for incompressible materials by using VMS in a Material Point Method framework.\nL. Moreno, A. Larese and R. Wüchner.\nOral conference speaker in 10th International Congress on Industrial and Applied Mathematics (ICIAM 2023) [Link]\nWaseda University, Tokyo, Japan, August 19 - 25, 2023.\nTitle: Numerical modelling of viscoelastic flows with high elasticity.\nL. Moreno, J. Baiges and R. Codina.\nOral conference speaker in SIAM Conference on Mathematical & Computational Issues in the Geosciences (GS23) [Link]\nRadisson Blu Royal Hotel, Bergen, Norway, June 19 - 22, 2023.\nTitle: Simulation of Coupled Multiphysics Problems in Large Deformation Regime.\nL. Moreno, V.Singer, N. Crescenzio, A. Boerst and A. Larese."
+  },
+  {
+    "objectID": "presentations.html#section",
+    "href": "presentations.html#section",
+    "title": "Presentations",
+    "section": "",
+    "text": "Oral conference speaker in VIII Inernational Conference in Particle Mechanics (Particles 2023) [Link]\nMilan, Italy, Octuber 9 - 11, 2023.\nTitle: Stabilized mixed formulation for incompressible materials by using VMS in a Material Point Method framework.\nL. Moreno, A. Larese and R. Wüchner.\nOral conference speaker in 10th International Congress on Industrial and Applied Mathematics (ICIAM 2023) [Link]\nWaseda University, Tokyo, Japan, August 19 - 25, 2023.\nTitle: Numerical modelling of viscoelastic flows with high elasticity.\nL. Moreno, J. Baiges and R. Codina.\nOral conference speaker in SIAM Conference on Mathematical & Computational Issues in the Geosciences (GS23) [Link]\nRadisson Blu Royal Hotel, Bergen, Norway, June 19 - 22, 2023.\nTitle: Simulation of Coupled Multiphysics Problems in Large Deformation Regime.\nL. Moreno, V.Singer, N. Crescenzio, A. Boerst and A. Larese."
+  },
+  {
+    "objectID": "presentations.html#section-1",
+    "href": "presentations.html#section-1",
+    "title": "Presentations",
+    "section": "2022",
+    "text": "2022\n\nOral conference speaker in Congress on Numerical Methods in Engineering (CMN 2022)[Link]\nLas Palmas de Gran Canaria, Spain, September 12th – 15th 2022.\nTitle: A VMS-Stabilized Mixed Formulation for Non-Linear Incompressible solid mechanics problems Using the Implicit Material Point Method.\n[Abstract] and [Slides]\nL. Moreno, A. Contri, A. Larese. \nOral conference speaker in 8th European Congress on Computational Methods in Applied Sciences and Engineering (ECCOMAS 2022) [Link]\nOslo, Norway, June 5th - 9th 2022.\nTitle: Stabilized mixed formulation for an implicit MPM for viscoplastic fluids by using a variational subgrid-scale framework.\nL. Moreno, A.Contri, A. Larese."
+  },
+  {
+    "objectID": "presentations.html#section-2",
+    "href": "presentations.html#section-2",
+    "title": "Presentations",
+    "section": "2021",
+    "text": "2021\n\nOral conference speaker in XLII Ibero-Latin-American Congress on Computational Methods in Engineering (CILAMCE-2021). [Link]\nVirtual Congress, Río de Janeiro, Brazil, November 9th-12th 2021.\nTitle: Computation of transient flow problems approximated by a VMS stabilized Finite Element formulation using time-dependent subgrid-scales for monolithic and fractional step schemes.\n[Abstract] and [Slides]\nL. Moreno, J. Baiges, R. Codina.\nPoster presentation and short oral talk in 25th International Congress of Theoretical and Applied Mechanics (ICTAM 2020+1). [Link]\nVirtual Congress, Milano, Italy, August 22-27 2021.\nTitle: Simulation of transient viscoelastic flow problems approximated by a VMS stabilized FE formulation using time-dependent subrid-scales.\n[Abstract], [Slides] and [Poster]\nL. Moreno, J. Baiges, R. Codina.\nOral conference speaker in IX International Conference on Coupled Problems in Science and Engineering (COUPLED 2021) [Link]\nVirtual Congress, Chia Laguna, Sardinia, Italy, 13-16 June 2021.\nTitle: Thermal coupling simulations with a viscoelastic fluid flow.\n[Abstract] and [Slides]\nL. Moreno, R. Codina, J. Baiges.\nOral conference speaker in 14th World Congress on Computational Mechanics (WCCM 2020). [Link]\nVirtual Congress,Paris, France, 11-15 January 2021.\nTitle: Solution of transient viscoelastic flow problems approximated by a VMS stabilized finite element formulation using time-dependent subrid-scales.\nL. Moreno, J. Baiges, R. Codina."
+  },
+  {
+    "objectID": "presentations.html#section-3",
+    "href": "presentations.html#section-3",
+    "title": "Presentations",
+    "section": "2019",
+    "text": "2019\n\nOral presentation in a CIMNE Coffee Talk [Link]\nBarcelona, Spain, December 11th, 2019.\nTitle: Simulating viscoelastic fluid flows with high Weissenberg number. [Slides]\nOral conference speaker in the VIII International Conference on Coupled Problems in Science and Engineering (COUPLED 2019) [Link]\nSitges, Spain. June 3-6 2019\nTitle: Simulation of non-isothermal viscoelastic fluid flow problem using a VMS stabilized Formulation.\n[Abstract] and [Slides]\nL. Moreno, J. Baiges, R. Codina.\nOral presentation in Lecture Series: Women researchers at CIMNE for the International Day of Women and Girls in Science [Link]\nBarcelona, Spain, February 11th, 2019.\nTitle: Heat transfer processes using viscoelastic fluids in laminar and turbulence regimes. [Slides]"
+  },
+  {
+    "objectID": "cv.html",
+    "href": "cv.html",
+    "title": "Curriculum Vitae",
+    "section": "",
+    "text": "Post-doctoral researcher (18/09/2023 - present)\nInstitut für Statik un Dynamik, Technical University of Braunschweig, Germany\nSupervisor: Prof. Roland Wuechner\nPost-doctoral researcher (01/10/2021 - 14/09/2023)\nDepartment of Mathematics ”Tullio Levi Civita”, Università degli Studi di Padova, Italy\nSupervisor: Prof. Antonia Larese\nPre-doctoral researcher (01/09/2016 - 22/09/2021)\nCIMNE, Universitat Politècnica de Catalunya, Barcelona, Spain\nSolutions Assistant (SA-N1) (01/12/2015 - 31/08/2016)\nEVERIS, Barcelona, Spain\nResearch Assistant (01/09/2014 - 28/02/2015)\nDepartment of Applied Mathematics, Unidersidade de Santiago de Compostela, Santiago de Compostela, Spain"
+  },
+  {
+    "objectID": "cv.html#experience",
+    "href": "cv.html#experience",
+    "title": "Curriculum Vitae",
+    "section": "",
+    "text": "Post-doctoral researcher (18/09/2023 - present)\nInstitut für Statik un Dynamik, Technical University of Braunschweig, Germany\nSupervisor: Prof. Roland Wuechner\nPost-doctoral researcher (01/10/2021 - 14/09/2023)\nDepartment of Mathematics ”Tullio Levi Civita”, Università degli Studi di Padova, Italy\nSupervisor: Prof. Antonia Larese\nPre-doctoral researcher (01/09/2016 - 22/09/2021)\nCIMNE, Universitat Politècnica de Catalunya, Barcelona, Spain\nSolutions Assistant (SA-N1) (01/12/2015 - 31/08/2016)\nEVERIS, Barcelona, Spain\nResearch Assistant (01/09/2014 - 28/02/2015)\nDepartment of Applied Mathematics, Unidersidade de Santiago de Compostela, Santiago de Compostela, Spain"
+  },
+  {
+    "objectID": "cv.html#education",
+    "href": "cv.html#education",
+    "title": "Curriculum Vitae",
+    "section": "Education",
+    "text": "Education\nDoctor of Philosophy (Ph.D.) in Structural Analysis (01/09/2016 - 22/09/2021)\nDepartment of Civil Engineering, Universitat Politècnica de Catalunya, Barcelona, Spain\nTitle: Numerical modelling of viscoelastic flows based on a log-conformation formulation. [Link]\nSupervisors: Prof. Ramon Codina i Rovira and Prof. Joan Baiges.\nQualification: Excellent cum laude.\nM.Sc. Industrial Mathematics (01/09/2013 - 25/07/2015)\nDepartment of Applied Mathematics, Universidade de Santiago de Compostela, Spain\nTitle Mater’s thesis: Simulación magnetohidrodinámica del efecto de elevació de una columna de metal fundido con una máquina de inducción lineal.\nSupervisors: Alfredo Bermúdez de Castro.\nQualification: 10/10.\nM.Sc. Mathematics (01/09/2008 - 05/07/2013)\nFaculty of science, Universidad de Alicante, Spain"
+  },
+  {
+    "objectID": "cv.html#fellowships-and-awards",
+    "href": "cv.html#fellowships-and-awards",
+    "title": "Curriculum Vitae",
+    "section": "Fellowships and awards",
+    "text": "Fellowships and awards\n\nPost-doc vacancy awarded at Resarch Training Group GRK 2075\\2\nPost-doc fellowship awarded at UNIPD, 01/10/2021\nPhD thesis mark with honors (Excellent Cum Laude), 22/09/2021\n4-years Spanish government PhD scholarship. FPI: DPI2015-67857-R, 18/04/2017"
+  },
+  {
+    "objectID": "cv.html#participation-in-research-projects",
+    "href": "cv.html#participation-in-research-projects",
+    "title": "Curriculum Vitae",
+    "section": "Participation in research projects",
+    "text": "Participation in research projects\n\nNational and International projects\n\nSID2020-NEMESIS. NumErical MEthods for the SImulation of the impact of extreme hazards on Structures and landscape.\nFounded by: University of Padova. (39.376,70 €)\nPI: Antonia Larese\nFrom 18/11/2020 to 31/12/2022\nELASTIC-FLOW. Aumento de la eficiencia en procesos de mezcla y transmisión de calor utilizando fluidos viscoelásticos en régimen laminar y turbulento.\nFunded by: Spanish Ministry. (125.840,00 €)\nPI: Ramon Codina and Joan Baiges\nReference: DPI2015-67857-R\nFrom 01/01/2016 to 31/12/2018\nFORJACEMIC. Investigación de nuevos procesos y aleaciones de aceros microaleados para la forja en caliente de cigüeñales de automoción.\nFunded by: CIE-GALFOR (Innterconecta)\nPI: Alfred Bermúdez\nFrom 22/10/2013 to 31/12/2014\n\n\n\nPrivate consulting\n\nENIPROGETTI. Development of a mathematical and numerical model for the sensitivity analysis of the model of the physical channel to the material parameters and to the geometry of the perforation well. (2022)\nFounded by: ENI s.p.a. (50.000 €)\nReference: 2500042110\nPI: Mario Putti.\n\nNumerical analysis to estimate the optical quality degradation generated by the future European Solar Telescope (EST) over WHT (William Hershell Telescope) at Observatorio del Roque de Los Muchachos (ORM). (2020)\nPI: Ramon Codina and Joan Baiges.\n\nProyecto de consultoría con el metro de Montreal, EWE+ para el diseño de pantallas ignífugas en el metro de Montreal. Numerical analysis to determine the aerodynamic loads on the tunnel Mont-Royal wall separation. (2020)\nPI: Ramon Codina and Joan Baiges."
+  },
+  {
+    "objectID": "cv.html#membership-of-scientific-societies",
+    "href": "cv.html#membership-of-scientific-societies",
+    "title": "Curriculum Vitae",
+    "section": "Membership of scientific societies",
+    "text": "Membership of scientific societies\n\nMember of the Istituto Nazionale di Alta Matematica “Francesco Severi” (INDAM) - Gruppo Nazionale per il Calcolo Scientifico (GNCS), since 2023\nMember of the Spanish Association for Numerical Methods in Engineering (SEMNI), since 2018.\nMember of National Association of Mathematic’s Students (ANEM), since 2011."
+  },
+  {
+    "objectID": "cv.html#participation-on-workshops",
+    "href": "cv.html#participation-on-workshops",
+    "title": "Curriculum Vitae",
+    "section": "Participation on workshops",
+    "text": "Participation on workshops\n\nWorkshop GRK 2075. September 25th, 2023\nKratos Workshop 2022, in Deltares installations, Delft, Netherlands. [Link]\nOrganized by Deltares company. November 9-10, 2022\nNumerical Analysis of protected systems, in Geobrugg installations, Romanshorn, Switzerland.\nOrganized by Geobrugg company. June 20-22, 2022.\nFortran Modernisation Workshop Programme in Universitat Politècnica de Catalunya (UPC), BarcelonaTech, Spain. [[Link](http://aulas.cimne.com/vnews/10048/workshop—fortran-modernisation-workshop])]\nOrganized by NAG. July 24 - 26, 2017."
+  },
+  {
+    "objectID": "teaching.html",
+    "href": "teaching.html",
+    "title": "Teaching",
+    "section": "",
+    "text": "2022/2023 Calcolo Numerico\nDegree: Ingegneria Chimica e dei materiali\nDipartimento di Matematica, University of Padua, Italy\nLanguage: Italian\nTeaching type: Laboratorio numerico (24 h)\nDescription: Practical exercises of numerical calculus using the software MATLAB.\n\n\n\n2022/2023 Numerical methods for continuous systems\nDegree: Master in Mathematical engineering\nDipartimento di Ingengeria Civile, Edile e Ambientale, University of Padua, Italy\nLanguage: English\nTeaching type: Mentoring (12 h)\nDescription: Support in projects, practical exercises and elaboration of educative material."
+  },
+  {
+    "objectID": "teaching.html#academic-training",
+    "href": "teaching.html#academic-training",
+    "title": "Teaching",
+    "section": "",
+    "text": "2022/2023 Calcolo Numerico\nDegree: Ingegneria Chimica e dei materiali\nDipartimento di Matematica, University of Padua, Italy\nLanguage: Italian\nTeaching type: Laboratorio numerico (24 h)\nDescription: Practical exercises of numerical calculus using the software MATLAB.\n\n\n\n2022/2023 Numerical methods for continuous systems\nDegree: Master in Mathematical engineering\nDipartimento di Ingengeria Civile, Edile e Ambientale, University of Padua, Italy\nLanguage: English\nTeaching type: Mentoring (12 h)\nDescription: Support in projects, practical exercises and elaboration of educative material."
+  },
+  {
+    "objectID": "teaching.html#mentoring",
+    "href": "teaching.html#mentoring",
+    "title": "Teaching",
+    "section": "Mentoring",
+    "text": "Mentoring\nMaster thesis co-supervisor\nTitle: An Updated Lagrangian displacemente-based formulation for free surface incompressible fluids using MPM\nData of defense: December 2021\nStudent: Alessandro Contri\nSupervisor: Antonia Larese\nMaster’s defree: Master in Mathematical engineering\nDipartimento di Matematica, Università degli Studio di Padova, Italia"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Laura Moreno",
+    "section": "",
+    "text": "Hello! I’m a postdoctoral researcher at the Institut für Statik und Dynamik in the Technical University of Braunschweig (TUBS), in Germany. \nMy research here is focused on developments for the Material Point Method (MPM), a particle method useful for solving large deformation problems in solid and fluid mechanics, such as the simulation of the movement of granullar flows, landslides or avalanches. In fact this technique was employed for reproducing the snow in the animation field for the Frozen movie.\nAlthough currently my research is mostly in engineering… I am not an engineer.\nSome years ago I studied mathematics in the University of Alicante, Spain. After finishing the degree, I was a very entusiastic mathematician with the wish of specialising me in applied mathematics. So I got an additional Master, which gave me the expertise on mathematical modelization for the numerical simulation of physical phenomena. During my PhD in the Technical University of Catalunya (UPC) I worked on the development of mathematical models to simulate viscoelastic flows with high elasticity.\nThen I moved to the Department of Mathematics in the University of Padua (Italy) as a postdoctoral researcher . Here, I was working in the MPM at the first time for studying the numerical simulation of structures subjected to extreme natural phenomena.\n\n\n\n\nInstitut für Statik und Dynamik\nBeethovenstraße 51,\n38106 Braunschweig, Germany\nTel:\nlaura.moreno-martinez@tu-braunschweig.de\nmoremar.laura@gmail.com"
+  },
+  {
+    "objectID": "index.html#bio",
+    "href": "index.html#bio",
+    "title": "Laura Moreno",
+    "section": "",
+    "text": "Hello! I’m a postdoctoral researcher at the Institut für Statik und Dynamik in the Technical University of Braunschweig (TUBS), in Germany. \nMy research here is focused on developments for the Material Point Method (MPM), a particle method useful for solving large deformation problems in solid and fluid mechanics, such as the simulation of the movement of granullar flows, landslides or avalanches. In fact this technique was employed for reproducing the snow in the animation field for the Frozen movie.\nAlthough currently my research is mostly in engineering… I am not an engineer.\nSome years ago I studied mathematics in the University of Alicante, Spain. After finishing the degree, I was a very entusiastic mathematician with the wish of specialising me in applied mathematics. So I got an additional Master, which gave me the expertise on mathematical modelization for the numerical simulation of physical phenomena. During my PhD in the Technical University of Catalunya (UPC) I worked on the development of mathematical models to simulate viscoelastic flows with high elasticity.\nThen I moved to the Department of Mathematics in the University of Padua (Italy) as a postdoctoral researcher . Here, I was working in the MPM at the first time for studying the numerical simulation of structures subjected to extreme natural phenomena."
+  },
+  {
+    "objectID": "index.html#contact",
+    "href": "index.html#contact",
+    "title": "Laura Moreno",
+    "section": "",
+    "text": "Institut für Statik und Dynamik\nBeethovenstraße 51,\n38106 Braunschweig, Germany\nTel:\nlaura.moreno-martinez@tu-braunschweig.de\nmoremar.laura@gmail.com"
+  }
+]
