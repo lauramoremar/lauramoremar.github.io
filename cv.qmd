@@ -2,25 +2,33 @@
 title: "Curriculum Vitae"
 ---
 
+[[Download here my cv in pdf](/assets/docs/cv_laura_2407.pdf)]
 
 ## Experience
 **Post-doctoral researcher** (18/09/2023 - present)\
 Institut für Statik un Dynamik, Technical University of Braunschweig, Germany\
-Supervisor: Prof. [Roland Wuechner](https://www.cee.ed.tum.de/st/mitarbeiterinnen/roland-wuechner/)
+Supervisor: Prof. [Roland Wuechner](https://www.cee.ed.tum.de/st/mitarbeiterinnen/roland-wuechner/)\
+*Developing particle techniques to model the constitutional evolution of building materials and structures with respect to aging.*
+
 
 **Post-doctoral researcher** (01/10/2021 - 14/09/2023)\
 Department of Mathematics ”Tullio Levi Civita”, Università degli Studi di Padova, Italy\
-Supervisor: Prof. [Antonia Larese](https://www.math.unipd.it/~antonia/)
+Supervisor: Prof. [Antonia Larese](https://www.math.unipd.it/~antonia/)\
+*Studying and implementing Full Order Models using finite elements and particle techniques for multiphysics coupled simulations.*
 
 **Pre-doctoral researcher** (01/09/2016 - 22/09/2021)\
-CIMNE, Universitat Politècnica de Catalunya, Barcelona, Spain
+CIMNE, Universitat Politècnica de Catalunya, Barcelona, Spain\
+Supervisor: Prof. Ramon Codina and Prof. Joan Baiges\
+*Developing mathematical and numerical methods to simulate viscoelastic fluid flows with high elasticity in a finite element framework, including thermal effects. These models are implemented in a high-performance computing environment using object-oriented Fortran.*
 
 **Solutions Assistant (SA-N1)** (01/12/2015 - 31/08/2016)\
-EVERIS, Barcelona, Spain
+EVERIS, Barcelona, Spain\
+*Providing technical support for a high-tech database system.*
 
 **Research Assistant** (01/09/2014 - 28/02/2015)\
 Department of Applied Mathematics, Unidersidade de Santiago de Compostela, Santiago de
-Compostela, Spain
+Compostela, Spain\
+*Studying and numerically simulating electromagnetic processes with hysteresis*
 
 ## Education
 **Doctor of Philosophy (Ph.D.) in Structural Analysis** (01/09/2016 - 22/09/2021)\

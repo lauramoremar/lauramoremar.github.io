@@ -14,6 +14,13 @@ Description: Practical exercises of numerical calculus using the software MATLAB
 
 ### Master courses
 
+**2023/2024 Particle Mechanics**\
+Degree: Master in Civil Engineering\
+Institut für Dinamik und Statik, University of Braunschweig, Germany\
+Language: English\
+Teaching type: Lecture (theory and exercises) (10 h)\
+Description: Preparation of materials and execution of practical exercises using the software KRATOS Multiphysics. 
+
 **2022/2023 Numerical methods for continuous systems**\
 Degree: Master in Mathematical engineering\
 Dipartimento di Ingengeria Civile, Edile e Ambientale, University of Padua, Italy\
