@@ -107,5 +107,5 @@ Organized by [Deltares company](https://www.deltares.nl/en/). November 9-10, 202
 * *Numerical Analysis of protected systems*, in Geobrugg installations, Romanshorn, Switzerland.\
 Organized by [Geobrugg company](https://www.geobrugg.com/en/Geobrugg-Safety-is-our-nature-114435.html). June 20-22, 2022.
 
-* *Fortran Modernisation Workshop Programme* in Universitat Politècnica de Catalunya (UPC), BarcelonaTech, Spain. [[Link](http://aulas.cimne.com/vnews/10048/workshop---fortran-modernisation-workshop])]\
+* *Fortran Modernisation Workshop Programme* in Universitat Politècnica de Catalunya (UPC), BarcelonaTech, Spain. [[Link](http://aulas.cimne.com/vnews/10048/workshop---fortran-modernisation-workshop)]\
 Organized by [NAG](https://www.nag.com/). July 24 - 26, 2017.

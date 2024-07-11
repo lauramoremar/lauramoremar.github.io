@@ -5,14 +5,15 @@ title: "Presentations"
 
 ## 2024
 
-* Oral conference speaker in **9th European Congress on Computational Methods in Applied Sciences and Engineering (ECCOMAS 2024)** \
+* Oral conference speaker in **9th European Congress on Computational Methods in Applied Sciences and Engineering (ECCOMAS 2024)**[[Link](https://eccomas2024.org/)] \
 Lisbon, Portugal, June 2-7 2024.\
-<u>Title</u>: *Stabilized mixed formulation for an implicit Material Point Method for viscoplastic fluids*\
+<u>Title</u>: *Stabilized mixed formulation for an implicit Material Point Method for viscoplastic fluids.*\
 L. Moreno, A.Contri, A. Larese.
 
-* Invited plenary conference speaker in **Congreso de estudiantes de física Universidad de La Laguna (COEFIS XVI)**\
+* Invited plenary conference speaker in **Congreso de estudiantes de física Universidad de La Laguna (COEFIS XVI)** [[Link](https://coefis.es/)], [[Libreto](https://drive.google.com/file/d/18ETEBvbDjmDhiJ_KpB0W_38ZMTfBUyUD/view)]\
 La Laguna, Tenerife, Spain, 12-14 April 2024.\
-<u>Title</u>: *How to simulate water hazard events*\
+<u>Title</u>: *How to simulate water hazard events.* [[Youtube](https://youtu.be/V4rcjQkvsPI?si=FwZ_yLvYBddSHZ4i)]\
+L. Moreno
 
 * Oral conference speaker in **FE im Schnee.** \
 Kleinwalsertal, Germany, 17-20th, March 2024\
@@ -20,8 +21,7 @@ Kleinwalsertal, Germany, 17-20th, March 2024\
 L. Moreno, N. Crescencio, V. Singer, A. Larese and R. Wüchner
 
 
-* Oral conference speaker in **Norddeutsches Mechanikkolloquium & Gründungskol-
-loquium, Institut für Akustik und Dynamik.** \
+* Oral conference speaker in **Norddeutsches Mechanikkolloquium & Gründungskolloquium, Institut für Akustik und Dynamik.**\
 Braunschweig, Germany, 10 February, 2024.\
 <u>Title</u>: *A stabilized mixed formulation for incompressible materials in the Material Point Method for simulating gravitational natural hazards.*\
 L. Moreno, N. Crescencio, V. Singer, A. Larese and R. Wüchner
@@ -38,6 +38,8 @@ L. Moreno, A. Larese and R. Wüchner.
 Waseda University, Tokyo, Japan, August 19 - 25, 2023.\
 <u>Title</u>: *Numerical modelling of viscoelastic flows with high elasticity.*\
 L. Moreno, J. Baiges and R. Codina.
+
+*Organization of Minysimposium in
 
 * Oral conference speaker in **SIAM Conference on Mathematical & Computational Issues in the Geosciences (GS23)** [[Link](https://www.siam.org/conferences/cm/conference/gs23)]\
 Radisson Blu Royal Hotel, Bergen, Norway, June 19 - 22, 2023.\

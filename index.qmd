@@ -42,7 +42,7 @@ A few years ago, I studied mathematics at the University of Alicante in Spain. A
 Then I moved to the Department of Mathematics at the University of Padua in Italy as a postdoctoral researcher. There, I began working with MPM to study the numerical simulation of structures subjected to extreme natural phenomena.
 
 
-I am also part of the [Kratos Multiphysics](https://github.com/KratosMultiphysics/Kratos) community. Kratos is an open-source simulation software written in C++ and Python.
+I am also part of the [Kratos Multiphysics](https://github.com/KratosMultiphysics/Kratos) community as [developer](https://github.com/lauramoremar). Kratos is an open-source simulation software written in C++ and Python.
 
 
 ![](/assets/images/kratos.png){width=40% fig-align="center"}
