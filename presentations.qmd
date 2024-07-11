@@ -39,7 +39,7 @@ Waseda University, Tokyo, Japan, August 19 - 25, 2023.\
 <u>Title</u>: *Numerical modelling of viscoelastic flows with high elasticity.*\
 L. Moreno, J. Baiges and R. Codina.
 
-*Organization of Minysimposium in
+
 
 * Oral conference speaker in **SIAM Conference on Mathematical & Computational Issues in the Geosciences (GS23)** [[Link](https://www.siam.org/conferences/cm/conference/gs23)]\
 Radisson Blu Royal Hotel, Bergen, Norway, June 19 - 22, 2023.\
