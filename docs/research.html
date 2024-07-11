@@ -159,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="material-point-method-mpm" class="level2">
 <h2 class="anchored" data-anchor-id="material-point-method-mpm">Material Point Method (MPM)</h2>
-<p>Currently I am working on large deformation problems in structural mechanics. This area is particularly interesting because civil structures can experience significant deformations and even fractures due to strong impacts, overall in a water hazard event as a flood or a landslide.</p>
+<p>Currently, I am working on large deformation problems in structural mechanics related to hydrological hazard events. This area is particularly interesting for several reasons. On the one hand, civil structures can experience significant deformations and even fractures due to strong impacts, especially during water hazard events such as floods or landslides. On the other hand, most moving masses are modeled as solid materials that undergo these large deformations.</p>
 <div id="fig-water-hazard-events" class="quarto-layout-panel">
 <figure class="figure">
 <div class="quarto-layout-row quarto-layout-valign-top">
@@ -180,11 +180,10 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1: Water Hazard Events</figcaption><p></p>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: Recent Water Hazard Events</figcaption><p></p>
 </figure>
 </div>
 <p>To address these challenges, I am using an enriched finite element-based technique known as the Material Point Method (MPM).</p>
-<p>In particular, my research focuses on developing and implementing the Variational Multiscale Method, a stabilization technique that addresses the inherent instabilities of incompressible materials when using mixed formulations and linear interpolations. The objective is to accurately simulate both solid and fluid incompressible problems using the MPM, materials involved in a hidrological hazard event.</p>
 <p>Let me show you a very simple two-dimensional example of a MPM problem, where we can observe the two different discretizations used in this method: the Background Mesh (similar to the Finite Element Mesh) and the particle discretization (material points, in red). A granular flow is considered here, moving downward due to gravitational forces.</p>
 <div id="fig-valfredda" class="quarto-figure quarto-figure-center anchored">
 <figure class="figure">
@@ -193,6 +192,7 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 <p>An good overview about this method is: <em>Material Point Method after 25 years theory, implementation and applications</em> <a href="https://www.researchgate.net/publication/336796234_Material_point_method_after_25_years_theory_implementation_and_applications">[Link]</a>.</p>
+<p><em>My research</em> focuses on developing and implementing stabilization techniques that addresses the inherent instabilities of <em>incompressible materials</em> (water would be an incompressible material, for example). The objective is to accurately simulate both solid and fluid incompressible problems using the MPM, clearly involved in an hidrological hazard event.</p>
 </section>
 <section id="computational-fluid-dynamics" class="level2">
 <h2 class="anchored" data-anchor-id="computational-fluid-dynamics">Computational fluid dynamics</h2>
