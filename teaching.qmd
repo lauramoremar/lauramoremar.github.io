@@ -5,6 +5,21 @@ title: "Teaching"
 ## Academic training
 
 ### Undergratudate courses
+
+**2024/2025 Fundamentos Matemáticos en Ingeniería I**\
+   Degree: Grado en Ingeniería Aeroespacial\
+   Department of Applied Mathematics, University of Alicante, Spain\
+   Lenguage: Spanish\
+   Teaching type: Lecture (Theory and exercises) (120h)\
+   [Website](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wcodest=C214&wcodasi=33803&wlengua=C&scaca=2024-25)
+
+**2024/2025 Matemáticas Básicas **\
+   Degree: Grado en Ingeniería en Sonido e Imagen en Telecomunicación\
+   Department of Applied Mathematics, University of Alicante, Spain\
+   Lenguage: Spanish\
+   Teaching type: Lecture (Exercises) (30h)\
+   [Website](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=en&wcodasi=20004&scaca=2024-25#)
+
 **2022/2023 Calcolo Numerico**\
 Degree: Ingegneria Chimica e dei materiali\
 Dipartimento di Matematica, University of Padua, Italy\

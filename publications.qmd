@@ -4,13 +4,19 @@ title: "Publications"
 
 <!-- **Accepted** -->
 
-## Submitted
+<!-- ## Submitted -->
 
-A mixed stabilized MPM formulation for incompressible hyperelastic materials using Variational Subgrid-Scales \
-Moreno L., Larese A. & Wüchner R.\
-*Computer Methods in Applied Mechanics and Engineering* (2024)
+
 
 ## Published
+
+### 2025
+
+**8.-** A mixed stabilized MPM formulation for incompressible hyperelastic materials using Variational Subgrid-Scales. [[Post-print]](/assets/docs/artweb008-lm.pdf) \
+Moreno L., Larese A. & Wüchner R.\
+*Computer Methods in Applied Mechanics and Engineering*, Vol. 435 (2025) 117621.\
+[DOI: 10.1016/j.cma.2024.117621](https://doi.org/10.1016/j.cma.2024.117621)
+
 
 ### 2023
 

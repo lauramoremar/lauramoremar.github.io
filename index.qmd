@@ -4,8 +4,8 @@ image: laura_photo2024.jpg
 about: 
   template: trestles
   links:
-    - text: "{{< fa envelope >}} Email TUBS"
-      url: "mailto: laura.moreno-martinez@tu-braunschweig.de"
+    - text: "{{< fa envelope >}} Email UA"
+      url: "mailto: laura.morenomartinez@ua.es"
     - text: LinkedIn
       icon: linkedin
       url: "https://www.linkedin.com/in/lauramoremar/"
@@ -29,35 +29,51 @@ comments: false
 ::: {.column-page}
 
 ## Bio
-Hello! I'm a postdoctoral researcher at [the Institut für Statik und Dynamik](https://www.tu-braunschweig.de/isd) in the Technical University of Braunschweig (TUBS), in Germany.
-<!-- I'm also part of thel Resarch Training Group [ GRK 2075](https://www.tu-braunschweig.de/grk-2075).   -->
+Hello! I'm an **Assistant Professor** in the Department of Applied Mathematics at the University of Alicante (UA), in Spain.
+
+**My research** focuses on advancing the Material Point Method (MPM), a particle-based technique ideal for tackling large deformation problems in solid and fluid mechanics. This method has proven invaluable for <ins>simulating phenomena such as granular flows, landslides, and avalanches</ins>. Notably, MPM was employed to recreate the stunning snow effects in Disney's [Frozen animation](https://www.youtube.com/watch?v=O0kyDKu8K-k).
+
+Although my current research primarily focuses on engineering applications, **I am not an engineer by training**.
+
+**I began my academic journey studying Mathematics** at the University of Alicante in Spain. Motivated by a passion for applied mathematics, I pursued a Master's degree specializing in <ins>mathematical modeling for the numerical simulation of physical phenomena</ins>. During my PhD at the Technical University of Catalunya (UPC), my research centered on developing mathematical models to simulate highly elastic <ins>viscoelastic flows</ins>. After completing my doctorate, I joined the Department of Mathematics at the University of Padua in Italy as a postdoctoral researcher. There, I transitioned to working with the <ins>Material Point Method (MPM)</ins> to simulate the behavior of structures under extreme natural phenomena. Later, I continued this line of research at [the Institut für Statik und Dynamik](https://www.tu-braunschweig.de/isd) at the Technical University of Braunschweig (TUBS) in Germany.
 
 
-**My research** focuses on the development of the <ins>Material Point Method (MPM)</ins>, a particle method useful for solving large deformation problems in solid and fluid mechanics, such as the simulation of granular flows, landslides, and avalanches. In fact, this technique was used to reproduce the snow in the animation for the [Frozen movie](https://www.youtube.com/watch?v=O0kyDKu8K-k).
+As an educator, I aim to inspire curiosity and foster critical thinking among my students. **I teach calculus courses tailored to various engineering disciplines**, including aerospace, telecommunications, architecture, and robotics. My approach emphasizes connecting theoretical concepts with practical applications, helping students see mathematics as a powerful tool for solving real-world challenges.
 
+::: columns
+::: {.column width="65%"}
 
-Although my current research is primarily in engineering, I am not an engineer.
+In addition to my academic and teaching work, I am an active member of the [Kratos Multiphysics](https://github.com/KratosMultiphysics/Kratos) community, where I contribute as a [developer](https://github.com/lauramoremar). Kratos is an open-source simulation software, written in C++ and Python, that focuses on advanced computational mechanics, and I am proud to be involved in its ongoing development.
+:::
 
-A few years ago, I studied mathematics at the University of Alicante in Spain. After completing my degree, I was an enthusiastic mathematician eager to specialize in applied mathematics. I pursued an additional Master's degree, which equipped me with expertise in mathematical modeling for the numerical simulation of physical phenomena. During my PhD at the Technical University of Catalunya (UPC), I worked on developing mathematical models to simulate <ins>viscoelastic flows</ins> with high elasticity.
-Then I moved to the Department of Mathematics at the University of Padua in Italy as a postdoctoral researcher. There, I began working with MPM to study the numerical simulation of structures subjected to extreme natural phenomena.
+::: {.column width="35%"}
 
+![](/assets/images/kratos.png){width=70% fig-align="center"}
 
-I am also part of the [Kratos Multiphysics](https://github.com/KratosMultiphysics/Kratos) community as [developer](https://github.com/lauramoremar). Kratos is an open-source simulation software written in C++ and Python.
-
-
-![](/assets/images/kratos.png){width=40% fig-align="center"}
-
-
-<!-- Finally I would also like to mention a **personal project** to which I dedicate my free time. I would like to point out that the gender gap in science, and in particular in engineering, is a fact today, as indicated by the [United Nations](https://www.un.org/en/un-chronicle/lack-gender-equality-science-everyone%E2%80%99s-problem#:~:text=According to%20UNESCO%20Science%20the%20percentage%20could%20be%20much%20higher%20). I believe that the **visibility** of historical women scientists is an important point to encourage girls to pursue careers in science, and in particular in engineering and mathematics. To this end, I manage the  instagram account named [Señoras de Ciencia](https://www.instagram.com/senyorasciencia/) (in spanish, sorry) with a lot of love, although I invest less time on it than I would like to. -->
-
+:::
+:::
 
 ## Contact
 
-Institut für Statik und Dynamik\
-Beethovenstraße 51,\
-38106 Braunschweig, Germany\
-laura.moreno-martinez@tu-braunschweig.de\
-moremar.laura@gmail.com
+::: columns
+::: {.column width="50%"}
+Departamento de Matemática Aplicada (Escuela Politécnica Superior),\
+Ctra. San Vicente s/n,\
+03690 San Vicente del Raseig, Alicante, Spain\
+laura.morenomartinez@ua.es
+
+![](/assets/images/logo-ua-color_medi.png){width=50%}
+
+:::
+
+::: {.column width="50%"}
+
+
+:::
+:::
+
+<!-- Finally I would also like to mention a **personal project** to which I dedicate my free time. I would like to point out that the gender gap in science, and in particular in engineering, is a fact today, as indicated by the [United Nations](https://www.un.org/en/un-chronicle/lack-gender-equality-science-everyone%E2%80%99s-problem#:~:text=According to%20UNESCO%20Science%20the%20percentage%20could%20be%20much%20higher%20). I believe that the **visibility** of historical women scientists is an important point to encourage girls to pursue careers in science, and in particular in engineering and mathematics. To this end, I manage the  instagram account named [Señoras de Ciencia](https://www.instagram.com/senyorasciencia/) (in spanish, sorry) with a lot of love, although I invest less time on it than I would like to. -->
+
 
 :::
 
