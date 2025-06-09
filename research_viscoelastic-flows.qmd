@@ -1,0 +1,348 @@
+---
+title: "Viscoelastic Fluid Flows"
+format:
+  html:
+    toc: true
+    toc-depth: 2
+    number-sections: true
+---
+
+# Overview
+
+Viscoelastic fluids are materials that exhibit both viscous and elastic behavior, making their modeling particularly challenging, especially at high Weissenberg numbers,  that is, for highly elastic flows.
+
+:::{.columns}
+
+::: {.column width="50%"}
+![The Weissenberg effect [Source](https://www.flowvis.org/2016/09/02/the-weissenberg-effect-shown-using-a-non-newtonian-fluid/)](assets/images-viscoelasticity/Get_Wet_Peter.jpg){fig-cap="The Weissenberg effect" width=65%}
+:::
+
+::: {.column width="50%"}
+![The Kaye-Effect](assets/images-viscoelasticity/The_Kaye-Effect.jpg){fig-cap="The Kaye-Effect" width=150% }
+:::
+
+:::
+
+
+This is in fact **one of the biggest challenges** in computational rheology, dating back to the **1970s**. At that time, all methods were observed to **break down** at relatively low Weissenberg numbers. For approximately 30 years, this breakdown was believed to be a purely *numerical phenomenon*.
+
+Nowadays, the so-called **High Weissenberg Number Problem (HWNP)** continues to motivate the development of new formulations and numerical strategies for robust and accurate simulations.
+
+This research line originated from my PhD work and focuses on the numerical simulation of these complex flows using the Finite Element Method (FEM). The goal is to develop stable and accurate numerical techniques to better understand and predict the behavior of viscoelastic fluids with high elasticity across a wide range of applications, from industrial processes to biological systems.
+
+Note that these research topics were a natural continuation of the Ernesto Castillo's [thesis](http://hdl.handle.net/2117/96306).
+
+
+## What is a Viscoelastic Fluid?
+
+Viscoelastic fluids are a specific type of **non-Newtonian fluid** that exhibit a combination of both **viscous** and **elastic** behaviors:
+
+- **Viscous**: associated with friction, energy dissipation, and loss of memory.
+- **Elastic**: characterized by the ability to recoil and store internal energy.
+
+This unique combination stems from their **complex internal microstructure**, which leads to *memory effects*:
+
+> The current stress state depends not only on the present deformation but also on the entire **flow history**.
+
+![](assets/images-viscoelasticity/Intro_amasando.png){fig-cap="The Weissenberg effect" width=50%}
+
+
+- These materials require a **nonlinear constitutive equation** to accurately describe their behavior, going beyond the classical Navier–Stokes framework.
+- Their complex rheology poses significant challenges for standard numerical methods, especially at high elasticity.
+
+## Modelling of polymeric fluid flows
+
+
+While Newtonian fluids can be modeled using only the Navier–Stokes equations (which include the momentum and continuity equations), modeling viscoelastic fluid flows requires an additional constitutive equation to properly capture the elastic behavior of the fluid.
+
+::: {.callout}
+Momentum equation
+
+$$
+\rho \frac{\partial \boldsymbol{u}}{\partial t} + \rho \boldsymbol{u} \cdot \nabla \boldsymbol{u} - \nabla \cdot \mathbf{T} + \nabla p = \boldsymbol{f}
+$$
+
+Continuity equation
+
+$$
+\nabla \cdot \boldsymbol{u} = 0
+$$
+
+Constitutive equation
+
+$$
+\frac{1}{2 \eta_p} \big(1 + \mathfrak{h}(\boldsymbol{\sigma}) \big) \cdot \boldsymbol{\sigma} - \nabla^s \boldsymbol{u} + \frac{\lambda}{2 \eta_p} \left( \frac{\partial \boldsymbol{\sigma}}{\partial t} + \boldsymbol{u} \cdot \nabla \boldsymbol{\sigma} - \boldsymbol{\sigma} \cdot \nabla \boldsymbol{u} + (\nabla \boldsymbol{u})^{T} \cdot \boldsymbol{\sigma} \right) = \mathbf{0}
+$$
+:::
+
+where the unknowns are the velocity $\boldsymbol{u}$, pressure $p$ and the extra stress tensor $\boldsymbol{\sigma}$. The Deviatoric stress tensor is denoted by $\mathbf{T}$, $\eta_p$ is the polymer viscosity coefficient and
+$\lambda$ is the relaxation time. The expression of $\mathfrak{h}(\boldsymbol{\sigma})$ depends on the model chosen. In general $\mathfrak{h}(\boldsymbol{\sigma})=0$, which corresponds to the Oldroyd-B model.
+
+Also, note that $\mathbf{T}$ adopts different forms, depending of the fluid flow to simulate:
+
+  - Newtonian viscous fluids: $\mathbf{T} = 2 \eta \nabla^s \boldsymbol{u}$
+
+  - Polymeric fluids: $\mathbf{T} = 2 \eta_s \nabla^s \boldsymbol{u} + \boldsymbol{\sigma}$
+
+where $\eta_s$ is the solvent viscosity for viscoelastic fluid flows. Note that $\eta_s+\eta_p=\eta$, that is the usual viscosity employed for Newtonian fluids.
+
+## The Weissenberg Number
+
+The Weissenberg number (**We**) is a dimensionless quantity that compares **elastic** and **viscous** effects in viscoelastic fluid flows. It is defined as:
+
+$$
+\mathrm{We} = \frac{\lambda U}{L}
+$$
+
+Where $\lambda$ is relaxation time, $U$ is the characteristic velocity and $L$ characteristic length.
+
+The physical interpretation is:
+
+- If **$\mathrm{We}$ is small**: Viscous effects dominate, elastic behavior is negligible.  
+- If **$\mathrm{We}$ is large** (typically $\mathrm{We} > 1$): Elastic effects become significant, leading to **complex flow behavior** and **numerical difficulties**.
+
+
+## Weak Formulation
+
+The weak form of the problem consists in finding $\boldsymbol{U} = [\boldsymbol{u}, p, \boldsymbol{\sigma}] : ]0, t_{\rm f}[ \longrightarrow \boldsymbol{\mathcal{X}} := \boldsymbol{\mathcal{V}}_0 \times \boldsymbol{\mathcal{Q}} \times \boldsymbol{\Upsilon}$,   such that the initial conditions are satisfied and:
+
+$$
+\left(\rho \dfrac{\partial \boldsymbol{u}}{\partial t}, \boldsymbol{v}\right) 
++ (\boldsymbol{\sigma}, \nabla^{s} \boldsymbol{v}) 
++ 2 (\eta_{e} \nabla^{s} \boldsymbol{u}, \nabla^{s} \boldsymbol{v}) 
++ \langle \rho \boldsymbol{u} \cdot \nabla \boldsymbol{u}, \boldsymbol{v} \rangle 
+- (p, \nabla \cdot \boldsymbol{v}) 
+= \langle \boldsymbol{f}, \boldsymbol{v} \rangle,
+$$
+$$
+(q, \nabla \cdot \boldsymbol{u}) = 0,
+$$
+$$
+\dfrac{1}{2 \eta_{p}} (\boldsymbol{\sigma}, \boldsymbol{\chi}) 
+- (\nabla^{s} \boldsymbol{u}, \boldsymbol{\chi}) 
++ \dfrac{\lambda}{2 \eta_{p}} \left( 
+\dfrac{\partial \boldsymbol{\sigma}}{\partial t} 
++ \boldsymbol{u} \cdot \nabla \boldsymbol{\sigma} 
+- \boldsymbol{\sigma} \cdot \nabla \boldsymbol{u} 
+- (\nabla \boldsymbol{u})^{T} \cdot \boldsymbol{\sigma}, 
+\boldsymbol{\chi} \right) = 0,
+$$
+
+for all  $\boldsymbol{V} = [\boldsymbol{v}, q, \boldsymbol{\chi}] \in \boldsymbol{\mathcal{X}}$,  where it is assumed that $\boldsymbol{f}$ is such that   $\langle \boldsymbol{f}, \boldsymbol{v} \rangle$ is well defined.
+
+In compact form, the problem can be written as:
+
+$$ \mathcal{G}(\boldsymbol{U}, \boldsymbol{V}) 
++ B(\boldsymbol{u}; \boldsymbol{U}, \boldsymbol{V}) 
+= L(\boldsymbol{V}),$$
+
+for all $\boldsymbol{V} \in \boldsymbol{\mathcal{X}}$, where:
+
+$\mathcal{G}(\boldsymbol{U}, \boldsymbol{V}) =  \left(\rho \dfrac{\partial \boldsymbol{u}}{\partial t}, \boldsymbol{v}\right) + \dfrac{\lambda}{2 \eta_{0}} \left(\dfrac{\partial \boldsymbol{\sigma}}{\partial t}, \boldsymbol{\chi} \right),$
+
+$\begin{aligned} B(\hat{\boldsymbol{u}}; \boldsymbol{U}, \boldsymbol{V}) =\ & 2 (\eta_{e} \nabla^{s} \boldsymbol{u}, \nabla^{s} \boldsymbol{v}) + \langle \rho \hat{\boldsymbol{u}} \cdot \nabla \boldsymbol{u}, \boldsymbol{v} \rangle + (\boldsymbol{\sigma}, \nabla^{s} \boldsymbol{v}) \\ & - (p, \nabla \cdot \boldsymbol{v}) + (q, \nabla \cdot \boldsymbol{u}) + \dfrac{1}{2 \eta_{p}} (\boldsymbol{\sigma}, \boldsymbol{\chi}) - (\nabla^{s} \boldsymbol{u}, \boldsymbol{\chi}) \\ & + \dfrac{\lambda}{2 \eta_{p}} \left( \hat{\boldsymbol{u}} \cdot \nabla \boldsymbol{\sigma} - \boldsymbol{\sigma} \cdot \nabla \hat{\boldsymbol{u}} - (\nabla \hat{\boldsymbol{u}})^{T} \cdot \boldsymbol{\sigma}, \boldsymbol{\chi} \right), \end{aligned}$
+
+$L(\boldsymbol{V}) = \langle \boldsymbol{f}, \boldsymbol{v} \rangle.$
+
+
+## Spatial discretization using the Finite Element Method
+
+The **Galerkin finite element method** consists in seeking an approximate solution within a finite-dimensional subspace of the original infinite-dimensional function space. 
+Given a weak formulation of the problem, the solution is approximated by projecting it onto a finite element space constructed from piecewise polynomial basis functions defined over a mesh of the computational domain.\
+
+In this framework, the trial and test functions are chosen from the same finite element space, ensuring consistency and stability under appropriate conditions.\ 
+
+In general, the finite element partition of the domain $\Omega$ is denoted by $\mathcal{T}_{h} = \{K\}$. Likewise, the diameter of an element $K \in \mathcal{T}_{h}$ is denoted by $h_{K}$, and the diameter of the partition is defined as $h = \max\{h_{K} \mid K \in \mathcal{T}_{h}\}.$
+From $\mathcal{T}_{h}$ we construct conforming finite element spaces for the velocity, the pressure, and the elastic stress: 
+$\boldsymbol{\mathcal{V}}_{h} \subset \boldsymbol{\mathcal{V}}$, 
+$\mathcal{Q}_{h} \subset \mathcal{Q}$, and 
+$\boldsymbol{\Upsilon}_{h} \subset \boldsymbol{\Upsilon}$, respectively. 
+
+Therefore, defining $\boldsymbol{\mathcal{X}}_{h} := \boldsymbol{\mathcal{V}}_{h} \times \mathcal{Q}_{h} \times \boldsymbol{\Upsilon}_{h},$
+the Galerkin finite element approximation of the standard problem consists in finding  $\boldsymbol{U}_{h} : ]0, t_{\mathrm{f}}[ \longrightarrow \boldsymbol{\mathcal{X}}_{h},$
+such that:
+
+$$
+\underbrace{\mathcal{G}(\boldsymbol{U}_{h}, \boldsymbol{V}_{h})}_{\text{Temporal terms}} + 
+\underbrace{B(\boldsymbol{u}_{h}; \boldsymbol{U}_{h}, \boldsymbol{V}_{h})}_{\text{Bilinear form}} 
+= L(\boldsymbol{V}_{h}),
+$$
+
+for all $\boldsymbol{V}_{h} \in \boldsymbol{\mathcal{X}}_{h}$.
+
+The resulting system is a set of algebraic equations that can be efficiently solved using numerical linear algebra techniques.
+
+## Stabilization
+
+Por qué hay que estabilizar (fluido incompresible).
+Añadir aqui referencias a la VMS stabilization.
+
+
+# Key Topics and Contributions
+
+
+## Logarithmic-Conformation Reformulation (LCR)
+
+Fattal and Kupferman (2004) identified the origin of the High Weissenberg Number Problem (HWNP) as:
+
+-- **Inappropriate approximations** used to represent the stress tensor.\
+-- **Need to preserve the positivity** of the **the conformation tensor**, given by 
+$$\textcolor{MidnightBlue}{\boldsymbol{\tau}}= \lambda \dfrac{\textcolor{BrickRed}{\boldsymbol{\sigma}}}{\eta_p} + \mathbf{I}.$$
+
+
+Therefore they proposed the **Log-Conformation Reformulation (LCR)** that is, essentially, a change of variables.
+
+::: {.callout-note}
+- It handles the **exponential growth** of elastic stresses when the elastic component becomes dominant.  
+- It allows **extending the range** of elastic fluids that can be simulated. ✅  
+- It is more **computationally expensive** than the standard formulation. ❌  
+:::
+
+The change of variable adopted in this work is
+$$
+\boldsymbol{\psi} = \log\left(\textcolor{MidnightBlue}{\boldsymbol{\tau}}\right)
+= \log\left( \dfrac{\lambda_0 \textcolor{BrickRed}{\boldsymbol{\sigma}}}{\eta_p} + \mathbf{I} \right)
+\quad \longrightarrow \quad
+\textcolor{BrickRed}{\boldsymbol{\sigma}} = \dfrac{\eta_p}{\lambda_0} \left( \textcolor{PineGreen}{\exp(\boldsymbol{\psi})} - \mathbf{I} \right)
+$$
+
+where $\lambda_0 = \max\{k\lambda, \lambda_{0,\min}\}$ in order to get a physically-admissible conformation tensor that must be **symmetric** and **positive-definite**.
+
+> In contrast with the original one, **our change of variables is non-singular** when the Weissenberg number $\rm{We}$ is close to zero.
+
+By replacing this expresion in the original equations, we obtain a new set of equations in which the unknowns are the velocity $\boldsymbol{u}$, pressure $p$ and $\boldsymbol{\psi}$.
+
+With the new equations, we develop the VMS stabilization corresponding to the residual-based formulation. Additionally, we design a "split" type stabilization, which considers only the essential terms required to stabilize the problem, while still achieving optimal convergence.
+
+::: {.callout-tip title="Remarks: Linearized Problem and Algorithm"}
+- Non-linear terms are linearized with the **Newton-Raphson method** and the exponential term is approximated using a **Taylor expansion**.
+- The **orthogonal projection** has been approximated as:
+
+$$
+P_h^{\bot}[f^i] \approx f^i - P_h[f^{i-1}]
+$$
+:::
+
+### Numerical Result: Flow past a Cylinder
+
+**Setup scheme**
+![](assets/images-viscoelasticity/Cylinder_Scheme.png)
+
+The flow moves from left to right across the domain, which consists of a channel with an obstacle in the center (a cylinder). Only half of the domain is considered, assuming symmetry and periodic boundary conditions along the horizontal axis.
+
+::: {.columns}
+
+::: {.column width="50%"}
+- **Computational domain**:  
+  $R = 1$
+
+- **Boundary conditions**:  
+  - Inflow: $u_x = 0.75$ m/s, $u_y = 0$  
+  - Symmetry on the axis  
+  - Free outflow velocity  
+  - No-slip on the cylinder wall and top wall
+:::
+
+::: {.column width="50%"}
+- **Viscoelastic fluid parameters**:  
+  - $\rho = 1$ kg·m⁻³  
+  - $\beta = 0.59$  
+  - $\eta_0 = 1$  
+  - $\lambda = 0.1$ s
+
+- **Dimensionless numbers**:  
+  - Re ≈ 0  
+  - We ∈ {0.6, …, 2.4}
+
+- **Spatial discretization**:  
+  - Triangular mesh  
+  - 336106 elements, 179645 nodes  
+  - $h_{\text{min}} = 0.001$
+:::
+
+:::
+
+
+**Comparison of drag force coefficient**
+
+::: {.columns}
+::: {.column width="60%"}
+![](assets/images-viscoelasticity/Cylinder_Drag.png)
+:::
+
+::: {.column width="40%"}
+> ::: {.callout-note}
+> - Literature results often **break down** at We ≈ 0.9  
+> - The LCR formulation exhibits **good stability for higher We**
+> :::
+:::
+:::
+
+Note that each Weissenberg number correspond to a fluid flow with different elasticity.
+
+**Stress convergence study**\
+Comparison of the stresses over cylinder and upstream with literature and using different discretizations (M1 and M2, being M2 the finer one).
+
+![Domain with sampling locations](assets/images-viscoelasticity/Cylinder_Scheme_plots.png){width=65%}
+
+::: {.columns}
+::: {.column width="50%"}
+![Stress plots We=0.7](assets/images-viscoelasticity/Cylinder_We07_B.png)
+![Stress plots We=0.9](assets/images-viscoelasticity/Cylinder_We09.png)
+:::
+
+::: {.column width="50%"}
+![Rear view We=0.7](assets/images-viscoelasticity/Cylinder_We07_rearweak.png) 
+![Rear view We=0.9](assets/images-viscoelasticity/Cylinder_We09_rearweak.png)
+:::
+:::
+
+> ::: {.callout-note}
+> - **Top**: We = 0.7. Results fits completely with literature.
+> - **Bottom**: We = 0.9. The results don't show mesh convergence.   
+> :::
+
+## Thermal Coupling
+
+Explored the interaction between viscoelastic stress and temperature fields, particularly relevant in processes involving polymer melts.
+
+- Developed a coupled thermo-viscoelastic formulation.
+- Demonstrated effects on stress profiles and flow behavior.
+
+## Time-dependent subgrid-scales
+
+## Purely elastic inestability and Fractional Step Methods
+
+A fractional-step scheme was developed to decouple the computation of velocity, pressure, and stress fields. This technique improves solver robustness and allows more flexibility in time integration.
+
+- Tested both semi-implicit and fully implicit schemes.
+- Applied to various constitutive models (Oldroyd-B, Giesekus...).
+
+
+## Fluid-Structure Interaction
+
+
+## Numerical Analysis
+
+
+# Software and Implementation
+
+The numerical developments were implemented in the in-house FEM code **Femuss**, designed specifically for advanced CFD applications, and later developed for solving solid mechanics problems too. The code allows for modular addition of constitutive models, solver schemes, and stabilization techniques.
+
+
+# Selected Publications
+
+
+
+# Collaborators
+
+- **Dr. Ernesto Castillo del Barrio**, Universidad de Santiago de Chile (Usach)
+- **Dr. Inocencio Castañar**, Universitat Politècnica de Catalunya (UPC).
+
+---
+
+> *This research line formed the core of my PhD thesis, defended at the Universitat Politècnica de Catalunya (UPC).*
+
+
+
+

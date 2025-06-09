@@ -1,0 +1,34 @@
+---
+title: "Material Point Method"
+format: html
+---
+
+
+Currently, I am working on large deformation problems in structural mechanics related to hydrological hazard events. This area is particularly interesting for several reasons. On the one hand, civil structures can experience significant deformations and even fractures due to strong impacts, especially during water hazard events such as floods or landslides. On the other hand, most moving masses are modeled as solid materials that undergo these large deformations.
+
+
+::: {#fig-water-hazard-events layout-ncol=2}
+
+![2018 Hokkaido landslide after earthquake, Japan (The Guardian)](/assets/images/Landslide.jpg){width=30% fig-align="center"}
+
+![2021 A damaged bridge in Bad Neuenahr-Ahrweiler, Germany](/assets/images/Floods.jpg){width=25% fig-align="center"}
+
+Recent Water Hazard Events
+:::
+
+To address these challenges, I am using an enriched finite element-based technique known as the Material Point Method (MPM).
+
+Let me show you a very simple two-dimensional example of a MPM problem, where we can observe the two different discretizations used in this method: the Background Mesh (similar to the Finite Element Mesh) and the particle discretization (material points, in red). A granular flow is considered here, moving downward due to gravitational forces.
+
+
+::: {#fig-valfredda}
+{{< video valfredda2D.mp4 width="400%">}}
+
+
+2D Problem of a granular flow going downhill
+:::
+An good overview about this method is: *Material Point Method after 25 years theory, implementation and applications* [[Link]](https://www.researchgate.net/publication/336796234_Material_point_method_after_25_years_theory_implementation_and_applications).
+
+
+*My research* focuses on developing and implementing stabilization techniques that addresses the inherent instabilities of *incompressible materials* (water would be an incompressible material, for example). The objective is to accurately simulate both solid and fluid incompressible problems using the MPM, clearly involved in an hidrological hazard event.
+

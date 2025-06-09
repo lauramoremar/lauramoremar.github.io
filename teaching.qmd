@@ -1,55 +1,76 @@
 ---
 title: "Teaching"
+format: html
 ---
 
-## Academic training
+### 🧑‍🏫 Undergraduate Courses
 
-### Undergratudate courses
+#### Fundamentos Matemáticos en Ingeniería I
+- **Degree**: Grado en Ingeniería Aeroespacial  
+- **Institution**: Department of Applied Mathematics, University of Alicante, Spain  
+- **Language**: Spanish  
+- **Type**: Lecture (Theory and exercises)  
+- **Years**:  
+  - 2024/2025 (120h) – [Guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wcodest=C214&wcodasi=33803&wlengua=C&scaca=2024-25)  
+  - 2025/2026 (scheduled)
 
-**2024/2025 Fundamentos Matemáticos en Ingeniería I**\
-   Degree: Grado en Ingeniería Aeroespacial\
-   Department of Applied Mathematics, University of Alicante, Spain\
-   Lenguage: Spanish\
-   Teaching type: Lecture (Theory and exercises) (120h)\
-   [Website](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wcodest=C214&wcodasi=33803&wlengua=C&scaca=2024-25)
+#### Matemáticas Básicas
+- **Degree**: Grado en Ingeniería en Sonido e Imagen en Telecomunicación  
+- **Institution**: Department of Applied Mathematics, University of Alicante, Spain  
+- **Language**: Spanish  
+- **Type**: Lecture (Exercises)
+- **Year**: 
+   - 2024/2025 (30h) – [Guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=en&wcodasi=20004&scaca=2024-25#)
+   - 2025/2026 (scheduled)
 
-**2024/2025 Matemáticas Básicas **\
-   Degree: Grado en Ingeniería en Sonido e Imagen en Telecomunicación\
-   Department of Applied Mathematics, University of Alicante, Spain\
-   Lenguage: Spanish\
-   Teaching type: Lecture (Exercises) (30h)\
-   [Website](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=en&wcodasi=20004&scaca=2024-25#)
+#### Fundamentos de Matemática Aplicada 2
+- **Degree**: Grado en Ingeniería Robótica  
+- **Institution**: Department of Applied Mathematics, University of Alicante, Spain  
+- **Language**: Spanish  
+- **Type**: Lecture (Exercises)  
+- **Years**:  
+  - 2024/2025 (16h) – [Guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=es&wcodasi=33706&scaca=2024-25)  
 
-**2022/2023 Calcolo Numerico**\
-Degree: Ingegneria Chimica e dei materiali\
-Dipartimento di Matematica, University of Padua, Italy\
-Language: Italian\
-Teaching type: Laboratorio numerico (24 h)\
-Description: Practical exercises of numerical calculus using the software MATLAB.
 
-### Master courses
+#### Fundamentos Matemáticos 2
+- **Degree**: Grado en Fundamentos de la Arquitectura  
+- **Institution**: Department of Applied Mathematics, University of Alicante, Spain  
+- **Language**: Spanish  
+- **Type**: Lecture (Exercises)  
+- **Year**: 2024/2025 (12h) – [Guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=es&wcodasi=35509&scaca=2024-25)
 
-**2023/2024 Particle Mechanics**\
-Degree: Master in Civil Engineering\
-Institut für Dinamik und Statik, University of Braunschweig, Germany\
-Language: English\
-Teaching type: Lecture (theory and exercises) (10 h)\
-Description: Preparation of materials and execution of practical exercises using the software KRATOS Multiphysics. 
+#### Calcolo Numerico
+- **Degree**: Ingegneria Chimica e dei materiali  
+- **Institution**: Dipartimento di Matematica, University of Padua, Italy  
+- **Language**: Italian  
+- **Type**: Laboratorio numerico  
+- **Year**: 2022/2023 (24h)  
+- **Description**: Practical exercises of numerical calculus using the software MATLAB.
 
-**2022/2023 Numerical methods for continuous systems**\
-Degree: Master in Mathematical engineering\
-Dipartimento di Ingengeria Civile, Edile e Ambientale, University of Padua, Italy\
-Language: English\
-Teaching type: Mentoring (12 h)\
-Description: Support in projects, practical exercises and elaboration of educative material.
+### 🎓 Master Courses
 
-## Mentoring
+#### Particle Mechanics
+- **Degree**: Master in Civil Engineering  
+- **Institution**: Institut für Dinamik und Statik, University of Braunschweig, Germany  
+- **Language**: English  
+- **Type**: Lecture (theory and exercises)  
+- **Year**: 2023/2024 (10h)  
+- **Description**: Preparation of materials and execution of practical exercises using the software KRATOS Multiphysics.
 
-**Master thesis co-supervisor**\
-Title: An Updated Lagrangian displacemente-based formulation for free surface incompressible fluids using MPM\
-Data of defense: December 2021\
-Student: Alessandro Contri\
-Supervisor: Antonia Larese\
-Master's defree: Master in Mathematical engineering\
-Dipartimento di Matematica, Università degli Studio di Padova, Italia
+#### Numerical Methods for Continuous Systems
+- **Degree**: Master in Mathematical Engineering  
+- **Institution**: Dipartimento di Ingegneria Civile, Edile e Ambientale, University of Padua, Italy  
+- **Language**: English  
+- **Type**: Mentoring  
+- **Year**: 2022/2023 (12h)  
+- **Description**: Support in projects, practical exercises and elaboration of educative material.
 
+### 👩‍🎓 Mentoring
+
+#### Master thesis co-supervisor
+- **Title**: *An Updated Lagrangian displacement-based formulation for free surface incompressible fluids using MPM*  
+- **Date of defense**: December 2021  
+- **Student**: Alessandro Contri  
+- **Supervisor**: Antonia Larese  
+- **Degree**: Master in Mathematical Engineering  
+- **Institution**: Dipartimento di Matematica, Università degli Studi di Padova, Italia

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Laura Moreno Martínez - Research</title>
+<title>Laura Moreno Martínez - Material Point Method</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -39,6 +39,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-contrib/videojs/video.min.js"></script>
+<link href="site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -90,7 +92,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Curriculum Vitae</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./research.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="./research.html" rel="" target="">
  <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
@@ -117,30 +119,18 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#research-lines" id="toc-research-lines" class="nav-link active" data-scroll-target="#research-lines">Research Lines</a>
-  <ul class="collapse">
-  <li><a href="#material-point-method" id="toc-material-point-method" class="nav-link" data-scroll-target="#material-point-method">🌊 Material Point Method</a></li>
-  <li><a href="#viscoelastic-fluid-flows" id="toc-viscoelastic-fluid-flows" class="nav-link" data-scroll-target="#viscoelastic-fluid-flows">🌀 Viscoelastic Fluid Flows</a></li>
-  <li><a href="#finite-element-modeling-of-complex-fluid-flows" id="toc-finite-element-modeling-of-complex-fluid-flows" class="nav-link" data-scroll-target="#finite-element-modeling-of-complex-fluid-flows">🌬️ Finite Element Modeling of Complex Fluid Flows</a></li>
-  <li><a href="#fluidstructure-interaction" id="toc-fluidstructure-interaction" class="nav-link" data-scroll-target="#fluidstructure-interaction">🔄 Fluid–Structure Interaction</a></li>
-  </ul></li>
-  </ul>
-</nav>
+        
     </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Research</h1>
+<h1 class="title">Material Point Method</h1>
 </div>
 
 
@@ -155,66 +145,42 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>My work focuses on the development and application of advanced numerical methods for fluid and solid mechanics, with a strong emphasis on FEM and MPM techniques. Below is an overview of the main research lines I’ve been involved in.</p>
-<section id="research-lines" class="level2">
-<h2 class="anchored" data-anchor-id="research-lines">Research Lines</h2>
-<hr>
-<section id="material-point-method" class="level3">
-<h3 class="anchored" data-anchor-id="material-point-method">🌊 Material Point Method</h3>
-<p><em>Numerical modeling for solid mechanics and fluid flow systems using MPM within Kratos Multiphysics.</em></p>
-<ul>
-<li>Solid Mechanics Problems including large deformations.</li>
-<li>Advanced on mixed formulations (mixed u-p)</li>
-<li>Free surface flow simulations.</li>
-<li>MPM implementation and benchmark studies.</li>
-<li>Ongoing work using Kratos Multiphysics.</li>
-</ul>
-<p><a href="./research_mpm.html">More details →</a></p>
-<hr>
-</section>
-<section id="viscoelastic-fluid-flows" class="level3">
-<h3 class="anchored" data-anchor-id="viscoelastic-fluid-flows">🌀 Viscoelastic Fluid Flows</h3>
-<p><em>Numerical modeling of viscoelastic fluids with high elasticity using FEM techniques.</em></p>
-<ul>
-<li>High-Weissenberg flows and numerical stabilization.</li>
-<li>Log-conformation reformulation.</li>
-<li>Thermal coupling.</li>
-<li>FEM implementation and solver development.</li>
-<li>Fractional Step Methods.</li>
-<li>Implementations in a in-house FEM code Femuss.</li>
-</ul>
-<p><a href="./research_viscoelastic-flows.html">More details →</a></p>
-<hr>
-</section>
-<section id="finite-element-modeling-of-complex-fluid-flows" class="level3">
-<h3 class="anchored" data-anchor-id="finite-element-modeling-of-complex-fluid-flows">🌬️ Finite Element Modeling of Complex Fluid Flows</h3>
-<p><em>FEM-based simulation of complex fluid beyond viscoelasticity.</em></p>
-<ul>
-<li>Air flow modeling around telescopes and large structures.</li>
-<li>Tunnel ventilation simulations.</li>
-<li>Same FEM code base as in viscoelasticity (Femuss).</li>
-</ul>
-<p><a href="./research_fem-complex-flows.html">More details →</a></p>
-<hr>
-</section>
-<section id="fluidstructure-interaction" class="level3">
-<h3 class="anchored" data-anchor-id="fluidstructure-interaction">🔄 Fluid–Structure Interaction</h3>
-<p><em>Simulation of coupled problems involving solid-fluid interaction, including viscoelastic and mixed formulations.</em></p>
-<ul>
-<li>FSI simulations using FEM (with and without viscoelasticity).</li>
-<li>Mixed formulation methods for fluid/structure coupling.</li>
-<li>Interface handling and numerical stability.</li>
-<li>Works overlapping with other lines (e.g., viscoelastic FSI).</li>
-</ul>
-<p><a href="research_coupled-fsi.qmd">More details →</a></p>
-<hr>
-<blockquote class="blockquote">
-<p><em>Note: Some projects may appear in more than one research line, highlighting their interdisciplinary nature.</em></p>
-</blockquote>
+<p>Currently, I am working on large deformation problems in structural mechanics related to hydrological hazard events. This area is particularly interesting for several reasons. On the one hand, civil structures can experience significant deformations and even fractures due to strong impacts, especially during water hazard events such as floods or landslides. On the other hand, most moving masses are modeled as solid materials that undergo these large deformations.</p>
+<div id="fig-water-hazard-events" class="quarto-layout-panel">
+<figure class="figure">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell" style="flex-basis: 54.5%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./assets/images/Landslide.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">2018 Hokkaido landslide after earthquake, Japan (The Guardian)</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 45.5%;justify-content: center;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./assets/images/Floods.jpg" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">2021 A damaged bridge in Bad Neuenahr-Ahrweiler, Germany</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p></p><figcaption class="figure-caption">Figure&nbsp;1: Recent Water Hazard Events</figcaption><p></p>
+</figure>
+</div>
+<p>To address these challenges, I am using an enriched finite element-based technique known as the Material Point Method (MPM).</p>
+<p>Let me show you a very simple two-dimensional example of a MPM problem, where we can observe the two different discretizations used in this method: the Background Mesh (similar to the Finite Element Mesh) and the particle discretization (material points, in red). A granular flow is considered here, moving downward due to gravitational forces.</p>
+<div id="fig-valfredda" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<div class="quarto-video"><video id="video_shortcode_videojs_video1" width="400%" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="valfredda2D.mp4"></video></div>
+<figcaption class="figure-caption">Figure&nbsp;2: 2D Problem of a granular flow going downhill</figcaption>
+</figure>
+</div>
+<p>An good overview about this method is: <em>Material Point Method after 25 years theory, implementation and applications</em> <a href="https://www.researchgate.net/publication/336796234_Material_point_method_after_25_years_theory_implementation_and_applications">[Link]</a>.</p>
+<p><em>My research</em> focuses on developing and implementing stabilization techniques that addresses the inherent instabilities of <em>incompressible materials</em> (water would be an incompressible material, for example). The objective is to accurately simulate both solid and fluid incompressible problems using the MPM, clearly involved in an hidrological hazard event.</p>
 
 
-</section>
-</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -451,6 +417,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
+<script>videojs(video_shortcode_videojs_video1);</script>
 
 
 

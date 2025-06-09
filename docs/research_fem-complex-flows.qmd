@@ -1,0 +1,14 @@
+---
+title: "Finite Element Modeling of Complex Fluids"
+format: html
+---
+
+
+## Numerical analysis of the optical quality over a telescope
+In this project, we studied the influence of one telescope on another concerning optical parameters. To conduct the study, we solved the Navier-Stokes equations on real terrain, accounting for temperature and using the Smagorinsky model to capture turbulence. We then calculated the optical parameters influenced by the air temperature.
+
+## Numerical analysis of the aerodynamic loads on a tunnel wall separation
+We evaluated the aerodynamic loads at the ends of constructed sections caused by transient flows due to train motion along the Mont-Royal tunnel. We conducted a CFD simulation using moving domains, where the tunnel geometry remained fixed while the train moved inside it. We employed an arbitrary Lagrangian-Eulerian strategy, solving the Navier-Stokes equations to account for this motion.
+
+
+

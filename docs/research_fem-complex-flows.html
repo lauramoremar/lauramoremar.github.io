@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Laura Moreno Martínez - Research</title>
+<title>Laura Moreno Martínez - Finite Element Modeling of Complex Fluids</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -90,7 +90,7 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Curriculum Vitae</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./research.html" rel="" target="" aria-current="page">
+    <a class="nav-link" href="./research.html" rel="" target="">
  <span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
@@ -117,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -125,22 +125,17 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#research-lines" id="toc-research-lines" class="nav-link active" data-scroll-target="#research-lines">Research Lines</a>
-  <ul class="collapse">
-  <li><a href="#material-point-method" id="toc-material-point-method" class="nav-link" data-scroll-target="#material-point-method">🌊 Material Point Method</a></li>
-  <li><a href="#viscoelastic-fluid-flows" id="toc-viscoelastic-fluid-flows" class="nav-link" data-scroll-target="#viscoelastic-fluid-flows">🌀 Viscoelastic Fluid Flows</a></li>
-  <li><a href="#finite-element-modeling-of-complex-fluid-flows" id="toc-finite-element-modeling-of-complex-fluid-flows" class="nav-link" data-scroll-target="#finite-element-modeling-of-complex-fluid-flows">🌬️ Finite Element Modeling of Complex Fluid Flows</a></li>
-  <li><a href="#fluidstructure-interaction" id="toc-fluidstructure-interaction" class="nav-link" data-scroll-target="#fluidstructure-interaction">🔄 Fluid–Structure Interaction</a></li>
-  </ul></li>
+  <li><a href="#numerical-analysis-of-the-optical-quality-over-a-telescope" id="toc-numerical-analysis-of-the-optical-quality-over-a-telescope" class="nav-link active" data-scroll-target="#numerical-analysis-of-the-optical-quality-over-a-telescope">Numerical analysis of the optical quality over a telescope</a></li>
+  <li><a href="#numerical-analysis-of-the-aerodynamic-loads-on-a-tunnel-wall-separation" id="toc-numerical-analysis-of-the-aerodynamic-loads-on-a-tunnel-wall-separation" class="nav-link" data-scroll-target="#numerical-analysis-of-the-aerodynamic-loads-on-a-tunnel-wall-separation">Numerical analysis of the aerodynamic loads on a tunnel wall separation</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Research</h1>
+<h1 class="title">Finite Element Modeling of Complex Fluids</h1>
 </div>
 
 
@@ -155,65 +150,15 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>My work focuses on the development and application of advanced numerical methods for fluid and solid mechanics, with a strong emphasis on FEM and MPM techniques. Below is an overview of the main research lines I’ve been involved in.</p>
-<section id="research-lines" class="level2">
-<h2 class="anchored" data-anchor-id="research-lines">Research Lines</h2>
-<hr>
-<section id="material-point-method" class="level3">
-<h3 class="anchored" data-anchor-id="material-point-method">🌊 Material Point Method</h3>
-<p><em>Numerical modeling for solid mechanics and fluid flow systems using MPM within Kratos Multiphysics.</em></p>
-<ul>
-<li>Solid Mechanics Problems including large deformations.</li>
-<li>Advanced on mixed formulations (mixed u-p)</li>
-<li>Free surface flow simulations.</li>
-<li>MPM implementation and benchmark studies.</li>
-<li>Ongoing work using Kratos Multiphysics.</li>
-</ul>
-<p><a href="./research_mpm.html">More details →</a></p>
-<hr>
+<section id="numerical-analysis-of-the-optical-quality-over-a-telescope" class="level2">
+<h2 class="anchored" data-anchor-id="numerical-analysis-of-the-optical-quality-over-a-telescope">Numerical analysis of the optical quality over a telescope</h2>
+<p>In this project, we studied the influence of one telescope on another concerning optical parameters. To conduct the study, we solved the Navier-Stokes equations on real terrain, accounting for temperature and using the Smagorinsky model to capture turbulence. We then calculated the optical parameters influenced by the air temperature.</p>
 </section>
-<section id="viscoelastic-fluid-flows" class="level3">
-<h3 class="anchored" data-anchor-id="viscoelastic-fluid-flows">🌀 Viscoelastic Fluid Flows</h3>
-<p><em>Numerical modeling of viscoelastic fluids with high elasticity using FEM techniques.</em></p>
-<ul>
-<li>High-Weissenberg flows and numerical stabilization.</li>
-<li>Log-conformation reformulation.</li>
-<li>Thermal coupling.</li>
-<li>FEM implementation and solver development.</li>
-<li>Fractional Step Methods.</li>
-<li>Implementations in a in-house FEM code Femuss.</li>
-</ul>
-<p><a href="./research_viscoelastic-flows.html">More details →</a></p>
-<hr>
-</section>
-<section id="finite-element-modeling-of-complex-fluid-flows" class="level3">
-<h3 class="anchored" data-anchor-id="finite-element-modeling-of-complex-fluid-flows">🌬️ Finite Element Modeling of Complex Fluid Flows</h3>
-<p><em>FEM-based simulation of complex fluid beyond viscoelasticity.</em></p>
-<ul>
-<li>Air flow modeling around telescopes and large structures.</li>
-<li>Tunnel ventilation simulations.</li>
-<li>Same FEM code base as in viscoelasticity (Femuss).</li>
-</ul>
-<p><a href="./research_fem-complex-flows.html">More details →</a></p>
-<hr>
-</section>
-<section id="fluidstructure-interaction" class="level3">
-<h3 class="anchored" data-anchor-id="fluidstructure-interaction">🔄 Fluid–Structure Interaction</h3>
-<p><em>Simulation of coupled problems involving solid-fluid interaction, including viscoelastic and mixed formulations.</em></p>
-<ul>
-<li>FSI simulations using FEM (with and without viscoelasticity).</li>
-<li>Mixed formulation methods for fluid/structure coupling.</li>
-<li>Interface handling and numerical stability.</li>
-<li>Works overlapping with other lines (e.g., viscoelastic FSI).</li>
-</ul>
-<p><a href="research_coupled-fsi.qmd">More details →</a></p>
-<hr>
-<blockquote class="blockquote">
-<p><em>Note: Some projects may appear in more than one research line, highlighting their interdisciplinary nature.</em></p>
-</blockquote>
+<section id="numerical-analysis-of-the-aerodynamic-loads-on-a-tunnel-wall-separation" class="level2">
+<h2 class="anchored" data-anchor-id="numerical-analysis-of-the-aerodynamic-loads-on-a-tunnel-wall-separation">Numerical analysis of the aerodynamic loads on a tunnel wall separation</h2>
+<p>We evaluated the aerodynamic loads at the ends of constructed sections caused by transient flows due to train motion along the Mont-Royal tunnel. We conducted a CFD simulation using moving domains, where the tunnel geometry remained fixed while the train moved inside it. We employed an arbitrary Lagrangian-Eulerian strategy, solving the Navier-Stokes equations to account for this motion.</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

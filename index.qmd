@@ -31,12 +31,15 @@ comments: false
 ## Bio
 Hello! I'm an **Assistant Professor** in the Department of Applied Mathematics at the University of Alicante (UA), in Spain.
 
-**My research** focuses on advancing the Material Point Method (MPM), a particle-based technique ideal for tackling large deformation problems in solid and fluid mechanics. This method has proven invaluable for <ins>simulating phenomena such as granular flows, landslides, and avalanches</ins>. Notably, MPM was employed to recreate the stunning snow effects in Disney's [Frozen animation](https://www.youtube.com/watch?v=O0kyDKu8K-k).
+
+
+**My research** focuses on computational fluid and solid mechanics, with a particular interest in developing numerical methods to simulate complex and highly dynamic phenomena. My work spans from addressing finite element (FE) problems involving highly elastic viscoelastic flows, fluid–structure interaction, to contributing to recent advances in the Material Point Method (MPM). The later is a particle-based technique especially effective for simulating events such as granular flows, landslides, and avalanches, and even used to create the stunning snow effects in Disney’s [Frozen animation](https://www.youtube.com/watch?v=O0kyDKu8K-k).
+
+
 
 Although my current research primarily focuses on engineering applications, **I am not an engineer by training**.
 
-**I began my academic journey studying Mathematics** at the University of Alicante in Spain. Motivated by a passion for applied mathematics, I pursued a Master's degree specializing in <ins>mathematical modeling for the numerical simulation of physical phenomena</ins>. During my PhD at the Technical University of Catalunya (UPC), my research centered on developing mathematical models to simulate highly elastic <ins>viscoelastic flows</ins>. After completing my doctorate, I joined the Department of Mathematics at the University of Padua in Italy as a postdoctoral researcher. There, I transitioned to working with the <ins>Material Point Method (MPM)</ins> to simulate the behavior of structures under extreme natural phenomena. Later, I continued this line of research at [the Institut für Statik und Dynamik](https://www.tu-braunschweig.de/isd) at the Technical University of Braunschweig (TUBS) in Germany.
-
+**I began my academic journey studying Mathematics** at the University of Alicante. Motivated by a strong interest in applied mathematics, I pursued a Master's degree specializing in <ins>mathematical modeling for the numerical simulation of physical phenomena</ins>. During my PhD at the Technical University of Catalonia (UPC), my research centered on developing mathematical models to simulate highly elastic <ins>viscoelastic flows</ins>. After completing my doctorate, I joined the Department of Mathematics at the University of Padua (Italy) as a postdoctoral researcher, where I began working with the <ins>Material Point Method (MPM)</ins> to simulate the behavior of structures under extreme natural events. I later continued this line of research at [the Institut für Statik und Dynamik](https://www.tu-braunschweig.de/isd) at the Technical University of Braunschweig (TUBS) in Germany.
 
 As an educator, I aim to inspire curiosity and foster critical thinking among my students. **I teach calculus courses tailored to various engineering disciplines**, including aerospace, telecommunications, architecture, and robotics. My approach emphasizes connecting theoretical concepts with practical applications, helping students see mathematics as a powerful tool for solving real-world challenges.
 
@@ -57,7 +60,7 @@ In addition to my academic and teaching work, I am an active member of the [Krat
 
 ::: columns
 ::: {.column width="50%"}
-Departamento de Matemática Aplicada (Escuela Politécnica Superior),\
+Departamento de Matemática Aplicada e Ingeniería Aeroespacial (Escuela Politécnica Superior),\
 Ctra. San Vicente s/n,\
 03690 San Vicente del Raseig, Alicante, Spain\
 laura.morenomartinez@ua.es
