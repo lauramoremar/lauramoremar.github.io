@@ -41,8 +41,7 @@ page-layout: full
 *FEM-based simulation of complex fluid beyond viscoelasticity.*
 
 - Air flow modeling around telescopes and large structures.
-- Tunnel ventilation simulations.
-- Same FEM code base as in viscoelasticity (Femuss).
+- Tunnel pannel study
 
 <!--[More details →](research_fem-complex-flows.qmd)-->
 
@@ -54,8 +53,6 @@ page-layout: full
 
 - FSI simulations using FEM (with and without viscoelasticity).
 - Mixed formulation methods for fluid/structure coupling.
-- Interface handling and numerical stability.
-- Works overlapping with other lines (e.g., viscoelastic FSI).
 
 <!--[More details →](research_coupled-fsi.qmd)-->
 
