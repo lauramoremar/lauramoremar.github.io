@@ -129,12 +129,11 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">1</span> Overview</a>
   <ul class="collapse">
-  <li><a href="#what-is-a-viscoelastic-fluid" id="toc-what-is-a-viscoelastic-fluid" class="nav-link" data-scroll-target="#what-is-a-viscoelastic-fluid"><span class="header-section-number">1.1</span> What is a Viscoelastic Fluid?</a></li>
-  <li><a href="#modelling-of-polymeric-fluid-flows" id="toc-modelling-of-polymeric-fluid-flows" class="nav-link" data-scroll-target="#modelling-of-polymeric-fluid-flows"><span class="header-section-number">1.2</span> Modelling of polymeric fluid flows</a></li>
-  <li><a href="#the-weissenberg-number" id="toc-the-weissenberg-number" class="nav-link" data-scroll-target="#the-weissenberg-number"><span class="header-section-number">1.3</span> The Weissenberg Number</a></li>
-  <li><a href="#weak-formulation" id="toc-weak-formulation" class="nav-link" data-scroll-target="#weak-formulation"><span class="header-section-number">1.4</span> Weak Formulation</a></li>
-  <li><a href="#spatial-discretization-using-the-finite-element-method" id="toc-spatial-discretization-using-the-finite-element-method" class="nav-link" data-scroll-target="#spatial-discretization-using-the-finite-element-method"><span class="header-section-number">1.5</span> Spatial discretization using the Finite Element Method</a></li>
-  <li><a href="#stabilization" id="toc-stabilization" class="nav-link" data-scroll-target="#stabilization"><span class="header-section-number">1.6</span> Stabilization</a></li>
+  <li><a href="#modelling-of-polymeric-fluid-flows" id="toc-modelling-of-polymeric-fluid-flows" class="nav-link" data-scroll-target="#modelling-of-polymeric-fluid-flows"><span class="header-section-number">1.1</span> Modelling of polymeric fluid flows</a></li>
+  <li><a href="#the-weissenberg-number" id="toc-the-weissenberg-number" class="nav-link" data-scroll-target="#the-weissenberg-number"><span class="header-section-number">1.2</span> The Weissenberg Number</a></li>
+  <li><a href="#weak-formulation" id="toc-weak-formulation" class="nav-link" data-scroll-target="#weak-formulation"><span class="header-section-number">1.3</span> Weak Formulation</a></li>
+  <li><a href="#spatial-discretization-using-the-finite-element-method" id="toc-spatial-discretization-using-the-finite-element-method" class="nav-link" data-scroll-target="#spatial-discretization-using-the-finite-element-method"><span class="header-section-number">1.4</span> Spatial discretization using the Finite Element Method</a></li>
+  <li><a href="#stabilization" id="toc-stabilization" class="nav-link" data-scroll-target="#stabilization"><span class="header-section-number">1.5</span> Stabilization</a></li>
   </ul></li>
   <li><a href="#key-topics-and-contributions" id="toc-key-topics-and-contributions" class="nav-link" data-scroll-target="#key-topics-and-contributions"><span class="header-section-number">2</span> Key Topics and Contributions</a>
   <ul class="collapse">
@@ -173,7 +172,16 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="overview" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Overview</h1>
-<p>Viscoelastic fluids are materials that exhibit both viscous and elastic behavior, making their modeling particularly challenging, especially at high Weissenberg numbers, that is, for highly elastic flows.</p>
+<p>Viscoelastic fluids are a class of non-Newtonian materials that exhibit both <strong>viscous</strong> (frictional, dissipative) and <strong>elastic</strong> (energy-storing, memory-retaining) behaviors. This unique combination stems from their <strong>complex internal microstructure</strong>, which leads to <em>memory effects</em>:</p>
+<blockquote class="blockquote">
+<p>The current stress state depends not only on the present deformation but also on the entire <strong>flow history</strong>.</p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/images-viscoelasticity/Intro_amasando.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+<p>To accurately model these fluids, one <em>must go beyond the classical Navier–Stokes equations</em> and employ nonlinear constitutive equations. This complexity makes the numerical simulation of viscoelastic fluid flows <strong>especially challenging</strong>, particularly at high Weissenberg numbers, which correspond to flows dominated by elastic effects.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
@@ -194,31 +202,10 @@ ul.task-list li input[type="checkbox"] {
 <p>This is in fact <strong>one of the biggest challenges</strong> in computational rheology, dating back to the <strong>1970s</strong>. At that time, all methods were observed to <strong>break down</strong> at relatively low Weissenberg numbers. For approximately 30 years, this breakdown was believed to be a purely <em>numerical phenomenon</em>.</p>
 <p>Nowadays, the so-called <strong>High Weissenberg Number Problem (HWNP)</strong> continues to motivate the development of new formulations and numerical strategies for robust and accurate simulations.</p>
 <p>This research line originated from my PhD work and focuses on the numerical simulation of these complex flows using the Finite Element Method (FEM). The goal is to develop stable and accurate numerical techniques to better understand and predict the behavior of viscoelastic fluids with high elasticity across a wide range of applications, from industrial processes to biological systems.</p>
-<p>Note that these research topics were a natural continuation of the Ernesto Castillo’s <a href="http://hdl.handle.net/2117/96306">thesis</a>.</p>
-<section id="what-is-a-viscoelastic-fluid" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="what-is-a-viscoelastic-fluid"><span class="header-section-number">1.1</span> What is a Viscoelastic Fluid?</h2>
-<p>Viscoelastic fluids are a specific type of <strong>non-Newtonian fluid</strong> that exhibit a combination of both <strong>viscous</strong> and <strong>elastic</strong> behaviors:</p>
-<ul>
-<li><strong>Viscous</strong>: associated with friction, energy dissipation, and loss of memory.</li>
-<li><strong>Elastic</strong>: characterized by the ability to recoil and store internal energy.</li>
-</ul>
-<p>This unique combination stems from their <strong>complex internal microstructure</strong>, which leads to <em>memory effects</em>:</p>
-<blockquote class="blockquote">
-<p>The current stress state depends not only on the present deformation but also on the entire <strong>flow history</strong>.</p>
-</blockquote>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="assets/images-viscoelasticity/Intro_amasando.png" class="img-fluid figure-img" style="width:50.0%"></p>
-</figure>
-</div>
-<ul>
-<li>These materials require a <strong>nonlinear constitutive equation</strong> to accurately describe their behavior, going beyond the classical Navier–Stokes framework.</li>
-<li>Their complex rheology poses significant challenges for standard numerical methods, especially at high elasticity.</li>
-</ul>
-</section>
-<section id="modelling-of-polymeric-fluid-flows" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="modelling-of-polymeric-fluid-flows"><span class="header-section-number">1.2</span> Modelling of polymeric fluid flows</h2>
-<p>While Newtonian fluids can be modeled using only the Navier–Stokes equations (which include the momentum and continuity equations), modeling viscoelastic fluid flows requires an additional constitutive equation to properly capture the elastic behavior of the fluid.</p>
+<p>This research line naturally builds upon Ernesto Castillo’s <a href="http://hdl.handle.net/2117/96306">PhD thesis</a>, and most of the developments presented here are part of my own <a href="assets/docs/PhDThesisLauraMoreno.pdf">PhD dissertation</a>.</p>
+<section id="modelling-of-polymeric-fluid-flows" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="modelling-of-polymeric-fluid-flows"><span class="header-section-number">1.1</span> Modelling of polymeric fluid flows</h2>
+<p>While Newtonian fluids can be modeled using only the Navier–Stokes equations (which include the momentum and continuity equations), modeling viscoelastic fluid flows requires a <strong>nonlinear constitutive equation</strong> to properly capture the elastic behavior of the fluid.</p>
 <div class="callout callout-style-simple callout-none no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -248,8 +235,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>where <span class="math inline">\(\eta_s\)</span> is the solvent viscosity for viscoelastic fluid flows. Note that <span class="math inline">\(\eta_s+\eta_p=\eta\)</span>, that is the usual viscosity employed for Newtonian fluids.</p>
 </section>
-<section id="the-weissenberg-number" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="the-weissenberg-number"><span class="header-section-number">1.3</span> The Weissenberg Number</h2>
+<section id="the-weissenberg-number" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="the-weissenberg-number"><span class="header-section-number">1.2</span> The Weissenberg Number</h2>
 <p>The Weissenberg number (<strong>We</strong>) is a dimensionless quantity that compares <strong>elastic</strong> and <strong>viscous</strong> effects in viscoelastic fluid flows. It is defined as:</p>
 <p><span class="math display">\[
 \mathrm{We} = \frac{\lambda U}{L}
@@ -262,13 +249,13 @@ ul.task-list li input[type="checkbox"] {
 <li>If <strong><span class="math inline">\(\mathrm{We}\)</span> is large</strong> (typically <span class="math inline">\(\mathrm{We} &gt; 1\)</span>): Elastic effects become significant, leading to <strong>complex flow behavior</strong> and <strong>numerical difficulties</strong>.</li>
 </ul>
 </section>
-<section id="weak-formulation" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="weak-formulation"><span class="header-section-number">1.4</span> Weak Formulation</h2>
+<section id="weak-formulation" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="weak-formulation"><span class="header-section-number">1.3</span> Weak Formulation</h2>
 <p>The weak form of the problem consists in finding <span class="math inline">\(\boldsymbol{U} = [\boldsymbol{u}, p, \boldsymbol{\sigma}] : ]0, t_{\rm f}[ \longrightarrow \boldsymbol{\mathcal{X}} := \boldsymbol{\mathcal{V}}_0 \times \boldsymbol{\mathcal{Q}} \times \boldsymbol{\Upsilon}\)</span>, such that the initial conditions are satisfied and:</p>
 <p><span class="math display">\[
 \left(\rho \dfrac{\partial \boldsymbol{u}}{\partial t}, \boldsymbol{v}\right)
 + (\boldsymbol{\sigma}, \nabla^{s} \boldsymbol{v})
-+ 2 (\eta_{e} \nabla^{s} \boldsymbol{u}, \nabla^{s} \boldsymbol{v})
++ 2 (eta_{s} \nabla^{s} \boldsymbol{u}, \nabla^{s} \boldsymbol{v})
 + \langle \rho \boldsymbol{u} \cdot \nabla \boldsymbol{u}, \boldsymbol{v} \rangle
 - (p, \nabla \cdot \boldsymbol{v})
 = \langle \boldsymbol{f}, \boldsymbol{v} \rangle,
@@ -291,11 +278,11 @@ ul.task-list li input[type="checkbox"] {
 = L(\boldsymbol{V}),\]</span></p>
 <p>for all <span class="math inline">\(\boldsymbol{V} \in \boldsymbol{\mathcal{X}}\)</span>, where:</p>
 <p><span class="math inline">\(\mathcal{G}(\boldsymbol{U}, \boldsymbol{V}) = \left(\rho \dfrac{\partial \boldsymbol{u}}{\partial t}, \boldsymbol{v}\right) + \dfrac{\lambda}{2 \eta_{0}} \left(\dfrac{\partial \boldsymbol{\sigma}}{\partial t}, \boldsymbol{\chi} \right),\)</span></p>
-<p><span class="math inline">\(\begin{aligned} B(\hat{\boldsymbol{u}}; \boldsymbol{U}, \boldsymbol{V}) =\ &amp; 2 (\eta_{e} \nabla^{s} \boldsymbol{u}, \nabla^{s} \boldsymbol{v}) + \langle \rho \hat{\boldsymbol{u}} \cdot \nabla \boldsymbol{u}, \boldsymbol{v} \rangle + (\boldsymbol{\sigma}, \nabla^{s} \boldsymbol{v}) \\ &amp; - (p, \nabla \cdot \boldsymbol{v}) + (q, \nabla \cdot \boldsymbol{u}) + \dfrac{1}{2 \eta_{p}} (\boldsymbol{\sigma}, \boldsymbol{\chi}) - (\nabla^{s} \boldsymbol{u}, \boldsymbol{\chi}) \\ &amp; + \dfrac{\lambda}{2 \eta_{p}} \left( \hat{\boldsymbol{u}} \cdot \nabla \boldsymbol{\sigma} - \boldsymbol{\sigma} \cdot \nabla \hat{\boldsymbol{u}} - (\nabla \hat{\boldsymbol{u}})^{T} \cdot \boldsymbol{\sigma}, \boldsymbol{\chi} \right), \end{aligned}\)</span></p>
+<p><span class="math inline">\(\begin{aligned} B(\hat{\boldsymbol{u}}; \boldsymbol{U}, \boldsymbol{V}) =\ &amp; 2 (\eta_{s} \nabla^{s} \boldsymbol{u}, \nabla^{s} \boldsymbol{v}) + \langle \rho \hat{\boldsymbol{u}} \cdot \nabla \boldsymbol{u}, \boldsymbol{v} \rangle + (\boldsymbol{\sigma}, \nabla^{s} \boldsymbol{v}) \\ &amp; - (p, \nabla \cdot \boldsymbol{v}) + (q, \nabla \cdot \boldsymbol{u}) + \dfrac{1}{2 \eta_{p}} (\boldsymbol{\sigma}, \boldsymbol{\chi}) - (\nabla^{s} \boldsymbol{u}, \boldsymbol{\chi}) \\ &amp; + \dfrac{\lambda}{2 \eta_{p}} \left( \hat{\boldsymbol{u}} \cdot \nabla \boldsymbol{\sigma} - \boldsymbol{\sigma} \cdot \nabla \hat{\boldsymbol{u}} - (\nabla \hat{\boldsymbol{u}})^{T} \cdot \boldsymbol{\sigma}, \boldsymbol{\chi} \right), \end{aligned}\)</span></p>
 <p><span class="math inline">\(L(\boldsymbol{V}) = \langle \boldsymbol{f}, \boldsymbol{v} \rangle.\)</span></p>
 </section>
-<section id="spatial-discretization-using-the-finite-element-method" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="spatial-discretization-using-the-finite-element-method"><span class="header-section-number">1.5</span> Spatial discretization using the Finite Element Method</h2>
+<section id="spatial-discretization-using-the-finite-element-method" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="spatial-discretization-using-the-finite-element-method"><span class="header-section-number">1.4</span> Spatial discretization using the Finite Element Method</h2>
 <p>The <strong>Galerkin finite element method</strong> consists in seeking an approximate solution within a finite-dimensional subspace of the original infinite-dimensional function space. Given a weak formulation of the problem, the solution is approximated by projecting it onto a finite element space constructed from piecewise polynomial basis functions defined over a mesh of the computational domain.<br>
 </p>
 <p>In this framework, the trial and test functions are chosen from the same finite element space, ensuring consistency and stability under appropriate conditions.&nbsp;</p>
@@ -309,8 +296,8 @@ ul.task-list li input[type="checkbox"] {
 <p>for all <span class="math inline">\(\boldsymbol{V}_{h} \in \boldsymbol{\mathcal{X}}_{h}\)</span>.</p>
 <p>The resulting system is a set of algebraic equations that can be efficiently solved using numerical linear algebra techniques.</p>
 </section>
-<section id="stabilization" class="level2" data-number="1.6">
-<h2 data-number="1.6" class="anchored" data-anchor-id="stabilization"><span class="header-section-number">1.6</span> Stabilization</h2>
+<section id="stabilization" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="stabilization"><span class="header-section-number">1.5</span> Stabilization</h2>
 <p>Por qué hay que estabilizar (fluido incompresible). Añadir aqui referencias a la VMS stabilization.</p>
 </section>
 </section>

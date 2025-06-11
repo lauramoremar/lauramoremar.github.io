@@ -33,7 +33,7 @@ page-layout: full
 - Fractional Step Methods.
 - Implementations in a in-house FEM code Femuss.
 
-<!--[More details →](research_viscoelastic-flows.qmd)-->
+[More details →](research_viscoelastic-flows.qmd)
 
 ---
 

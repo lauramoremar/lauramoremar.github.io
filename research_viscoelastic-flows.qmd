@@ -9,7 +9,15 @@ format:
 
 # Overview
 
-Viscoelastic fluids are materials that exhibit both viscous and elastic behavior, making their modeling particularly challenging, especially at high Weissenberg numbers,  that is, for highly elastic flows.
+
+Viscoelastic fluids are a class of non-Newtonian materials that exhibit both **viscous** (frictional, dissipative) and **elastic** (energy-storing, memory-retaining) behaviors. This unique combination stems from their **complex internal microstructure**, which leads to *memory effects*:
+
+> The current stress state depends not only on the present deformation but also on the entire **flow history**.
+
+![](assets/images-viscoelasticity/Intro_amasando.png){fig-cap="The Weissenberg effect" width=50%}
+
+
+To accurately model these fluids, one *must go beyond the classical Navier–Stokes equations* and employ nonlinear constitutive equations. This complexity makes the numerical simulation of viscoelastic fluid flows **especially challenging**, particularly at high Weissenberg numbers, which correspond to flows dominated by elastic effects.
 
 :::{.columns}
 
@@ -24,36 +32,21 @@ Viscoelastic fluids are materials that exhibit both viscous and elastic behavior
 :::
 
 
-This is in fact **one of the biggest challenges** in computational rheology, dating back to the **1970s**. At that time, all methods were observed to **break down** at relatively low Weissenberg numbers. For approximately 30 years, this breakdown was believed to be a purely *numerical phenomenon*.
+This is in fact  **one of the biggest challenges** in computational rheology, dating back to the **1970s**. At that time, all methods were observed to **break down** at relatively low Weissenberg numbers. For approximately 30 years, this breakdown was believed to be a purely *numerical phenomenon*.
 
 Nowadays, the so-called **High Weissenberg Number Problem (HWNP)** continues to motivate the development of new formulations and numerical strategies for robust and accurate simulations.
 
 This research line originated from my PhD work and focuses on the numerical simulation of these complex flows using the Finite Element Method (FEM). The goal is to develop stable and accurate numerical techniques to better understand and predict the behavior of viscoelastic fluids with high elasticity across a wide range of applications, from industrial processes to biological systems.
 
-Note that these research topics were a natural continuation of the Ernesto Castillo's [thesis](http://hdl.handle.net/2117/96306).
+This research line naturally builds upon Ernesto Castillo's [PhD thesis](http://hdl.handle.net/2117/96306), and most of the developments presented here are part of my own [PhD dissertation](assets/docs/PhDThesisLauraMoreno.pdf).
 
 
-## What is a Viscoelastic Fluid?
 
-Viscoelastic fluids are a specific type of **non-Newtonian fluid** that exhibit a combination of both **viscous** and **elastic** behaviors:
-
-- **Viscous**: associated with friction, energy dissipation, and loss of memory.
-- **Elastic**: characterized by the ability to recoil and store internal energy.
-
-This unique combination stems from their **complex internal microstructure**, which leads to *memory effects*:
-
-> The current stress state depends not only on the present deformation but also on the entire **flow history**.
-
-![](assets/images-viscoelasticity/Intro_amasando.png){fig-cap="The Weissenberg effect" width=50%}
-
-
-- These materials require a **nonlinear constitutive equation** to accurately describe their behavior, going beyond the classical Navier–Stokes framework.
-- Their complex rheology poses significant challenges for standard numerical methods, especially at high elasticity.
 
 ## Modelling of polymeric fluid flows
 
 
-While Newtonian fluids can be modeled using only the Navier–Stokes equations (which include the momentum and continuity equations), modeling viscoelastic fluid flows requires an additional constitutive equation to properly capture the elastic behavior of the fluid.
+While Newtonian fluids can be modeled using only the Navier–Stokes equations (which include the momentum and continuity equations), modeling viscoelastic fluid flows requires a **nonlinear constitutive equation** to properly capture the elastic behavior of the fluid.
 
 ::: {.callout}
 Momentum equation
@@ -109,7 +102,7 @@ The weak form of the problem consists in finding $\boldsymbol{U} = [\boldsymbol{
 $$
 \left(\rho \dfrac{\partial \boldsymbol{u}}{\partial t}, \boldsymbol{v}\right) 
 + (\boldsymbol{\sigma}, \nabla^{s} \boldsymbol{v}) 
-+ 2 (\eta_{e} \nabla^{s} \boldsymbol{u}, \nabla^{s} \boldsymbol{v}) 
++ 2 (eta_{s} \nabla^{s} \boldsymbol{u}, \nabla^{s} \boldsymbol{v}) 
 + \langle \rho \boldsymbol{u} \cdot \nabla \boldsymbol{u}, \boldsymbol{v} \rangle 
 - (p, \nabla \cdot \boldsymbol{v}) 
 = \langle \boldsymbol{f}, \boldsymbol{v} \rangle,
@@ -140,7 +133,7 @@ for all $\boldsymbol{V} \in \boldsymbol{\mathcal{X}}$, where:
 
 $\mathcal{G}(\boldsymbol{U}, \boldsymbol{V}) =  \left(\rho \dfrac{\partial \boldsymbol{u}}{\partial t}, \boldsymbol{v}\right) + \dfrac{\lambda}{2 \eta_{0}} \left(\dfrac{\partial \boldsymbol{\sigma}}{\partial t}, \boldsymbol{\chi} \right),$
 
-$\begin{aligned} B(\hat{\boldsymbol{u}}; \boldsymbol{U}, \boldsymbol{V}) =\ & 2 (\eta_{e} \nabla^{s} \boldsymbol{u}, \nabla^{s} \boldsymbol{v}) + \langle \rho \hat{\boldsymbol{u}} \cdot \nabla \boldsymbol{u}, \boldsymbol{v} \rangle + (\boldsymbol{\sigma}, \nabla^{s} \boldsymbol{v}) \\ & - (p, \nabla \cdot \boldsymbol{v}) + (q, \nabla \cdot \boldsymbol{u}) + \dfrac{1}{2 \eta_{p}} (\boldsymbol{\sigma}, \boldsymbol{\chi}) - (\nabla^{s} \boldsymbol{u}, \boldsymbol{\chi}) \\ & + \dfrac{\lambda}{2 \eta_{p}} \left( \hat{\boldsymbol{u}} \cdot \nabla \boldsymbol{\sigma} - \boldsymbol{\sigma} \cdot \nabla \hat{\boldsymbol{u}} - (\nabla \hat{\boldsymbol{u}})^{T} \cdot \boldsymbol{\sigma}, \boldsymbol{\chi} \right), \end{aligned}$
+$\begin{aligned} B(\hat{\boldsymbol{u}}; \boldsymbol{U}, \boldsymbol{V}) =\ & 2 (\eta_{s} \nabla^{s} \boldsymbol{u}, \nabla^{s} \boldsymbol{v}) + \langle \rho \hat{\boldsymbol{u}} \cdot \nabla \boldsymbol{u}, \boldsymbol{v} \rangle + (\boldsymbol{\sigma}, \nabla^{s} \boldsymbol{v}) \\ & - (p, \nabla \cdot \boldsymbol{v}) + (q, \nabla \cdot \boldsymbol{u}) + \dfrac{1}{2 \eta_{p}} (\boldsymbol{\sigma}, \boldsymbol{\chi}) - (\nabla^{s} \boldsymbol{u}, \boldsymbol{\chi}) \\ & + \dfrac{\lambda}{2 \eta_{p}} \left( \hat{\boldsymbol{u}} \cdot \nabla \boldsymbol{\sigma} - \boldsymbol{\sigma} \cdot \nabla \hat{\boldsymbol{u}} - (\nabla \hat{\boldsymbol{u}})^{T} \cdot \boldsymbol{\sigma}, \boldsymbol{\chi} \right), \end{aligned}$
 
 $L(\boldsymbol{V}) = \langle \boldsymbol{f}, \boldsymbol{v} \rangle.$
 
