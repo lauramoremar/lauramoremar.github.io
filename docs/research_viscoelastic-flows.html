@@ -129,11 +129,12 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">1</span> Overview</a>
   <ul class="collapse">
-  <li><a href="#modelling-of-polymeric-fluid-flows" id="toc-modelling-of-polymeric-fluid-flows" class="nav-link" data-scroll-target="#modelling-of-polymeric-fluid-flows"><span class="header-section-number">1.1</span> Modelling of polymeric fluid flows</a></li>
-  <li><a href="#the-weissenberg-number" id="toc-the-weissenberg-number" class="nav-link" data-scroll-target="#the-weissenberg-number"><span class="header-section-number">1.2</span> The Weissenberg Number</a></li>
-  <li><a href="#weak-formulation" id="toc-weak-formulation" class="nav-link" data-scroll-target="#weak-formulation"><span class="header-section-number">1.3</span> Weak Formulation</a></li>
-  <li><a href="#spatial-discretization-using-the-finite-element-method" id="toc-spatial-discretization-using-the-finite-element-method" class="nav-link" data-scroll-target="#spatial-discretization-using-the-finite-element-method"><span class="header-section-number">1.4</span> Spatial discretization using the Finite Element Method</a></li>
-  <li><a href="#stabilization" id="toc-stabilization" class="nav-link" data-scroll-target="#stabilization"><span class="header-section-number">1.5</span> Stabilization</a></li>
+  <li><a href="#the-challenges-of-simulating-viscoelastic-flows" id="toc-the-challenges-of-simulating-viscoelastic-flows" class="nav-link" data-scroll-target="#the-challenges-of-simulating-viscoelastic-flows"><span class="header-section-number">1.1</span> The challenges of simulating viscoelastic flows</a></li>
+  <li><a href="#modelling-of-polymeric-fluid-flows" id="toc-modelling-of-polymeric-fluid-flows" class="nav-link" data-scroll-target="#modelling-of-polymeric-fluid-flows"><span class="header-section-number">1.2</span> Modelling of polymeric fluid flows</a></li>
+  <li><a href="#the-weissenberg-number" id="toc-the-weissenberg-number" class="nav-link" data-scroll-target="#the-weissenberg-number"><span class="header-section-number">1.3</span> The Weissenberg Number</a></li>
+  <li><a href="#weak-formulation" id="toc-weak-formulation" class="nav-link" data-scroll-target="#weak-formulation"><span class="header-section-number">1.4</span> Weak Formulation</a></li>
+  <li><a href="#spatial-discretization-using-the-finite-element-method" id="toc-spatial-discretization-using-the-finite-element-method" class="nav-link" data-scroll-target="#spatial-discretization-using-the-finite-element-method"><span class="header-section-number">1.5</span> Spatial discretization using the Finite Element Method</a></li>
+  <li><a href="#stabilization" id="toc-stabilization" class="nav-link" data-scroll-target="#stabilization"><span class="header-section-number">1.6</span> Stabilization</a></li>
   </ul></li>
   <li><a href="#key-topics-and-contributions" id="toc-key-topics-and-contributions" class="nav-link" data-scroll-target="#key-topics-and-contributions"><span class="header-section-number">2</span> Key Topics and Contributions</a>
   <ul class="collapse">
@@ -172,6 +173,8 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="overview" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Overview</h1>
+<section id="the-challenges-of-simulating-viscoelastic-flows" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="the-challenges-of-simulating-viscoelastic-flows"><span class="header-section-number">1.1</span> The challenges of simulating viscoelastic flows</h2>
 <p>Viscoelastic fluids are a class of non-Newtonian materials that exhibit both <strong>viscous</strong> (frictional, dissipative) and <strong>elastic</strong> (energy-storing, memory-retaining) behaviors. This unique combination stems from their <strong>complex internal microstructure</strong>, which leads to <em>memory effects</em>:</p>
 <blockquote class="blockquote">
 <p>The current stress state depends not only on the present deformation but also on the entire <strong>flow history</strong>.</p>
@@ -200,10 +203,11 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <p>This is in fact <strong>one of the biggest challenges</strong> in computational rheology, dating back to the <strong>1970s</strong> called <strong>High Weissenberg Number Problem (HWNP)</strong>. At that time, all methods were observed to <strong>break down</strong> at relatively low Weissenberg numbers. For approximately 30 years, this breakdown was believed to be a purely <em>numerical phenomenon</em>.</p>
-<p>This research area started from my <a href="assets/docs/PhDThesisLauraMoreno.pdf">PhD work</a> and focuses on the numerical simulation of these complex flows using the Finite Element Method (FEM). The goal is to develop stable and accurate numerical techniques to better understand and predict the behavior of viscoelastic fluids with high elasticity across a wide range of applications, from industrial processes to biological systems.</p>
+<p>This research area started from my <a href="assets/docs/PhDThesisLauraMoreno.pdf">PhD work</a> and focuses on the numerical simulation of these complex flows using the Finite Element Method (FEM). The goal is to develop <strong>stable and accurate numerical techniques</strong> to better understand and predict the <strong>behavior of viscoelastic fluids with high elasticity</strong> across a wide range of applications, from industrial processes to biological systems.</p>
 <!-- This research line naturally builds upon Ernesto Castillo's [PhD thesis](http://hdl.handle.net/2117/96306). -->
-<section id="modelling-of-polymeric-fluid-flows" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="modelling-of-polymeric-fluid-flows"><span class="header-section-number">1.1</span> Modelling of polymeric fluid flows</h2>
+</section>
+<section id="modelling-of-polymeric-fluid-flows" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="modelling-of-polymeric-fluid-flows"><span class="header-section-number">1.2</span> Modelling of polymeric fluid flows</h2>
 <p>While Newtonian fluids can be modeled using only the Navier–Stokes equations (which include the momentum and continuity equations), modeling viscoelastic fluid flows requires a <strong>nonlinear constitutive equation</strong> to properly capture the elastic behavior of the fluid.</p>
 <div class="callout callout-style-simple callout-none no-icon">
 <div class="callout-body d-flex">
@@ -234,8 +238,8 @@ ul.task-list li input[type="checkbox"] {
 </ul>
 <p>where <span class="math inline">\(\eta_s\)</span> is the solvent viscosity for viscoelastic fluid flows. Note that <span class="math inline">\(\eta_s+\eta_p=\eta\)</span>, that is the usual viscosity employed for Newtonian fluids.</p>
 </section>
-<section id="the-weissenberg-number" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="the-weissenberg-number"><span class="header-section-number">1.2</span> The Weissenberg Number</h2>
+<section id="the-weissenberg-number" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="the-weissenberg-number"><span class="header-section-number">1.3</span> The Weissenberg Number</h2>
 <p>The Weissenberg number (<strong>We</strong>) is a dimensionless quantity that compares <strong>elastic</strong> and <strong>viscous</strong> effects in viscoelastic fluid flows. It is defined as:</p>
 <p><span class="math display">\[
 \mathrm{We} = \frac{\lambda U}{L}
@@ -248,13 +252,13 @@ ul.task-list li input[type="checkbox"] {
 <li>If <strong><span class="math inline">\(\mathrm{We}\)</span> is large</strong> (typically <span class="math inline">\(\mathrm{We} &gt; 1\)</span>): Elastic effects become significant, leading to <strong>complex flow behavior</strong> and <strong>numerical difficulties</strong>.</li>
 </ul>
 </section>
-<section id="weak-formulation" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="weak-formulation"><span class="header-section-number">1.3</span> Weak Formulation</h2>
+<section id="weak-formulation" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="weak-formulation"><span class="header-section-number">1.4</span> Weak Formulation</h2>
 <p>The weak form of the problem consists in finding <span class="math inline">\(\boldsymbol{U} = [\boldsymbol{u}, p, \boldsymbol{\sigma}] : ]0, t_{\rm f}[ \longrightarrow \boldsymbol{\mathcal{X}} := \boldsymbol{\mathcal{V}}_0 \times \boldsymbol{\mathcal{Q}} \times \boldsymbol{\Upsilon}\)</span>, such that the initial conditions are satisfied and:</p>
 <p><span class="math display">\[
 \left(\rho \dfrac{\partial \boldsymbol{u}}{\partial t}, \boldsymbol{v}\right)
 + (\boldsymbol{\sigma}, \nabla^{s} \boldsymbol{v})
-+ 2 (eta_{s} \nabla^{s} \boldsymbol{u}, \nabla^{s} \boldsymbol{v})
++ 2 (\eta_{s} \nabla^{s} \boldsymbol{u}, \nabla^{s} \boldsymbol{v})
 + \langle \rho \boldsymbol{u} \cdot \nabla \boldsymbol{u}, \boldsymbol{v} \rangle
 - (p, \nabla \cdot \boldsymbol{v})
 = \langle \boldsymbol{f}, \boldsymbol{v} \rangle,
@@ -280,8 +284,8 @@ ul.task-list li input[type="checkbox"] {
 <p><span class="math inline">\(\begin{aligned} B(\hat{\boldsymbol{u}}; \boldsymbol{U}, \boldsymbol{V}) =\ &amp; 2 (\eta_{s} \nabla^{s} \boldsymbol{u}, \nabla^{s} \boldsymbol{v}) + \langle \rho \hat{\boldsymbol{u}} \cdot \nabla \boldsymbol{u}, \boldsymbol{v} \rangle + (\boldsymbol{\sigma}, \nabla^{s} \boldsymbol{v}) \\ &amp; - (p, \nabla \cdot \boldsymbol{v}) + (q, \nabla \cdot \boldsymbol{u}) + \dfrac{1}{2 \eta_{p}} (\boldsymbol{\sigma}, \boldsymbol{\chi}) - (\nabla^{s} \boldsymbol{u}, \boldsymbol{\chi}) \\ &amp; + \dfrac{\lambda}{2 \eta_{p}} \left( \hat{\boldsymbol{u}} \cdot \nabla \boldsymbol{\sigma} - \boldsymbol{\sigma} \cdot \nabla \hat{\boldsymbol{u}} - (\nabla \hat{\boldsymbol{u}})^{T} \cdot \boldsymbol{\sigma}, \boldsymbol{\chi} \right), \end{aligned}\)</span></p>
 <p><span class="math inline">\(L(\boldsymbol{V}) = \langle \boldsymbol{f}, \boldsymbol{v} \rangle.\)</span></p>
 </section>
-<section id="spatial-discretization-using-the-finite-element-method" class="level2" data-number="1.4">
-<h2 data-number="1.4" class="anchored" data-anchor-id="spatial-discretization-using-the-finite-element-method"><span class="header-section-number">1.4</span> Spatial discretization using the Finite Element Method</h2>
+<section id="spatial-discretization-using-the-finite-element-method" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="spatial-discretization-using-the-finite-element-method"><span class="header-section-number">1.5</span> Spatial discretization using the Finite Element Method</h2>
 <p>The <strong>Galerkin finite element method</strong> consists in seeking an approximate solution within a finite-dimensional subspace of the original infinite-dimensional function space. Given a weak formulation of the problem, the solution is approximated by projecting it onto a finite element space constructed from piecewise polynomial basis functions defined over a mesh of the computational domain.<br>
 </p>
 <p>In this framework, the trial and test functions are chosen from the same finite element space, ensuring consistency and stability under appropriate conditions.&nbsp;</p>
@@ -295,15 +299,26 @@ ul.task-list li input[type="checkbox"] {
 <p>for all <span class="math inline">\(\boldsymbol{V}_{h} \in \boldsymbol{\mathcal{X}}_{h}\)</span>.</p>
 <p>The resulting system is a set of algebraic equations that can be efficiently solved using numerical linear algebra techniques.</p>
 </section>
-<section id="stabilization" class="level2" data-number="1.5">
-<h2 data-number="1.5" class="anchored" data-anchor-id="stabilization"><span class="header-section-number">1.5</span> Stabilization</h2>
-<p>Por qué hay que estabilizar (fluido incompresible). Añadir aqui referencias a la VMS stabilization.</p>
+<section id="stabilization" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="stabilization"><span class="header-section-number">1.6</span> Stabilization</h2>
+<p>In incompressible flow problems, using equal-order interpolation for velocity and pressure in finite element methods <strong>often leads to numerical instabilities due to the violation of the inf-sup</strong> (or Ladyzhenskaya–Babuška–Brezzi) <strong>condition</strong>. This condition is essential to ensure the well-posedness of the continuous and discrete problems, namely the existence and uniqueness of the solution.</p>
+<p>To address this, stabilization techniques are introduced, modifying the formulation slightly to recover stability without compromising accuracy. Among the various available strategies, we adopt the <strong>Variational Multiscale (VMS) method</strong>. VMS techniques are robust, residual-based, and provide a systematic framework that enhances stability and ensures mesh-convergent solutions.</p>
+<p>The key idea in Variational Multiscale Methods (VMS) is to decompose the solution and test space into <em>coarse (resolved)</em> and <em>fine (unresolved)</em> scales: <span class="math display">\[
+\boldsymbol{U} = \boldsymbol{U}_h + \boldsymbol{U}', \quad \boldsymbol{V} = \boldsymbol{V}_h + \boldsymbol{V}',
+\]</span> where <span class="math inline">\(\boldsymbol{U}_h, \boldsymbol{V}_h \in \boldsymbol{\mathcal{X}}_{h}\)</span> (finite-dimensional space), and <span class="math inline">\(\boldsymbol{U}', \boldsymbol{V}' \in \boldsymbol{\mathcal{X}}'\)</span> (the complementary fine-scale space).</p>
+<p>Inserting the decomposition into the variational formulation and requiring it to hold for all <span class="math inline">\(\boldsymbol{V}_h \in \boldsymbol{\mathcal{X}}_{h}\)</span> and <span class="math inline">\(\boldsymbol{V}' \in \boldsymbol{\mathcal{X}}'\)</span>, we obtain a coupled system for the resolved and unresolved scales. Then, the fine scales <span class="math inline">\(\boldsymbol{U}'\)</span> are approximated (typically in terms of the residual of the coarse-scale equation), leading to a modified coarse-scale problem of the form: <span class="math display">\[
+\mathcal{G}(\boldsymbol{U}_{h}, \boldsymbol{V}_{h})+B(\boldsymbol{u}_h;\boldsymbol{U}_h, \boldsymbol{V}_h) + S(\boldsymbol{U}_h, \boldsymbol{V}_h) = L(\boldsymbol{V}_h) \quad \forall \boldsymbol{V}_h \in \boldsymbol{\mathcal{X}}_{h},
+\]</span> where the stabilization operator <span class="math inline">\(S(\cdot, \cdot)\)</span> accounts for the effect of the unresolved scales.</p>
+<p>This framework provides a systematic and physically motivated way to derive stabilized formulations, especially effective for problems with dominant advection or incompressibility constraints.</p>
+<!--  How to obtain the formulation? See A Simple Example with the Stokes Equations (link) -->
+<!-- Insert the viscoelastic flui flow porblem stabilized here? It is said only the stabilization terms (the others are defined in previous sections) -->
 </section>
 </section>
 <section id="key-topics-and-contributions" class="level1" data-number="2">
 <h1 data-number="2"><span class="header-section-number">2</span> Key Topics and Contributions</h1>
 <section id="logarithmic-conformation-reformulation-lcr" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="logarithmic-conformation-reformulation-lcr"><span class="header-section-number">2.1</span> Logarithmic-Conformation Reformulation (LCR)</h2>
+<!-- Modificar para que quede más narrado y explicado -->
 <p>Fattal and Kupferman (2004) identified the origin of the High Weissenberg Number Problem (HWNP) as:</p>
 <p>– <strong>Inappropriate approximations</strong> used to represent the stress tensor.<br>
 – <strong>Need to preserve the positivity</strong> of the <strong>the conformation tensor</strong>, given by <span class="math display">\[\textcolor{MidnightBlue}{\boldsymbol{\tau}}= \lambda \dfrac{\textcolor{BrickRed}{\boldsymbol{\sigma}}}{\eta_p} + \mathbf{I}.\]</span></p>
@@ -340,25 +355,14 @@ Note
 </blockquote>
 <p>By replacing this expresion in the original equations, we obtain a new set of equations in which the unknowns are the velocity <span class="math inline">\(\boldsymbol{u}\)</span>, pressure <span class="math inline">\(p\)</span> and <span class="math inline">\(\boldsymbol{\psi}\)</span>.</p>
 <p>With the new equations, we develop the VMS stabilization corresponding to the residual-based formulation. Additionally, we design a “split” type stabilization, which considers only the essential terms required to stabilize the problem, while still achieving optimal convergence.</p>
-<div class="callout callout-style-default callout-tip callout-titled" title="Remarks: Linearized Problem and Algorithm">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Remarks: Linearized Problem and Algorithm
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li>Non-linear terms are linearized with the <strong>Newton-Raphson method</strong> and the exponential term is approximated using a <strong>Taylor expansion</strong>.</li>
-<li>The <strong>orthogonal projection</strong> has been approximated as:</li>
-</ul>
-<p><span class="math display">\[
+<!-- ::: {.callout-tip title="Remarks: Linearized Problem and Algorithm"}
+- Non-linear terms are linearized with the **Newton-Raphson method** and the exponential term is approximated using a **Taylor expansion**.
+- The **orthogonal projection** has been approximated as:
+
+$$
 P_h^{\bot}[f^i] \approx f^i - P_h[f^{i-1}]
-\]</span></p>
-</div>
-</div>
+$$
+::: -->
 <section id="numerical-result-flow-past-a-cylinder" class="level3" data-number="2.1.1">
 <h3 data-number="2.1.1" class="anchored" data-anchor-id="numerical-result-flow-past-a-cylinder"><span class="header-section-number">2.1.1</span> Numerical Result: Flow past a Cylinder</h3>
 <p><strong>Setup scheme</strong> <img src="assets/images-viscoelasticity/Cylinder_Scheme.png" class="img-fluid"></p>
@@ -409,66 +413,36 @@ P_h^{\bot}[f^i] \approx f^i - P_h[f^{i-1}]
 </div>
 </div>
 <p><strong>Comparison of drag force coefficient</strong></p>
-<div class="columns">
-<div class="column" style="width:60%;">
 <p><img src="assets/images-viscoelasticity/Cylinder_Drag.png" class="img-fluid"></p>
-</div><div class="column" style="width:40%;">
 <blockquote class="blockquote">
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <ul>
 <li>Literature results often <strong>break down</strong> at We ≈ 0.9<br>
 </li>
 <li>The LCR formulation exhibits <strong>good stability for higher We</strong></li>
 </ul>
-</div>
-</div>
 </blockquote>
-</div>
-</div>
 <p>Note that each Weissenberg number correspond to a fluid flow with different elasticity.</p>
-<p><strong>Stress convergence study</strong><br>
-Comparison of the stresses over cylinder and upstream with literature and using different discretizations (M1 and M2, being M2 the finer one).</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="assets/images-viscoelasticity/Cylinder_Scheme_plots.png" class="img-fluid figure-img" style="width:65.0%"></p>
-<figcaption class="figure-caption">Domain with sampling locations</figcaption>
-</figure>
-</div>
-<div class="columns">
-<div class="column" style="width:50%;">
-<p><img src="assets/images-viscoelasticity/Cylinder_We07_B.png" class="img-fluid" alt="Stress plots We=0.7"> <img src="assets/images-viscoelasticity/Cylinder_We09.png" class="img-fluid" alt="Stress plots We=0.9"></p>
-</div><div class="column" style="width:50%;">
-<p><img src="assets/images-viscoelasticity/Cylinder_We07_rearweak.png" class="img-fluid" alt="Rear view We=0.7"> <img src="assets/images-viscoelasticity/Cylinder_We09_rearweak.png" class="img-fluid" alt="Rear view We=0.9"></p>
-</div>
-</div>
-<blockquote class="blockquote">
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<ul>
-<li><strong>Top</strong>: We = 0.7. Results fits completely with literature.</li>
-<li><strong>Bottom</strong>: We = 0.9. The results don’t show mesh convergence.<br>
-</li>
-</ul>
-</div>
-</div>
-</blockquote>
+<!-- **Stress convergence study**\
+Comparison of the stresses over cylinder and upstream with literature and using different discretizations (M1 and M2, being M2 the finer one).
+
+![Domain with sampling locations](assets/images-viscoelasticity/Cylinder_Scheme_plots.png){width=65%}
+
+::: {.columns}
+::: {.column width="50%"}
+![Stress plots We=0.7](assets/images-viscoelasticity/Cylinder_We07_B.png)
+![Stress plots We=0.9](assets/images-viscoelasticity/Cylinder_We09.png)
+:::
+
+::: {.column width="50%"}
+![Rear view We=0.7](assets/images-viscoelasticity/Cylinder_We07_rearweak.png) 
+![Rear view We=0.9](assets/images-viscoelasticity/Cylinder_We09_rearweak.png)
+:::
+:::
+
+> ::: {.callout-note}
+> - **Top**: We = 0.7. Results fits completely with literature.
+> - **Bottom**: We = 0.9. The results don't show mesh convergence.   
+> ::: -->
 </section>
 </section>
 <section id="thermal-coupling" class="level2" data-number="2.2">

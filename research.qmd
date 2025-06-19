@@ -5,9 +5,9 @@ page-layout: full
 ---
 
 
- My work focuses on the development and application of advanced numerical methods for fluid and solid mechanics, with a strong emphasis on FEM and MPM techniques. Below is an overview of the main research lines I’ve been involved in.
+ My work focuses on the development and application of advanced numerical methods for fluid and solid mechanics, with a strong emphasis on FEM and MPM techniques. Below is an overview of the main research areas I’ve been involved in.
 
-## Research Lines
+## Research Areas
 
 ---
 
@@ -33,7 +33,7 @@ page-layout: full
 - Fractional Step Methods.
 - Implementations in a in-house FEM code Femuss.
 
-[More details →](research_viscoelastic-flows.qmd)
+<!-- [More details →](research_viscoelastic-flows.qmd) -->
 
 ---
 

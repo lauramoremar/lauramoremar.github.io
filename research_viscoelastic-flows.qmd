@@ -9,7 +9,7 @@ format:
 
 # Overview
 
-
+## The challenges of simulating viscoelastic flows
 Viscoelastic fluids are a class of non-Newtonian materials that exhibit both **viscous** (frictional, dissipative) and **elastic** (energy-storing, memory-retaining) behaviors. This unique combination stems from their **complex internal microstructure**, which leads to *memory effects*:
 
 > The current stress state depends not only on the present deformation but also on the entire **flow history**.
@@ -35,7 +35,7 @@ To accurately model these fluids, one *must go beyond the classical Navier–Sto
 This is in fact  **one of the biggest challenges** in computational rheology, dating back to the **1970s** called **High Weissenberg Number Problem (HWNP)**. At that time, all methods were observed to **break down** at relatively low Weissenberg numbers. For approximately 30 years, this breakdown was believed to be a purely *numerical phenomenon*. 
 
 
-This research area started from my [PhD work ](assets/docs/PhDThesisLauraMoreno.pdf) and focuses on the numerical simulation of these complex flows using the Finite Element Method (FEM). The goal is to develop stable and accurate numerical techniques to better understand and predict the behavior of viscoelastic fluids with high elasticity across a wide range of applications, from industrial processes to biological systems.
+This research area started from my [PhD work ](assets/docs/PhDThesisLauraMoreno.pdf) and focuses on the numerical simulation of these complex flows using the Finite Element Method (FEM). The goal is to develop **stable and accurate numerical techniques** to better understand and predict the **behavior of viscoelastic fluids with high elasticity** across a wide range of applications, from industrial processes to biological systems.
 
 <!-- This research line naturally builds upon Ernesto Castillo's [PhD thesis](http://hdl.handle.net/2117/96306). -->
 
@@ -91,8 +91,6 @@ The physical interpretation is:
 - If **$\mathrm{We}$ is large** (typically $\mathrm{We} > 1$): Elastic effects become significant, leading to **complex flow behavior** and **numerical difficulties**.
 
 
-
-
 ## Weak Formulation
 
 The weak form of the problem consists in finding $\boldsymbol{U} = [\boldsymbol{u}, p, \boldsymbol{\sigma}] : ]0, t_{\rm f}[ \longrightarrow \boldsymbol{\mathcal{X}} := \boldsymbol{\mathcal{V}}_0 \times \boldsymbol{\mathcal{Q}} \times \boldsymbol{\Upsilon}$,   such that the initial conditions are satisfied and:
@@ -100,7 +98,7 @@ The weak form of the problem consists in finding $\boldsymbol{U} = [\boldsymbol{
 $$
 \left(\rho \dfrac{\partial \boldsymbol{u}}{\partial t}, \boldsymbol{v}\right) 
 + (\boldsymbol{\sigma}, \nabla^{s} \boldsymbol{v}) 
-+ 2 (eta_{s} \nabla^{s} \boldsymbol{u}, \nabla^{s} \boldsymbol{v}) 
++ 2 (\eta_{s} \nabla^{s} \boldsymbol{u}, \nabla^{s} \boldsymbol{v}) 
 + \langle \rho \boldsymbol{u} \cdot \nabla \boldsymbol{u}, \boldsymbol{v} \rangle 
 - (p, \nabla \cdot \boldsymbol{v}) 
 = \langle \boldsymbol{f}, \boldsymbol{v} \rangle,
@@ -165,14 +163,34 @@ The resulting system is a set of algebraic equations that can be efficiently sol
 
 ## Stabilization
 
-Por qué hay que estabilizar (fluido incompresible).
-Añadir aqui referencias a la VMS stabilization.
+In incompressible flow problems, using equal-order interpolation for velocity and pressure in finite element methods **often leads to numerical instabilities due to the violation of the inf-sup** (or Ladyzhenskaya–Babuška–Brezzi) **condition**. This condition is essential to ensure the well-posedness of the continuous and discrete problems, namely the existence and uniqueness of the solution. 
 
+To address this, stabilization techniques are introduced, modifying the formulation slightly to recover stability without compromising accuracy. Among the various available strategies, we adopt the **Variational Multiscale (VMS) method**. VMS techniques are robust, residual-based, and provide a systematic framework that enhances stability and ensures mesh-convergent solutions.
+
+The key idea in Variational Multiscale Methods (VMS) is to decompose the solution and test space into *coarse (resolved)* and *fine (unresolved)* scales:
+$$
+\boldsymbol{U} = \boldsymbol{U}_h + \boldsymbol{U}', \quad \boldsymbol{V} = \boldsymbol{V}_h + \boldsymbol{V}',
+$$
+where $\boldsymbol{U}_h, \boldsymbol{V}_h \in \boldsymbol{\mathcal{X}}_{h}$ (finite-dimensional space), and $\boldsymbol{U}', \boldsymbol{V}' \in \boldsymbol{\mathcal{X}}'$ (the complementary fine-scale space).
+
+Inserting the decomposition into the variational formulation and requiring it to hold for all $\boldsymbol{V}_h \in \boldsymbol{\mathcal{X}}_{h}$ and $\boldsymbol{V}' \in \boldsymbol{\mathcal{X}}'$, we obtain a coupled system for the resolved and unresolved scales. Then, the fine scales $\boldsymbol{U}'$ are approximated (typically in terms of the residual of the coarse-scale equation), leading to a modified coarse-scale problem of the form:
+$$
+\mathcal{G}(\boldsymbol{U}_{h}, \boldsymbol{V}_{h})+B(\boldsymbol{u}_h;\boldsymbol{U}_h, \boldsymbol{V}_h) + S(\boldsymbol{U}_h, \boldsymbol{V}_h) = L(\boldsymbol{V}_h) \quad \forall \boldsymbol{V}_h \in \boldsymbol{\mathcal{X}}_{h},
+$$
+where the stabilization operator $S(\cdot, \cdot)$ accounts for the effect of the unresolved scales.
+
+This framework provides a systematic and physically motivated way to derive stabilized formulations, especially effective for problems with dominant advection or incompressibility constraints.
+
+<!--  How to obtain the formulation? See A Simple Example with the Stokes Equations (link) -->
+
+<!-- Insert the viscoelastic flui flow porblem stabilized here? It is said only the stabilization terms (the others are defined in previous sections) -->
 
 # Key Topics and Contributions
 
 
 ## Logarithmic-Conformation Reformulation (LCR)
+
+<!-- Modificar para que quede más narrado y explicado -->
 
 Fattal and Kupferman (2004) identified the origin of the High Weissenberg Number Problem (HWNP) as:
 
@@ -205,14 +223,14 @@ By replacing this expresion in the original equations, we obtain a new set of eq
 
 With the new equations, we develop the VMS stabilization corresponding to the residual-based formulation. Additionally, we design a "split" type stabilization, which considers only the essential terms required to stabilize the problem, while still achieving optimal convergence.
 
-::: {.callout-tip title="Remarks: Linearized Problem and Algorithm"}
+<!-- ::: {.callout-tip title="Remarks: Linearized Problem and Algorithm"}
 - Non-linear terms are linearized with the **Newton-Raphson method** and the exponential term is approximated using a **Taylor expansion**.
 - The **orthogonal projection** has been approximated as:
 
 $$
 P_h^{\bot}[f^i] \approx f^i - P_h[f^{i-1}]
 $$
-:::
+::: -->
 
 ### Numerical Result: Flow past a Cylinder
 
@@ -250,28 +268,21 @@ The flow moves from left to right across the domain, which consists of a channel
   - 336106 elements, 179645 nodes  
   - $h_{\text{min}} = 0.001$
 :::
-
 :::
 
 
 **Comparison of drag force coefficient**
 
-::: {.columns}
-::: {.column width="60%"}
-![](assets/images-viscoelasticity/Cylinder_Drag.png)
-:::
 
-::: {.column width="40%"}
-> ::: {.callout-note}
+![](assets/images-viscoelasticity/Cylinder_Drag.png)
+
+
 > - Literature results often **break down** at We ≈ 0.9  
 > - The LCR formulation exhibits **good stability for higher We**
-> :::
-:::
-:::
 
 Note that each Weissenberg number correspond to a fluid flow with different elasticity.
 
-**Stress convergence study**\
+<!-- **Stress convergence study**\
 Comparison of the stresses over cylinder and upstream with literature and using different discretizations (M1 and M2, being M2 the finer one).
 
 ![Domain with sampling locations](assets/images-viscoelasticity/Cylinder_Scheme_plots.png){width=65%}
@@ -291,7 +302,7 @@ Comparison of the stresses over cylinder and upstream with literature and using 
 > ::: {.callout-note}
 > - **Top**: We = 0.7. Results fits completely with literature.
 > - **Bottom**: We = 0.9. The results don't show mesh convergence.   
-> :::
+> ::: -->
 
 ## Thermal Coupling
 

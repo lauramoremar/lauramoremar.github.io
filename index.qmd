@@ -32,7 +32,6 @@ comments: false
 Hello! I'm an **Assistant Professor** in the Department of Applied Mathematics at the University of Alicante (UA), in Spain.
 
 
-
 **My research** focuses on computational fluid and solid mechanics, with a particular interest in developing numerical methods to simulate complex and highly dynamic phenomena. My work spans from addressing finite element (FE) problems involving highly elastic viscoelastic flows, fluid–structure interaction, to contributing to recent advances in the Material Point Method (MPM). The later is a particle-based technique especially effective for simulating events such as granular flows, landslides, and avalanches, and even used to create the stunning snow effects in Disney’s [Frozen animation](https://www.youtube.com/watch?v=O0kyDKu8K-k).
 
 
