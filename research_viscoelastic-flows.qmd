@@ -6,6 +6,20 @@ format:
     toc-depth: 2
     number-sections: true
 ---
+# Table of contents
+
+[Overview](#overview)
+
+🔬 **Key Topics:**
+
+- [Log-Conformation Reformulation (LCR)](#logarithmic-conformation-reformulation)
+- [Themal Coupling](#thermal-coupling)
+- [Time-Dependent subgrid-scales]()
+- [Purely Elastic Insteability]()
+- [Fluid-Structure Interaction]()
+- [Numerical Analysis]()
+
+
 
 # Overview
 
@@ -36,6 +50,10 @@ This is in fact  **one of the biggest challenges** in computational rheology, da
 
 
 This research area started from my [PhD work ](assets/docs/PhDThesisLauraMoreno.pdf) and focuses on the numerical simulation of these complex flows using the Finite Element Method (FEM). The goal is to develop **stable and accurate numerical techniques** to better understand and predict the **behavior of viscoelastic fluids with high elasticity** across a wide range of applications, from industrial processes to biological systems.
+
+
+
+The numerical developments were implemented in the in-house FEM code **Femuss**. The code allows for modular addition of constitutive models, solver schemes, and stabilization techniques.
 
 <!-- This research line naturally builds upon Ernesto Castillo's [PhD thesis](http://hdl.handle.net/2117/96306). -->
 
@@ -185,135 +203,73 @@ This framework provides a systematic and physically motivated way to derive stab
 
 <!-- Insert the viscoelastic flui flow porblem stabilized here? It is said only the stabilization terms (the others are defined in previous sections) -->
 
-# Key Topics and Contributions
+
+# Logarithmic Conformation Reformulation
+
+> 📄 **Moreno, L., Codina, R., Baiges, J., & Castillo, E.** (2019).  
+> *Logarithmic conformation reformulation in viscoelastic flow problems approximated by a VMS-type stabilized finite element formulation*.  
+> *Computer Methods in Applied Mechanics and Engineering*, 354, 706–731.  
+> [DOI: 10.1016/j.cma.2019.06.001](https://doi.org/10.1016/j.cma.2019.06.001)
 
 
-## Logarithmic-Conformation Reformulation (LCR)
+## Main Concepts
+As mentioned in the overview, one of the main challenges in computational rheology is the simulation of viscoelastic fluid flows **at high elasticity**. This issue, commonly referred to as the High Weissenberg Number Problem (HWNP), severely limits the range of applicability of numerical methods in viscoelastic flow simulations.
 
-<!-- Modificar para que quede más narrado y explicado -->
+In 2004, Fattal and Kupferman provided a key insight by identifying two main sources of instability associated with this problem:
 
-Fattal and Kupferman (2004) identified the origin of the High Weissenberg Number Problem (HWNP) as:
+1. Inadequate approximations for representing the polymeric stress tensor, which can lead to unphysical results or numerical blow-up.
 
--- **Inappropriate approximations** used to represent the stress tensor.\
--- **Need to preserve the positivity** of the **the conformation tensor**, given by 
-$$\textcolor{MidnightBlue}{\boldsymbol{\tau}}= \lambda \dfrac{\textcolor{BrickRed}{\boldsymbol{\sigma}}}{\eta_p} + \mathbf{I}.$$
-
-
-Therefore they proposed the **Log-Conformation Reformulation (LCR)** that is, essentially, a change of variables.
-
-::: {.callout-note}
-- It handles the **exponential growth** of elastic stresses when the elastic component becomes dominant.  
-- It allows **extending the range** of elastic fluids that can be simulated. ✅  
-- It is more **computationally expensive** than the standard formulation. ❌  
-:::
-
-The change of variable adopted in this work is
+2. The requirement to preserve the positive-definiteness of the conformation tensor. This tensor, denoted by
 $$
-\boldsymbol{\psi} = \log\left(\textcolor{MidnightBlue}{\boldsymbol{\tau}}\right)
-= \log\left( \dfrac{\lambda_0 \textcolor{BrickRed}{\boldsymbol{\sigma}}}{\eta_p} + \mathbf{I} \right)
+\boldsymbol{\tau} = \lambda \dfrac{\boldsymbol{\sigma}}{\eta_p} + \mathbf{I}
+$$
+must remain positive-definite to ensure physically meaningful solutions. However, standard discretization techniques may violate this condition, leading to instabilities in the numerical simulation.
+
+These findings laid the groundwork for the development of more robust numerical schemes, such as the **Log-conformation Reformulation (LCR)**, which aim to overcome these difficulties by reformulating the constitutive equations in a way that inherently preserves the mathematical and physical properties of the model. Therefore, Fattal and Kupferman proposed a reformulation that is essentially **a change of variables**.
+The original formulation by Fattal and Kupferman considers the next transformation:
+
+$$
+\boldsymbol{\psi} 
+= \log\left( \dfrac{\lambda \boldsymbol{\sigma}}{\eta_p} + \mathbf{I} \right)
+$$
+This change of variables ensure the conformation tensor remains physically admissible, which requires it to be **symmetric** and **positive-definite** at all times. 
+
+Following this important discovery, we apply the same change of variables, with some modifications to suit our model:
+
+$$
+\boldsymbol{\psi} = \log\left(\boldsymbol{\tau}\right)
+= \log\left( \dfrac{\lambda_0 \boldsymbol{\sigma}}{\eta_p} + \mathbf{I} \right)
 \quad \longrightarrow \quad
-\textcolor{BrickRed}{\boldsymbol{\sigma}} = \dfrac{\eta_p}{\lambda_0} \left( \textcolor{PineGreen}{\exp(\boldsymbol{\psi})} - \mathbf{I} \right)
+\boldsymbol{\sigma} = \dfrac{\eta_p}{\lambda_0} \left( \exp(\boldsymbol{\psi}) - \mathbf{I} \right)
 $$
 
-where $\lambda_0 = \max\{k\lambda, \lambda_{0,\min}\}$ in order to get a physically-admissible conformation tensor that must be **symmetric** and **positive-definite**.
+where, $\lambda_0 = \max\{k\lambda, \lambda_{0,\min}\}$.
 
-> In contrast with the original one, **our change of variables is non-singular** when the Weissenberg number $\rm{We}$ is close to zero.
+> **Note:** Unlike the original change of variables, **our formulation is non-singular** when the Weissenberg number $\mathrm{We}$ tends to zero, avoiding potential numerical issues in this limit.
 
-By replacing this expresion in the original equations, we obtain a new set of equations in which the unknowns are the velocity $\boldsymbol{u}$, pressure $p$ and $\boldsymbol{\psi}$.
+By substituting this reformulated variable $\boldsymbol{\psi}$ into the original governing equations, we obtain **a new system of equations** where the primary unknowns are the velocity $\boldsymbol{u}$, the pressure $p$, and the transformed tensor $\boldsymbol{\psi}$.
 
-With the new equations, we develop the VMS stabilization corresponding to the residual-based formulation. Additionally, we design a "split" type stabilization, which considers only the essential terms required to stabilize the problem, while still achieving optimal convergence.
+Considering this new system, we develop a Variational Multiscale (VMS) stabilization strategy **for stabilize the reformulated problem**. Moreover, we design a "split" type stabilization method, which focuses on the essential terms necessary to stabilize the problem efficiently, while still achieving optimal convergence rates.
 
-<!-- ::: {.callout-tip title="Remarks: Linearized Problem and Algorithm"}
-- Non-linear terms are linearized with the **Newton-Raphson method** and the exponential term is approximated using a **Taylor expansion**.
-- The **orthogonal projection** has been approximated as:
-
-$$
-P_h^{\bot}[f^i] \approx f^i - P_h[f^{i-1}]
-$$
-::: -->
-
-### Numerical Result: Flow past a Cylinder
-
-**Setup scheme**
-![](assets/images-viscoelasticity/Cylinder_Scheme.png)
-
-The flow moves from left to right across the domain, which consists of a channel with an obstacle in the center (a cylinder). Only half of the domain is considered, assuming symmetry and periodic boundary conditions along the horizontal axis.
-
-::: {.columns}
-
-::: {.column width="50%"}
-- **Computational domain**:  
-  $R = 1$
-
-- **Boundary conditions**:  
-  - Inflow: $u_x = 0.75$ m/s, $u_y = 0$  
-  - Symmetry on the axis  
-  - Free outflow velocity  
-  - No-slip on the cylinder wall and top wall
-:::
-
-::: {.column width="50%"}
-- **Viscoelastic fluid parameters**:  
-  - $\rho = 1$ kg·m⁻³  
-  - $\beta = 0.59$  
-  - $\eta_0 = 1$  
-  - $\lambda = 0.1$ s
-
-- **Dimensionless numbers**:  
-  - Re ≈ 0  
-  - We ∈ {0.6, …, 2.4}
-
-- **Spatial discretization**:  
-  - Triangular mesh  
-  - 336106 elements, 179645 nodes  
-  - $h_{\text{min}} = 0.001$
-:::
-:::
+This approach significantly improves the robustness and accuracy of the numerical simulations for viscoelastic flows at high Weissenberg numbers.
 
 
-**Comparison of drag force coefficient**
+## Numerical Results
+
+## Conclusions
 
 
-![](assets/images-viscoelasticity/Cylinder_Drag.png)
 
-
-> - Literature results often **break down** at We ≈ 0.9  
-> - The LCR formulation exhibits **good stability for higher We**
-
-Note that each Weissenberg number correspond to a fluid flow with different elasticity.
-
-<!-- **Stress convergence study**\
-Comparison of the stresses over cylinder and upstream with literature and using different discretizations (M1 and M2, being M2 the finer one).
-
-![Domain with sampling locations](assets/images-viscoelasticity/Cylinder_Scheme_plots.png){width=65%}
-
-::: {.columns}
-::: {.column width="50%"}
-![Stress plots We=0.7](assets/images-viscoelasticity/Cylinder_We07_B.png)
-![Stress plots We=0.9](assets/images-viscoelasticity/Cylinder_We09.png)
-:::
-
-::: {.column width="50%"}
-![Rear view We=0.7](assets/images-viscoelasticity/Cylinder_We07_rearweak.png) 
-![Rear view We=0.9](assets/images-viscoelasticity/Cylinder_We09_rearweak.png)
-:::
-:::
-
-> ::: {.callout-note}
-> - **Top**: We = 0.7. Results fits completely with literature.
-> - **Bottom**: We = 0.9. The results don't show mesh convergence.   
-> ::: -->
-
-## Thermal Coupling
+# Thermal Coupling
 
 Explored the interaction between viscoelastic stress and temperature fields, particularly relevant in processes involving polymer melts.
 
 - Developed a coupled thermo-viscoelastic formulation.
 - Demonstrated effects on stress profiles and flow behavior.
 
-## Time-dependent subgrid-scales
+# Time-dependent subgrid-scales
 
-## Purely elastic inestability and Fractional Step Methods
+# Purely elastic inestability and Fractional Step Methods
 
 A fractional-step scheme was developed to decouple the computation of velocity, pressure, and stress fields. This technique improves solver robustness and allows more flexibility in time integration.
 
@@ -321,25 +277,13 @@ A fractional-step scheme was developed to decouple the computation of velocity, 
 - Applied to various constitutive models (Oldroyd-B, Giesekus...).
 
 
-## Fluid-Structure Interaction
+# Fluid-Structure Interaction
 
 
-## Numerical Analysis
-
-
-# Software and Implementation
-
-The numerical developments were implemented in the in-house FEM code **Femuss**, designed specifically for advanced CFD applications, and later developed for solving solid mechanics problems too. The code allows for modular addition of constitutive models, solver schemes, and stabilization techniques.
-
-
-# Selected Publications
+# Numerical Analysis
 
 
 
-# Collaborators
-
-- **Dr. Ernesto Castillo del Barrio**, Universidad de Santiago de Chile (Usach)
-- **Dr. Inocencio Castañar**, Universitat Politècnica de Catalunya (UPC).
 
 ---
 
