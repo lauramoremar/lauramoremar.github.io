@@ -254,7 +254,22 @@ Considering this new system, we develop a Variational Multiscale (VMS) stabiliza
 This approach significantly improves the robustness and accuracy of the numerical simulations for viscoelastic flows at high Weissenberg numbers.
 
 
-## Numerical Results
+## Numerical Result
+
+**Contraction 4:1**
+
+This benchmark is widely used to test the performance of numerical methods in viscoelastic fluid simulations. It features a planar channel with a 4:1 contraction, which produces strong elastic effects at high Weissenberg numbers. The goal is to **evaluate the stability and accuracy of the numerical approach under demanding flow conditions**, and to compare the results with reference data from the literature.
+
+
+![Scheme of the domain](assets/images-viscoelasticity/Contraction_Scheme.png){fig-cap="Contraction 4:1 scheme" width=85%}
+
+The Reynolds considered is Re=1.
+
+![Streamlines for different Weissenberg numbers](assets/images-viscoelasticity/Contraction_Streamlines.png){fig-cap="Contraction 4:1 scheme" width=85%}
+
+
+![Corner Length for We<=5](assets/images-viscoelasticity/Contraction_CornerLength_Re1.png){fig-cap="Contraction 4:1 scheme" width=75%}
+
 
 ## Conclusions
 

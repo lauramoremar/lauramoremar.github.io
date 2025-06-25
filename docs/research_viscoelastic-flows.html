@@ -140,7 +140,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#logarithmic-conformation-reformulation" id="toc-logarithmic-conformation-reformulation" class="nav-link" data-scroll-target="#logarithmic-conformation-reformulation"><span class="header-section-number">3</span> Logarithmic Conformation Reformulation</a>
   <ul class="collapse">
   <li><a href="#main-concepts" id="toc-main-concepts" class="nav-link" data-scroll-target="#main-concepts"><span class="header-section-number">3.1</span> Main Concepts</a></li>
-  <li><a href="#numerical-results" id="toc-numerical-results" class="nav-link" data-scroll-target="#numerical-results"><span class="header-section-number">3.2</span> Numerical Results</a></li>
+  <li><a href="#numerical-result" id="toc-numerical-result" class="nav-link" data-scroll-target="#numerical-result"><span class="header-section-number">3.2</span> Numerical Result</a></li>
   <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions"><span class="header-section-number">3.3</span> Conclusions</a></li>
   </ul></li>
   <li><a href="#thermal-coupling" id="toc-thermal-coupling" class="nav-link" data-scroll-target="#thermal-coupling"><span class="header-section-number">4</span> Thermal Coupling</a></li>
@@ -366,8 +366,29 @@ ul.task-list li input[type="checkbox"] {
 <p>Considering this new system, we develop a Variational Multiscale (VMS) stabilization strategy <strong>for stabilize the reformulated problem</strong>. Moreover, we design a “split” type stabilization method, which focuses on the essential terms necessary to stabilize the problem efficiently, while still achieving optimal convergence rates.</p>
 <p>This approach significantly improves the robustness and accuracy of the numerical simulations for viscoelastic flows at high Weissenberg numbers.</p>
 </section>
-<section id="numerical-results" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="numerical-results"><span class="header-section-number">3.2</span> Numerical Results</h2>
+<section id="numerical-result" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="numerical-result"><span class="header-section-number">3.2</span> Numerical Result</h2>
+<p><strong>Contraction 4:1</strong></p>
+<p>This benchmark is widely used to test the performance of numerical methods in viscoelastic fluid simulations. It features a planar channel with a 4:1 contraction, which produces strong elastic effects at high Weissenberg numbers. The goal is to <strong>evaluate the stability and accuracy of the numerical approach under demanding flow conditions</strong>, and to compare the results with reference data from the literature.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/images-viscoelasticity/Contraction_Scheme.png" class="img-fluid figure-img" style="width:85.0%"></p>
+<figcaption class="figure-caption">Scheme of the domain</figcaption>
+</figure>
+</div>
+<p>The Reynolds considered is Re=1.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/images-viscoelasticity/Contraction_Streamlines.png" class="img-fluid figure-img" style="width:85.0%"></p>
+<figcaption class="figure-caption">Streamlines for different Weissenberg numbers</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/images-viscoelasticity/Contraction_CornerLength_Re1.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption class="figure-caption">Corner Length for We&lt;=5</figcaption>
+</figure>
+</div>
 </section>
 <section id="conclusions" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="conclusions"><span class="header-section-number">3.3</span> Conclusions</h2>
