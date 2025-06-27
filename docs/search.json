@@ -459,7 +459,7 @@
     "href": "research_viscoelastic-flows.html#conclusions",
     "title": "Viscoelastic Fluid Flows",
     "section": "3.3 Conclusions",
-    "text": "3.3 Conclusions"
+    "text": "3.3 Conclusions\nTo sum up, the method (change of variables + VMS stabilization developed) shows good agreement with the literature, performs robustly for high Weissenberg numbers, and captures the main features of the flow. Not bad for a first PhD paper, right? 😄"
   },
   {
     "objectID": "research_viscoelastic-flows.html#overview-1",
