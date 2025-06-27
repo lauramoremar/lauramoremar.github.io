@@ -281,7 +281,7 @@ Finally, the size of the bottom corner vortex is compared with results from the 
 
 ## Conclusions
 
-To sum up, the method (change of variables + VMS stabilization developed) shows good agreement with the literature, performs robustly for high Weissenberg numbers, and captures the main features of the flow. Not bad for a first PhD paper, right? 😄
+To sum up, the method (change of variables + VMS stabilization developed) shows good agreement with the literature, performs robustly for high Weissenberg numbers, and captures the main features of the flow. Not bad for a first PhD paper, right? 😄 
 
 # Thermal Coupling
 
