@@ -31,9 +31,9 @@ page-layout: full
 - Stabilization.
 - Thermal coupling.
 - Fractional Step Methods.
-- Implementations in a in-house FEM code Femuss.
+- Implementations in a in-house FEM code called *Femuss*.
 
-<!-- [More details →](research_viscoelastic-flows.qmd) -->
+[More details →](research_viscoelastic-flows.qmd)
 
 ---
 

@@ -24,14 +24,29 @@ format:
 # Overview
 
 ## The challenges of simulating viscoelastic flows
-Viscoelastic fluids are a class of non-Newtonian materials that exhibit both **viscous** (frictional, dissipative) and **elastic** (energy-storing, memory-retaining) behaviors. This unique combination stems from their **complex internal microstructure**, which leads to *memory effects*:
+
+Viscoelastic fluids are a special type of non-Newtonian fluid, a kind of materials whose behavior changes depending on the forces applied to them. What makes these fluids truly fascinating is that they can act both **like regular liquids**, flowing and adapting, and **like solids** that resist and hold their shape... all depending on how fast or how strongly they are deformed.
+
+Here you can see a fun experiment carried out at Lamar University (USA), where a small swimming pool was filled with a non-Newtonian fluid. The students were even able to walk on the surface, but only as long as they kept moving!
+
+<iframe width="560" height="315" 
+  src="https://www.youtube.com/embed/RIUEZ3AhrVE" 
+  title="Viscoelastic fluids: liquids that behave like solids"
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+  allowfullscreen 
+  data-external="1">
+</iframe>
+
+
+More specifically, viscoelastic fluids exhibit both **viscous** (frictional, dissipative) and **elastic** (energy-storing, memory-retaining) behaviors. This unique combination arises from their **complex internal microstructure**, which leads to *memory effects*:
 
 > The current stress state depends not only on the present deformation but also on the entire **flow history**.
 
 ![](assets/images-viscoelasticity/Intro_amasando.png){fig-cap="The Weissenberg effect" width=50%}
 
 
-To accurately model these fluids, one *must go beyond the classical Navier–Stokes equations* and employ nonlinear constitutive equations. This complexity makes the numerical simulation of viscoelastic fluid flows **especially challenging**, particularly at high Weissenberg numbers, which correspond to flows dominated by elastic effects.
+Therefore, accurately model these fluids is not simple: one *must go beyond the classical Navier–Stokes equations* and employ nonlinear constitutive equations. This complexity makes the numerical simulation of viscoelastic fluid flows **especially challenging**, particularly at high Weissenberg numbers, which correspond to flows dominated by elastic effects.
 
 :::{.columns}
 
@@ -254,7 +269,7 @@ Considering this new system, we develop a Variational Multiscale (VMS) stabiliza
 This approach significantly improves the robustness and accuracy of the numerical simulations for viscoelastic flows at high Weissenberg numbers.
 
 
-## Numerical Result
+## Numerical Results
 
 **Contraction 4:1**
 
@@ -274,25 +289,38 @@ Beyond capturing the expected behavior, one key point should be highlighted: sta
 
 ![Streamlines for different Weissenberg numbers](assets/images-viscoelasticity/Contraction_Streamlines.png){fig-cap="Contraction 4:1 scheme" width=85%}
 
-Finally, the size of the bottom corner vortex is compared with results from the literature for fluids with We ≤ 5. M3 indicates the results obtained in this study (for more details, feel free to check out the paper 🙂).
+Finally, the size of the bottom corner vortex is compared with results from the literature for fluids with We ≤ 5. M3 indicates the results obtained in this study (for more details, feel free to check out the paper).
 
 ![Corner Length for We<=5](assets/images-viscoelasticity/Contraction_CornerLength_Re1.png){fig-cap="Contraction 4:1 scheme" width=70%}
 
 
 ## Conclusions
 
-To sum up, the method (change of variables + VMS stabilization developed) shows good agreement with the literature, performs robustly for high Weissenberg numbers, and captures the main features of the flow. Not bad for a first PhD paper, right? 😄 
+To sum up, the method (change of variables + VMS stabilization developed) shows good agreement with the literature, performs robustly for high Weissenberg numbers, and captures the main features of the flow. Not bad for a first PhD paper, right?
 
 # Thermal Coupling
 
-Explored the interaction between viscoelastic stress and temperature fields, particularly relevant in processes involving polymer melts.
+>📄 **Moreno, L., Codina, R., & Baiges, J.** (2021).\
+> *Numerical simulation of non-isothermal viscoelastic fluid flows using a VMS stabilized Finite Element formulation.* [Post-print](/assets/docs/artweb005-lm.pdf)\
+>*Journal of Non-Newtonian Fluid Mechanics, 296, 104640*.\
+>[DOI: 10.1016/j.jnnfm.2021.104640](https://doi.org/10.1016/j.jnnfm.2021.104640)
 
-- Developed a coupled thermo-viscoelastic formulation.
-- Demonstrated effects on stress profiles and flow behavior.
+## Motivation
+
+## Main Concepts
+
+## Numerical Results
+
+## Conclusions
+
 
 # Time-dependent subgrid-scales
 
+In construction.
+
 # Purely elastic inestability and Fractional Step Methods
+
+In construction.
 
 A fractional-step scheme was developed to decouple the computation of velocity, pressure, and stress fields. This technique improves solver robustness and allows more flexibility in time integration.
 
@@ -302,10 +330,11 @@ A fractional-step scheme was developed to decouple the computation of velocity, 
 
 # Fluid-Structure Interaction
 
+In construction.
 
 # Numerical Analysis
 
-
+In construction.
 
 
 ---

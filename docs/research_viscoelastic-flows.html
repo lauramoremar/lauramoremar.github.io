@@ -149,10 +149,16 @@ gtag('config', 'G-67M1JQ9KKG', { 'anonymize_ip': true});
   <li><a href="#logarithmic-conformation-reformulation" id="toc-logarithmic-conformation-reformulation" class="nav-link" data-scroll-target="#logarithmic-conformation-reformulation"><span class="header-section-number">3</span> Logarithmic Conformation Reformulation</a>
   <ul class="collapse">
   <li><a href="#main-concepts" id="toc-main-concepts" class="nav-link" data-scroll-target="#main-concepts"><span class="header-section-number">3.1</span> Main Concepts</a></li>
-  <li><a href="#numerical-result" id="toc-numerical-result" class="nav-link" data-scroll-target="#numerical-result"><span class="header-section-number">3.2</span> Numerical Result</a></li>
+  <li><a href="#numerical-results" id="toc-numerical-results" class="nav-link" data-scroll-target="#numerical-results"><span class="header-section-number">3.2</span> Numerical Results</a></li>
   <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions"><span class="header-section-number">3.3</span> Conclusions</a></li>
   </ul></li>
-  <li><a href="#thermal-coupling" id="toc-thermal-coupling" class="nav-link" data-scroll-target="#thermal-coupling"><span class="header-section-number">4</span> Thermal Coupling</a></li>
+  <li><a href="#thermal-coupling" id="toc-thermal-coupling" class="nav-link" data-scroll-target="#thermal-coupling"><span class="header-section-number">4</span> Thermal Coupling</a>
+  <ul class="collapse">
+  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation"><span class="header-section-number">4.1</span> Motivation</a></li>
+  <li><a href="#main-concepts-1" id="toc-main-concepts-1" class="nav-link" data-scroll-target="#main-concepts-1"><span class="header-section-number">4.2</span> Main Concepts</a></li>
+  <li><a href="#numerical-results-1" id="toc-numerical-results-1" class="nav-link" data-scroll-target="#numerical-results-1"><span class="header-section-number">4.3</span> Numerical Results</a></li>
+  <li><a href="#conclusions-1" id="toc-conclusions-1" class="nav-link" data-scroll-target="#conclusions-1"><span class="header-section-number">4.4</span> Conclusions</a></li>
+  </ul></li>
   <li><a href="#time-dependent-subgrid-scales" id="toc-time-dependent-subgrid-scales" class="nav-link" data-scroll-target="#time-dependent-subgrid-scales"><span class="header-section-number">5</span> Time-dependent subgrid-scales</a></li>
   <li><a href="#purely-elastic-inestability-and-fractional-step-methods" id="toc-purely-elastic-inestability-and-fractional-step-methods" class="nav-link" data-scroll-target="#purely-elastic-inestability-and-fractional-step-methods"><span class="header-section-number">6</span> Purely elastic inestability and Fractional Step Methods</a></li>
   <li><a href="#fluid-structure-interaction" id="toc-fluid-structure-interaction" class="nav-link" data-scroll-target="#fluid-structure-interaction"><span class="header-section-number">7</span> Fluid-Structure Interaction</a></li>
@@ -197,7 +203,11 @@ gtag('config', 'G-67M1JQ9KKG', { 'anonymize_ip': true});
 <h1 data-number="2"><span class="header-section-number">2</span> Overview</h1>
 <section id="the-challenges-of-simulating-viscoelastic-flows" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="the-challenges-of-simulating-viscoelastic-flows"><span class="header-section-number">2.1</span> The challenges of simulating viscoelastic flows</h2>
-<p>Viscoelastic fluids are a class of non-Newtonian materials that exhibit both <strong>viscous</strong> (frictional, dissipative) and <strong>elastic</strong> (energy-storing, memory-retaining) behaviors. This unique combination stems from their <strong>complex internal microstructure</strong>, which leads to <em>memory effects</em>:</p>
+<p>Viscoelastic fluids are a special type of non-Newtonian fluid, a kind of materials whose behavior changes depending on the forces applied to them. What makes these fluids truly fascinating is that they can act both <strong>like regular liquids</strong>, flowing and adapting, and <strong>like solids</strong> that resist and hold their shape… all depending on how fast or how strongly they are deformed.</p>
+<p>Here you can see a fun experiment carried out at Lamar University (USA), where a small swimming pool was filled with a non-Newtonian fluid. The students were even able to walk on the surface, but only as long as they kept moving!</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RIUEZ3AhrVE" title="Viscoelastic fluids: liquids that behave like solids" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" data-external="1">
+</iframe>
+<p>More specifically, viscoelastic fluids exhibit both <strong>viscous</strong> (frictional, dissipative) and <strong>elastic</strong> (energy-storing, memory-retaining) behaviors. This unique combination arises from their <strong>complex internal microstructure</strong>, which leads to <em>memory effects</em>:</p>
 <blockquote class="blockquote">
 <p>The current stress state depends not only on the present deformation but also on the entire <strong>flow history</strong>.</p>
 </blockquote>
@@ -206,7 +216,7 @@ gtag('config', 'G-67M1JQ9KKG', { 'anonymize_ip': true});
 <p><img src="assets/images-viscoelasticity/Intro_amasando.png" class="img-fluid figure-img" style="width:50.0%"></p>
 </figure>
 </div>
-<p>To accurately model these fluids, one <em>must go beyond the classical Navier–Stokes equations</em> and employ nonlinear constitutive equations. This complexity makes the numerical simulation of viscoelastic fluid flows <strong>especially challenging</strong>, particularly at high Weissenberg numbers, which correspond to flows dominated by elastic effects.</p>
+<p>Therefore, accurately model these fluids is not simple: one <em>must go beyond the classical Navier–Stokes equations</em> and employ nonlinear constitutive equations. This complexity makes the numerical simulation of viscoelastic fluid flows <strong>especially challenging</strong>, particularly at high Weissenberg numbers, which correspond to flows dominated by elastic effects.</p>
 <div class="columns">
 <div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
@@ -375,8 +385,8 @@ gtag('config', 'G-67M1JQ9KKG', { 'anonymize_ip': true});
 <p>Considering this new system, we develop a Variational Multiscale (VMS) stabilization strategy <strong>for stabilize the reformulated problem</strong>. Moreover, we design a “split” type stabilization method, which focuses on the essential terms necessary to stabilize the problem efficiently, while still achieving optimal convergence rates.</p>
 <p>This approach significantly improves the robustness and accuracy of the numerical simulations for viscoelastic flows at high Weissenberg numbers.</p>
 </section>
-<section id="numerical-result" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="numerical-result"><span class="header-section-number">3.2</span> Numerical Result</h2>
+<section id="numerical-results" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="numerical-results"><span class="header-section-number">3.2</span> Numerical Results</h2>
 <p><strong>Contraction 4:1</strong></p>
 <p>This benchmark is widely used to test the performance of numerical methods in viscoelastic fluid simulations. It features a planar channel with a 4:1 contraction, which produces strong elastic effects at high Weissenberg numbers. The goal is to <strong>evaluate the stability and accuracy of the numerical approach under demanding flow conditions</strong>, and to compare the results with reference data from the literature.</p>
 <div class="quarto-figure quarto-figure-center">
@@ -394,7 +404,7 @@ gtag('config', 'G-67M1JQ9KKG', { 'anonymize_ip': true});
 <figcaption class="figure-caption">Streamlines for different Weissenberg numbers</figcaption>
 </figure>
 </div>
-<p>Finally, the size of the bottom corner vortex is compared with results from the literature for fluids with We ≤ 5. M3 indicates the results obtained in this study (for more details, feel free to check out the paper 🙂).</p>
+<p>Finally, the size of the bottom corner vortex is compared with results from the literature for fluids with We ≤ 5. M3 indicates the results obtained in this study (for more details, feel free to check out the paper).</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="assets/images-viscoelasticity/Contraction_CornerLength_Re1.png" class="img-fluid figure-img" style="width:70.0%"></p>
@@ -404,22 +414,37 @@ gtag('config', 'G-67M1JQ9KKG', { 'anonymize_ip': true});
 </section>
 <section id="conclusions" class="level2" data-number="3.3">
 <h2 data-number="3.3" class="anchored" data-anchor-id="conclusions"><span class="header-section-number">3.3</span> Conclusions</h2>
-<p>To sum up, the method (change of variables + VMS stabilization developed) shows good agreement with the literature, performs robustly for high Weissenberg numbers, and captures the main features of the flow. Not bad for a first PhD paper, right? 😄</p>
+<p>To sum up, the method (change of variables + VMS stabilization developed) shows good agreement with the literature, performs robustly for high Weissenberg numbers, and captures the main features of the flow. Not bad for a first PhD paper, right?</p>
 </section>
 </section>
 <section id="thermal-coupling" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Thermal Coupling</h1>
-<p>Explored the interaction between viscoelastic stress and temperature fields, particularly relevant in processes involving polymer melts.</p>
-<ul>
-<li>Developed a coupled thermo-viscoelastic formulation.</li>
-<li>Demonstrated effects on stress profiles and flow behavior.</li>
-</ul>
+<blockquote class="blockquote">
+<p>📄 <strong>Moreno, L., Codina, R., &amp; Baiges, J.</strong> (2021).<br>
+<em>Numerical simulation of non-isothermal viscoelastic fluid flows using a VMS stabilized Finite Element formulation.</em> <a href="./assets/docs/artweb005-lm.pdf">Post-print</a><br>
+<em>Journal of Non-Newtonian Fluid Mechanics, 296, 104640</em>.<br>
+<a href="https://doi.org/10.1016/j.jnnfm.2021.104640">DOI: 10.1016/j.jnnfm.2021.104640</a></p>
+</blockquote>
+<section id="motivation" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">4.1</span> Motivation</h2>
+</section>
+<section id="main-concepts-1" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="main-concepts-1"><span class="header-section-number">4.2</span> Main Concepts</h2>
+</section>
+<section id="numerical-results-1" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="numerical-results-1"><span class="header-section-number">4.3</span> Numerical Results</h2>
+</section>
+<section id="conclusions-1" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="conclusions-1"><span class="header-section-number">4.4</span> Conclusions</h2>
+</section>
 </section>
 <section id="time-dependent-subgrid-scales" class="level1" data-number="5">
 <h1 data-number="5"><span class="header-section-number">5</span> Time-dependent subgrid-scales</h1>
+<p>In construction.</p>
 </section>
 <section id="purely-elastic-inestability-and-fractional-step-methods" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> Purely elastic inestability and Fractional Step Methods</h1>
+<p>In construction.</p>
 <p>A fractional-step scheme was developed to decouple the computation of velocity, pressure, and stress fields. This technique improves solver robustness and allows more flexibility in time integration.</p>
 <ul>
 <li>Tested both semi-implicit and fully implicit schemes.</li>
@@ -428,9 +453,11 @@ gtag('config', 'G-67M1JQ9KKG', { 'anonymize_ip': true});
 </section>
 <section id="fluid-structure-interaction" class="level1" data-number="7">
 <h1 data-number="7"><span class="header-section-number">7</span> Fluid-Structure Interaction</h1>
+<p>In construction.</p>
 </section>
 <section id="numerical-analysis" class="level1" data-number="8">
 <h1 data-number="8"><span class="header-section-number">8</span> Numerical Analysis</h1>
+<p>In construction.</p>
 <hr>
 <blockquote class="blockquote">
 <p><em>This research line formed the core of my PhD thesis, defended at the Universitat Politècnica de Catalunya (UPC).</em></p>
