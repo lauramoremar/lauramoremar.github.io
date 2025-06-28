@@ -16,6 +16,7 @@ website:
       - presentations.qmd
       - teaching.qmd
       - blog.qmd
+  google-analytics: G-67M1JQ9KKG
 
 format:
   html:
