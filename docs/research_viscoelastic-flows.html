@@ -154,10 +154,9 @@ gtag('config', 'G-67M1JQ9KKG', { 'anonymize_ip': true});
   </ul></li>
   <li><a href="#thermal-coupling" id="toc-thermal-coupling" class="nav-link" data-scroll-target="#thermal-coupling"><span class="header-section-number">4</span> Thermal Coupling</a>
   <ul class="collapse">
-  <li><a href="#motivation" id="toc-motivation" class="nav-link" data-scroll-target="#motivation"><span class="header-section-number">4.1</span> Motivation</a></li>
-  <li><a href="#main-concepts-1" id="toc-main-concepts-1" class="nav-link" data-scroll-target="#main-concepts-1"><span class="header-section-number">4.2</span> Main Concepts</a></li>
-  <li><a href="#numerical-results-1" id="toc-numerical-results-1" class="nav-link" data-scroll-target="#numerical-results-1"><span class="header-section-number">4.3</span> Numerical Results</a></li>
-  <li><a href="#conclusions-1" id="toc-conclusions-1" class="nav-link" data-scroll-target="#conclusions-1"><span class="header-section-number">4.4</span> Conclusions</a></li>
+  <li><a href="#main-concepts-1" id="toc-main-concepts-1" class="nav-link" data-scroll-target="#main-concepts-1"><span class="header-section-number">4.1</span> Main Concepts</a></li>
+  <li><a href="#numerical-results-1" id="toc-numerical-results-1" class="nav-link" data-scroll-target="#numerical-results-1"><span class="header-section-number">4.2</span> Numerical Results</a></li>
+  <li><a href="#conclusions-1" id="toc-conclusions-1" class="nav-link" data-scroll-target="#conclusions-1"><span class="header-section-number">4.3</span> Conclusions</a></li>
   </ul></li>
   <li><a href="#time-dependent-subgrid-scales" id="toc-time-dependent-subgrid-scales" class="nav-link" data-scroll-target="#time-dependent-subgrid-scales"><span class="header-section-number">5</span> Time-dependent subgrid-scales</a></li>
   <li><a href="#purely-elastic-inestability-and-fractional-step-methods" id="toc-purely-elastic-inestability-and-fractional-step-methods" class="nav-link" data-scroll-target="#purely-elastic-inestability-and-fractional-step-methods"><span class="header-section-number">6</span> Purely elastic inestability and Fractional Step Methods</a></li>
@@ -355,9 +354,9 @@ gtag('config', 'G-67M1JQ9KKG', { 'anonymize_ip': true});
 <em>Computer Methods in Applied Mechanics and Engineering</em>, 354, 706–731.<br>
 <a href="https://doi.org/10.1016/j.cma.2019.06.001">DOI: 10.1016/j.cma.2019.06.001</a></p>
 </blockquote>
+<p>As mentioned in the overview, one of the main challenges in computational rheology is the simulation of viscoelastic fluid flows <strong>at high elasticity</strong>. This issue, commonly referred to as the High Weissenberg Number Problem (HWNP), severely limits the range of applicability of numerical methods in viscoelastic flow simulations.</p>
 <section id="main-concepts" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="main-concepts"><span class="header-section-number">3.1</span> Main Concepts</h2>
-<p>As mentioned in the overview, one of the main challenges in computational rheology is the simulation of viscoelastic fluid flows <strong>at high elasticity</strong>. This issue, commonly referred to as the High Weissenberg Number Problem (HWNP), severely limits the range of applicability of numerical methods in viscoelastic flow simulations.</p>
 <p>In 2004, Fattal and Kupferman provided a key insight by identifying two main sources of instability associated with this problem:</p>
 <ol type="1">
 <li><p>Inadequate approximations for representing the polymeric stress tensor, which can lead to unphysical results or numerical blow-up.</p></li>
@@ -425,17 +424,43 @@ gtag('config', 'G-67M1JQ9KKG', { 'anonymize_ip': true});
 <em>Journal of Non-Newtonian Fluid Mechanics, 296, 104640</em>.<br>
 <a href="https://doi.org/10.1016/j.jnnfm.2021.104640">DOI: 10.1016/j.jnnfm.2021.104640</a></p>
 </blockquote>
-<section id="motivation" class="level2" data-number="4.1">
-<h2 data-number="4.1" class="anchored" data-anchor-id="motivation"><span class="header-section-number">4.1</span> Motivation</h2>
+<p>This second key topic seeks to explore <strong>how temperature variations affect the behavior of viscoelastic fluid flows</strong>. Viscoelastic fluids exhibit highly advantageous properties for heat transfer and energy transport processes. In many industrial applications, such as polymer extrusion or heat exchangers, these fluids are capable of converting significant amounts of mechanical energy into heat due to their complex rheological behavior.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/images-temperature/heat-exchanger.jpg" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption class="figure-caption">Heat exchanger</figcaption>
+</figure>
+</div>
+<p>Therefore, this study aimed to shedding light on the coupling between thermal and mechanical effects in non-isothermal conditions. These insights are not only relevant in classical industrial settings, but also open the door to emerging applications such as <strong>solar thermal systems</strong>, where enhanced heat transfer performance is key to improving efficiency.</p>
+<section id="main-concepts-1" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="main-concepts-1"><span class="header-section-number">4.1</span> Main Concepts</h2>
+<p>In non-isothermal viscoelastic fluids, the stress no longer depends solely on the deformation and its history, as is the case in isothermal models. Instead, it is also influenced by the temperature and its temporal evolution. This adds a new layer of complexity to the modeling, as <strong>both the thermal and mechanical histories must be taken into account</strong>.</p>
+<ul>
+<li><p>Now, <strong>the parameters used in viscoelastic models</strong>, such as the solvent and polymeric viscosities <span class="math inline">\(\eta_s\)</span>, <span class="math inline">\(\eta_p\)</span>, and the relaxation time <span class="math inline">\(\lambda\)</span>, <strong>become temperature-dependent</strong>. This dependence is commonly modeled using the <strong>principle of time-temperature superposition</strong>, twhich provides a way to relate temperature changes to time-dependent material behavior using an appropriate law.</p></li>
+<li><p>Moreover, <strong>temperature equation must be added to the model</strong>. This equation includes a specific term accounting for <strong>viscous dissipation</strong>, which accounts for the heat generated by internal friction in the fluid. In simple terms: wherever there’s resistance to flow, there’s heat being produced.</p></li>
+</ul>
+<p>The set of the standar equations would be as follows:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/images-temperature/Set-equations.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption class="figure-caption">Set equations</figcaption>
+</figure>
+</div>
+<p>where <span class="math inline">\(\theta\)</span> is the temperature unknown and <span class="math inline">\(\theta_0\)</span> is the referene temperature.</p>
+<p>To solve the full problem, we use an <strong>iterative coupling strategy between the thermal and fluid subproblems</strong>, while the fluid equations are treated in a monolithic way, that is, solved all together rather than split into separate steps.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="assets/images-temperature/Algorithm-temperature.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption class="figure-caption">Algorithm-Temperature</figcaption>
+</figure>
+</div>
+<p>As in the previous section, we rely on the <strong>Split-OSS stabilization</strong> technique for all numerical simulations, and the <strong>LCR formulation</strong> is also coupled in order to capture more elastic behaviors (see <a href="#logarithmic-conformation-reformulation">Log-Conformation Reformulation Section</a> for more details).</p>
 </section>
-<section id="main-concepts-1" class="level2" data-number="4.2">
-<h2 data-number="4.2" class="anchored" data-anchor-id="main-concepts-1"><span class="header-section-number">4.2</span> Main Concepts</h2>
+<section id="numerical-results-1" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="numerical-results-1"><span class="header-section-number">4.2</span> Numerical Results</h2>
 </section>
-<section id="numerical-results-1" class="level2" data-number="4.3">
-<h2 data-number="4.3" class="anchored" data-anchor-id="numerical-results-1"><span class="header-section-number">4.3</span> Numerical Results</h2>
-</section>
-<section id="conclusions-1" class="level2" data-number="4.4">
-<h2 data-number="4.4" class="anchored" data-anchor-id="conclusions-1"><span class="header-section-number">4.4</span> Conclusions</h2>
+<section id="conclusions-1" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="conclusions-1"><span class="header-section-number">4.3</span> Conclusions</h2>
 </section>
 </section>
 <section id="time-dependent-subgrid-scales" class="level1" data-number="5">
@@ -445,11 +470,6 @@ gtag('config', 'G-67M1JQ9KKG', { 'anonymize_ip': true});
 <section id="purely-elastic-inestability-and-fractional-step-methods" class="level1" data-number="6">
 <h1 data-number="6"><span class="header-section-number">6</span> Purely elastic inestability and Fractional Step Methods</h1>
 <p>In construction.</p>
-<p>A fractional-step scheme was developed to decouple the computation of velocity, pressure, and stress fields. This technique improves solver robustness and allows more flexibility in time integration.</p>
-<ul>
-<li>Tested both semi-implicit and fully implicit schemes.</li>
-<li>Applied to various constitutive models (Oldroyd-B, Giesekus…).</li>
-</ul>
 </section>
 <section id="fluid-structure-interaction" class="level1" data-number="7">
 <h1 data-number="7"><span class="header-section-number">7</span> Fluid-Structure Interaction</h1>
