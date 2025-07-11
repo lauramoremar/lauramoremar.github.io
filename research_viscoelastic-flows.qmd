@@ -345,12 +345,12 @@ As in the previous section, we rely on the **Split-OSS stabilization** technique
 
 This benchmark isn't the most exciting one, but it is widely used to test numerical formulations. Moreover, it's a solid and well-understood setup for evaluating how different methods perform when simulating viscoelastic fluid flows, and it remains useful for **validating models under both isothermal and non-isothermal conditions**. Only the half of the channel was considered due to the symmetry nature of the test.
 
-![Scheme of the domain](assets/images-temperature/cylinder_scheme.png){fig-cap="Flow over a cylinder scheme" width=90%}
+![Scheme of the domain](assets/images-temperature/cylinder_scheme.png){fig-cap="Flow over a cylinder scheme" width=85%}
 
 
 All the details about the material properties, boundary conditions, and mesh employed are included in the paper. Regarding the results, we have studied the role that viscoelasticity plays in the temperature distribution of the fluid flow. The next picture shows the temperature distribution along the channel. 
 
-![Temperature distribution (K)](assets/images-temperature/cylinder_temperature_We4.png){fig-cap="Temperature distribution" width=90%}
+![Temperature distribution (K)](assets/images-temperature/cylinder_temperature_We4.png){fig-cap="Temperature distribution" width=70%}
 
 We can observe that the temperature increases around the cylinder and downstream when considering a fluid flow with $\text{We}= 4$.
 Now we can also compare the behaviour of the temperature for fluid flows with different viscoelasticity (different We), and also comparing with a viscous fluid flow.
@@ -370,7 +370,7 @@ Now we can also compare the behaviour of the temperature for fluid flows with di
 
 From these results, we can conclude that viscoelastic fluid flow generates heat in areas with higher viscous dissipation. Another important finding concerns the stresses (again, over the cylinder and downstream): when viscoelasticity is coupled with the temperature equation, the stress values decrease significantly.
 
-![Stress distribution](assets/images-temperature/cylinder_stresses.png){fig-cap="Stresses distribution" width=60%}
+![Stress distribution](assets/images-temperature/cylinder_stresses.png){fig-cap="Stresses distribution" width=50%}
 
 
 I strongly recommend checking the other example in the paper ("extension 1:3"), where we observed a bifurcation at high Reynolds numbers. It’s a rich and interesting case, where we studied how variations in four dimensionless numbers (Reynolds, Weissenberg, Prandtl, and Bingham) affect the flow behaviour. Additionally  tests were performed with highly elastic fluids.
