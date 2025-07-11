@@ -270,13 +270,13 @@
     "href": "research_viscoelastic-flows.html#numerical-results-1",
     "title": "Viscoelastic Fluid Flows",
     "section": "4.2 Numerical Results",
-    "text": "4.2 Numerical Results"
+    "text": "4.2 Numerical Results\nFlow around a cylinder\nThis benchmark isn’t the most exciting one, but it is widely used to test numerical formulations. Moreover, it’s a solid and well-understood setup for evaluating how different methods perform when simulating viscoelastic fluid flows, and it remains useful for validating models under both isothermal and non-isothermal conditions. Only the half of the channel was considered due to the symmetry nature of the test.\n\n\n\nScheme of the domain\n\n\nAll the details about the material properties, boundary conditions, and mesh employed are included in the paper. Regarding the results, we have studied the role that viscoelasticity plays in the temperature distribution of the fluid flow. The next picture shows the temperature distribution along the channel.\n\n\n\nTemperature distribution (K)\n\n\nWe can observe that the temperature increases around the cylinder and downstream when considering a fluid flow with \\(\\text{We}= 4\\). Now we can also compare the behaviour of the temperature for fluid flows with different viscoelasticity (different We), and also comparing with a viscous fluid flow.\n\n\n\n\n\n\n\nFrom these results, we can conclude that viscoelastic fluid flow generates heat in areas with higher viscous dissipation. Another important finding concerns the stresses (again, over the cylinder and downstream): when viscoelasticity is coupled with the temperature equation, the stress values decrease significantly.\n\n\n\nStress distribution\n\n\nI strongly recommend checking the other example in the paper (“extension 1:3”), where we observed a bifurcation at high Reynolds numbers. It’s a rich and interesting case, where we studied how variations in four dimensionless numbers (Reynolds, Weissenberg, Prandtl, and Bingham) affect the flow behaviour. Additionally tests were performed with highly elastic fluids."
   },
   {
     "objectID": "research_viscoelastic-flows.html#conclusions-1",
     "href": "research_viscoelastic-flows.html#conclusions-1",
     "title": "Viscoelastic Fluid Flows",
     "section": "4.3 Conclusions",
-    "text": "4.3 Conclusions"
+    "text": "4.3 Conclusions\nThe coupling of viscoelastic fluids with temperature allows us to understand how these fluids heat up, which occurs differently compared to purely viscous fluids. Understanding these temperature distributions can be very beneficial for replicating various industrial processes, making this study particularly relevant. What do you think? Are you familiar with how elasticity can affect temperature in fluid flows?"
   }
 ]
