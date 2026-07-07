@@ -17,12 +17,13 @@ My teaching experience focuses on applied mathematics, numerical methods, comput
 #### Fundamentos Matemáticos en Ingeniería I
 - **Degree**: Grado en Ingeniería Aeroespacial  
 - **Institution**: Department of Applied Mathematics, University of Alicante, Spain  
-- **Language**: Spanish  
+- **Language**: Spanish
+- **Role**: Lecturer and course coordinator (since the academic course 2025/2026)  
 - **Type**: Lecture (Theory and exercises)  
 - **Years**:  
   - 2024/2025 (120h) – [Guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wcodest=C214&wcodasi=33803&wlengua=C&scaca=2024-25)  
   - 2025/2026 (120h)
-  - 2026/2027 (scheduled)
+  - 2026/2027 (scheduled) (120h)
 
 #### Matemáticas Básicas
 - **Degree**: Grado en Ingeniería en Sonido e Imagen en Telecomunicación  
@@ -32,7 +33,7 @@ My teaching experience focuses on applied mathematics, numerical methods, comput
 - **Year**: 
    - 2024/2025 (30h) – [Guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=en&wcodasi=20004&scaca=2024-25#)
    - 2025/2026 (60h)
-   - 2025/2026 (scheduled)
+   - 2026/2027 (scheduled) (30h)
 
 #### Fundamentos de Matemática Aplicada 2
 - **Degree**: Grado en Ingeniería Robótica  
@@ -83,6 +84,17 @@ My teaching experience focuses on applied mathematics, numerical methods, comput
 - **Type**: Mentoring  
 - **Year**: 2022/2023 (12h)  
 - **Description**: Support in projects, practical exercises and elaboration of educative material.
+
+
+### 🧭 Teaching coordination
+
+#### Fundamentos Matemáticos en Ingeniería I
+
+- **Role**: Course coordinator
+- **Degree**: Grado en Ingeniería Aeroespacial
+- **Institution**: University of Alicante, Spain
+- **Academic year**: 2024/2025
+- **Responsibilities**: coordination of teaching activities, planning of assessment criteria, communication with students and teaching staff, and follow-up of course development.
 
 ### 👩‍🎓 Supervision and mentoring
 
