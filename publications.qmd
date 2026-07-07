@@ -4,15 +4,17 @@ title: "Publications"
 
 <!-- **Accepted** -->
 
-## Submitted
-
- **9-.** Study of Stabilized Mixed Formulations for Fluid-Structure Interaction Problems within a Variational Multiscale Framework. [[Pre-print]](/assets/docs/artweb009-lm-preprint.pdf)\
-Castañar I., Moreno L. & Codina R.\
-*Computer Methods in Applied Mechanics and Engineering*
-
-
+<!--## Submitted -->
 
 ## Published
+
+### 2026
+
+**9-.** Study of Stabilized Mixed Formulations for Fluid-Structure Interaction Problems within a Variational Multiscale Framework. [[Post-print]](/assets/docs/artweb009-lm-preprint.pdf)\
+Castañar I., Moreno L. & Codina R.\
+*Computer Methods in Applied Mechanics and Engineering*,
+Vol. 451 (2026) 118648.\ 
+[DOI: 10.1016/j.cma.2025.118648](https://www.sciencedirect.com/science/article/pii/S004578252500920X)
 
 ### 2025
 
