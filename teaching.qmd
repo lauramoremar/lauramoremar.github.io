@@ -122,7 +122,7 @@ My teaching experience focuses on applied mathematics, numerical methods, comput
 
 #### Bachelor theses supervised
 
-##### Lucas Peydró Ferrando — ongoing, 2025/2026
+##### Lucas Peydró Ferrando — ongoing, July 2026 (expected)
 
 - **Title**: *Simulación Numérica de las olas generadas por deslizamientos mediante el método del punto material: aplicación al caso de Lituya Bay.*
 - **Role**: Co-supervisor
