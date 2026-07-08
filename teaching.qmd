@@ -75,7 +75,7 @@ My teaching experience focuses on applied mathematics, numerical methods, comput
 - **Language**: English  
 - **Type**: Lecture (theory and exercises)  
 - **Year**: 2023/2024 (10h)  
-- **Description**: Preparation of materials and execution of practical exercises using the software KRATOS Multiphysics.
+- **Description**: Preparation of materials and execution of practical exercises using the software KRATOS Multiphysics. 
 
 #### Numerical Methods for Continuous Systems
 - **Degree**: Master in Mathematical Engineering  
