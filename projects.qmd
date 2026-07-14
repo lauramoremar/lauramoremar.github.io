@@ -1,0 +1,99 @@
+---
+title: "Projects"
+---
+
+This page presents my participation in competitive research projects and research and knowledge-transfer contracts. Projects are listed in reverse chronological order. Titles originally issued in Spanish or Italian have been translated into English.
+
+## Competitive research projects
+
+### SEA4FUTURE
+
+**Title:** Sustainable and Ecosystem-based Approach for Fisheries through the Utilization of Technology to Uphold Resilient Environments  
+**European competitive research project** · January 2026–December 2029 (ongoing)  
+**Reference:** 101212647  
+**Funding:** European Commission  
+**Coordinator:** University of Alicante  
+**Participating institutions:** University of Alicante and the SEA4FUTURE consortium partners  
+**Principal investigator at the University of Alicante:** César Bordehore Fontanet  
+**Role:** Researcher (part-time), since January 2026
+
+**Contribution:** Participation in the scientific, training, and dissemination activities planned within the project.
+
+### Satellite Geodesy
+
+**Title:** Satellite Geodesy for Earth Observation and Climate Studies  
+**Institutional competitive research project** · January–December 2026 (ongoing)  
+**Reference:** VIGROB25-260  
+**Funding and participating institution:** University of Alicante  
+**Principal investigator:** María Isabel Vigo Aguiar  
+**Role:** Collaborating researcher (part-time), since January 2026
+
+**Contribution:** Participation in the scientific, training, and dissemination activities planned within the project.
+
+### GRK 2075/2
+
+**Title:** Modelling the Constitutive Evolution of Building Materials and Structures with Respect to Aging  
+**International competitive research project** · September 2023–July 2024  
+**Funding:** German Research Foundation (DFG)  
+**Participating institution:** Technische Universität Braunschweig  
+**Principal investigators:** Manfred Krafczyk and Roland Wüchner  
+**Role:** Postdoctoral researcher (full-time)
+
+**Contribution:** Development of mathematical and numerical models to study the constitutive evolution and aging of construction materials and structures. Implementation in the open-source software Kratos Multiphysics, numerical simulation, analysis and validation of results, and preparation of scientific reports.
+
+### NEMESIS
+
+**Title:** Numerical Methods for the Simulation of Multiphysics Problems  (SID 2020)
+**Institutional competitive research project** · October 2021–October 2023  
+**Funding and participating institution:** Università degli Studi di Padova  
+**Principal investigator:** Antonia Larese  
+**Role:** Postdoctoral researcher (full-time), appointed through two consecutive *assegni di ricerca*
+
+**Contribution:** Development and implementation in Kratos Multiphysics of mathematical and numerical models for multiphysics problems and the simulation of extreme natural events. Validation and analysis of results, preparation of reports, and dissemination of research findings.
+
+### ELASTIC-FLOW
+
+**Title:** Efficiency Optimization in Mixing and Heat Transfer Processes Using Viscoelastic Fluids in Laminar and Turbulent Regimes  
+**National competitive research project** · April 2017–October 2021  
+**Funding:** Spanish Ministry of Economy, Industry and Competitiveness (MINECO)  
+**Participating institution:** International Centre for Numerical Methods in Engineering (CIMNE)  
+**Principal investigators:** Ramon Codina and Joan Baiges  
+**Role:** FPI predoctoral researcher (full-time)
+
+**Contribution:** Development of mathematical models and stabilized finite element formulations for the simulation of highly elastic viscoelastic flows, including thermal effects. Computational implementation, numerical validation, analysis of results, and preparation of scientific publications as part of my doctoral thesis.
+
+### FORJACEMIC
+
+**Title:** Research on New Processes and Microalloyed Steels for the Hot Forging of Automotive Crankshafts  
+**National competitive research project** · September–December 2014  
+**Reference:** 2013-CE330  
+**Funding:** CIE-GALFOR / INNTERCONECTA Programme  
+**Participating institution:** Universidade de Santiago de Compostela  
+**Principal investigator:** Alfredo Bermúdez  
+**Role:** Research Assistant (full-time)
+
+**Contribution:** Numerical modelling and simulation of electromagnetic processes with hysteresis, including model implementation, validation of results, and preparation of technical reports.
+
+## Research and knowledge-transfer contracts
+
+### European Solar Telescope
+
+**Title:** Optical Quality Assessment for the European Solar Telescope  
+**National research and knowledge-transfer contract** · March–August 2020  
+**Contracting institution:** Instituto de Astrofísica de Canarias (IAC)  
+**Participating institutions:** Instituto de Astrofísica de Canarias (IAC) and International Centre for Numerical Methods in Engineering (CIMNE)  
+**Principal investigator:** Ramon Codina  
+**Role:** Collaborating researcher (part-time)
+
+**Contribution:** Generation of computational meshes from CAD models of the telescopes provided by the IAC; numerical simulations to estimate the optical quality degradation generated by the future European Solar Telescope (EST) over the William Herschel Telescope (WHT) at the Roque de los Muchachos Observatory; analysis and comparison of results; and preparation of periodic technical reports.
+
+### Mont-Royal Tunnel
+
+**Title:** Aerodynamic Loads on the Separation Wall of the Mont-Royal Tunnel  
+**International research and knowledge-transfer contract** · March–August 2020  
+**Contracting institution:** EWE+ General Partnership  
+**Participating institutions:** International Centre for Numerical Methods in Engineering (CIMNE) and EWE+ General Partnership  
+**Principal investigators:** Ramon Codina and Joan Baiges  
+**Role:** Collaborating researcher (part-time)
+
+**Contribution:** Design and generation of computational meshes; numerical simulations to estimate aerodynamic loads on the tunnel separation wall; analysis and validation of results; and preparation of technical reports.

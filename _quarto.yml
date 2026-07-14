@@ -12,6 +12,8 @@ website:
         text: Home
       - cv.qmd  
       - research.qmd  
+      - href: projects.qmd
+        text: Projects
       - publications.qmd
       - presentations.qmd
       - teaching.qmd
@@ -23,6 +25,5 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
-
 
 
