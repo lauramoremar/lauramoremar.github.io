@@ -2,6 +2,19 @@
 title: "Presentations"
 ---
 
+## 2026
+
+* Oral conference speaker **Congreso Bienal de la Real Sociedad Matemática Española 2026** [[Link](https://2026.bienalrsme.com/)]\
+Alicante, Spain, January 19-23, 2026.\
+<u>Title</u>: *Simulación numérica de flujos viscoplásticos mediante formulaciones mixtas con MPM en contextos hidrológicos extremos. *\
+L. Moreno, A. Larese, R. Wüchner.
+
+## 2025
+
+* Oral conference speaker in **VIII International Conference on Particle-Based Methods (PARTICLES 2025)** [[Link](https://particles2025.cimne.com/)]\
+Barcelona, Spain, October 20-22, 2025.\
+<u>Title</u>: *A New Stabilized Mixed MPM Framework for Incompressible Viscoplastic Fluids.*\
+L. Moreno, R.Wüchner, A. Larese.
 
 ## 2024
 
@@ -39,7 +52,7 @@ L. Moreno, N. Crescencio, V. Singer, A. Larese and R. Wüchner
 
 ## 2023
 
-* Oral conference speaker in **VIII Inernational Conference in Particle Mechanics (Particles 2023)** [[Link](https://particles2023.cimne.com/)]\
+* Oral conference speaker in **VIII Inernational Conference in Particle Mechanics (PARTICLES 2023)** [[Link](https://particles2023.cimne.com/)]\
 Milan, Italy, Octuber 9 - 11, 2023.\
 <u>Title</u>: *Stabilized mixed formulation for incompressible materials by using VMS in a Material Point Method framework.*\
 L. Moreno, A. Larese and R. Wüchner.
