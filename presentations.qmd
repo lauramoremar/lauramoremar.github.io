@@ -4,7 +4,7 @@ title: "Presentations"
 
 ## 2026
 
-* **Invited speaker** at **Workshop on Modeling and Simulation of Extreme Events - HYDROROM Workshop 2026** [[Link](https://dmunipd.github.io/hydrorom26/)]\
+* Invited speaker at **Workshop on Modeling and Simulation of Extreme Events - HYDROROM Workshop 2026** [[Link](https://dmunipd.github.io/hydrorom26/)]\
 Padova, Italy, February 26, 2026.\
 <u>Title</u>: *Multiphysics Modeling of Natural Hazards: Numerical Approaches for Structural Impact Assessment*\
 L. Moreno, A. Larese
@@ -28,7 +28,7 @@ Lisbon, Portugal, June 2-7 2024.\
 <u>Title</u>: *Stabilized mixed formulation for an implicit Material Point Method for viscoplastic fluids.*\
 L. Moreno, A.Contri, A. Larese.
 
-* **Invited conference speaker** in **Congreso de estudiantes de física Universidad de La Laguna (COEFIS XVI)** [[Link](https://coefis.es/)], [[Libreto](https://drive.google.com/file/d/18ETEBvbDjmDhiJ_KpB0W_38ZMTfBUyUD/view)]\
+* Invited conference speaker in **Congreso de estudiantes de física Universidad de La Laguna (COEFIS XVI)** [[Link](https://coefis.es/)], [[Libreto](https://drive.google.com/file/d/18ETEBvbDjmDhiJ_KpB0W_38ZMTfBUyUD/view)]\
 La Laguna, Tenerife, Spain, 12-14 April 2024.\
 <u>Title</u>: *How to simulate water hazard events.* [[Youtube](https://youtu.be/V4rcjQkvsPI?si=FwZ_yLvYBddSHZ4i)]\
 L. Moreno
