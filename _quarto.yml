@@ -14,9 +14,11 @@ website:
       - text: Research
         menu:
           - href: research.qmd
-            text: Research overview
+            text: Research Areas
           - href: projects.qmd
             text: Projects
+          - href: collaborations.qmd
+            text: Collaborations
       - publications.qmd
       - presentations.qmd
       - teaching.qmd
@@ -29,4 +31,3 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
-

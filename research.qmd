@@ -1,13 +1,11 @@
 ---
-title: "Research overview"
+title: "Research Areas"
 format: html
 page-layout: full
 ---
 
 
  My work focuses on the development and application of advanced numerical methods for fluid and solid mechanics, with a strong emphasis on FEM and MPM techniques. Below is an overview of the main research areas I’ve been involved in.
-
-## Research Areas
 
 ---
 

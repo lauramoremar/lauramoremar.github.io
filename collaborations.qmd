@@ -1,0 +1,26 @@
+---
+title: "Collaborations"
+---
+
+Research is a collaborative effort. This page highlights the researchers, institutions, and scientific communities with whom I share or have shared research interests and projects.
+
+The collaboration profiles are currently being prepared. They will include each collaborator's institution, our shared research area, and a link to their professional or institutional profile.
+
+<!--
+Suggested structure for each entry:
+
+### Name
+
+**Institution:** Institution name  
+**Shared research areas:** Research topics  
+**Collaboration:** Brief description of the joint work  
+**Profile:** [Institutional profile](https://example.com)
+
+Possible future sections:
+
+## Current collaborations
+
+## Previous collaborations
+
+## Research groups and scientific communities
+-->
