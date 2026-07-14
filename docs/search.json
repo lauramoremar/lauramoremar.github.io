@@ -130,7 +130,7 @@
     "href": "presentations.html#section-1",
     "title": "Presentations",
     "section": "2025",
-    "text": "2025\n\nOral conference speaker in VIII International Conference on Particle-Based Methods (PARTICLES 2025) [Link]\nBarcelona, Spain, October 20-22, 2025.\nTitle: A New Stabilized Mixed MPM Framework for Incompressible Viscoplastic Fluids.\nL. Moreno, R.Wüchner, A. Larese."
+    "text": "2025\n\nOral conference speaker in IX International Conference on Particle-Based Methods (PARTICLES 2025) [Link]\nBarcelona, Spain, October 20-22, 2025.\nTitle: A New Stabilized Mixed MPM Framework for Incompressible Viscoplastic Fluids.\nL. Moreno, R.Wüchner, A. Larese."
   },
   {
     "objectID": "presentations.html#section-2",
@@ -306,5 +306,12 @@
     "title": "Presentations",
     "section": "2019",
     "text": "2019\n\nOral presentation in a CIMNE Coffee Talk [Link]\nBarcelona, Spain, December 11th, 2019.\nTitle: Simulating viscoelastic fluid flows with high Weissenberg number. [Slides]\nOral conference speaker in the VIII International Conference on Coupled Problems in Science and Engineering (COUPLED 2019) [Link]\nSitges, Spain. June 3-6 2019\nTitle: Simulation of non-isothermal viscoelastic fluid flow problem using a VMS stabilized Formulation.\n[Abstract] and [Slides]\nL. Moreno, J. Baiges, R. Codina.\nOral presentation in Lecture Series: Women researchers at CIMNE for the International Day of Women and Girls in Science [Link]\nBarcelona, Spain, February 11th, 2019.\nTitle: Heat transfer processes using viscoelastic fluids in laminar and turbulence regimes. [Slides]"
+  },
+  {
+    "objectID": "projects.html#table-of-contents",
+    "href": "projects.html#table-of-contents",
+    "title": "Projects",
+    "section": "Table of contents",
+    "text": "Table of contents\n\nCompetitive research projects\nResearch and knowledge-transfer contracts"
   }
 ]

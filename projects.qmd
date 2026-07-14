@@ -4,6 +4,11 @@ title: "Projects"
 
 This page presents my participation in competitive research projects and research and knowledge-transfer contracts. Projects are listed in reverse chronological order. Titles originally issued in Spanish or Italian have been translated into English.
 
+## Table of contents
+
+- [Competitive research projects](#competitive-research-projects)
+- [Research and knowledge-transfer contracts](#research-and-knowledge-transfer-contracts)
+
 ## Competitive research projects
 
 ### SEA4FUTURE
