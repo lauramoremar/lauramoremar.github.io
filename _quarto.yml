@@ -11,13 +11,17 @@ website:
       - href: index.qmd
         text: Home
       - cv.qmd  
-      - research.qmd  
-      - href: projects.qmd
-        text: Projects
+      - text: Research
+        menu:
+          - href: research.qmd
+            text: Research overview
+          - href: projects.qmd
+            text: Projects
       - publications.qmd
       - presentations.qmd
       - teaching.qmd
-      - blog.qmd
+      - href: blog.qmd
+        text: News
   google-analytics: G-67M1JQ9KKG
 
 format:
@@ -25,5 +29,4 @@ format:
     theme: cosmo
     css: styles.css
     toc: true
-
 

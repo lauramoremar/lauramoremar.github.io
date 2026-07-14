@@ -142,14 +142,14 @@
   {
     "objectID": "research.html",
     "href": "research.html",
-    "title": "Research",
+    "title": "Research overview",
     "section": "",
     "text": "My work focuses on the development and application of advanced numerical methods for fluid and solid mechanics, with a strong emphasis on FEM and MPM techniques. Below is an overview of the main research areas I’ve been involved in."
   },
   {
     "objectID": "research.html#research-areas",
     "href": "research.html#research-areas",
-    "title": "Research",
+    "title": "Research overview",
     "section": "Research Areas",
     "text": "Research Areas\n\n\n🌊 Material Point Method\nNumerical modeling for solid mechanics and fluid flow systems using MPM within Kratos Multiphysics.\n\nSolid Mechanics Problems including large deformations.\nAdvanced on mixed formulations (mixed u-p)\nFree surface flow simulations.\nMPM implementation and benchmark studies.\nOngoing work using Kratos Multiphysics.\n\n\n\n\n\n🌀 Viscoelastic Fluid Flows\nNumerical modeling of viscoelastic fluids with high elasticity using FEM techniques.\n\nLog-conformation reformulation.\nStabilization.\nThermal coupling.\nFractional Step Methods.\nImplementations in a in-house FEM code called Femuss.\n\nMore details →\n\n\n\n🌬️ Finite Element Modeling of Complex Fluid Flows\nFEM-based simulation of complex fluid beyond viscoelasticity.\n\nAir flow modeling around telescopes and large structures.\nTunnel pannel study\n\n\n\n\n\n🔄 Fluid–Structure Interaction\nSimulation of coupled problems involving solid-fluid interaction, including viscoelastic and mixed formulations.\n\nFSI simulations using FEM (with and without viscoelasticity).\nMixed formulation methods for fluid/structure coupling.\n\n\n\n\nNote: Some projects may appear in more than one research line, highlighting their interdisciplinary nature."
   },
@@ -282,8 +282,8 @@
   {
     "objectID": "blog.html",
     "href": "blog.html",
-    "title": "Blog",
+    "title": "News",
     "section": "",
-    "text": "About this site"
+    "text": "Updates on research, publications, conferences, teaching, and outreach activities will be published here."
   }
 ]
