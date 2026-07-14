@@ -28,9 +28,9 @@ Lisbon, Portugal, June 2-7 2024.\
 <u>Title</u>: *Stabilized mixed formulation for an implicit Material Point Method for viscoplastic fluids.*\
 L. Moreno, A.Contri, A. Larese.
 
-* Invited conference speaker in **Congreso de estudiantes de física Universidad de La Laguna (COEFIS XVI)** [[Link](https://coefis.es/)], [[Libreto](https://drive.google.com/file/d/18ETEBvbDjmDhiJ_KpB0W_38ZMTfBUyUD/view)]\
-La Laguna, Tenerife, Spain, 12-14 April 2024.\
-<u>Title</u>: *How to simulate water hazard events.* [[Youtube](https://youtu.be/V4rcjQkvsPI?si=FwZ_yLvYBddSHZ4i)]\
+* Invited speaker in **Congreso de estudiantes de física Universidad de La Laguna (COEFIS XVI)** [[Link](https://coefis.es/)], [[Libreto](https://drive.google.com/file/d/18ETEBvbDjmDhiJ_KpB0W_38ZMTfBUyUD/view)]\
+La Laguna, Tenerife, Spain, 11-12 April 2024.\
+<u>Title</u>: *How to simulate extreme water hazard events.* [[Youtube](https://youtu.be/V4rcjQkvsPI?si=FwZ_yLvYBddSHZ4i)]\
 L. Moreno
 
 
