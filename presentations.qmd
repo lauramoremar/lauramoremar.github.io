@@ -16,7 +16,7 @@ L. Moreno, A. Larese, R. Wüchner.
 
 ## 2025
 
-* Oral conference speaker in **VIII International Conference on Particle-Based Methods (PARTICLES 2025)** [[Link](https://particles2025.cimne.com/)]\
+* Oral conference speaker in **IX International Conference on Particle-Based Methods (PARTICLES 2025)** [[Link](https://particles2025.cimne.com/)]\
 Barcelona, Spain, October 20-22, 2025.\
 <u>Title</u>: *A New Stabilized Mixed MPM Framework for Incompressible Viscoplastic Fluids.*\
 L. Moreno, R.Wüchner, A. Larese.
