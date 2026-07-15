@@ -49,7 +49,10 @@ Department of Applied Mathematics, Universidade de Santiago de Compostela, Spain
 **M.Sc. Mathematics** (01/09/2008 - 05/07/2013)\
 Faculty of science, Universidad de Alicante, Spain
 
-## Fellowships and awards
+## Fellowships, awards and research recognition
+
+* One six-year research period positively evaluated by ANECA/CNEAI, 2019–2024.
+
 * Post-doc vacancy awarded at Resarch Training Group GRK 2075\2
 
 * Post-doc fellowship awarded at UNIPD, 01/10/2021
@@ -58,16 +61,33 @@ Faculty of science, Universidad de Alicante, Spain
 
 * 4-years Spanish government PhD scholarship. FPI: DPI2015-67857-R, 18/04/2017
 
-## Membership of scientific societies
+## Projects, Publications and Presentations
+
+* see [Projects page](projects.qmd)
+
+* see [Publications page](publications.qmd)
+
+* see [Presentations page](presentations.qmd)
+
+
+## Scientific service
+
+* Co-organizer of the minisymposium *Particle-based methods in applied and industrial sciences*, SIMAI 2023 [[Link](https://web.unibas.it/simai2023/index.html))].
+
+* Reviewer for international journals in computational mechanics:
+    * Computer Methods in Applied Mechanics and Engineering (CMAME)
+    * Modeling Earth Systems and Environment
+
+## Memberships
 
 * Member of the Istituto Nazionale di Alta Matematica "Francesco Severi" (INDAM) - Gruppo Nazionale per il Calcolo Scientifico (GNCS), since 2023
 
 * Member of the Spanish Association for Numerical Methods in Engineering (SEMNI), since 2018.
 
-* Member of National Association of Mathematic’s Students (ANEM), since 2011.
+<!-- * Member of National Association of Mathematic’s Students (ANEM), since 2011.
 
 
-## Participation on workshops
+## Workshops and specialized training
 
 * *Kratos Workshop 2022*, in Deltares installations, Delft, Netherlands. [[Link](https://softwaredays.deltares.nl/-/kratos-workshop-2022-day-1)]\
 Organized by [Deltares company](https://www.deltares.nl/en/). November 9-10, 2022
@@ -77,3 +97,11 @@ Organized by [Geobrugg company](https://www.geobrugg.com/en/Geobrugg-Safety-is-o
 
 * *Fortran Modernisation Workshop Programme* in Universitat Politècnica de Catalunya (UPC), BarcelonaTech, Spain. [[Link](http://aulas.cimne.com/vnews/10048/workshop---fortran-modernisation-workshop)]\
 Organized by [NAG](https://www.nag.com/). July 24 - 26, 2017.
+-->
+
+## Science outreach
+
+* Participation in *Quiero ser ingeniera* at the University of Alicante, April 2025. [[Link](https://eps.ua.es/es/quieroseringeniera/quiero-ser-ingeniera-universidad-de-alicante.
+html)]
+* Participation in the European Researchers’ Night at the University of Alicante, September 2025. [[Link](https://divulga.ua.es/es/secciones/nit-europea-de-la-investigacio/2025/actividades-202
+5.html​)]

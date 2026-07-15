@@ -9,7 +9,7 @@ Padova, Italy, February 26, 2026.\
 <u>Title</u>: *Multiphysics Modeling of Natural Hazards: Numerical Approaches for Structural Impact Assessment*\
 L. Moreno, A. Larese
 
-* Oral conference speaker **Congreso Bienal de la Real Sociedad Matemática Española 2026** [[Link](https://2026.bienalrsme.com/)]\
+* Oral presentation at the **2026 Biennial Congress of the Royal Spanish Mathematical Society (RSME)** [[Link](https://2026.bienalrsme.com/)]\
 Alicante, Spain, January 19-23, 2026.\
 <u>Title</u>: *Simulación numérica de flujos viscoplásticos mediante formulaciones mixtas con MPM en contextos hidrológicos extremos. *\
 L. Moreno, A. Larese, R. Wüchner.
@@ -28,10 +28,12 @@ Lisbon, Portugal, June 2-7 2024.\
 <u>Title</u>: *Stabilized mixed formulation for an implicit Material Point Method for viscoplastic fluids.*\
 L. Moreno, A.Contri, A. Larese.
 
-* Invited speaker in **Congreso de estudiantes de física Universidad de La Laguna (COEFIS XVI)** [[Link](https://coefis.es/)], [[Libreto](https://drive.google.com/file/d/18ETEBvbDjmDhiJ_KpB0W_38ZMTfBUyUD/view)]\
+* Invited speaker at the **XVI Physics Students’ Conference (COEFIS XVI)** [[Link](https://coefis.es/)], [[Libreto](https://drive.google.com/file/d/18ETEBvbDjmDhiJ_KpB0W_38ZMTfBUyUD/view)]\
 La Laguna, Tenerife, Spain, 11-12 April 2024.\
 <u>Title</u>: *How to simulate extreme water hazard events.* [[Youtube](https://youtu.be/V4rcjQkvsPI?si=FwZ_yLvYBddSHZ4i)]\
 L. Moreno
+
+ 
 
 
 <iframe width="560" height="315"
