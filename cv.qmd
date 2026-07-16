@@ -74,7 +74,7 @@ University teaching in applied mathematics, numerical methods and computational 
 
 ## Academic service and professional memberships
 
-### Scientific service
+#### Scientific service
 
 * Co-organizer of the minisymposium *Particle-based methods in applied and industrial sciences*, SIMAI 2023 [[Link](https://web.unibas.it/simai2023/index.html))].
 
@@ -82,7 +82,7 @@ University teaching in applied mathematics, numerical methods and computational 
     * Computer Methods in Applied Mechanics and Engineering (CMAME)
     * Modeling Earth Systems and Environment
 
-### Professional memberships
+#### Professional memberships
 
 * Member of the Istituto Nazionale di Alta Matematica "Francesco Severi" (INDAM) - Gruppo Nazionale per il Calcolo Scientifico (GNCS), since 2023
 
