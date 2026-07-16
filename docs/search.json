@@ -67,14 +67,14 @@
     "href": "teaching.html",
     "title": "Teaching",
     "section": "",
-    "text": "My teaching experience focuses on applied mathematics, numerical methods, computational mechanics, and engineering mathematics at undergraduate and master levels. I have taught in Spanish, English, and Italian, combining theoretical lectures, problem-solving sessions, numerical laboratories, and project-based mentoring.\nAt a glance\n\nTeaching areas: Applied mathematics, numerical methods, computational mechanics\nLevels: Undergraduate and master\nLanguages: Spanish, English, Italian\nFormats: Theory lectures, exercise sessions, numerical laboratories, project mentoring\n\n\n🧑‍🏫 Undergraduate Courses\n\nFundamentos Matemáticos en Ingeniería I\n\nDegree: Grado en Ingeniería Aeroespacial\n\nInstitution: Department of Applied Mathematics, University of Alicante, Spain\n\nLanguage: Spanish\nRole: Lecturer and course coordinator (since the academic course 2025/2026)\n\nType: Lecture (Theory and exercises)\n\nYears:\n\n2024/2025 (120h) – Guide\n\n2025/2026 (120h)\n2026/2027 (scheduled) (120h)\n\n\n\n\nMatemáticas Básicas\n\nDegree: Grado en Ingeniería en Sonido e Imagen en Telecomunicación\n\nInstitution: Department of Applied Mathematics, University of Alicante, Spain\n\nLanguage: Spanish\n\nType: Lecture (Exercises)\nYear:\n\n2024/2025 (30h) – Guide\n2025/2026 (60h)\n2026/2027 (scheduled) (30h)\n\n\n\n\nFundamentos de Matemática Aplicada 2\n\nDegree: Grado en Ingeniería Robótica\n\nInstitution: Department of Applied Mathematics, University of Alicante, Spain\n\nLanguage: Spanish\n\nType: Lecture (Exercises)\n\nYears:\n\n2024/2025 (16h) – Guide\n\n\n\n\nFundamentos Matemáticos 2\n\nDegree: Grado en Fundamentos de la Arquitectura\n\nInstitution: Department of Applied Mathematics, University of Alicante, Spain\n\nLanguage: Spanish\n\nType: Lecture (Exercises)\n\nYear: 2024/2025 (12h) – Guide\n\n\n\nCalcolo Numerico\n\nDegree: Ingegneria Chimica e dei materiali\n\nInstitution: Dipartimento di Matematica, University of Padua, Italy\n\nLanguage: Italian\n\nType: Laboratorio numerico\n\nYear: 2022/2023 (24h)\n\nDescription: Practical exercises of numerical calculus using the software MATLAB.\n\n\n\n\n🎓 Master Courses\n\nCálculo Diferencial Avanzado\n\nDegree: Master in Civil Engineering\n\nInstitution: Escuela Politécnica Superior, Universidad de Alicante, Spain\nLanguage: Spanish\n\nType: Lecture (theory and exercises)\n\nYear: 2026/2027 (45h) - Scheduled\nDescription: Theory and exercises on advanced differential calculus, including multivariable calculus, differential equations, and applications in engineering.\n\n\n\nParticle Mechanics\n\nDegree: Master in Civil Engineering\n\nInstitution: Institut für Dinamik und Statik, University of Braunschweig, Germany\n\nLanguage: English\n\nType: Lecture (theory and exercises)\n\nYear: 2023/2024 (10h)\n\nDescription: Preparation of materials and execution of practical exercises using the software KRATOS Multiphysics.\n\n\n\nNumerical Methods for Continuous Systems\n\nDegree: Master in Mathematical Engineering\n\nInstitution: Dipartimento di Ingegneria Civile, Edile e Ambientale, University of Padua, Italy\n\nLanguage: English\n\nType: Mentoring\n\nYear: 2022/2023 (12h)\n\nDescription: Support in projects, practical exercises and elaboration of educative material.\n\n\n\n\n🧭 Teaching coordination\n\nFundamentos Matemáticos en Ingeniería I\n\nRole: Course coordinator\nDegree: Grado en Ingeniería Aeroespacial\nInstitution: University of Alicante, Spain\nAcademic year: 2024/2025\nResponsibilities: coordination of teaching activities, planning of assessment criteria, communication with students and teaching staff, and follow-up of course development.\n\n\n\n\n👩‍🎓 Supervision and mentoring\n\nMaster theses co-supervised\n\nGiovanni Campanella — completed, July 2025\n\nTitle: A mixed Material Point Method for the Stokes equations: a stabilized velocity-pressure formulation\nRole: Co-supervisor\nMain supervisor: Antonia Larese\nDegree: Master in Mathematical Engineering\nInstitution: Dipartimento di Matematica, Università degli Studi di Padova, Italy\nAcademic year: 2024/2025\nDate of defense: July 2025\n\n\n\nAlessandro Contri — completed, December 2021\n\nTitle: An Updated Lagrangian displacement-based formulation for free surface incompressible fluids using MPM\nRole: Co-supervisor\nMain supervisor: Antonia Larese\nDegree: Master in Mathematical Engineering\nInstitution: Dipartimento di Matematica, Università degli Studi di Padova, Italy\nAcademic year: 2020/2021\nDate of defense: December 2021\n\n\n\n\nBachelor theses supervised\n\nLucas Peydró Ferrando — ongoing, July 2026 (expected)\n\nTitle: Simulación Numérica de las olas generadas por deslizamientos mediante el método del punto material: aplicación al caso de Lituya Bay.\nRole: Co-supervisor\nDegree: Grado en Física\nInstitution: University of Alicante, Spain\nAcademic year: 2025/2026\nStatus: July 2026 (expected)\n\n\n\n\n\n📚 Teaching-related publications\nThis section includes publications and outputs related to teaching innovation, educational practice, and university-level learning activities."
+    "text": "My teaching experience includes undergraduate and master’s courses in applied mathematics, numerical methods and computational mechanics at the University of Alicante, the University of Padova, Technische Universität Braunschweig and the Universitat Oberta de Catalunya. I have taught in Spanish, English and Italian, in both face-to-face and online settings, and I currently coordinate an undergraduate mathematics course in Aerospace Engineering."
   },
   {
     "objectID": "cv.html",
     "href": "cv.html",
     "title": "Curriculum Vitae",
     "section": "",
-    "text": "[Download here my cv in pdf]\n[cv-breve-UA]"
+    "text": "[cv-breve-UA]"
   },
   {
     "objectID": "cv.html#experience",
@@ -361,7 +361,7 @@
     "href": "cv.html#science-outreach",
     "title": "Curriculum Vitae",
     "section": "Science outreach",
-    "text": "Science outreach\n\nParticipation in Quiero ser ingeniera at the University of Alicante, April 2025 [Link].\nParticipation in the European Researchers’ Night at the University of Alicante, September 2025. [Link]"
+    "text": "Science outreach\n\nParticipation in Quiero ser ingeniera at the University of Alicante, April 2025. [Link]\nParticipation in the European Researchers’ Night at the University of Alicante, September 2025. [Link]"
   },
   {
     "objectID": "cv.html#fellowships-awards-and-research-recognition",
@@ -453,5 +453,68 @@
     "title": "Curriculum Vitae",
     "section": "Projects, Publications and Presentations",
     "text": "Projects, Publications and Presentations\n\nsee Projects page\nsee Publications page\nsee Presentations page"
+  },
+  {
+    "objectID": "teaching.html#table-of-contents",
+    "href": "teaching.html#table-of-contents",
+    "title": "Teaching",
+    "section": "Table of contents",
+    "text": "Table of contents\n\n\n\nCurrent teaching\nPrevious teaching\nTeaching coordination\n\n\n\nSupervision and mentoring\nTeaching innovation and training\nTeaching-related publications"
+  },
+  {
+    "objectID": "teaching.html#teaching-overview",
+    "href": "teaching.html#teaching-overview",
+    "title": "Teaching",
+    "section": "",
+    "text": "My teaching experience includes undergraduate and master’s courses in applied mathematics, numerical methods and computational mechanics at the University of Alicante, the University of Padova, Technische Universität Braunschweig and the Universitat Oberta de Catalunya. I have taught in Spanish, English and Italian, in both face-to-face and online settings, and I currently coordinate an undergraduate mathematics course in Aerospace Engineering."
+  },
+  {
+    "objectID": "teaching.html#current-teaching",
+    "href": "teaching.html#current-teaching",
+    "title": "Teaching",
+    "section": "1. Current teaching",
+    "text": "1. Current teaching\n\nUniversity of Alicante\nFundamentos Matemáticos en Ingeniería I\nBSc in Aerospace Engineering\nLecturer and course coordinator · Course guide 2024 - present\nMatemáticas Básicas\nBSc in Sound and Image Engineering\nLecturer · Course guide 2024 - present"
+  },
+  {
+    "objectID": "teaching.html#previous-teaching",
+    "href": "teaching.html#previous-teaching",
+    "title": "Teaching",
+    "section": "2. Previous teaching",
+    "text": "2. Previous teaching\nCalcolo Numerico — University of Padova (2022/2023)\nNumerical Methods for Continuous Systems — University of Padova (2022/2023)\nParticle Mechanics — Technische Universität Braunschweig (2023/2024)\nFundamentos de Matemática Aplicada 2 — University of Alicante (2024/2025) · Course guide\nFundamentos Matemáticos 2 — University of Alicante (2024/2025) · Course guide\nMétodos Numéricos en Ciencia de Datos — Universitat Oberta de Catalunya (2025/2026)"
+  },
+  {
+    "objectID": "teaching.html#teaching-coordination",
+    "href": "teaching.html#teaching-coordination",
+    "title": "Teaching",
+    "section": "3. Teaching coordination",
+    "text": "3. Teaching coordination\nCourse coordinator, Fundamentos Matemáticos en Ingeniería I\nBSc in Aerospace Engineering, University of Alicante, 2024 - present."
+  },
+  {
+    "objectID": "teaching.html#supervision-and-mentoring",
+    "href": "teaching.html#supervision-and-mentoring",
+    "title": "Teaching",
+    "section": "4. Supervision and mentoring",
+    "text": "4. Supervision and mentoring\n\nMaster theses supervised\n\nGiovanni Campanella — completed, July 2025\n\nTitle: A mixed Material Point Method for the Stokes equations: a stabilized velocity-pressure formulation\nRole: Co-supervisor\nMain supervisor: Antonia Larese\nDegree: Master in Mathematical Engineering\nInstitution: Dipartimento di Matematica, Università degli Studi di Padova, Italy\nAcademic year: 2024/2025\nDate of defense: July 2025\n\n\n\nAlessandro Contri — completed, December 2021\n\nTitle: An Updated Lagrangian displacement-based formulation for free surface incompressible fluids using MPM\nRole: Co-supervisor\nMain supervisor: Antonia Larese\nDegree: Master in Mathematical Engineering\nInstitution: Dipartimento di Matematica, Università degli Studi di Padova, Italy\nAcademic year: 2020/2021\nDate of defense: December 2021\n\n\n\n\nBachelor theses supervised\n\nLucas Peydró Ferrando — ongoing, July 2026 (expected)\n\nTitle: Simulación Numérica de las olas generadas por deslizamientos mediante el método del punto material: aplicación al caso de Lituya Bay.\nRole: Co-supervisor\nDegree: Grado en Física\nInstitution: University of Alicante, Spain\nAcademic year: 2025/2026\nStatus: July 2026 (expected)"
+  },
+  {
+    "objectID": "teaching.html#teaching-innovation-and-training",
+    "href": "teaching.html#teaching-innovation-and-training",
+    "title": "Teaching",
+    "section": "5. Teaching innovation and training",
+    "text": "5. Teaching innovation and training\nSelected training in university teaching, digital learning environments, assessment and educational innovation."
+  },
+  {
+    "objectID": "teaching.html#teaching-related-publications",
+    "href": "teaching.html#teaching-related-publications",
+    "title": "Teaching",
+    "section": "6. Teaching-related publications",
+    "text": "6. Teaching-related publications\nThis section includes publications and outputs related to teaching innovation, educational practice, and university-level learning activities."
+  },
+  {
+    "objectID": "old.html",
+    "href": "old.html",
+    "title": "Teaching",
+    "section": "",
+    "text": "My teaching experience focuses on applied mathematics, numerical methods, computational mechanics, and engineering mathematics at undergraduate and master levels. I have taught in Spanish, English, and Italian, combining theoretical lectures, problem-solving sessions, numerical laboratories, and project-based mentoring.\nAt a glance\n\nTeaching areas: Applied mathematics, numerical methods, computational mechanics\nLevels: Undergraduate and master\nLanguages: Spanish, English, Italian\nFormats: Theory lectures, exercise sessions, numerical laboratories, project mentoring\n\n\n🧑‍🏫 Undergraduate Courses\n\nFundamentos Matemáticos en Ingeniería I\n\nDegree: Grado en Ingeniería Aeroespacial\n\nInstitution: Department of Applied Mathematics, University of Alicante, Spain\n\nLanguage: Spanish\nRole: Lecturer and course coordinator (since the academic course 2025/2026)\n\nType: Lecture (Theory and exercises)\n\nYears:\n\n2024/2025 (120h) – Guide\n\n2025/2026 (120h)\n2026/2027 (scheduled) (120h)\n\n\n\n\nMatemáticas Básicas\n\nDegree: Grado en Ingeniería en Sonido e Imagen en Telecomunicación\n\nInstitution: Department of Applied Mathematics, University of Alicante, Spain\n\nLanguage: Spanish\n\nType: Lecture (Exercises)\nYear:\n\n2024/2025 (30h) – Guide\n2025/2026 (60h)\n2026/2027 (scheduled) (30h)\n\n\n\n\nFundamentos de Matemática Aplicada 2\n\nDegree: Grado en Ingeniería Robótica\n\nInstitution: Department of Applied Mathematics, University of Alicante, Spain\n\nLanguage: Spanish\n\nType: Lecture (Exercises)\n\nYears:\n\n2024/2025 (16h) – Guide\n\n\n\n\nFundamentos Matemáticos 2\n\nDegree: Grado en Fundamentos de la Arquitectura\n\nInstitution: Department of Applied Mathematics, University of Alicante, Spain\n\nLanguage: Spanish\n\nType: Lecture (Exercises)\n\nYear: 2024/2025 (12h) – Guide\n\n\n\nCalcolo Numerico\n\nDegree: Ingegneria Chimica e dei materiali\n\nInstitution: Dipartimento di Matematica, University of Padua, Italy\n\nLanguage: Italian\n\nType: Laboratorio numerico\n\nYear: 2022/2023 (24h)\n\nDescription: Practical exercises of numerical calculus using the software MATLAB.\n\n\n\n\n🎓 Master Courses\n\nCálculo Diferencial Avanzado\n\nDegree: Master in Civil Engineering\n\nInstitution: Escuela Politécnica Superior, Universidad de Alicante, Spain\nLanguage: Spanish\n\nType: Lecture (theory and exercises)\n\nYear: 2026/2027 (45h) - Scheduled\nDescription: Theory and exercises on advanced differential calculus, including multivariable calculus, differential equations, and applications in engineering.\n\n\n\nParticle Mechanics\n\nDegree: Master in Civil Engineering\n\nInstitution: Institut für Dinamik und Statik, University of Braunschweig, Germany\n\nLanguage: English\n\nType: Lecture (theory and exercises)\n\nYear: 2023/2024 (10h)\n\nDescription: Preparation of materials and execution of practical exercises using the software KRATOS Multiphysics.\n\n\n\nNumerical Methods for Continuous Systems\n\nDegree: Master in Mathematical Engineering\n\nInstitution: Dipartimento di Ingegneria Civile, Edile e Ambientale, University of Padua, Italy\n\nLanguage: English\n\nType: Mentoring\n\nYear: 2022/2023 (12h)\n\nDescription: Support in projects, practical exercises and elaboration of educative material.\n\n\n\n\n🧭 Teaching coordination\n\nFundamentos Matemáticos en Ingeniería I\n\nRole: Course coordinator\nDegree: Grado en Ingeniería Aeroespacial\nInstitution: University of Alicante, Spain\nAcademic year: 2024/2025\nResponsibilities: coordination of teaching activities, planning of assessment criteria, communication with students and teaching staff, and follow-up of course development.\n\n\n\n\n👩‍🎓 Supervision and mentoring\n\nMaster theses co-supervised\n\nGiovanni Campanella — completed, July 2025\n\nTitle: A mixed Material Point Method for the Stokes equations: a stabilized velocity-pressure formulation\nRole: Co-supervisor\nMain supervisor: Antonia Larese\nDegree: Master in Mathematical Engineering\nInstitution: Dipartimento di Matematica, Università degli Studi di Padova, Italy\nAcademic year: 2024/2025\nDate of defense: July 2025\n\n\n\nAlessandro Contri — completed, December 2021\n\nTitle: An Updated Lagrangian displacement-based formulation for free surface incompressible fluids using MPM\nRole: Co-supervisor\nMain supervisor: Antonia Larese\nDegree: Master in Mathematical Engineering\nInstitution: Dipartimento di Matematica, Università degli Studi di Padova, Italy\nAcademic year: 2020/2021\nDate of defense: December 2021\n\n\n\n\nBachelor theses supervised\n\nLucas Peydró Ferrando — ongoing, July 2026 (expected)\n\nTitle: Simulación Numérica de las olas generadas por deslizamientos mediante el método del punto material: aplicación al caso de Lituya Bay.\nRole: Co-supervisor\nDegree: Grado en Física\nInstitution: University of Alicante, Spain\nAcademic year: 2025/2026\nStatus: July 2026 (expected)\n\n\n\n\n\n📚 Teaching-related publications\nThis section includes publications and outputs related to teaching innovation, educational practice, and university-level learning activities."
   }
 ]

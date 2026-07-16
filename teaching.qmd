@@ -3,104 +3,66 @@ title: "Teaching"
 format: html
 ---
 
-My teaching experience focuses on applied mathematics, numerical methods, computational mechanics, and engineering mathematics at undergraduate and master levels. I have taught in Spanish, English, and Italian, combining theoretical lectures, problem-solving sessions, numerical laboratories, and project-based mentoring.
+## Teaching overview {#teaching-overview}
 
-**At a glance**
+My teaching experience includes undergraduate and master’s courses in applied mathematics, numerical methods and computational mechanics at the University of Alicante, the University of Padova, Technische Universität Braunschweig and the Universitat Oberta de Catalunya. I have taught in Spanish, English and Italian, in both face-to-face and online settings, and I currently coordinate an undergraduate mathematics course in Aerospace Engineering.
 
-- **Teaching areas**: Applied mathematics, numerical methods, computational mechanics
-- **Levels**: Undergraduate and master
-- **Languages**: Spanish, English, Italian
-- **Formats**: Theory lectures, exercise sessions, numerical laboratories, project mentoring
+## Table of contents
 
-### 🧑‍🏫 Undergraduate Courses
+:::: {.columns}
 
-#### Fundamentos Matemáticos en Ingeniería I
-- **Degree**: Grado en Ingeniería Aeroespacial  
-- **Institution**: Department of Applied Mathematics, University of Alicante, Spain  
-- **Language**: Spanish
-- **Role**: Lecturer and course coordinator (since the academic course 2025/2026)  
-- **Type**: Lecture (Theory and exercises)  
-- **Years**:  
-  - 2024/2025 (120h) – [Guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wcodest=C214&wcodasi=33803&wlengua=C&scaca=2024-25)  
-  - 2025/2026 (120h)
-  - 2026/2027 (scheduled) (120h)
+::: {.column width="50%"}
 
-#### Matemáticas Básicas
-- **Degree**: Grado en Ingeniería en Sonido e Imagen en Telecomunicación  
-- **Institution**: Department of Applied Mathematics, University of Alicante, Spain  
-- **Language**: Spanish  
-- **Type**: Lecture (Exercises)
-- **Year**: 
-   - 2024/2025 (30h) – [Guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=en&wcodasi=20004&scaca=2024-25#)
-   - 2025/2026 (60h)
-   - 2026/2027 (scheduled) (30h)
+1. [Current teaching](#current-teaching)
+2. [Previous teaching](#previous-teaching)
+3. [Teaching coordination](#teaching-coordination)
 
-#### Fundamentos de Matemática Aplicada 2
-- **Degree**: Grado en Ingeniería Robótica  
-- **Institution**: Department of Applied Mathematics, University of Alicante, Spain  
-- **Language**: Spanish  
-- **Type**: Lecture (Exercises)  
-- **Years**:  
-  - 2024/2025 (16h) – [Guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=es&wcodasi=33706&scaca=2024-25)  
+:::
 
+::: {.column width="50%"}
 
-#### Fundamentos Matemáticos 2
-- **Degree**: Grado en Fundamentos de la Arquitectura  
-- **Institution**: Department of Applied Mathematics, University of Alicante, Spain  
-- **Language**: Spanish  
-- **Type**: Lecture (Exercises)  
-- **Year**: 2024/2025 (12h) – [Guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=es&wcodasi=35509&scaca=2024-25)
+4. [Supervision and mentoring](#supervision-and-mentoring)
+5. [Teaching innovation and training](#teaching-innovation-and-training)
+6. [Teaching-related publications](#teaching-related-publications)
 
-#### Calcolo Numerico
-- **Degree**: Ingegneria Chimica e dei materiali  
-- **Institution**: Dipartimento di Matematica, University of Padua, Italy  
-- **Language**: Italian  
-- **Type**: Laboratorio numerico  
-- **Year**: 2022/2023 (24h)  
-- **Description**: Practical exercises of numerical calculus using the software MATLAB.
+:::
 
-### 🎓 Master Courses
+::::
 
-#### Cálculo Diferencial Avanzado
-- **Degree**: Master in Civil Engineering  
-- **Institution**: Escuela Politécnica Superior, Universidad de Alicante, Spain 
-- **Language**: Spanish  
-- **Type**: Lecture (theory and exercises)  
-- **Year**: 2026/2027 (45h) - Scheduled 
-- **Description**: Theory and exercises on advanced differential calculus, including multivariable calculus, differential equations, and applications in engineering.
+## 1. Current teaching {#current-teaching}
 
-#### Particle Mechanics
-- **Degree**: Master in Civil Engineering  
-- **Institution**: Institut für Dinamik und Statik, University of Braunschweig, Germany  
-- **Language**: English  
-- **Type**: Lecture (theory and exercises)  
-- **Year**: 2023/2024 (10h)  
-- **Description**: Preparation of materials and execution of practical exercises using the software KRATOS Multiphysics. 
+#### University of Alicante
 
-#### Numerical Methods for Continuous Systems
-- **Degree**: Master in Mathematical Engineering  
-- **Institution**: Dipartimento di Ingegneria Civile, Edile e Ambientale, University of Padua, Italy  
-- **Language**: English  
-- **Type**: Mentoring  
-- **Year**: 2022/2023 (12h)  
-- **Description**: Support in projects, practical exercises and elaboration of educative material.
+**Fundamentos Matemáticos en Ingeniería I**  
+BSc in Aerospace Engineering  
+Lecturer and course coordinator · [Course guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wcodest=C214&wcodasi=33803&wlengua=C&scaca=2025-26)
+2024 - present
+
+**Matemáticas Básicas**  
+BSc in Sound and Image Engineering  
+Lecturer · [Course guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=en&wcodasi=20004&scaca=2025-26#)
+2024 - present
+
+## 2. Previous teaching {#previous-teaching}
+
+*Calcolo Numerico* — University of Padova (2022/2023)  
+*Numerical Methods for Continuous Systems* — University of Padova (2022/2023)  
+*Particle Mechanics* — Technische Universität Braunschweig (2023/2024)  
+*Fundamentos de Matemática Aplicada 2* — University of Alicante (2024/2025) · [Course guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=es&wcodasi=33706&scaca=2024-25)  
+*Fundamentos Matemáticos 2* — University of Alicante (2024/2025) · [Course guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=es&wcodasi=35509&scaca=2024-25) \
+*Métodos Numéricos en Ciencia de Datos* — Universitat Oberta de Catalunya (2025/2026)
+
+## 3. Teaching coordination {#teaching-coordination}
+
+**Course coordinator, Fundamentos Matemáticos en Ingeniería I**  
+BSc in Aerospace Engineering, University of Alicante, 2024 - present.
 
 
-### 🧭 Teaching coordination
+## 4. Supervision and mentoring {#supervision-and-mentoring}
 
-#### Fundamentos Matemáticos en Ingeniería I
+### Master theses supervised
 
-- **Role**: Course coordinator
-- **Degree**: Grado en Ingeniería Aeroespacial
-- **Institution**: University of Alicante, Spain
-- **Academic year**: 2024/2025
-- **Responsibilities**: coordination of teaching activities, planning of assessment criteria, communication with students and teaching staff, and follow-up of course development.
-
-### 👩‍🎓 Supervision and mentoring
-
-#### Master theses co-supervised
-
-##### Giovanni Campanella — completed, July 2025
+#### Giovanni Campanella — completed, July 2025
 
 - **Title**: *A mixed Material Point Method for the Stokes equations: a stabilized velocity-pressure formulation*
 - **Role**: Co-supervisor
@@ -110,7 +72,7 @@ My teaching experience focuses on applied mathematics, numerical methods, comput
 - **Academic year**: 2024/2025
 - **Date of defense**: July 2025
 
-##### Alessandro Contri — completed, December 2021
+#### Alessandro Contri — completed, December 2021
 
 - **Title**: *An Updated Lagrangian displacement-based formulation for free surface incompressible fluids using MPM*
 - **Role**: Co-supervisor
@@ -120,9 +82,9 @@ My teaching experience focuses on applied mathematics, numerical methods, comput
 - **Academic year**: 2020/2021
 - **Date of defense**: December 2021
 
-#### Bachelor theses supervised
+### Bachelor theses supervised
 
-##### Lucas Peydró Ferrando — ongoing, July 2026 (expected)
+#### Lucas Peydró Ferrando — ongoing, July 2026 (expected)
 
 - **Title**: *Simulación Numérica de las olas generadas por deslizamientos mediante el método del punto material: aplicación al caso de Lituya Bay.*
 - **Role**: Co-supervisor
@@ -131,8 +93,10 @@ My teaching experience focuses on applied mathematics, numerical methods, comput
 - **Academic year**: 2025/2026
 - **Status**: July 2026 (expected)
 
+## 5. Teaching innovation and training {#teaching-innovation-and-training}
 
-###  📚  Teaching-related publications
+Selected training in university teaching, digital learning environments, assessment and educational innovation.
+
+## 6. Teaching-related publications {#teaching-related-publications}
 
 This section includes publications and outputs related to teaching innovation, educational practice, and university-level learning activities.
-
