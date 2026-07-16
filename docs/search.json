@@ -459,7 +459,7 @@
     "href": "teaching.html#table-of-contents",
     "title": "Teaching",
     "section": "Table of contents",
-    "text": "Table of contents\n\n\n\nCurrent teaching\nUpcoming teaching\nPrevious teaching\nTeaching coordination\n\n\n\nSupervision and mentoring\nTeaching innovation and training\nTeaching-related publications"
+    "text": "Table of contents\n\n\n\nCurrent teaching\nPrevious teaching\nSupervision and mentoring\n\n\n\nTeaching innovation and training\nTeaching-related publications"
   },
   {
     "objectID": "teaching.html#teaching-overview",
@@ -473,14 +473,14 @@
     "href": "teaching.html#current-teaching",
     "title": "Teaching",
     "section": "1. Current teaching",
-    "text": "1. Current teaching\nFundamentos Matemáticos en Ingeniería I\nBSc in Aerospace Engineering, University of Alicante\nLecturer and course coordinator · 2024–present · Course guide\nMatemáticas Básicas\nBSc in Sound and Image Engineering, University of Alicante\nLecturer · 2024–present · Course guide"
+    "text": "1. Current teaching\nFundamentos Matemáticos en Ingeniería I\nBSc in Aerospace Engineering, University of Alicante\nLecturer and course coordinator · 2024–present · Course guide\nMatemáticas Básicas\nBSc in Sound and Image Engineering, University of Alicante\nLecturer · 2024–present · Course guide\nCálculo Diferencial Avanzado (upcoming)\nMSc in Civil Engineering, University of Alicante\nLecturer and course coordinator · 2026/2027 (scheduled)"
   },
   {
     "objectID": "teaching.html#previous-teaching",
     "href": "teaching.html#previous-teaching",
     "title": "Teaching",
-    "section": "3. Previous teaching",
-    "text": "3. Previous teaching\nMétodos Numéricos en Ciencia de Datos — BSc in Applied Data Science, Universitat Oberta de Catalunya (2025/2026)\nFundamentos de Matemática Aplicada 2 — BSc in Robotics Engineering, University of Alicante (2024/2025) · Course guide\nFundamentos Matemáticos 2 — BSc in Architecture, University of Alicante (2024/2025) · Course guide\nParticle Mechanics — MSc in Civil Engineering, Technische Universität Braunschweig (2023/2024)\nCalcolo Numerico — BSc in Chemical and Materials Engineering, University of Padova (2022/2023)\nNumerical Methods for Continuous Systems — MSc in Mathematical Engineering, University of Padova (2022/2023)"
+    "section": "2. Previous teaching",
+    "text": "2. Previous teaching\nMétodos Numéricos en Ciencia de Datos — BSc in Applied Data Science, Universitat Oberta de Catalunya (2025/2026)\nFundamentos de Matemática Aplicada 2 — BSc in Robotics Engineering, University of Alicante (2024/2025) · Course guide\nFundamentos Matemáticos 2 — BSc in Architecture, University of Alicante (2024/2025) · Course guide\nParticle Mechanics — MSc in Civil Engineering, Technische Universität Braunschweig (2023/2024)\nCalcolo Numerico — BSc in Chemical and Materials Engineering, University of Padova (2022/2023)\nNumerical Methods for Continuous Systems — MSc in Mathematical Engineering, University of Padova (2022/2023)"
   },
   {
     "objectID": "teaching.html#teaching-coordination",
@@ -493,22 +493,22 @@
     "objectID": "teaching.html#supervision-and-mentoring",
     "href": "teaching.html#supervision-and-mentoring",
     "title": "Teaching",
-    "section": "5. Supervision and mentoring",
-    "text": "5. Supervision and mentoring\n\n5.1. Master theses supervised\nGiovanni Campanella — A mixed Material Point Method for the Stokes equations: a stabilized velocity-pressure formulation [Link]\nMaster in Mathematical Engineering, University of Padova · Co-supervised with Antonia Larese · July 2025\nAlessandro Contri — An Updated Lagrangian displacement-based formulation for free surface incompressible fluids using MPM [Link]\nMaster in Mathematical Engineering, University of Padova · Co-supervised with Antonia Larese · December 2021\n\n\n5.2. Bachelor theses supervised\nLucas Peydró Ferrando — Simulación Numérica de las olas generadas por deslizamientos mediante el método del punto material: aplicación al caso de Lituya Bay\nBSc in Physics, University of Alicante · Ongoing, expected July 2026"
+    "section": "3. Supervision and mentoring",
+    "text": "3. Supervision and mentoring\n\n3.1. Master theses supervised\nGiovanni Campanella — A mixed Material Point Method for the Stokes equations: a stabilized velocity-pressure formulation [Link]\nMaster in Mathematical Engineering, University of Padova · Co-supervised with Antonia Larese · July 2025\nAlessandro Contri — An Updated Lagrangian displacement-based formulation for free surface incompressible fluids using MPM [Link]\nMaster in Mathematical Engineering, University of Padova · Co-supervised with Antonia Larese · December 2021\n\n\n3.2. Bachelor theses supervised\nLucas Peydró Ferrando — Simulación Numérica de las olas generadas por deslizamientos mediante el método del punto material: aplicación al caso de Lituya Bay\nBSc in Physics, University of Alicante · Ongoing, expected July 2026"
   },
   {
     "objectID": "teaching.html#teaching-innovation-and-training",
     "href": "teaching.html#teaching-innovation-and-training",
     "title": "Teaching",
-    "section": "6. Teaching innovation and training",
-    "text": "6. Teaching innovation and training\nSelected training in university teaching, digital learning environments, assessment and educational innovation."
+    "section": "4. Teaching innovation and training",
+    "text": "4. Teaching innovation and training\nSelected training in university teaching, digital learning environments, assessment and educational innovation."
   },
   {
     "objectID": "teaching.html#teaching-related-publications",
     "href": "teaching.html#teaching-related-publications",
     "title": "Teaching",
-    "section": "7. Teaching-related publications",
-    "text": "7. Teaching-related publications\nThis section includes publications and outputs related to teaching innovation, educational practice, and university-level learning activities."
+    "section": "5. Teaching-related publications",
+    "text": "5. Teaching-related publications\nThis section includes publications and outputs related to teaching innovation, educational practice, and university-level learning activities."
   },
   {
     "objectID": "old.html",

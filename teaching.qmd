@@ -14,17 +14,15 @@ My teaching experience includes undergraduate and master’s courses in applied 
 ::: {.column width="50%"}
 
 1. [Current teaching](#current-teaching)
-2. [Upcoming teaching](#upcoming-teaching)
-3. [Previous teaching](#previous-teaching)
-4. [Teaching coordination](#teaching-coordination)
+2. [Previous teaching](#previous-teaching)
+3. [Supervision and mentoring](#supervision-and-mentoring)
 
 :::
 
 ::: {.column width="50%"}
 
-5. [Supervision and mentoring](#supervision-and-mentoring)
-6. [Teaching innovation and training](#teaching-innovation-and-training)
-7. [Teaching-related publications](#teaching-related-publications)
+4. [Teaching innovation and training](#teaching-innovation-and-training)
+5. [Teaching-related publications](#teaching-related-publications)
 
 :::
 
@@ -40,13 +38,11 @@ Lecturer and course coordinator · 2024–present · [Course guide](https://cvne
 BSc in Sound and Image Engineering, University of Alicante  
 Lecturer · 2024–present · [Course guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=en&wcodasi=20004&scaca=2025-26#)
 
-## 2. Upcoming teaching {#upcoming-teaching}
-
-**Cálculo Diferencial Avanzado**  
+**Cálculo Diferencial Avanzado** *(upcoming)*  
 MSc in Civil Engineering, University of Alicante  
 Lecturer and course coordinator · 2026/2027 (scheduled)
 
-## 3. Previous teaching {#previous-teaching}
+## 2. Previous teaching {#previous-teaching}
 
 *Métodos Numéricos en Ciencia de Datos* — BSc in Applied Data Science, Universitat Oberta de Catalunya (2025/2026)  
 *Fundamentos de Matemática Aplicada 2* — BSc in Robotics Engineering, University of Alicante (2024/2025) · [Course guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=es&wcodasi=33706&scaca=2024-25)  
@@ -55,15 +51,9 @@ Lecturer and course coordinator · 2026/2027 (scheduled)
 *Calcolo Numerico* — BSc in Chemical and Materials Engineering, University of Padova (2022/2023)  
 *Numerical Methods for Continuous Systems* — MSc in Mathematical Engineering, University of Padova (2022/2023)
 
-## 4. Teaching coordination {#teaching-coordination}
+## 3. Supervision and mentoring {#supervision-and-mentoring}
 
-**Course coordinator, Fundamentos Matemáticos en Ingeniería I**  
-BSc in Aerospace Engineering, University of Alicante, 2025 - present.
-
-
-## 5. Supervision and mentoring {#supervision-and-mentoring}
-
-### 5.1. Master theses supervised
+#### 3.1. Master theses supervised
 
 **Giovanni Campanella** — *A mixed Material Point Method for the Stokes equations: a stabilized velocity-pressure formulation* [[Link](https://thesis.unipd.it/handle/20.500.12608/89195)]  
 Master in Mathematical Engineering, University of Padova · Co-supervised with Antonia Larese · July 2025
@@ -71,15 +61,15 @@ Master in Mathematical Engineering, University of Padova · Co-supervised with A
 **Alessandro Contri** — *An Updated Lagrangian displacement-based formulation for free surface incompressible fluids using MPM* [[Link](https://thesis.unipd.it/handle/20.500.12608/7452)]\
 Master in Mathematical Engineering, University of Padova · Co-supervised with Antonia Larese · December 2021
 
-### 5.2. Bachelor theses supervised
+#### 3.2. Bachelor theses supervised
 
 **Lucas Peydró Ferrando** — *Simulación Numérica de las olas generadas por deslizamientos mediante el método del punto material: aplicación al caso de Lituya Bay*  
 BSc in Physics, University of Alicante · Ongoing, expected July 2026
 
-## 6. Teaching innovation and training {#teaching-innovation-and-training}
+## 4. Teaching innovation and training {#teaching-innovation-and-training}
 
 Selected training in university teaching, digital learning environments, assessment and educational innovation.
 
-## 7. Teaching-related publications {#teaching-related-publications}
+## 5. Teaching-related publications {#teaching-related-publications}
 
 This section includes publications and outputs related to teaching innovation, educational practice, and university-level learning activities.
