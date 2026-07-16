@@ -452,7 +452,7 @@
     "href": "cv.html#projects-publications-and-presentations",
     "title": "Curriculum Vitae",
     "section": "Projects, Publications and Presentations",
-    "text": "Projects, Publications and Presentations\n\nsee Projects page\nsee Publications page\nsee Presentations page"
+    "text": "Projects, Publications and Presentations\n\nsee Researchpage\nsee Publications page\nsee Presentations page"
   },
   {
     "objectID": "teaching.html#table-of-contents",
@@ -523,5 +523,33 @@
     "title": "Teaching",
     "section": "2. Upcoming teaching",
     "text": "2. Upcoming teaching\nCálculo Diferencial Avanzado\nMSc in Civil Engineering, University of Alicante\nLecturer and course coordinator · 2026/2027 (scheduled)"
+  },
+  {
+    "objectID": "cv.html#teaching",
+    "href": "cv.html#teaching",
+    "title": "Curriculum Vitae",
+    "section": "Teaching",
+    "text": "Teaching\nUniversity teaching in applied mathematics, numerical methods and computational mechanics, including course coordination and thesis supervision.\nView teaching experience"
+  },
+  {
+    "objectID": "cv.html#collaborators",
+    "href": "cv.html#collaborators",
+    "title": "Curriculum Vitae",
+    "section": "Collaborators",
+    "text": "Collaborators\nResearch collaborations developed across institutions and projects in computational mechanics and applied mathematics.\nView research collaborations"
+  },
+  {
+    "objectID": "cv.html#research-activity-and-outputs",
+    "href": "cv.html#research-activity-and-outputs",
+    "title": "Curriculum Vitae",
+    "section": "Research activity and outputs",
+    "text": "Research activity and outputs\nResearch projects, scientific publications, presentations and collaborations in applied mathematics and computational mechanics.\nView research projects · View publications · View presentations · View research collaborations"
+  },
+  {
+    "objectID": "cv.html#academic-service-and-professional-memberships",
+    "href": "cv.html#academic-service-and-professional-memberships",
+    "title": "Curriculum Vitae",
+    "section": "Academic service and professional memberships",
+    "text": "Academic service and professional memberships\n\nScientific service\n\nCo-organizer of the minisymposium Particle-based methods in applied and industrial sciences, SIMAI 2023 [Link)].\nReviewer for international journals in computational mechanics:\n\nComputer Methods in Applied Mechanics and Engineering (CMAME)\nModeling Earth Systems and Environment\n\n\n\n\nProfessional memberships\n\nMember of the Istituto Nazionale di Alta Matematica “Francesco Severi” (INDAM) - Gruppo Nazionale per il Calcolo Scientifico (GNCS), since 2023\nMember of the Spanish Association for Numerical Methods in Engineering (SEMNI), since 2018."
   }
 ]

@@ -61,16 +61,20 @@ Faculty of science, Universidad de Alicante, Spain
 
 * 4-years Spanish government PhD scholarship. FPI: DPI2015-67857-R, 18/04/2017
 
-## Projects, Publications and Presentations
+## Research activity and outputs
 
-* see [Projects page](projects.qmd)
+Research projects, scientific publications, presentations and collaborations in applied mathematics and computational mechanics.  
+[View research projects](projects.qmd) · [View publications](publications.qmd) · [View presentations](presentations.qmd) · [View research collaborations](collaborations.qmd)
 
-* see [Publications page](publications.qmd)
+## Teaching
 
-* see [Presentations page](presentations.qmd)
+University teaching in applied mathematics, numerical methods and computational mechanics, including course coordination and thesis supervision.  
+[View teaching experience](teaching.qmd)
 
 
-## Scientific service
+## Academic service and professional memberships
+
+### Scientific service
 
 * Co-organizer of the minisymposium *Particle-based methods in applied and industrial sciences*, SIMAI 2023 [[Link](https://web.unibas.it/simai2023/index.html))].
 
@@ -78,7 +82,7 @@ Faculty of science, Universidad de Alicante, Spain
     * Computer Methods in Applied Mechanics and Engineering (CMAME)
     * Modeling Earth Systems and Environment
 
-## Memberships
+### Professional memberships
 
 * Member of the Istituto Nazionale di Alta Matematica "Francesco Severi" (INDAM) - Gruppo Nazionale per il Calcolo Scientifico (GNCS), since 2023
 
