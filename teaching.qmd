@@ -14,16 +14,17 @@ My teaching experience includes undergraduate and master’s courses in applied 
 ::: {.column width="50%"}
 
 1. [Current teaching](#current-teaching)
-2. [Previous teaching](#previous-teaching)
-3. [Teaching coordination](#teaching-coordination)
+2. [Upcoming teaching](#upcoming-teaching)
+3. [Previous teaching](#previous-teaching)
+4. [Teaching coordination](#teaching-coordination)
 
 :::
 
 ::: {.column width="50%"}
 
-4. [Supervision and mentoring](#supervision-and-mentoring)
-5. [Teaching innovation and training](#teaching-innovation-and-training)
-6. [Teaching-related publications](#teaching-related-publications)
+5. [Supervision and mentoring](#supervision-and-mentoring)
+6. [Teaching innovation and training](#teaching-innovation-and-training)
+7. [Teaching-related publications](#teaching-related-publications)
 
 :::
 
@@ -31,72 +32,54 @@ My teaching experience includes undergraduate and master’s courses in applied 
 
 ## 1. Current teaching {#current-teaching}
 
-#### University of Alicante
-
 **Fundamentos Matemáticos en Ingeniería I**  
-BSc in Aerospace Engineering  
-Lecturer and course coordinator · [Course guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wcodest=C214&wcodasi=33803&wlengua=C&scaca=2025-26)
-2024 - present
+BSc in Aerospace Engineering, University of Alicante  
+Lecturer and course coordinator · 2024–present · [Course guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wcodest=C214&wcodasi=33803&wlengua=C&scaca=2025-26)
 
 **Matemáticas Básicas**  
-BSc in Sound and Image Engineering  
-Lecturer · [Course guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=en&wcodasi=20004&scaca=2025-26#)
-2024 - present
+BSc in Sound and Image Engineering, University of Alicante  
+Lecturer · 2024–present · [Course guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=en&wcodasi=20004&scaca=2025-26#)
 
-## 2. Previous teaching {#previous-teaching}
+## 2. Upcoming teaching {#upcoming-teaching}
 
-*Calcolo Numerico* — University of Padova (2022/2023)  
-*Numerical Methods for Continuous Systems* — University of Padova (2022/2023)  
-*Particle Mechanics* — Technische Universität Braunschweig (2023/2024)  
-*Fundamentos de Matemática Aplicada 2* — University of Alicante (2024/2025) · [Course guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=es&wcodasi=33706&scaca=2024-25)  
-*Fundamentos Matemáticos 2* — University of Alicante (2024/2025) · [Course guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=es&wcodasi=35509&scaca=2024-25) \
-*Métodos Numéricos en Ciencia de Datos* — Universitat Oberta de Catalunya (2025/2026)
+**Cálculo Diferencial Avanzado**  
+MSc in Civil Engineering, University of Alicante  
+Lecturer and course coordinator · 2026/2027 (scheduled)
 
-## 3. Teaching coordination {#teaching-coordination}
+## 3. Previous teaching {#previous-teaching}
+
+*Métodos Numéricos en Ciencia de Datos* — BSc in Applied Data Science, Universitat Oberta de Catalunya (2025/2026)  
+*Fundamentos de Matemática Aplicada 2* — BSc in Robotics Engineering, University of Alicante (2024/2025) · [Course guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=es&wcodasi=33706&scaca=2024-25)  
+*Fundamentos Matemáticos 2* — BSc in Architecture, University of Alicante (2024/2025) · [Course guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=es&wcodasi=35509&scaca=2024-25)  
+*Particle Mechanics* — MSc in Civil Engineering, Technische Universität Braunschweig (2023/2024)  
+*Calcolo Numerico* — BSc in Chemical and Materials Engineering, University of Padova (2022/2023)  
+*Numerical Methods for Continuous Systems* — MSc in Mathematical Engineering, University of Padova (2022/2023)
+
+## 4. Teaching coordination {#teaching-coordination}
 
 **Course coordinator, Fundamentos Matemáticos en Ingeniería I**  
-BSc in Aerospace Engineering, University of Alicante, 2024 - present.
+BSc in Aerospace Engineering, University of Alicante, 2025 - present.
 
 
-## 4. Supervision and mentoring {#supervision-and-mentoring}
+## 5. Supervision and mentoring {#supervision-and-mentoring}
 
-### Master theses supervised
+### 5.1. Master theses supervised
 
-#### Giovanni Campanella — completed, July 2025
+**Giovanni Campanella** — *A mixed Material Point Method for the Stokes equations: a stabilized velocity-pressure formulation* [[Link](https://thesis.unipd.it/handle/20.500.12608/89195)]  
+Master in Mathematical Engineering, University of Padova · Co-supervised with Antonia Larese · July 2025
 
-- **Title**: *A mixed Material Point Method for the Stokes equations: a stabilized velocity-pressure formulation*
-- **Role**: Co-supervisor
-- **Main supervisor**: Antonia Larese
-- **Degree**: Master in Mathematical Engineering
-- **Institution**: Dipartimento di Matematica, Università degli Studi di Padova, Italy
-- **Academic year**: 2024/2025
-- **Date of defense**: July 2025
+**Alessandro Contri** — *An Updated Lagrangian displacement-based formulation for free surface incompressible fluids using MPM* [[Link](https://thesis.unipd.it/handle/20.500.12608/7452)]\
+Master in Mathematical Engineering, University of Padova · Co-supervised with Antonia Larese · December 2021
 
-#### Alessandro Contri — completed, December 2021
+### 5.2. Bachelor theses supervised
 
-- **Title**: *An Updated Lagrangian displacement-based formulation for free surface incompressible fluids using MPM*
-- **Role**: Co-supervisor
-- **Main supervisor**: Antonia Larese
-- **Degree**: Master in Mathematical Engineering
-- **Institution**: Dipartimento di Matematica, Università degli Studi di Padova, Italy
-- **Academic year**: 2020/2021
-- **Date of defense**: December 2021
+**Lucas Peydró Ferrando** — *Simulación Numérica de las olas generadas por deslizamientos mediante el método del punto material: aplicación al caso de Lituya Bay*  
+BSc in Physics, University of Alicante · Ongoing, expected July 2026
 
-### Bachelor theses supervised
-
-#### Lucas Peydró Ferrando — ongoing, July 2026 (expected)
-
-- **Title**: *Simulación Numérica de las olas generadas por deslizamientos mediante el método del punto material: aplicación al caso de Lituya Bay.*
-- **Role**: Co-supervisor
-- **Degree**: Grado en Física
-- **Institution**: University of Alicante, Spain
-- **Academic year**: 2025/2026
-- **Status**: July 2026 (expected)
-
-## 5. Teaching innovation and training {#teaching-innovation-and-training}
+## 6. Teaching innovation and training {#teaching-innovation-and-training}
 
 Selected training in university teaching, digital learning environments, assessment and educational innovation.
 
-## 6. Teaching-related publications {#teaching-related-publications}
+## 7. Teaching-related publications {#teaching-related-publications}
 
 This section includes publications and outputs related to teaching innovation, educational practice, and university-level learning activities.
