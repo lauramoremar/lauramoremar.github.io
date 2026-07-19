@@ -305,7 +305,7 @@
     "href": "presentations.html#section-6",
     "title": "Presentations",
     "section": "2019",
-    "text": "2019\n\nOral presentation in a CIMNE Coffee Talk [Link]\nBarcelona, Spain, December 11th, 2019.\nTitle: Simulating viscoelastic fluid flows with high Weissenberg number. [Slides]\nOral conference speaker in the VIII International Conference on Coupled Problems in Science and Engineering (COUPLED 2019) [Link]\nSitges, Spain. June 3-6 2019\nTitle: Simulation of non-isothermal viscoelastic fluid flow problem using a VMS stabilized Formulation.\n[Abstract] and [Slides]\nL. Moreno, J. Baiges, R. Codina.\nOral presentation in Lecture Series: Women researchers at CIMNE for the International Day of Women and Girls in Science [Link]\nBarcelona, Spain, February 11th, 2019.\nTitle: Heat transfer processes using viscoelastic fluids in laminar and turbulence regimes. [Slides]"
+    "text": "2019\n\nOral presentation in a CIMNE Coffee Talk [Link]\nBarcelona, Spain, December 11th, 2019.\nTitle: Simulating viscoelastic fluid flows with high Weissenberg number. [Slides]\nOral conference speaker in the VIII International Conference on Coupled Problems in Science and Engineering (COUPLED 2019) [Link]\nSitges, Spain. June 3-6 2019\nTitle: Simulation of non-isothermal viscoelastic fluid flow problem using a VMS stabilized Formulation.\n[Abstract] and [Slides]\nL. Moreno, J. Baiges, R. Codina."
   },
   {
     "objectID": "projects.html#table-of-contents",
@@ -480,7 +480,7 @@
     "href": "teaching.html#previous-teaching",
     "title": "Teaching",
     "section": "2. Previous teaching",
-    "text": "2. Previous teaching\nMétodos Numéricos en Ciencia de Datos — BSc in Applied Data Science, Universitat Oberta de Catalunya (2025/2026)\nFundamentos de Matemática Aplicada 2 — BSc in Robotics Engineering, University of Alicante (2024/2025) · Course guide\nFundamentos Matemáticos 2 — BSc in Architecture, University of Alicante (2024/2025) · Course guide\nParticle Mechanics — MSc in Civil Engineering, Technische Universität Braunschweig (2023/2024)\nCalcolo Numerico — BSc in Chemical and Materials Engineering, University of Padova (2022/2023)\nNumerical Methods for Continuous Systems — MSc in Mathematical Engineering, University of Padova (2022/2023)"
+    "text": "2. Previous teaching\n\nParticle Based Methods in Engineering — MSc in Civil Engineering, Technical University of Munich (2025/2026)\nGuest lecture: Constitutive Modeling of Granular Material and Extensions of MPM Formulations · 2 hours\nMétodos Numéricos en Ciencia de Datos — BSc in Applied Data Science, Universitat Oberta de Catalunya (2025/2026)\n\nFundamentos de Matemática Aplicada 2 — BSc in Robotics Engineering, University of Alicante (2024/2025) · Course guide\n\nFundamentos Matemáticos 2 — BSc in Architecture, University of Alicante (2024/2025) · Course guide\n\nParticle Methods — MSc in Civil Engineering, Technische Universität Braunschweig (2023/2024)\n\nCalcolo Numerico — BSc in Chemical and Materials Engineering, University of Padova (2022/2023)\n\nNumerical Methods for Continuous Systems — MSc in Mathematical Engineering, University of Padova (2022/2023) ## 3. Supervision and mentoring {#supervision-and-mentoring}\n\n\n3.1. Master theses supervised\nGiovanni Campanella — A mixed Material Point Method for the Stokes equations: a stabilized velocity-pressure formulation [Link]\nMaster in Mathematical Engineering, University of Padova · Co-supervised with Antonia Larese · July 2025\nAlessandro Contri — An Updated Lagrangian displacement-based formulation for free surface incompressible fluids using MPM [Link]\nMaster in Mathematical Engineering, University of Padova · Co-supervised with Antonia Larese · December 2021\n\n\n3.2. Bachelor theses supervised\nLucas Peydró Ferrando — Simulación Numérica de las olas generadas por deslizamientos mediante el método del punto material: aplicación al caso de Lituya Bay\nBSc in Physics, University of Alicante · Ongoing, expected July 2026"
   },
   {
     "objectID": "teaching.html#teaching-coordination",
@@ -551,5 +551,12 @@
     "title": "Curriculum Vitae",
     "section": "Academic service and professional memberships",
     "text": "Academic service and professional memberships\n\nScientific service\n\nCo-organizer of the minisymposium Particle-based methods in applied and industrial sciences, SIMAI 2023 [Link)].\nReviewer for international journals in computational mechanics:\n\nComputer Methods in Applied Mechanics and Engineering (CMAME)\nModeling Earth Systems and Environment\n\n\n\n\nProfessional memberships\n\nMember of the Istituto Nazionale di Alta Matematica “Francesco Severi” (INDAM) - Gruppo Nazionale per il Calcolo Scientifico (GNCS), since 2023\nMember of the Spanish Association for Numerical Methods in Engineering (SEMNI), since 2018."
+  },
+  {
+    "objectID": "presentations.html#section-7",
+    "href": "presentations.html#section-7",
+    "title": "Presentations",
+    "section": "2018",
+    "text": "2018\n\nOral presentation in Lecture Series: Women researchers at CIMNE for the International Day of Women and Girls in Science [Flyer]\nBarcelona, Spain, February 11th, 2018.\nTitle: Heat transfer processes using viscoelastic fluids in laminar and turbulence regimes. [Slides]"
   }
 ]

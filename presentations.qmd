@@ -141,7 +141,7 @@ L. Moreno, J. Baiges, R. Codina.
 
 ## 2019
 
-* Oral presentation in a **CIMNE Coffee Talk** [[Link]](https://www.cimne.com/vnews/10826)\
+* Oral presentation in a **CIMNE Coffee Talk** [[Link]](https://annualreport2019.cimne.com/seminars-coffee-talks/)\
 Barcelona, Spain, December 11th, 2019.\
 <u>Title</u>: *Simulating viscoelastic fluid flows with high Weissenberg number.* [[Slides](/assets/docs/Slides/Coffee_talk_LauraMoreno.pdf)]
 
@@ -151,6 +151,10 @@ Sitges, Spain. June 3-6 2019\
 [[Abstract](/assets/docs/Abstracts/2019COUPLED_Abstract_LauraMoreno.pdf)] and [[Slides](/assets/docs/Slides/COUPLED2019_LauraMoreno.pdf)]\
 L. Moreno, J. Baiges, R. Codina.
 
-* Oral presentation in **Lecture Series: Women researchers at CIMNE for the International Day of Women and Girls in Science** [[Link]](https://www.cimne.com/vnews/2/10411/cimne-celebrates-the-international-day-of-women-and-girls-in-science)\
-Barcelona, Spain, February 11th, 2019.\
+## 2018
+
+* Oral presentation in **Lecture Series: Women researchers at CIMNE for the International Day of Women and Girls in Science** [[Flyer](https://cimne.com/cvdata/cntr2/dtos/mdia/$nws/flyer-researchers.pdf)]\
+Barcelona, Spain, February 11th, 2018.\
 <u>Title</u>: *Heat transfer processes using viscoelastic fluids in laminar and turbulence regimes.* [[Slides](/assets/docs/Slides/Presentation_WomenResearchers_LauraMoreno.pdf)]
+
+<!-- [[Link]](https://www.cimne.com/vnews/2/10411/cimne-celebrates-the-international-day-of-women-and-girls-in-science)\ -->

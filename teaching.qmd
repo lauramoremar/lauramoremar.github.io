@@ -43,14 +43,14 @@ MSc in Civil Engineering, University of Alicante
 Lecturer and course coordinator · 2026/2027 (scheduled)
 
 ## 2. Previous teaching {#previous-teaching}
-
-*Métodos Numéricos en Ciencia de Datos* — BSc in Applied Data Science, Universitat Oberta de Catalunya (2025/2026)  
-*Fundamentos de Matemática Aplicada 2* — BSc in Robotics Engineering, University of Alicante (2024/2025) · [Course guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=es&wcodasi=33706&scaca=2024-25)  
-*Fundamentos Matemáticos 2* — BSc in Architecture, University of Alicante (2024/2025) · [Course guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=es&wcodasi=35509&scaca=2024-25)  
-*Particle Mechanics* — MSc in Civil Engineering, Technische Universität Braunschweig (2023/2024)  
-*Calcolo Numerico* — BSc in Chemical and Materials Engineering, University of Padova (2022/2023)  
-*Numerical Methods for Continuous Systems* — MSc in Mathematical Engineering, University of Padova (2022/2023)
-
+- *Particle Based Methods in Engineering* — MSc in Civil Engineering, Technical University of Munich (2025/2026)  
+  Guest lecture: *Constitutive Modeling of Granular Material and Extensions of MPM Formulations* · 2 hours
+- *Métodos Numéricos en Ciencia de Datos* — BSc in Applied Data Science, Universitat Oberta de Catalunya (2025/2026)  
+- *Fundamentos de Matemática Aplicada 2* — BSc in Robotics Engineering, University of Alicante (2024/2025) · [Course guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=es&wcodasi=33706&scaca=2024-25)  
+- *Fundamentos Matemáticos 2* — BSc in Architecture, University of Alicante (2024/2025) · [Course guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=es&wcodasi=35509&scaca=2024-25)  
+- *Particle Methods* — MSc in Civil Engineering, Technische Universität Braunschweig (2023/2024)  
+- *Calcolo Numerico* — BSc in Chemical and Materials Engineering, University of Padova (2022/2023)  
+- *Numerical Methods for Continuous Systems* — MSc in Mathematical Engineering, University of Padova (2022/2023)
 ## 3. Supervision and mentoring {#supervision-and-mentoring}
 
 #### 3.1. Master theses supervised
