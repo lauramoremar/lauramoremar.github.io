@@ -51,6 +51,7 @@ Lecturer and course coordinator · 2026/2027 (scheduled)
 - *Particle Methods* — MSc in Civil Engineering, Technische Universität Braunschweig (2023/2024)  
 - *Calcolo Numerico* — BSc in Chemical and Materials Engineering, University of Padova (2022/2023)  
 - *Numerical Methods for Continuous Systems* — MSc in Mathematical Engineering, University of Padova (2022/2023)
+
 ## 3. Supervision and mentoring {#supervision-and-mentoring}
 
 #### 3.1. Master theses supervised
