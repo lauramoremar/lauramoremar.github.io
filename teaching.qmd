@@ -69,7 +69,7 @@ BSc in Physics, University of Alicante · Ongoing, expected July 2026
 
 ## 4. Teaching innovation and training {#teaching-innovation-and-training}
 
-Selected training in university teaching, digital learning environments, assessment and educational innovation.
+Training in university teaching, digital learning environments, assessment and educational innovation.
 
 - [*REDES-INNOVAESTIC 2026*](https://ice.ua.es/es/instituto-de-ciencias-de-la-educacion_noticias-2026-5.html) — Attendee and poster presenter, University of Alicante, 2026
 - *Sumérgete en la UOC: Training in Online University Teaching* — Universitat Oberta de Catalunya, 2026
@@ -79,4 +79,7 @@ Selected training in university teaching, digital learning environments, assessm
 
 ## 5. Teaching-related publications {#teaching-related-publications}
 
-This section includes publications and outputs related to teaching innovation, educational practice, and university-level learning activities.
+Publications and outputs related to teaching innovation and university learning.
+
+- Vargas Alemañy, J. A.; Vigo Aguiar, I.; Sayol España, J. M.; Moreno Martínez, L.; García García, D.  **“Autocorrección en Cálculo Numérico: Mejora del Aprendizaje Autónomo y Optimización de la Evaluación Continua.”**  *Redes de Investigación e Innovación en Docencia Universitaria. Volumen 2025*, pp. 367–376. Instituto de Ciencias de la Educación, University of Alicante, 2025. ISBN 978-84-09-76835-6. [[Full text](https://rua.ua.es/entities/publication/9c521ee6-697f-4b19-9fbe-6e964fccf582)]
+
