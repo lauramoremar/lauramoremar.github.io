@@ -54,7 +54,7 @@ Lecturer and course coordinator · 2026/2027 (scheduled)
 
 ## 3. Supervision and mentoring {#supervision-and-mentoring}
 
-#### 3.1. Master theses supervised
+#### 3.1. Master’s theses supervised
 
 **Giovanni Campanella** — *A mixed Material Point Method for the Stokes equations: a stabilized velocity-pressure formulation* [[Link](https://thesis.unipd.it/handle/20.500.12608/89195)]  
 Master in Mathematical Engineering, University of Padova · Co-supervised with Antonia Larese · July 2025
@@ -68,7 +68,13 @@ Master in Mathematical Engineering, University of Padova · Co-supervised with A
 BSc in Physics, University of Alicante · Ongoing, expected July 2026
 
 
-## 4. Teaching innovation and training {#teaching-innovation-and-training}
+#### 3.3. Academic mentoring and student support
+
+- [*Yo te ayudo con las Mates*](https://guadalest.cpd.ua.es/epsservicios/servicios/noticiaeps/05258/es/eps/talleres-refuerzo-matematicas-yo-ayudo-mates) — Academic coordinator and supervisor in a peer-supported mathematics reinforcement programme for first-year Engineering and Architecture students, School of Engineering, University of Alicante, March–May 2025.
+
+<!-- - Research internship supervision of Arthur D'Habreil, engineering student at ESILV, during a research internship at the Demartment of Applied Mathematics and Aerospace Engineering University of Alicante June-July 2026. -->
+
+## 4. Innovation and training {#teaching-innovation-and-training}
 
 Projects and training in university teaching, digital learning environments, assessment and educational innovation.
 
