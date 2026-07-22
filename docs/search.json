@@ -158,7 +158,7 @@
     "href": "research.html",
     "title": "Research Areas",
     "section": "",
-    "text": "My work focuses on the development and application of advanced numerical methods for fluid and solid mechanics, with a strong emphasis on FEM and MPM techniques. Below is an overview of the main research areas I’ve been involved in.\n\n\n🌊 Material Point Method\nNumerical modeling for solid mechanics and fluid flow systems using MPM within Kratos Multiphysics.\n\nSolid Mechanics Problems including large deformations.\nAdvanced on mixed formulations (mixed u-p)\nFree surface flow simulations.\nMPM implementation and benchmark studies.\nOngoing work using Kratos Multiphysics.\n\n\n\n\n\n🌀 Viscoelastic Fluid Flows\nNumerical modeling of viscoelastic fluids with high elasticity using FEM techniques.\n\nLog-conformation reformulation.\nStabilization.\nThermal coupling.\nFractional Step Methods.\nImplementations in a in-house FEM code called Femuss.\n\nMore details →\n\n\n\n🌬️ Finite Element Modeling of Complex Fluid Flows\nFEM-based simulation of complex fluid beyond viscoelasticity.\n\nAir flow modeling around telescopes and large structures.\nTunnel pannel study\n\n\n\n\n\n🔄 Fluid–Structure Interaction\nSimulation of coupled problems involving solid-fluid interaction, including viscoelastic and mixed formulations.\n\nFSI simulations using FEM (with and without viscoelasticity).\nMixed formulation methods for fluid/structure coupling.\n\n\n\n\nNote: Some projects may appear in more than one research line, highlighting their interdisciplinary nature."
+    "text": "Computational mechanics · Applied mathematics · Scientific computing\n  I develop mathematical models and numerical methods for complex fluid, solid, and coupled problems."
   },
   {
     "objectID": "research.html#research-areas",
@@ -558,5 +558,26 @@
     "title": "Presentations",
     "section": "2018",
     "text": "2018\n\nOral presentation in Lecture Series: Women researchers at CIMNE for the International Day of Women and Girls in Science [Flyer]\nBarcelona, Spain, February 11th, 2018.\nTitle: Heat transfer processes using viscoelastic fluids in laminar and turbulence regimes. [Slides]"
+  },
+  {
+    "objectID": "research.html#methods-tools",
+    "href": "research.html#methods-tools",
+    "title": "Research Areas",
+    "section": "Methods & tools",
+    "text": "Methods & tools\n\n  Finite Element MethodMaterial Point MethodStabilized formulationsMixed formulationsMultiphysics couplingKratos MultiphysicsScientific computing\n\nResearch lines naturally overlap: the same numerical methods can connect fundamental developments, multiphysics problems, and applications across engineering and biomedicine."
+  },
+  {
+    "objectID": "research.html#a-closer-technical-look",
+    "href": "research.html#a-closer-technical-look",
+    "title": "Research Areas",
+    "section": "A closer technical look",
+    "text": "A closer technical look\n\n\n  01 Material Point Method & Extreme Events\n  My current work addresses numerical simulation of large-deformation solid and fluid problems with MPM. It includes mixed displacement–pressure formulations for incompressible materials, free-surface flows, benchmark studies, and implementation within Kratos Multiphysics.\n\n\n  02 Viscoelastic & Complex Fluid Flows\n  This research focuses on finite element formulations for highly elastic viscoelastic flows. Contributions include stabilization techniques, log-conformation reformulations, fractional-step strategies, thermal coupling, numerical validation, and implementation in the in-house FEM code Femuss.\n\n\n  03 Fluid–Structure Interaction & Hemodynamics\n  This current line studies coupled fluid–solid systems and their application to hemodynamics. Technical details will be expanded as the work develops, including the specific physical models, coupling strategy, discretization, and validation cases.\n\n\n  04 Computational Aerodynamics & Engineering Applications\n  Selected applications include Navier–Stokes simulations over real terrain to assess thermal and aerodynamic effects on telescope optical quality, and transient CFD with moving domains to estimate train-induced loads on a tunnel separation wall.\n\n\n\nResearch lines naturally overlap: the same numerical methods can connect fundamental developments, multiphysics problems, and applications across engineering and biomedicine."
+  },
+  {
+    "objectID": "research_old.html",
+    "href": "research_old.html",
+    "title": "Research Areas",
+    "section": "",
+    "text": "My work focuses on the development and application of advanced numerical methods for fluid and solid mechanics, with a strong emphasis on FEM and MPM techniques. Below is an overview of the main research areas I’ve been involved in.\n\n\n🌊 Material Point Method\nNumerical modeling for solid mechanics and fluid flow systems using MPM within Kratos Multiphysics.\n\nSolid Mechanics Problems including large deformations.\nAdvanced on mixed formulations (mixed u-p)\nFree surface flow simulations.\nMPM implementation and benchmark studies.\nOngoing work using Kratos Multiphysics.\n\n\n\n\n\n🌀 Viscoelastic Fluid Flows\nNumerical modeling of viscoelastic fluids with high elasticity using FEM techniques.\n\nLog-conformation reformulation.\nStabilization.\nThermal coupling.\nFractional Step Methods.\nImplementations in a in-house FEM code called Femuss.\n\nMore details →\n\n\n\n🌬️ Finite Element Modeling of Complex Fluid Flows\nFEM-based simulation of complex fluid beyond viscoelasticity.\n\nAir flow modeling around telescopes and large structures.\nTunnel pannel study\n\n\n\n\n\n🔄 Fluid–Structure Interaction\nSimulation of coupled problems involving solid-fluid interaction, including viscoelastic and mixed formulations.\n\nFSI simulations using FEM (with and without viscoelasticity).\nMixed formulation methods for fluid/structure coupling.\n\n\n\n\nNote: Some projects may appear in more than one research line, highlighting their interdisciplinary nature."
   }
 ]

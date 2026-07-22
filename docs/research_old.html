@@ -144,9 +144,20 @@ gtag('config', 'G-67M1JQ9KKG', { 'anonymize_ip': true});
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#material-point-method" id="toc-material-point-method" class="nav-link active" data-scroll-target="#material-point-method">🌊 Material Point Method</a></li>
+  <li><a href="#viscoelastic-fluid-flows" id="toc-viscoelastic-fluid-flows" class="nav-link" data-scroll-target="#viscoelastic-fluid-flows">🌀 Viscoelastic Fluid Flows</a></li>
+  <li><a href="#finite-element-modeling-of-complex-fluid-flows" id="toc-finite-element-modeling-of-complex-fluid-flows" class="nav-link" data-scroll-target="#finite-element-modeling-of-complex-fluid-flows">🌬️ Finite Element Modeling of Complex Fluid Flows</a></li>
+  <li><a href="#fluidstructure-interaction" id="toc-fluidstructure-interaction" class="nav-link" data-scroll-target="#fluidstructure-interaction">🔄 Fluid–Structure Interaction</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -165,77 +176,56 @@ gtag('config', 'G-67M1JQ9KKG', { 'anonymize_ip': true});
 
 </header>
 
-
-<div class="research-intro">
-  <p class="research-kicker">Computational mechanics · Applied mathematics · Scientific computing</p>
-  <p class="research-lead">I develop mathematical models and numerical methods for complex fluid, solid, and coupled problems.</p>
-</div>
-
-<div class="research-grid">
-
-<article class="research-card">
-  <div class="research-card-media">
-    <img src="assets/images/Landslide.jpg" alt="Landslide illustrating a large-deformation natural hazard problem">
-    <span class="research-status current">Current research</span>
-  </div>
-  <div class="research-card-body">
-    <p class="research-number">01</p>
-    <h2 class="anchored">Material Point Method &amp; Extreme Events</h2>
-    <p>Numerical methods for solids and fluids undergoing large deformations, with particular emphasis on hydrological hazards and incompressible materials.</p>
-    <div class="research-tags"><span>MPM</span><span>Large deformations</span><span>Mixed formulations</span><span>Kratos</span></div>
-    <a class="research-link" href="./research_mpm.html">Explore this research <span aria-hidden="true">→</span></a>
-  </div>
-</article>
-
-<article class="research-card">
-  <div class="research-card-media">
-    <img src="assets/images-viscoelasticity/The_Kaye-Effect.jpg" alt="The Kaye effect in a viscoelastic fluid">
-    <span class="research-status expertise">Core expertise</span>
-  </div>
-  <div class="research-card-body">
-    <p class="research-number">02</p>
-    <h2 class="anchored">Viscoelastic &amp; Complex Fluid Flows</h2>
-    <p>Stable and accurate finite element techniques for highly elastic flows, including thermal effects and challenging constitutive behavior.</p>
-    <div class="research-tags"><span>FEM</span><span>Stabilization</span><span>Log-conformation</span><span>Thermal coupling</span></div>
-    <a class="research-link" href="./research_viscoelastic-flows.html">Explore this research <span aria-hidden="true">→</span></a>
-  </div>
-</article>
-
-<article class="research-card">
-  <div class="research-card-media research-placeholder">
-    <div><strong>Image placeholder</strong><small>Hemodynamics geometry, flow field, or FSI result</small></div>
-    <span class="research-status current">Current research</span>
-  </div>
-  <div class="research-card-body">
-    <p class="research-number">03</p>
-    <h2 class="anchored">Fluid–Structure Interaction &amp; Hemodynamics</h2>
-    <p>Coupled simulation of fluids and deformable structures, connecting numerical formulation development with cardiovascular flow problems.</p>
-    <div class="research-tags"><span>FSI</span><span>Hemodynamics</span><span>Coupled problems</span><span>FEM</span></div>
-    <span class="research-link research-link-muted">Detailed research page in preparation</span>
-  </div>
-</article>
-
-<article class="research-card">
-  <div class="research-card-media research-placeholder research-placeholder-dark">
-    <div><strong>Image placeholder</strong><small>Telescope airflow or train-in-tunnel simulation</small></div>
-    <span class="research-status applications">Selected applications</span>
-  </div>
-  <div class="research-card-body">
-    <p class="research-number">04</p>
-    <h2 class="anchored">Computational Aerodynamics &amp; Engineering Applications</h2>
-    <p>Simulation of complex flows in realistic geometries, from atmospheric effects around telescopes to transient aerodynamic loads in railway tunnels.</p>
-    <div class="research-tags"><span>CFD</span><span>Moving domains</span><span>Turbulence</span><span>Real geometries</span></div>
-    <a class="research-link" href="./research_fem-complex-flows.html">See selected applications <span aria-hidden="true">→</span></a>
-  </div>
-</article>
-
-</div>
-<section id="methods-tools" class="level2 research-section-title">
-<h2 class="research-section-title anchored" data-anchor-id="methods-tools">Methods &amp; tools</h2>
-<div class="methods-strip">
-  <span>Finite Element Method</span><span>Material Point Method</span><span>Stabilized formulations</span><span>Mixed formulations</span><span>Multiphysics coupling</span><span>Kratos Multiphysics</span><span>Scientific computing</span>
-</div>
-<p class="research-note">Research lines naturally overlap: the same numerical methods can connect fundamental developments, multiphysics problems, and applications across engineering and biomedicine.</p>
+<p>My work focuses on the development and application of advanced numerical methods for fluid and solid mechanics, with a strong emphasis on FEM and MPM techniques. Below is an overview of the main research areas I’ve been involved in.</p>
+<hr>
+<section id="material-point-method" class="level3">
+<h3 class="anchored" data-anchor-id="material-point-method">🌊 Material Point Method</h3>
+<p><em>Numerical modeling for solid mechanics and fluid flow systems using MPM within Kratos Multiphysics.</em></p>
+<ul>
+<li>Solid Mechanics Problems including large deformations.</li>
+<li>Advanced on mixed formulations (mixed u-p)</li>
+<li>Free surface flow simulations.</li>
+<li>MPM implementation and benchmark studies.</li>
+<li>Ongoing work using Kratos Multiphysics.</li>
+</ul>
+<!--[More details →](research_mpm.qmd)-->
+<hr>
+</section>
+<section id="viscoelastic-fluid-flows" class="level3">
+<h3 class="anchored" data-anchor-id="viscoelastic-fluid-flows">🌀 Viscoelastic Fluid Flows</h3>
+<p><em>Numerical modeling of viscoelastic fluids with high elasticity using FEM techniques.</em></p>
+<ul>
+<li>Log-conformation reformulation.</li>
+<li>Stabilization.</li>
+<li>Thermal coupling.</li>
+<li>Fractional Step Methods.</li>
+<li>Implementations in a in-house FEM code called <em>Femuss</em>.</li>
+</ul>
+<p><a href="./research_viscoelastic-flows.html">More details →</a></p>
+<hr>
+</section>
+<section id="finite-element-modeling-of-complex-fluid-flows" class="level3">
+<h3 class="anchored" data-anchor-id="finite-element-modeling-of-complex-fluid-flows">🌬️ Finite Element Modeling of Complex Fluid Flows</h3>
+<p><em>FEM-based simulation of complex fluid beyond viscoelasticity.</em></p>
+<ul>
+<li>Air flow modeling around telescopes and large structures.</li>
+<li>Tunnel pannel study</li>
+</ul>
+<!--[More details →](research_fem-complex-flows.qmd)-->
+<hr>
+</section>
+<section id="fluidstructure-interaction" class="level3">
+<h3 class="anchored" data-anchor-id="fluidstructure-interaction">🔄 Fluid–Structure Interaction</h3>
+<p><em>Simulation of coupled problems involving solid-fluid interaction, including viscoelastic and mixed formulations.</em></p>
+<ul>
+<li>FSI simulations using FEM (with and without viscoelasticity).</li>
+<li>Mixed formulation methods for fluid/structure coupling.</li>
+</ul>
+<!--[More details →](research_coupled-fsi.qmd)-->
+<hr>
+<blockquote class="blockquote">
+<p><em>Note: Some projects may appear in more than one research line, highlighting their interdisciplinary nature.</em></p>
+</blockquote>
 
 
 </section>

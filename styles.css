@@ -1,1 +1,185 @@
 /* css styles */
+
+/* Research areas landing page */
+.research-intro {
+  max-width: 980px;
+  margin: 0 auto 2.8rem;
+  padding: 1.2rem 0 0.4rem;
+}
+
+.research-kicker {
+  color: #287b82;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  margin-bottom: 0.7rem;
+}
+
+.research-lead {
+  color: #183239;
+  font-size: clamp(1.35rem, 2.5vw, 2.1rem);
+  line-height: 1.32;
+  margin: 0;
+  max-width: 940px;
+}
+
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  max-width: 1180px;
+  margin: 0 auto 3.8rem;
+}
+
+.research-card {
+  background: #fff;
+  border: 1px solid #dfe7e7;
+  border-radius: 16px;
+  box-shadow: 0 10px 32px rgba(19, 52, 59, 0.07);
+  overflow: hidden;
+  transition: transform 180ms ease, box-shadow 180ms ease;
+}
+
+.research-card:hover {
+  box-shadow: 0 16px 40px rgba(19, 52, 59, 0.13);
+  transform: translateY(-3px);
+}
+
+.research-card-media {
+  height: 245px;
+  overflow: hidden;
+  position: relative;
+}
+
+.research-card-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 400ms ease;
+}
+
+.research-card:nth-child(2) .research-card-media img {
+  object-position: center 45%;
+}
+
+.research-card:hover .research-card-media img { transform: scale(1.025); }
+
+.research-status {
+  background: rgba(255, 255, 255, 0.94);
+  border-radius: 999px;
+  color: #27484d;
+  font-size: 0.72rem;
+  font-weight: 700;
+  left: 1rem;
+  letter-spacing: 0.04em;
+  padding: 0.38rem 0.7rem;
+  position: absolute;
+  text-transform: uppercase;
+  top: 1rem;
+}
+
+.research-status.current { color: #a23e21; }
+.research-status.expertise { color: #176b73; }
+.research-status.applications { color: #4e4b83; }
+
+.research-placeholder {
+  align-items: center;
+  background: linear-gradient(135deg, #e8f3f2, #cfe3e1);
+  color: #386168;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+
+.research-placeholder::before {
+  border: 1px dashed rgba(42, 100, 108, 0.36);
+  border-radius: 10px;
+  content: "";
+  inset: 2.8rem 1.4rem 1.4rem;
+  position: absolute;
+}
+
+.research-placeholder-dark {
+  background: linear-gradient(135deg, #273e48, #58717a);
+  color: #eef5f4;
+}
+
+.research-placeholder-dark::before { border-color: rgba(255,255,255,0.38); }
+
+.research-placeholder strong,
+.research-placeholder small { display: block; position: relative; }
+.research-placeholder strong { font-size: 1rem; margin-bottom: 0.35rem; }
+.research-placeholder small { max-width: 300px; }
+
+.research-card-body { padding: 1.55rem 1.6rem 1.7rem; }
+.research-number {
+  color: #7c999d;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin: 0 0 0.45rem;
+}
+
+.research-card h2 {
+  color: #17363d;
+  font-size: 1.45rem;
+  line-height: 1.22;
+  margin: 0 0 0.8rem;
+}
+
+.research-card-body > p:not(.research-number) {
+  color: #52666a;
+  line-height: 1.6;
+  min-height: 5.1rem;
+}
+
+.research-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 1.1rem 0 1.35rem; }
+.research-tags span,
+.methods-strip span {
+  background: #eef5f4;
+  border-radius: 999px;
+  color: #315f65;
+  font-size: 0.76rem;
+  padding: 0.34rem 0.65rem;
+}
+
+.research-link {
+  color: #176e77;
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.research-link:hover { color: #0f4f56; }
+.research-link-muted { color: #758b8e; font-weight: 500; }
+
+.research-section-title {
+  color: #17363d;
+  font-size: 1.55rem;
+  margin: 2.7rem auto 1.2rem;
+  max-width: 1180px;
+}
+
+.methods-strip {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  max-width: 1180px;
+  margin: 0 auto 3.4rem;
+}
+.methods-strip span { font-size: 0.86rem; padding: 0.5rem 0.85rem; }
+
+.research-note {
+  color: #6c7e81;
+  font-size: 0.88rem;
+  font-style: italic;
+  margin: 2.2rem auto 1rem;
+  max-width: 1180px;
+}
+
+@media (max-width: 760px) {
+  .research-grid { grid-template-columns: 1fr; }
+  .research-card-media { height: 220px; }
+  .research-card-body > p:not(.research-number) { min-height: auto; }
+  .research-intro { padding-top: 0; }
+}
