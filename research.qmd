@@ -23,7 +23,22 @@ toc: false
     <h2>Material Point Method &amp; Extreme Events</h2>
     <p>Numerical methods for solids and fluids undergoing large deformations, with particular emphasis on hydrological hazards and incompressible materials.</p>
     <div class="research-tags"><span>MPM</span><span>Large deformations</span><span>Mixed formulations</span><span>Kratos</span></div>
-    <a class="research-link" href="research_mpm.qmd">Explore this research <span aria-hidden="true">→</span></a>
+    <span class="research-link research-link-muted">Detailed research page in preparation</span>
+    <!--<a class="research-link" href="research_mpm.qmd">Explore this research <span aria-hidden="true">→</span></a> -->
+  </div>
+</article>
+
+<article class="research-card">
+  <div class="research-card-media">
+    <img class="carotid-cover" src="assets/images-carotida/portada-carotida.png" alt="Streamlines through a transparent three-dimensional carotid artery geometry">
+    <span class="research-status current">Current research</span>
+  </div>
+  <div class="research-card-body">
+    <p class="research-number">02</p>
+    <h2>Fluid–Structure Interaction &amp; Hemodynamics</h2>
+    <p>Coupled simulation of fluids and deformable structures, connecting numerical formulation development with cardiovascular flow problems.</p>
+    <div class="research-tags"><span>FSI</span><span>Hemodynamics</span><span>Coupled problems</span><span>FEM</span></div>
+    <span class="research-link research-link-muted">Detailed research page in preparation</span>
   </div>
 </article>
 
@@ -33,7 +48,7 @@ toc: false
     <span class="research-status expertise">Core expertise</span>
   </div>
   <div class="research-card-body">
-    <p class="research-number">02</p>
+    <p class="research-number">03</p>
     <h2>Viscoelastic &amp; Complex Fluid Flows</h2>
     <p>Stable and accurate finite element techniques for highly elastic flows, including thermal effects and challenging constitutive behavior.</p>
     <div class="research-tags"><span>FEM</span><span>Stabilization</span><span>Log-conformation</span><span>Thermal coupling</span></div>
@@ -42,30 +57,18 @@ toc: false
 </article>
 
 <article class="research-card">
-  <div class="research-card-media research-placeholder">
-    <div><strong>Image placeholder</strong><small>Hemodynamics geometry, flow field, or FSI result</small></div>
-    <span class="research-status current">Current research</span>
-  </div>
-  <div class="research-card-body">
-    <p class="research-number">03</p>
-    <h2>Fluid–Structure Interaction &amp; Hemodynamics</h2>
-    <p>Coupled simulation of fluids and deformable structures, connecting numerical formulation development with cardiovascular flow problems.</p>
-    <div class="research-tags"><span>FSI</span><span>Hemodynamics</span><span>Coupled problems</span><span>FEM</span></div>
-    <span class="research-link research-link-muted">Detailed research page in preparation</span>
-  </div>
-</article>
-
-<article class="research-card">
-  <div class="research-card-media research-placeholder research-placeholder-dark">
-    <div><strong>Image placeholder</strong><small>Telescope airflow or train-in-tunnel simulation</small></div>
+  <div class="research-card-media">
+    <img src="assets/images-telescopes/not-telescope-sunset.webp" alt="Nordic Optical Telescope above a sea of clouds at Roque de los Muchachos Observatory">
     <span class="research-status applications">Selected applications</span>
+    <a class="research-photo-credit" href="https://commons.wikimedia.org/wiki/File:Not_telescope_sunset_2001.jpg" target="_blank" rel="noopener">Bob Tubbs / Wikimedia Commons · Public domain</a>
   </div>
   <div class="research-card-body">
     <p class="research-number">04</p>
     <h2>Computational Aerodynamics &amp; Engineering Applications</h2>
     <p>Simulation of complex flows in realistic geometries, from atmospheric effects around telescopes to transient aerodynamic loads in railway tunnels.</p>
     <div class="research-tags"><span>CFD</span><span>Moving domains</span><span>Turbulence</span><span>Real geometries</span></div>
-    <a class="research-link" href="research_fem-complex-flows.qmd">See selected applications <span aria-hidden="true">→</span></a>
+    <!--<a class="research-link" href="research_fem-complex-flows.qmd">See selected applications <span aria-hidden="true">→</span></a> -->
+     <span class="research-link research-link-muted">Detailed research page in preparation</span>
   </div>
 </article>
 

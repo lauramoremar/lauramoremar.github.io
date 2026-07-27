@@ -59,11 +59,16 @@
   transition: transform 400ms ease;
 }
 
-.research-card:nth-child(2) .research-card-media img {
+.research-card:nth-child(3) .research-card-media img {
   object-position: center 45%;
 }
 
 .research-card:hover .research-card-media img { transform: scale(1.025); }
+
+.research-card-media img.carotid-cover { transform: scaleX(-1); }
+.research-card:hover .research-card-media img.carotid-cover {
+  transform: scaleX(-1) scale(1.025);
+}
 
 .research-status {
   background: rgba(255, 255, 255, 0.94);
@@ -82,6 +87,20 @@
 .research-status.current { color: #a23e21; }
 .research-status.expertise { color: #176b73; }
 .research-status.applications { color: #4e4b83; }
+
+.research-photo-credit {
+  background: rgba(18, 37, 44, 0.72);
+  border-radius: 4px;
+  bottom: 0.55rem;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 0.61rem;
+  padding: 0.22rem 0.38rem;
+  position: absolute;
+  right: 0.55rem;
+  text-decoration: none;
+}
+
+.research-photo-credit:hover { color: #fff; }
 
 .research-placeholder {
   align-items: center;
