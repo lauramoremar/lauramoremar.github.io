@@ -39,8 +39,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="site_libs/quarto-contrib/videojs/video.min.js"></script>
-<link href="site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -143,18 +141,17 @@ gtag('config', 'G-67M1JQ9KKG', { 'anonymize_ip': true});
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    </div>
+    
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content page-columns page-full column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Material Point Method</h1>
+<p class="subtitle lead">Mixed formulations for incompressible solids and fluids</p>
 </div>
 
 
@@ -169,40 +166,209 @@ gtag('config', 'G-67M1JQ9KKG', { 'anonymize_ip': true});
 
 </header>
 
-<p>Currently, I am working on large deformation problems in structural mechanics related to hydrological hazard events. This area is particularly interesting for several reasons. On the one hand, civil structures can experience significant deformations and even fractures due to strong impacts, especially during water hazard events such as floods or landslides. On the other hand, most moving masses are modeled as solid materials that undergo these large deformations.</p>
-<div id="fig-water-hazard-events" class="quarto-layout-panel">
-<figure class="figure">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell" style="flex-basis: 54.5%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./assets/images/Landslide.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">2018 Hokkaido landslide after earthquake, Japan (The Guardian)</figcaption>
-</figure>
+
+<div class="mpm-page page-columns page-full">
+  <main class="mpm-content page-columns page-full">
+    <a class="mpm-back" href="research.html">← Research areas</a>
+
+    <nav class="mpm-top-nav" aria-label="On this page">
+      <p>On this page</p>
+      <a href="#overview"><span>01</span> Overview</a>
+      <a href="#hyperelastic-formulation"><span>02</span> Hyperelastic formulation</a>
+      <a href="#newtonian-formulation"><span>03</span> Newtonian formulation</a>
+      <a href="#related-work"><span>04</span> Related work</a>
+    </nav>
+
+    <section class="mpm-hero">
+      <div class="mpm-hero-copy">
+        <p class="mpm-eyebrow">Current research</p>
+        <p class="mpm-hero-lead">I develop stabilized Material Point Method formulations for incompressible materials undergoing large motion and deformation, with the long-term goal of reproducing the interacting phenomena involved in extreme hydrological events.</p>
+        <div class="mpm-hero-tags"><span>Large deformations</span><span>Incompressibility</span><span>Free surfaces</span><span>Extreme events</span></div>
+      </div>
+      <figure class="mpm-hero-visual figure">
+        <img src="assets/research-mpm/forest.png" alt="Flood damage along a steep forested mountain channel" class="figure-img">
+        <figcaption class="figure-caption">Extreme hydrological events combine rapid flow, impacts, large deformation, and complex terrain. Photo: Moreno Geremetta.</figcaption>
+      </figure>
+    </section>
+
+    <section class="mpm-section mpm-overview" id="overview">
+      <div class="mpm-section-heading">
+        <p class="mpm-section-number">01</p>
+        <div><p class="mpm-eyebrow">Overview</p><h2 class="anchored">From extreme deformation to a hybrid numerical method</h2></div>
+      </div>
+
+      <div class="mpm-research-context">
+        <p>Reproducing extreme hydrological events requires more than following a moving mass. A predictive model must combine <strong>large deformation</strong>, evolving <strong>free surfaces</strong>, <strong>incompressible materials</strong>, and the <strong>coupling</strong> between water, soil, debris, and structures. These phenomena interact across fluid and solid regimes and can involve impacts, fragmentation, and drastic changes in geometry.</p>
+        <p>My research uses MPM to address the large-deformation and interface-tracking aspects of these problems, while developing stabilized mixed formulations for the incompressible regimes that arise in both solids and fluids. The longer-term objective is to bring these ingredients together in a unified framework for complex coupled simulations of extreme events.</p>
+        <div class="mpm-context-tags"><span>Coupling</span><span>Large deformation</span><span>Free surfaces</span><span>Incompressibility</span></div>
+      </div>
+
+      <div class="mpm-overview-subsection" id="why-mpm">
+        <p class="mpm-subsection-label">Why MPM?</p>
+        <h3 class="anchored">The starting problem: a mesh that cannot follow indefinitely</h3>
+        <p>In a conventional Lagrangian Finite Element Method, the mesh follows the material. This is highly effective while deformation remains moderate, but under extreme motion the elements may become severely distorted, degrading accuracy and eventually preventing the computation from continuing. Remeshing can alleviate the problem, but introduces additional cost and requires transferring the solution between meshes.</p>
+      </div>
+
+      <div class="mpm-fem-limitations">
+        <figure class="figure">
+          <img src="assets/research-mpm/FEM distorted meshes.png" alt="Severely distorted finite element mesh in a large-deformation flow problem" class="figure-img">
+          <figcaption class="figure-caption"><strong>Mesh distortion.</strong> In a Lagrangian FEM description, the elements deform with the material and can become extremely skewed.</figcaption>
+        </figure>
+        <figure class="figure">
+          <img src="assets/research-mpm/level-set.png" alt="Level-set representation of a free surface as the zero contour of a scalar field" class="figure-img">
+          <figcaption class="figure-caption"><strong>Interface tracking.</strong> In Eulerian FEM simulations, an additional technique such as the level-set method is commonly required to locate and evolve a free surface.</figcaption>
+        </figure>
+      </div>
+
+      <div class="mpm-method-intro">
+        <h3 class="anchored">The MPM alternative</h3>
+        <p>MPM retains a Lagrangian description through moving material points, but uses a background grid that does not follow the material permanently. Because the grid can be reset after every time step, the method accommodates very large deformation without accumulating mesh distortion. Free surfaces are also represented naturally by the evolving particle distribution, without a separate interface-tracking equation.</p>
+      </div>
+
+      <div class="mpm-callout mpm-discretizations-callout">
+        <p class="mpm-callout-title">Two complementary discretizations</p>
+        <p>The <strong>material points</strong> move with the material and store mass, motion, and constitutive history. The <strong>background grid</strong> provides the shape functions and computational structure used to solve the governing equations, and can be reset after each time step.</p>
+      </div>
+
+      <div class="mpm-cycle" aria-label="The Material Point Method cycle">
+        <article><img src="assets/research-mpm/mpm-scheme/Phase1.png" alt="Material-point data transferred to background-grid nodes"><div><strong>1. Transfer</strong><span>Particle information is projected onto the background grid.</span></div></article>
+        <article><img src="assets/research-mpm/mpm-scheme/Phase2.png" alt="Finite element calculation performed on the deformed grid"><div><strong>2. Solve</strong><span>The mechanical problem is solved at the grid nodes.</span></div></article>
+        <article><img src="assets/research-mpm/mpm-scheme/Phase3.png" alt="Updated grid solution transferred back to material points"><div><strong>3. Update</strong><span>The solution updates the particles and their positions.</span></div></article>
+        <article><img src="assets/research-mpm/mpm-scheme/Phase4.png" alt="Background grid reset after updating material points"><div><strong>4. Reset</strong><span>The undeformed grid is recovered for the next time step.</span></div></article>
+      </div>
+
+      <figure class="mpm-wide-media mpm-valfredda figure">
+        <video autoplay="" muted="" loop="" playsinline="" controls="" preload="metadata" aria-label="Two-dimensional MPM simulation of a granular flow over real terrain">
+          <source src="valfredda2D.mp4" type="video/mp4">
+        </video>
+        <figcaption class="figure-caption"><strong>MPM in motion.</strong> A two-dimensional granular mass moves downhill over a real terrain profile. The red material points transport the material information while the stationary background grid provides the computational domain.</figcaption>
+      </figure>
+
+      <div class="mpm-frozen">
+        <div class="mpm-frozen-copy">
+          <p class="mpm-subsection-label">From avalanches to animation</p>
+          <h3 class="anchored">MPM can reproduce the mixed solid–fluid behavior of snow</h3>
+          <p>MPM is widely used for snow avalanches and granular flows because particles can carry complex material behavior through extreme deformation. The same capability also made it attractive in computer graphics: Walt Disney Animation Studios developed its Matterhorn snow simulator for <em>Frozen</em>, using MPM at its core to reproduce large quantities of snow interacting with characters.</p>
+          <p><a href="https://www.disneyanimation.com/publications/a-material-point-method-for-snow-simulation/" target="_blank" rel="noopener">Read the Disney Animation technical publication →</a></p>
+        </div>
+        <div class="mpm-youtube">
+          <iframe src="https://www.youtube-nocookie.com/embed/O0kyDKu8K-k" title="A Material Point Method for Snow Simulation" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="mpm-section mpm-work-section page-columns page-full" id="hyperelastic-formulation">
+      <div class="mpm-section-heading">
+        <p class="mpm-section-number">02</p>
+        <div><p class="mpm-eyebrow">Research work I · Incompressible solids</p><h2 class="anchored">Stabilized mixed MPM for hyperelastic materials</h2></div>
+      </div>
+      <div class="mpm-work-intro page-columns page-full">
+        <div>
+          <p>Incompressible hyperelastic materials can undergo very large changes of shape while preserving their volume. Near this limit, standard displacement-based formulations may suffer from volumetric locking, an artificially stiff response, and oscillatory pressure fields.</p>
+          <p>I developed a mixed displacement–pressure formulation in which pressure is treated as an independent unknown. Two stabilization strategies based on the Variational Multiscale framework—ASGS and OSGS—allow equal-order interpolation of displacement and pressure while retaining robustness in static and dynamic problems.</p>
+        </div>
+        <aside class="mpm-work-facts">
+          <p class="mpm-focus-label">Technical focus</p>
+          <span>Mixed u–p formulation</span><span>Incompressible hyperelasticity</span><span>ASGS &amp; OSGS</span><span>Implicit Newmark scheme</span><span>Kratos Multiphysics</span>
+        </aside>
+      </div>
+
+      <article class="mpm-example mpm-example-standalone">
+        <div class="mpm-example-media mpm-example-media-portrait">
+          <video autoplay="" muted="" loop="" playsinline="" controls="" preload="metadata" aria-label="Twisting of an incompressible hyperelastic column">
+            <source src="assets/research-mpm/twisting/twist.mp4" type="video/mp4">
+          </video>
+          <img class="mpm-video-legend" src="assets/research-mpm/twisting/legend_twisting.png" alt="Color scale for displacement magnitude in the twisting-column simulation">
+        </div>
+        <div class="mpm-example-copy">
+          <p class="mpm-focus-label">Selected result</p>
+          <h3 class="anchored">Twisting an incompressible column</h3>
+          <p>This demanding three-dimensional benchmark subjects a hyperelastic column to severe torsional deformation. It challenges the nonlinear solution, the incompressibility constraint, and the stability of the pressure field.</p>
+          <p>The VMS-stabilized formulation remains robust where an alternative projection stabilization fails after only a few time steps. The analysis also distinguishes the influence of background-grid resolution from the cell-crossing effects associated with the particle discretization.</p>
+          <p class="mpm-result"><strong>What it demonstrates:</strong> stable simulation of extreme deformation without remeshing, with accurate displacement evolution and a physically meaningful pressure field.</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="mpm-section mpm-work-section page-columns page-full" id="newtonian-formulation">
+      <div class="mpm-section-heading">
+        <p class="mpm-section-number">03</p>
+        <div><p class="mpm-eyebrow">Research work II · Incompressible fluids</p><h2 class="anchored">An implicit MPM framework for Newtonian flows</h2></div>
+      </div>
+      <div class="mpm-work-intro page-columns page-full">
+        <div>
+          <p>This ongoing work extends the same continuum-mechanics framework to incompressible Newtonian fluids. The fluid is represented through a rate-dependent constitutive law, providing a unified Lagrangian treatment that can be integrated within an existing solid-mechanics MPM solver.</p>
+          <p>I developed and compared two alternatives: a computationally efficient irreducible formulation and a stabilized mixed displacement–pressure formulation. Both can capture the global motion of a free-surface flow, but the mixed formulation is essential when a stable and quantitatively reliable pressure field is required.</p>
+        </div>
+        <aside class="mpm-work-facts">
+          <p class="mpm-focus-label">Technical focus</p>
+          <span>Newtonian constitutive law</span><span>Irreducible vs. mixed</span><span>VMS stabilization</span><span>Free surfaces</span><span>Impact pressure</span>
+        </aside>
+      </div>
+
+      <div class="mpm-dam-copy">
+        <p class="mpm-focus-label">Selected result</p>
+        <h3 class="anchored">Two-dimensional dam break</h3>
+        <p>A collapsing water column produces rapid free-surface motion, wall impact, a strong pressure peak, and a reflected wave. The benchmark is validated against experimental measurements of front propagation, column height, and impact pressure. Both formulations reproduce the global fluid motion, but only the stabilized mixed formulation provides the smooth pressure response needed to quantify loads or couple the fluid with a structural solver.</p>
+      </div>
+
+      <figure class="mpm-wide-media mpm-dam-evolution figure">
+        <video autoplay="" muted="" loop="" playsinline="" controls="" preload="metadata" aria-label="Displacement-magnitude field in a two-dimensional dam-break simulation using the stabilized mixed MPM formulation">
+          <source src="assets/research-mpm/dam_break/dam_break.mp4" type="video/mp4">
+        </video>
+        <figcaption class="figure-caption"><strong>Dam-break evolution.</strong> The color map represents the displacement magnitude. The stabilized mixed formulation remains robust through collapse, wall impact, and reflection despite the rapidly changing free surface.</figcaption>
+      </figure>
+
+      <figure class="mpm-wide-media mpm-dam-pressure-field figure">
+        <img src="assets/research-mpm/dam_break/dam-break-press-17.png" alt="Pressure field during a two-dimensional dam-break impact" class="figure-img">
+        <figcaption class="figure-caption"><strong>Pressure distribution during impact.</strong> The mixed formulation produces a smooth field and resolves the pressure concentration generated near the downstream wall.</figcaption>
+      </figure>
+
+      <figure class="mpm-wide-media mpm-pressure-figure figure">
+        <img src="assets/research-mpm/dam_break/pressure_comparison.png" alt="Comparison of computed and experimental pressure histories at two wall sensors" class="figure-img">
+        <figcaption class="figure-caption"><strong>Quantitative validation.</strong> Computed pressure histories at two wall sensors are compared with the experimental measurements of Lobovský et al. The mixed formulation captures the main impact and subsequent pressure evolution without the oscillations of the irreducible approach.</figcaption>
+      </figure>
+
+      <p class="mpm-result mpm-result-wide"><strong>What it demonstrates:</strong> accurate free-surface evolution together with non-oscillatory pressure predictions suitable for impact-load evaluation and future fluid–structure interaction applications.</p>
+    </section>
+
+    <section class="mpm-section" id="related-work">
+      <div class="mpm-section-heading mpm-section-heading-compact">
+        <p class="mpm-section-number">04</p>
+        <div><p class="mpm-eyebrow">Related work</p><h2 class="anchored">Publications, software, and projects</h2></div>
+      </div>
+      <div class="mpm-related-grid">
+        <article>
+          <span class="mpm-work-status published">Published · 2025</span>
+          <h3 class="anchored">A mixed stabilized MPM formulation for incompressible hyperelastic materials using Variational Subgrid-Scales</h3>
+          <p>Laura Moreno, Antonia Larese, and Roland Wüchner · <em>Computer Methods in Applied Mechanics and Engineering</em>, 435, 117621.</p>
+          <p><a href="https://doi.org/10.1016/j.cma.2024.117621">DOI</a> · <a href="assets/docs/artweb008-lm.pdf">Post-print</a></p>
+        </article>
+        <article>
+          <span class="mpm-work-status preparation">In preparation</span>
+          <h3 class="anchored">An implicit MPM framework for incompressible Newtonian fluids: Irreducible and stabilized mixed formulations</h3>
+          <p>Laura Moreno, Gioele De Zotti, and Antonia Larese.</p>
+          <p class="mpm-muted">Publication details will be added after submission.</p>
+        </article>
+        <article class="mpm-related-small">
+          <p class="mpm-focus-label">Open-source software</p>
+          <h3 class="anchored">Kratos Multiphysics</h3>
+          <p>The formulations and numerical examples are implemented within the open-source Kratos Multiphysics framework.</p>
+          <a href="https://github.com/KratosMultiphysics/Kratos" target="_blank" rel="noopener">View repository →</a>
+        </article>
+        <article class="mpm-related-small">
+          <p class="mpm-focus-label">Research context</p>
+          <h3 class="anchored">GRK 2075 &amp; NEMESIS</h3>
+          <p>This research developed across postdoctoral work at TU Braunschweig and the University of Padua.</p>
+          <a href="projects.html">View related projects →</a>
+        </article>
+      </div>
+    </section>
+
+    <p class="mpm-contribution"><strong>My contribution.</strong> I have led the formulation development, software implementation, simulation design, validation, analysis, and scientific writing of this research line, in collaboration with Antonia Larese, Roland Wüchner, and Gioele De Zotti.</p>
+    <p class="mpm-footnote">This research line is ongoing. Additional results on incompressible Newtonian flows and coupled problems will be incorporated as they become available.</p>
+  </main>
 </div>
-</div>
-<div class="quarto-layout-cell" style="flex-basis: 45.5%;justify-content: center;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./assets/images/Floods.jpg" class="img-fluid figure-img"></p>
-<figcaption class="figure-caption">2021 A damaged bridge in Bad Neuenahr-Ahrweiler, Germany</figcaption>
-</figure>
-</div>
-</div>
-</div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;1: Recent Water Hazard Events</figcaption><p></p>
-</figure>
-</div>
-<p>To address these challenges, I am using an enriched finite element-based technique known as the Material Point Method (MPM).</p>
-<p>Let me show you a very simple two-dimensional example of a MPM problem, where we can observe the two different discretizations used in this method: the Background Mesh (similar to the Finite Element Mesh) and the particle discretization (material points, in red). A granular flow is considered here, moving downward due to gravitational forces.</p>
-<div id="fig-valfredda" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<div class="quarto-video"><video id="video_shortcode_videojs_video1" width="400%" class="video-js vjs-default-skin " controls="" preload="auto" data-setup="{}" title=""><source src="valfredda2D.mp4"></video></div>
-<figcaption class="figure-caption">Figure&nbsp;2: 2D Problem of a granular flow going downhill</figcaption>
-</figure>
-</div>
-<p>An good overview about this method is: <em>Material Point Method after 25 years theory, implementation and applications</em> <a href="https://www.researchgate.net/publication/336796234_Material_point_method_after_25_years_theory_implementation_and_applications">[Link]</a>.</p>
-<p><em>My research</em> focuses on developing and implementing stabilization techniques that addresses the inherent instabilities of <em>incompressible materials</em> (water would be an incompressible material, for example). The objective is to accurately simulate both solid and fluid incompressible problems using the MPM, clearly involved in an hidrological hazard event.</p>
 
 
 
@@ -441,7 +607,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>videojs(video_shortcode_videojs_video1);</script>
 
 
 

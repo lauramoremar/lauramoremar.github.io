@@ -1,0 +1,1048 @@
+\documentclass[11pt,english]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=2.5cm,bmargin=2.5cm,lmargin=2cm,rmargin=2cm}
+\usepackage{authblk}
+\pagestyle{plain}
+\usepackage{babel}
+\usepackage{float}
+\usepackage{units}
+\usepackage{amssymb,amsfonts}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{color,soul}
+\usepackage{xcolor}
+\usepackage{esint}
+\usepackage{setspace}
+\usepackage{rotfloat}
+\usepackage{textcomp}
+\usepackage{algorithm}
+\usepackage{algcompatible}
+\usepackage{booktabs}
+\usepackage{stmaryrd} 
+\usepackage{wasysym}
+\usepackage{algpseudocode}
+\usepackage{thmtools}
+\usepackage{bbm}
+\usepackage{cancel}
+\usepackage{lineno} 
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{xspace}
+\usepackage{lineno}
+
+\usepackage[unicode=true,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=false,pdfborder={0 0 0},pdfborderstyle={},backref=false,colorlinks=false]
+ {hyperref}
+\allowdisplaybreaks
+ 
+\hypersetup{
+ pdfborderstyle=}
+\makeatletter
+\providecommand{\tabularnewline}{\\}
+\@ifundefined{date}{}{\date{}}
+\usepackage{babel}
+
+\makeatother
+
+\newcommand{\LM}[1]{\textcolor{blue}{#1}}
+%\newcommand{\AL}[1]{\textcolor{red}{#1}}
+\usepackage{soul}
+\usepackage{marginnote}
+\newcommand{\AL}[1]{\marginnote{\textbf{AL}:\textcolor{red}{#1}}}
+\newcommand{\ALin}[1]{\marginnote{\textbf{AL}} \textbf{\textcolor{red}{#1}}}
+\newcommand{\ALout}[1]{\marginnote{\textbf{AL}} \textbf{\textcolor{red}{\st{#1}}}}
+
+\newcommand{\INDSTATE}[1][1]{\State \hspace{#1\algorithmicindent}}
+
+\def\up{$\boldsymbol{u}p$\xspace}
+\def\vp{$\boldsymbol{v}p$\xspace}
+
+\def\InitialDomain{\Omega}
+\def\DeformedDomain{\varphi(\InitialDomain)}
+\def\disp{\boldsymbol{u}}
+\def\disptest{\boldsymbol{w}}
+\def\stress{\boldsymbol{\sigma}}
+\def\stressdev{\boldsymbol{\sigma}^{\rm{dev}}}
+\def\Identity{\mathbf{I}}
+\def\SpaceDisp{\boldsymbol{\mathcal{V}}}
+\def\SpacePress{\mathcal{Q}}
+\def\SpaceTotal{\boldsymbol{\mathcal{W}}}
+\def\TestFunctions{\boldsymbol{V}}
+\def\UnkVariables{\boldsymbol{U}}
+\def\F{\mathbf{F}}
+\def\DevPsi{\Psi_{\rm{dev}}}
+\def\VolPsi{\Psi_{\rm{vol}}}
+\def\DevS{\mathbf{S}^{\text{dev}}}
+
+\def\DerG{\mathcal{G}_{\text{d}}}
+\def\D{\mathcal{D}}
+\def\L{\mathcal{L}}
+\def\DerD{\mathcal{D}_{\text{d}}}
+\def\DerL{\mathcal{L}_{\text{lin}}}
+\def\a{\boldsymbol{a}}
+\def\GradMat{\nabla_{X}}
+
+\def\mp{\textit{mp}}
+\def\t{\boldsymbol{t}}
+\def\temp{\dfrac{\partial^2 \disp}{\partial t^2}}
+
+\def\gradSym{\nabla^s \boldsymbol{v}}  % Symmetric Gradient of velocity
+
+% Variational 
+%% Generic
+\def\DerBgenericLIN{B_{\text{lin}}}
+\def\DerB{B_{\text{lin}}}
+
+%% Operators Irreducible
+\def\DerBirreducibleLIN{B_{\disp,\text{lin}}}
+\def\Birreducible{B_{\disp}}
+\def\Dirreducible{\mathcal{D}_t}
+
+%% Operators Mixed
+\def\DerBmixedLIN{B_{\disp p, \text{lin}}}
+\def\Bmixed{B_{\disp p}}
+
+
+% Galerkin
+\def\disph{\disp_h}
+\def\disptesth{\disptest_h}
+\def\hatdisph{\hat{\disp}_h}
+
+%--------------------------
+% Title
+%--------------------------
+\title{An implicit MPM framework for incompressible Newtonian fluids: Irreducible and stabilized mixed formulations}
+
+\begin{document}
+\linenumbers
+%--------------------------
+% Authors
+%--------------------------
+\author{Laura Moreno$^{1}$, Gioele De Zotti$^{2}$ and Antonia Larese$^{3}$ \\
+{\footnotesize{}{}$^{1}$ Department of Applied Mathematics and Aerospace Engineering,\\ Universidad de Alicante, Crta. San Vicente s/n, 
+San Vicente del Raspeig, 03690, Spain}\\
+{\footnotesize{}{} $^{2}$ Department of Civil, Environmental and Architectural Engineering, \\ Università degli Studi di Padova, Via Marzolo, 9 , Padova, 35131, Italy}\\
+{\footnotesize{}{}$^{3}$ Department of Mathematics "Tullio Levi Civita",\\ Università degli Studi di Padova, 
+Torre Archimede, via Trieste 63,  Padova, 35121, Italy}}
+
+%--------------------------
+% Title
+%--------------------------
+\maketitle
+
+
+%--------------------------
+% Abstract
+%--------------------------
+
+%\linenumbers
+
+\begin{abstract}
+    The simulation of incompressible Newtonian flows within the Material Point Method (MPM) often faces significant challenges, particularly regarding volumetric locking and pressure instabilities. In this work, we present an implicit MPM formulation that extends a solid mechanics framework to the simulation of viscous incompressible fluids. By treating the fluid as a continuum governed by a rate-dependent constitutive law, we achieve a unified treatment that leverages the Lagrangian nature of MPM without the need for classical Navier-Stokes advection-correction schemes.
+
+    To address the numerical limitations of this approach, we develop and systematically compare two formulations: a robust irreducible scheme and a stabilized mixed u-p formulation. The latter incorporates a Variational Multiscale (VMS) stabilization, with parameters specifically adapted to account for the interplay between density, viscosity, and bulk modulus. Although the mixed formulation is designed to ensure pressure stability in the incompressible limit, we also demonstrate the practical validity of the irreducible approach as a computationally efficient alternative under certain flow conditions.
+
+    The framework is validated through a series of benchmarks of increasing complexity. Beyond academic 2D cases used to verify convergence, we simulate 2D and 3D dam-break problems involving complex impacts against obstacles. The results confirm that the method accurately captures free-surface evolution and wave propagation, proving that the robustness and accuracy observed in two-dimensional tests scale effectively to computationally demanding 3D engineering scenarios.
+\end{abstract}
+
+%--------------------------
+% Keywords
+%--------------------------
+
+\noindent{{\bf {Keywords}}:  Material Point Method (MPM), Particle Methods, Mixed formulations, Large Deformations, Stabilization methods,  Variational Subgrid Scale (VMS)}
+
+
+%---------------------------------------------------
+%
+% Introduction
+%
+%---------------------------------------------------
+
+\section{Introduction}
+
+    % 1-General context Incompressible fluid dynamics
+    % Fluidos en superficie libre --> Fluidos incompresibles
+    % Principal challenge
+    The numerical simulation of fluid flows with free surfaces is a cornerstone of modern engineering, essential for predicting the behavior of water waves, dam breaks, and coastal interactions \cite{violeau2016smoothed,cremonesi2020state}. These scenarios are characterized by large topological changes, such as splashing and fragmentation, which require robust methods to track the evolving interface between the fluid and the surrounding medium \cite{harlow1965numerical,hirt1981volume}. However, the complexity of these simulations is compounded when the fluid is governed by an incompressible Newtonian law, as is the case with water. In such cases, the numerical scheme must not only track the surface accurately but also strictly enforce the incompressibility constraint. This dual requirement often introduces significant numerical hurdles: if the pressure-velocity coupling is not handled correctly, standard formulations suffer from volumetric locking and non-physical pressure oscillations, leading to mass loss and instability in the solution \cite{zienkiewicz2005finite}.  
+
+    Depending on the spatial scale and on the physical processes of interest, different levels of model complexity have been adopted for reproducing free surface problems. Depth-averaged and shallow-water models provide an efficient framework for large-scale flows (i.e. river basins, regional scale) \cite{QuecedoPastorHerreros2004,BosaPetti2011}, particularly when the vertical flow dynamics can be reasonably neglected. In this context, recent geometrically intrinsic shallow-water models have been developed to be applicable to complex terrains with non-negligible slopes and curvatures \cite{BachiniPutti2020,AbreuBachiniPerezPutti2023}. However, when the wave-generation stage, the landslide–water momentum transfer, impact dynamics, or strongly three-dimensional effects become relevant, fully resolved or hybrid 2D–3D strategies are often required \cite{CremonesiFrangiPerego2011,FranciCremonesiPeregoOnateCrosta2020a,FranciCremonesiPeregoOnateCrosta2020b,MasoFranciDePouplanaCornejoOnate2022,PanYamaguchiSuppasriMoriguchiTerada2021}. However, in many engineering applications three-dimensional effects become relevant, depth-averaged descriptions may become insufficient, and more detailed numerical models are required. This motivates the use of numerical strategies capable of handling large deformations, moving boundaries, and complex free-surface evolution.
+
+    % 2-Lagrangian, Eularian approaches
+    % Métodos existentes y limitaciones
+    % FEM + VOF, CFD, PFEM, SPH, MPM
+     To address the geometric challenges of evolving interfaces, numerical methods are broadly classified into Eulerian and Lagrangian frameworks. Eulerian methods \cite{colella1985direct}, such as the Finite Volume Method (FVM) and Eulerian FEM \cite{wesseling2001principles,versteeg2007introduction}, solve flow quantities on a fixed spatial mesh. While highly efficient for structured domains, these approaches struggle with the large deformations and moving boundaries inherent in splashing or wave breaking. In this context, tracking the fluid interface requires specialized and often computationally expensive techniques, such as the Level Set \cite{osher2004level, Rossi2012eb} or Volume of Fluid (VOF) methods \cite{hirt1981volume}. Despite their widespread use, these interface-capturing schemes can introduce numerical diffusion or mass conservation issues, motivating the search for more naturally adaptive frameworks.
+
+    Conversely, Lagrangian methods follow fluid elements as they move, naturally capturing free-surface evolution and large deformations. By eliminating the advection terms (a primary source of numerical dissipation in Eulerian schemes) the Lagrangian framework offers a more precise treatment of material transport. Furthermore, since integration points move with the material, constitutive laws can be evaluated directly at the particle level, which is particularly advantageous for fluids or solids with complex, history-dependent behavior.
+    To overcome the mesh distortion issues that plague traditional Lagrangian FEM, two main strategies have emerged. The first involves continuous remeshing, as seen in the Particle Finite Element Method (PFEM), which has proven highly effective for breaking waves and non-linear interactions \cite{cremonesi2020state}. The second strategy avoids the connectivity constraints of a mesh altogether through meshless methods, such as Smoothed Particle Hydrodynamics (SPH) \cite{gingold1977smoothed} and the Moving Particle Semi-Implicit (MPS) method \cite{koshizuka1996moving}. While these approaches excel in extreme fragmentation scenarios, they often face challenges regarding numerical consistency, boundary condition enforcement, and the high computational cost of neighbour searching.
+
+    Recognizing the complementary strengths of Eulerian and Lagrangian frameworks, hybrid approaches have been developed to leverage the advantages of both. Common examples include the Arbitrary Lagrangian–Eulerian (ALE) method \cite{hirt1974arbitrary}, which deforms the mesh to follow material motion, and the Immersed Boundary Method (IBM) \cite{peskin2002immersed}, which handles fluid-structure interaction on fixed grids. This same motivation underlies the Material Point Method (MPM), a powerful hybrid descendant of the Particle-In-Cell (PIC) family. By integrating a Lagrangian particle description with a temporary Eulerian background grid, MPM achieves robust simulations of complex flows, naturally bypassing the mesh distortion of ALE and the interface-tracking complexities of purely Eulerian schemes.
+
+    % Material Point  Method
+    
+    In the MPM framework, material points (particles) move through a computational background mesh, carrying all state variables such as mass, momentum, and deformation history. The mesh is utilized to solve the governing equations and compute incremental degrees of freedom, which are then projected back to the particles, allowing the grid to be reset at each time step \cite{zhang2016material}. \LM{The use of a background grid that does not necessarily conform to the material boundary also requires suitable strategies for imposing essential boundary conditions, particularly in implicit formulations \cite{singer2024lagrange}}. This hybrid strategy inherently handles extremely large deformations \cite{wikeckowski2004material} while providing a seamless platform for complex constitutive modeling \cite{fern2016role,fern2019material}. 
+
+    The development of MPM for fluid dynamics has evolved significantly over the last two decades. Since the early 2000s, considerable advances have been achieved in the simulation of compressible gas dynamics \cite{ma2009simulation,tran2010solving}. More recently, starting in the 2010s, research on incompressible flows has intensified, largely motivated by growing interest in applications involving free-surface phenomena \cite{mast2012mitigating, li2014sloshing} and multiphase systems \cite{mackenzie2010modeling}. To address these complex scenarios, the fluid in this work is modeled following a continuum mechanics approach rather than the classical Navier-Stokes formulations based on velocity-pressure coupling.
+
+    % Solid-mechanics approach
+
+     While Navier-Stokes equations are the standard equations describing the dynamics of incompressible fluids, in this work we propose displacement based formulation, typical of solid mechanics problems,  where the Cauchy stress tensor is decomposed into volumetric and deviatoric parts offers distinct advantages in the context of MPM. By treating the fluid as a viscous continuum, the method naturally accommodates complex material behaviors that go beyond the Newtonian limit, such as non-Newtonian flows or materials undergoing phase transitions from solid to fluid \cite{cotela2017simulation,onate2004possibilities}. \LM{Although the use of a kinematic framework entails a more complex numerical treatment because of the increased non-linearities in the problem it avoids the need for specialized advection-correction schemes and provides a unified numerical architecture where the same momentum balance equations can be applied to both the fluid and the structure. The unified treatment simplifies the representation of the evolving fluid-solid interface, since the interaction is governed by the constitutive response of the material rather than by external coupling constraints \cite{castanar2026study,dunatunga2015continuum}.}
+
+    
+    % Incompresibilidad y tratamiento. Revisión entre formulaciones u-p y formulaciones v-p
+
+    Despite its advantages, adopting a solid-like continuum framework for incompressible flows introduces well-known numerical challenges. Classical irreducible formulations (whether displacement-based or velocity-based) where pressure is recovered a posteriori, exhibit severe performance issues as the incompressible limit is approached. These include volumetric locking, spurious pressure oscillations, and numerical instabilities that can compromise the accuracy of the velocity field \cite{belytschko2000nonlinear, zienkiewicz2005finite}. To overcome these limitations, mixed formulations that solve simultaneously for both displacement and pressure have been proposed. In this approach, pressure acts as a Lagrange multiplier to strictly enforce the incompressibility constraint, significantly improving robustness \cite{franca1988new,hughes1987new,maniatty2001stabilized}. However, using equal-order interpolations for both variables often violates the inf-sup (LBB) condition, leading to unstable pressure fields. To address this, stabilization techniques such as the Variational Multiscale (VMS) method have been introduced, allowing for stable equal-order approximations while preserving the consistency of the solution \cite{masud2013framework, codina2000stabilization}.
+
+
+    Although these stabilization developments largely originated in non-linear solid mechanics, similar strategies have also been adapted to MPM for incompressible fluid simulations. For instance, velocity-pressure (\vp) schemes have been explored to mitigate oscillations \cite{mast2012mitigating, li2014sloshing}, while mixed displacement-pressure (\up) formulations have been proposed by deriving the governing equations directly from the Navier-Stokes framework (Chandra et al. 2024) \cite{chandra2024stabilized}. In contrast, the approach proposed departs from these classical fluid dynamics derivations by strictly adhering to a continuum mechanics formulation typical of solid mechanics solvers. By treating the fluid as a viscous material, the mixed stabilized \up approach combined with VMS provides a more unified and flexible framework. This not only ensures robustness in the incompressible limit but also facilitates the seamless integration of multi-physics and complex constitutive behaviors within the Lagrangian environment of MPM.
+
+    % Objetivo, alcance y contribución
+    The primary objective of this work is to provide a robust and versatile framework for simulating incompressible fluids within the Material Point Method. To this end, we develop and evaluate two distinct formulations, each offering different advantages depending on the computational requirements.
+
+    First, we implement a robust irreducible formulation. While this approach is well-known in the literature, we demonstrate its practical validity for  fluid simulations where the strict enforcement of the incompressibility constraint can be slightly relaxed. By adopting a penalty-like strategy, this formulation offers a computationally efficient alternative, significantly reducing the number of degrees of freedom and memory overhead when precise pressure distributions are not the primary focus. Second, we introduce a stabilized mixed \up formulation as the core contribution of this work. To ensure stability and eliminate volumetric locking, a Variational Multiscale (VMS) approach is incorporated. While VMS has been previously explored in MPM for solid mechanics \cite{moreno2025mixed}, and a \up VMS scheme was recently proposed based on Navier–Stokes derivations \cite{chandra2024stabilized}, our formulation offers a more flexible architecture. By deriving the stabilized system from a pure continuum mechanics standpoint, we enable a straightforward and automatic integration of incompressible materials within existing solid-mechanical solvers. This dual-track approach provides a comprehensive tool for simulating complex free-surface flows, allowing for a systematic comparison that highlights the trade-offs between computational efficiency and numerical precision
+
+    % Organización del paper
+    The remainder of this paper is organized as follows. First, Section~\ref{sec:Preliminaries} and Section~\ref{sec:Material-Point-Method} establish the theoretical foundation, presenting the general mathematical preliminaries and the spatial and temporal discretization within the MPM framework. The core of our methodological contribution is detailed in Section~\ref{sec:Modeling-Newtonian-fluid-flow}, which describes the physical problem and the two proposed formulations: the robust irreducible scheme and the stabilized mixed \up approach. This is followed by Section~\ref{sec:Algorithm}, where the practical numerical implementation is outlined. To validate the accuracy and stability of these methods, Section~\ref{sec:NumericalExamples} presents a series of benchmark tests, ranging from the classic Rotating Square to complex 2D and 3D Dam Break scenarios involving experimental comparisons. Finally, Section~\ref{sec:Conclusions} summarizes the main findings and provides closing remarks on the applicability of each formulation.
+
+
+%------------------------------------------
+%
+% Section 1: Preliminaries
+%
+%------------------------------------------
+
+\section{Preliminaries\label{sec:Preliminaries}}
+
+    This section establishes the notation and the general variational framework used throughout this work. By defining a unified linearization strategy here, we provide a common structure for both the irreducible and mixed formulations presented in Section \ref{sec:Modeling-Newtonian-fluid-flow}.
+
+\subsection{Functional spaces and notation for the variational formulation}
+    Let $\DeformedDomain$ denote the deformed domain of the fluid, which serves as the base for the MPM discretization. For any subset $\omega \subset \DeformedDomain$, $L^{2}(\omega)$ denotes the space of square-integrable functions on $\omega$. The $L^{2}$ inner product for scalar, vector, and tensor-valued functions is denoted by $(\cdot,\cdot)_{\omega}$, while $\langle\cdot,\cdot\rangle_{\omega}$ represents the integral over $\omega$ of the product of two generic functions. For the sake of conciseness, the subscript is omitted when $\omega = \DeformedDomain$.
+
+\subsection{Linearized formulation \label{subsec:linearized_formulation_general}} 
+    The governing equations are solved using an incremental Newton--Raphson procedure. Although this approach is standard in non-linear solid mechanics, it is applied here to model Newtonian fluid behavior within a Lagrangian MPM framework. This strategy is particularly suited for the present work as it naturally handles both material and geometric nonlinearities.
+    
+    Let $\UnkVariables$ denote the set of primary unknowns, which, depending on the chosen formulation, will represent either the displacement field $\boldsymbol{u}$ (irreducible case) or the coupled displacement-pressure fields $(\boldsymbol{u}, p)$ (mixed case). Let $\TestFunctions \in \mathcal{V}$ be the corresponding test functions in the appropriate functional space. The general variational problem can be expressed in terms of a non-linear operator $B(\UnkVariables,\TestFunctions)$ representing the spatial terms (internal and external forces) and a dynamic operator $\mathcal{D}_t(\UnkVariables)$ representing the inertial terms. To solve the resulting non-linear system, we perform a linearization via a first-order Taylor expansion around the last known equilibrium state $\hat{\UnkVariables}$. This yields a linear system for the correction $\delta \UnkVariables \approx \UnkVariables - \hat{\UnkVariables}$. Specifically, the spatial operator is approximated as:
+    \begin{equation}
+        B(\UnkVariables,\TestFunctions) \approx B(\hat{\UnkVariables},\TestFunctions) + \DerBgenericLIN(\hat{\UnkVariables};\delta \UnkVariables, \TestFunctions),
+    \end{equation}
+    where $\DerBgenericLIN(\hat{\UnkVariables};\delta \UnkVariables, \TestFunctions)$ denotes the directional derivative (or tangent stiffness operator) of $B$ evaluated at $\hat{\UnkVariables}$ in the direction of the increment $\delta \UnkVariables$. Similarly, the dynamic operator is linearized as:
+    \begin{equation}
+        \mathcal{D}_t(\UnkVariables) \approx \mathcal{D}_t(\hat{\UnkVariables}) + \mathcal{D}_t(\delta \UnkVariables),
+    \end{equation}
+    where the specific form of the temporal discretization is detailed in Section \ref{sec:Material-Point-Method} (specifically in Section \ref{sec:temporal}). This unified linearized structure will be used in Section \ref{sec:Modeling-Newtonian-fluid-flow} to derive the specific tangent matrices for both the irreducible (Section \ref{sec:irreducible-formulation}) and the stabilized mixed VMS formulations (Section \ref{sec:mixed-formulation}).
+
+
+%---------------------------------------------------
+%
+% The Material Point Method
+%
+%---------------------------------------------------
+\section{The Material Point Method} \label{sec:Material-Point-Method}
+
+This section describes the Material Point Method (MPM) in a general setting, focusing on the features required for an implicit fluid solver. The MPM is a hybrid Eulerian-Lagrangian method that represents the continuum through a set of Lagrangian material points, which move through a background Eulerian mesh. This dual description allows for the tracking of large deformations and history-dependent material states without the mesh distortion issues typical of purely displacement-based FEM.
+
+\subsection{The MPM computational cycle} \label{sec:MPM-scheme}
+The typical time-stepping procedure follows the Updated Lagrangian (UL) framework and consists of three main phases \cite{moreno2025mixed}:
+\begin{enumerate}
+    \item \textit{Initialization:} Information Transfer. Material point data (mass, momentum, and stress) are mapped to the background mesh nodes using shape functions to establish the initial state for the current time step.
+    \item \textit{UL-FEM calculation}: Solution of the Governing Equations. The linearized variational problem, as established in Section \ref{sec:Preliminaries}, is solved on the mesh nodes. In this work, the material points act as moving integration points for the evaluation of the internal and external force vectors.
+    \item \textit{Convective Update}: The computed nodal incremental displacements and velocities are interpolated back to the material points. Their positions and state variables are updated, and the background mesh is typically reset to its original configuration to avoid distortion in the next step.
+\end{enumerate}
+
+%-----------------------------------------
+% Spatial MPM discretization
+%-----------------------------------------
+\subsection{Spatial MPM discretization} \label{sec:spatial-discretization}
+    The spatial discretization in MPM follows a Galerkin approach where the background mesh serves as the finite element partition, and material points act as moving integration points. Let $\mathcal{P}_h$ denote the FE partition of the domain, with element diameters $h_K$ and $h = \max\{h_K \,|\, K\in \mathcal{P}_h\}$.
+    
+    In this framework, the mass density is represented by the sum of particle masses weighted by Dirac delta functions: $\rho(\boldsymbol{x}) = \sum_{p=1}^{n_{p}} m_{p} \delta(\boldsymbol{x} - \boldsymbol{x}_{p})$. Consequently, volume integrals over the deformed domain $\DeformedDomain$ are evaluated as discrete sums over the material points:
+    \begin{equation}
+        \int_{\DeformedDomain} f(\boldsymbol{x}) d\Omega \approx \sum_{p=1}^{n_{p}} f(\boldsymbol{x}_p) V_p,
+    \end{equation}
+    where $V_{p}$ is the volume associated with each particle. 
+    
+    The FE shape functions $N_i$ evaluated at the material point positions $\boldsymbol{x}_p$ allow for the seamless transfer of information between the Lagrangian and Eulerian descriptions. Specifically, nodal quantities are projected to the particles for state updates, while particle data is interpolated back to the mesh nodes to assemble the internal and external force vectors required for the linearized system $B(\UnkVariables,\TestFunctions)$ introduced in Section \ref{sec:Preliminaries}.
+
+\subsection{Implicit temporal discretization \label{sec:temporal}} 
+Most MPM applications for fluid dynamics rely on explicit or semi-implicit schemes due to their straightforward implementation \cite{mast2012mitigating, li2014sloshing}. However, explicit methods are subject to the Courant-Friedrichs-Lewy (CFL) condition, which becomes prohibitively restrictive for incompressible fluids where the pressure wave speed is high. For low strain-rate flows and strictly incompressible conditions, an implicit approach is more efficient as it allows for significantly larger time steps $\delta t$ \cite{Vaucorbeil2020material25}.
+
+We employ the Newmark-$\beta$ method to discretize the dynamic operator $\mathcal{D}_t(\delta\UnkVariables)$ introduced in Section \ref{sec:Preliminaries}. For a time interval $[t^n, t^{n+1}]$, the updated acceleration $\boldsymbol{a}^{n+1}$ and velocity $\boldsymbol{v}^{n+1}$ are expressed in terms of the displacement $\boldsymbol{u}^{n+1}$ as:
+\begin{align}
+    \boldsymbol{a}^{n+1} &= \frac{1}{\beta \delta t^2} \left(\boldsymbol{u}^{n+1}-\boldsymbol{u}^n - \delta t\,\boldsymbol{v}^n - \frac{\delta t^2}{2} (1-2\beta)\boldsymbol{a}^n \right), \\
+    \boldsymbol{v}^{n+1} &= \boldsymbol{v}^{n} + (1-\gamma)\delta t\, \boldsymbol{a}^n + \gamma \delta t\, \boldsymbol{a}^{n+1},
+\end{align}
+where we adopt $\beta = 1/4$ and $\gamma = 1/2$ to ensure unconditional stability and second-order accuracy. 
+     
+%------------------------------------------
+%
+% Section: Modeling Newtonian fluid flow as a solid dynamics problem
+%
+%------------------------------------------
+
+
+\section{MPM formulation for Newtonian fluids} \label{sec:Modeling-Newtonian-fluid-flow}
+
+In this section, we describe the formulation of the physical problem. While the treatment of incompressible Newtonian flows through a solid-like continuum mechanics framework is a documented approach, its application within the Material Point Method (MPM) often inherits well-known numerical artifacts, such as volumetric locking and pressure oscillations. The main contribution of this work lies in the development of a stabilized mixed \up formulation specifically tailored for the MPM, designed to overcome these challenges while maintaining the advantages of a unified Lagrangian architecture.
+
+The section is organized as follows. First, we present the governing equations for a dynamic continuum and describe how the Newtonian fluid behavior is incorporated via a rate-dependent constitutive law. Then, we derive the two numerical strategies proposed in this work: the standard irreducible formulation and the stabilized mixed \up formulation. These developments are framed within the linearized variational structure established in Section \ref{sec:Preliminaries} and will be discretized using the MPM strategies described in Section \ref{sec:Material-Point-Method}.
+
+%------------------------------------
+% THE CONTINUUM PROBLEM STATEMENT
+%------------------------------------
+\subsection{The continuum problem statement}
+    
+    \subsubsection{Governing equations \label{sec:continuum_problem_statement}}    
+%    Although the problem under consideration is an incompressible Newtonian fluid, we do not start from the classical Navier–Stokes equations. Instead, following the unified continuum mechanics framework adopted throughout this work, both fluids and solids are described by the same balance laws, while the distinction between them is introduced through the constitutive equations presented in Section \ref{sec:newtonian_material}.
+    
+    \noindent The motion of the continuum body is described by a one-to-one mapping
+    \[
+    \varphi: \InitialDomain \longrightarrow \mathbb{R}^d, \quad \mathbf{x} = \varphi(\mathbf{X},t), \quad \forall \mathbf{X} \in \InitialDomain, \ t \ge 0,
+    \]
+    where $\mathbf{X}$ and $\mathbf{x}$ represent the material and spatial coordinates, respectively. The boundaries of the reference and current configurations are denoted by $\partial \InitialDomain$ and $\varphi(\partial \InitialDomain)$. The time interval of interest is $[0,T]$, and the space-time domain is defined as $\mathfrak{D}_{\rm{s}} = \{\mathbf{x} \,|\, \mathbf{x} \in \varphi(\InitialDomain,t), \ 0 < t < T\}$. 
+    
+    Following an updated Lagrangian framework, the governing equations for the dynamic problem are:
+        \begin{align}
+            \rho \temp-\nabla \cdot \stress  &= \rho \boldsymbol{b} && \text{ in } \varphi \left( \InitialDomain,t \right), \; t\in]0,T[, \label{eq:momentum}\\
+            \dfrac{p}{\kappa}-\dfrac{d\VolPsi(J)}{dJ} &=0 && \text{ in } \varphi \left( \InitialDomain, t\right), \; t\in]0,T[, \label{eq:mass}\\
+            \disp &=\bar{\disp} && \text{ on } \varphi \left( \partial \Omega_{\rm{D}},t \right), \; t\in]0,T[,\label{eq:DirichletBC}\\
+            \stress \cdot \boldsymbol{n} &= \t && \text{ on } \varphi \left( \partial \Omega_{\rm{N}},t \right), \; t\in]0,T[, \label{eq:NeumannBC}
+        \end{align}
+    where \eqref{eq:momentum} represents the conservation of linear momentum. Here, $\rho$ denotes the density in the current configuration, related to the initial density $\rho_0$ via the relation $\rho = \rho_0 / J$, where $J = \det \mathbf{F}$ is the determinant of the deformation gradient $\mathbf{F} = \partial \mathbf{x}/\partial \mathbf{X}$. The variable $\disp$ is the displacement, $\stress$ is the Cauchy stress tensor, and $\boldsymbol{b}$ represents the body forces. 
+    Equation \eqref{eq:mass} establishes the volumetric constitutive relationship. In the context of this work, this equation provides the quasi-incompressible constraint required for Newtonian flows, a point that is further discussed and particularized for the mixed formulation in Section \ref{sec:mixed-formulation}. The bulk modulus is defined as $\kappa = E / [3(1-2\nu)]$, where $E$ is the Young's modulus and $\nu$ the Poisson ratio. Following \cite{horgan2009volumetric}, we adopt a quadratic volumetric energy functional:
+    \[
+    \VolPsi(J) = \dfrac{1}{2} (J - 1)^2, \quad \text{which implies} \quad \dfrac{d\VolPsi(J)}{dJ} = J - 1.
+    \]
+    
+    The problem is completed with Dirichlet \eqref{eq:DirichletBC} and Neumann \eqref{eq:NeumannBC} boundary conditions, where $\bar{\boldsymbol{u}}$, $\boldsymbol{n}$, and $\t$ denote the prescribed displacement, the outward unit normal, and the traction vector, respectively. Initial conditions for displacement and velocity are also specified as $\disp = \disp^0$ and $\boldsymbol{v} = \boldsymbol{v}^0$ in $\InitialDomain$ at $t=0$.
+
+%------------------------------------------
+% Incompressibility
+%-------------------------------------------
+\subsubsection{Incompressibility \label{sec:incompressibility}}
+
+    In this work, the fluid is assumed to be quasi-incompressible. At the continuum level, incompressibility is characterized by a constraint on the volumetric deformation, where the volume remains constant throughout the motion. Within the solid mechanics framework adopted here, this condition is formally recovered in the limit as Poisson’s ratio approaches $\nu \to 0.5$, which implies that the bulk modulus $\kappa \to \infty$. In this limit, the incompressibility condition reduces to the kinematic constraint:
+    \begin{equation*}
+        J = 1.
+    \end{equation*}
+    For numerical purposes, we employ a large but finite $\kappa$ to enforce this constraint. The specific manner in which the coupling between pressure and volumetric deformation is handled (either through a penalty-like approach in the irreducible case or as an independent variable in the mixed formulation) will be detailed in the following sections.
+
+
+%------------------------------------------
+% Newtonian Fluid Material
+%-------------------------------------------
+\subsubsection{Newtonian Fluid Material \label{sec:newtonian_material}}
+
+    Newtonian fluids can be modeled within a solid-mechanics-like framework by prescribing an appropriate viscous constitutive law \cite{reiner1945mathematical}. In this context, the material behavior is described through the Cauchy stress tensor, which depends on the velocity field while remaining compatible with large deformations and a Lagrangian description.
+    \noindent For an incompressible Newtonian fluid, the Cauchy stress tensor $\boldsymbol{\sigma}$ is decomposed into its deviatoric and volumetric parts:
+    \begin{equation*}
+        \boldsymbol{\sigma} = 2\mu\, \nabla^{\mathrm{s}}\boldsymbol{v} - p\,\mathbf{I},
+    \end{equation*}
+    where $p$ denotes the pressure acting as a Lagrange multiplier to enforce the incompressibility constraint, $\mu$ is the dynamic viscosity, and $\nabla^{\mathrm{s}}\boldsymbol{v} = \frac{1}{2}(\nabla \boldsymbol{v} + \nabla \boldsymbol{v}^{\mathrm{T}})$ is the symmetric part of the velocity gradient.
+    
+    \noindent Although the constitutive law is expressed in terms of the Cauchy stress tensor, a Lagrangian formulation requires expressing the stress response in terms of material measures. This is particularly convenient in the context of large deformations and updated Lagrangian formulations. The symmetric part of the spatial velocity gradient can be written in terms of the deformation gradient $\mathbf{F}$ as
+    \begin{equation*}
+    \nabla^{\mathrm{s}}\boldsymbol{v} = \mathrm{sym}(\dot{\mathbf{F}}\mathbf{F}^{-1}) = \mathbf{F}^{-T} \frac{\dot{\mathbf{C}}}{2} \mathbf{F}^{-1},
+    \end{equation*}
+    where $\mathbf{C} = \mathbf{F}^{T}\mathbf{F}$ is the right Cauchy--Green deformation tensor and $\dot{\mathbf{C}}$ denotes its material time derivative. The inverse of $\mathbf{C}$ is $\mathbf{C}^{-1} = \mathbf{F}^{-1}\mathbf{F}^{-T}$. Using these relations, the constitutive equation can be expressed in terms of the Second Piola--Kirchhoff stress tensor $\mathbf{S}$, related to the Cauchy stress by
+    $ \boldsymbol{\sigma} = \frac{1}{J}\mathbf{F}\mathbf{S}\mathbf{F}^{T}.$
+    
+    By using the pull-back transformation $\mathbf{S} = J\mathbf{F}^{-1}\boldsymbol{\sigma}\mathbf{F}^{-\mathrm{T}}$, the Second Piola--Kirchhoff stress tensor $\mathbf{S}$ can be derived as:
+    \begin{equation}
+    \mathbf{S} = J\left(\mu\,\mathbf{C}^{-1}\dot{\mathbf{C}}\mathbf{C}^{-1} - \frac{\mu}{3}\mathrm{tr}(\dot{\mathbf{C}}\mathbf{C}^{-1})\mathbf{C}^{-1} - p\,\mathbf{C}^{-1} \right). \label{eq:second-piola-kirchhoff}
+    \end{equation}
+    
+    \noindent To close the constitutive model, a pressure--volume relation is introduced in the form of an equation of state. This is consistent with the mass balance equation introduced in Section~\ref{sec:continuum_problem_statement}:
+    \begin{equation}
+    p = p(J) = \kappa \left(J - 1\right), \label{eq:press-volume}
+    \end{equation}
+    where $\kappa$ denotes the bulk modulus, acting as a penalty parameter to enforce incompressibility.
+    
+    \noindent Regarding the material parameters, the model is characterized by the current density $\rho$, the bulk modulus $\kappa$ and the dynamic viscosity $\mu$. Within the solid-mechanics-based framework adopted in this work, the bulk modulus and the viscosity replaces the direct role of the Poisson ratio $\nu$ and the Young's modulus $E$ in controlling the material response. 
+    This allows the Newtonian fluid to be treated as a rate-dependent material while preserving the robust algorithmic structure of a hyperelastic-like solver, with $\mu$ related to the shear modulus of an equivalent solid material as
+    \begin{equation*}
+        \mu = \frac{E}{2(1+\nu)}.
+    \end{equation*}
+
+
+
+
+
+
+%------------------------------------------
+% IRREDUCIBLE FORMULATION
+%-------------------------------------------
+\subsection{Irreducible $\disp$ formulation \label{sec:irreducible-formulation}}
+
+%------------------------------------------
+% Governing equations
+%-------------------------------------------
+\subsubsection{Strong formulation}
+
+    The boundary value problem associated with the irreducible solid dynamics formulation, expressed within an updated Lagrangian framework, consists of finding the displacement field $\disp : \mathfrak{D}_{\rm{s}} \rightarrow \mathbb{R}^d$ such that:
+    \begin{align}
+    \rho \frac{\partial^2 \disp}{\partial t^2} - \nabla \cdot \stress &= \rho \boldsymbol{b}
+    && \text{in } \varphi(\InitialDomain,t), \quad t \in ]0,T[,
+    \label{eq:irr_momentum}
+    \end{align}
+    where the Cauchy stress tensor $\stress$ follows the viscous constitutive model introduced in Section~\ref{sec:newtonian_material}. In this formulation, the pressure is not an independent unknown but is determined through the constitutive relation $p = \kappa(J-1)$, acting as a penalty term to enforce quasi-incompressibility.
+    
+    The problem is completed by the boundary and initial conditions previously introduced, together with the pressure--volume relation \eqref{eq:press-volume}.
+
+    
+%------------------------------------------
+% Variational formulation of the problem
+%-------------------------------------------
+
+\subsubsection{Variational formulation}
+
+    Regarding the functional setting, we denote by $\SpaceDisp$ the appropriate space where the displacement field is well defined for each time $t \in (0,T)$. Moreover, $\SpaceDisp_0 \subset \SpaceDisp$ denotes the subspace of functions vanishing on the Dirichlet boundary $\varphi(\partial\Omega_{\rm D})$. Further details on the notation and functional spaces can be found in Section~\ref{sec:Preliminaries}. The weak formulation of the problem consists of finding $\disp : ]0,T[ \rightarrow \SpaceDisp$, satisfying the prescribed initial conditions, such that for all test functions $\boldsymbol{w} \in \SpaceDisp_0$,
+    \begin{equation}
+        \left(\mathcal{D}_t(\disp), \boldsymbol{w}\right)
+        + \Birreducible(\disp,\boldsymbol{w})
+        = \mathcal{F}(\boldsymbol{w}),
+        \label{eq:variational_in_compact_form_irr}
+    \end{equation}
+    where
+    \begin{align}
+        \left(\mathcal{D}_t(\disp), \boldsymbol{w}\right) := \left(\rho \frac{\partial^2 \disp}{\partial t^2}, \boldsymbol{w}\right), \quad 
+        \Birreducible(\disp,\boldsymbol{w}) := \left(\stress, \nabla^{\rm s} \boldsymbol{w}\right), \label{eq:bilinear_form_irr} \quad
+        \mathcal{F}(\boldsymbol{w}) &:= \left\langle \rho \boldsymbol{b}, \boldsymbol{w} \right\rangle
+        + \left\langle \boldsymbol{t}, \boldsymbol{w} \right\rangle_{\varphi(\partial\Omega_{\rm N})}.
+    \end{align}
+    Here, $\Birreducible(\disp,\boldsymbol{w})$ is a semilinear form defined on $\SpaceDisp \times \SpaceDisp_0$, while $\mathcal{F}$ is a linear functional on $\SpaceDisp_0$.
+
+    Here, the semilinear form $\Birreducible(\disp,\boldsymbol{w})$ defined on $\SpaceDisp \times \SpaceDisp_0$, while $\mathcal{F}$ is a linear functional on $\SpaceDisp_0$. This operator encapsulates the internal viscous forces. In the context of nearly incompressible Newtonian flows ($\kappa \to \infty$), it is well known that this irreducible formulation may lead to volumetric locking, a numerical artifact that justifies the introduction of the mixed formulation described in the following section.
+
+
+%------------------------------------------
+% Linearization of the problem
+%-------------------------------------------
+\subsubsection{Linearization and Galerkin spatial discretization} \label{subsec:Irr_Linearization}
+    
+    Following the linearization strategy detailed in Section~\ref{subsec:linearized_formulation_general}, we apply a Newton--Raphson procedure to the variational form \eqref{eq:variational_in_compact_form_irr}. Given the solution at the previous iteration $\hat{\disp}$, we seek the correction $\delta \disp \in \SpaceDisp_0$ such that:
+    \begin{equation}
+        \left(\mathcal{D}_t\left( \delta \disp \right),\boldsymbol{w}\right )
+        + \DerBirreducibleLIN (\hat{\disp};\delta \disp,\boldsymbol{w})
+        =
+        \mathcal{F}\left(\boldsymbol{w}\right)
+        -(\mathcal{D}_t(\hat{\disp}),\boldsymbol{w})
+        -\Birreducible(\hat{\disp},\boldsymbol{w}),
+        \label{eq:variational_in_compact_form_linearized_irr}
+    \end{equation}
+    for all $\boldsymbol{w} \in \SpaceDisp_0$, where
+    \begin{align*}
+        \DerBirreducibleLIN (\hat{\disp}; \delta \disp, \boldsymbol{w})
+        =\;&
+        \left( \nabla \delta \disp \cdot \hat{\stress}, \nabla \disptest \right)
+        + \left( \mathbbm{c} : \nabla^{\rm{s}} \delta \disp, \nabla^{\rm{s}} \disptest \right).
+    \end{align*}
+    
+    \noindent
+    % Here, $\mathbbm{c}$ denotes the spatial tangent constitutive tensor, defined as
+    % $
+    % \mathbbm{c}
+    % =
+    % J^{-1} \mathbf{F}\mathbf{F}\,
+    % \mathbb{C}\,
+    % \mathbf{F}^{\rm{T}}\mathbf{F}^{\rm{T}},
+    % $
+    % where $\mathbb{C} = 2\dfrac{\partial \mathbf{S}}{\partial \mathbf{C}}$ is the material tangent constitutive tensor, obtained from the constitutive relation \eqref{eq:second-piola-kirchhoff}. 
+    where $\mathbbm{c}$ is the spatial tangent constitutive tensor obtained via the push-forward of the material tensor $\mathbb{C} = 2\frac{\partial \mathbf{S}}{\partial \mathbf{C}}$ as $\mathbbm{c}_{ijkl} = J^{-1} F_{iA} F_{jB} F_{kC} F_{lD} \mathbb{C}_{ABCD}$.
+    \medskip
+    
+    We then introduce the Galerkin spatial discretization described in Section~\ref{sec:spatial-discretization}.
+    Let $\SpaceDisp_h \subset \SpaceDisp$ denote a conforming finite element space for the displacement field, and let $\SpaceDisp_{h,0} \subset \SpaceDisp_0$ be the corresponding subspace of functions vanishing on the Dirichlet boundary. 
+    The discretized problem associated with \eqref{eq:variational_in_compact_form_irr} then reads as follows: for a given time $t^{n+1}$ and a fixed iteration, find $\delta \disph \in \SpaceDisp_{h,0}$ such that
+    \begin{equation}
+        \left(\mathcal{D}_t\left( \delta \disph \right),\disptesth\right)
+        + \DerBirreducibleLIN (\hatdisph;\delta \disph,\disptesth)
+        =
+        \mathcal{F}\left(\disptesth\right)
+        -(\mathcal{D}_t(\hatdisph),\disptesth)
+        -\Birreducible(\hatdisph,\disptesth),
+        \label{eq:galerkin_in_compact_form}
+    \end{equation}
+    for all $\disptesth \in \SpaceDisp_{h,0}$. Note that the right-hand-side of this expression is the residual functional of the precious iteration.
+%------------------------------------------
+% MIXED FORMULATION
+%-------------------------------------------
+\subsection{Mixed \up formulation \label{sec:mixed-formulation}} 
+
+%------------------------------------------
+% Governing equations
+%-------------------------------------------
+\subsubsection{Strong formulation}
+    
+    The boundary value problem for mixed solid dynamics, written within an updated Lagrangian framework, consists in finding a displacement field
+    $\disp:\mathfrak{D}_{\rm{s}}\rightarrow \mathbb{R}^d$
+    and a pressure field
+    $p:\mathfrak{D}_{\rm{s}}\rightarrow \mathbb{R}$
+    such that
+        \begin{align}
+            \rho \temp-\nabla \cdot \stress  &= \rho \boldsymbol{b} && \text{ in } \varphi \left( \InitialDomain,t \right), \; t\in]0,T[, \label{eq:momentum_mixed}\\
+            \dfrac{p}{\kappa}-\dfrac{d\VolPsi(J)}{dJ} &=0 && \text{ in } \varphi \left( \InitialDomain, t\right), \; t\in]0,T[, \label{eq:mass_mixed}
+        \end{align}
+   for $t \in (0,T)$. In this context, Eq. \eqref{eq:mass_mixed} represents the constitutive pressure--volume relationship that enforces the quasi-incompressibility constraint through the bulk modulus $\kappa$. Unlike the irreducible case, the pressure $p$ is now treated as a primary unknown of the system. 
+
+The Cauchy stress tensor is decomposed into its deviatoric and volumetric parts as $\stress = \stress^{\mathrm{dev}} + p\,\mathbf{I}, $
+where $\stress^{\mathrm{dev}}$ represents the viscous deviatoric contribution defined in Section~\ref{sec:newtonian_material}, and $p$ is the hydrostatic pressure.
+
+\subsubsection{Variational formulation}
+
+   We denote by $\SpaceDisp$ and $\SpacePress$ the appropriate functional spaces for the displacement and pressure fields, respectively, for each time $t \in (0,T)$. Let $\SpaceDisp_0 \subset \SpaceDisp$ be the subspace of displacement functions vanishing on the Dirichlet boundary $\varphi(\partial\Omega_D)$. The product spaces for the trial and test functions are defined as $
+    \SpaceTotal := \SpaceDisp \times \SpacePress$,
+    $\SpaceTotal_0 := \SpaceDisp_0 \times \SpacePress. $
+    
+    The variational formulation is obtained by testing the balance of linear momentum and the constitutive pressure--volume relation with arbitrary test functions
+    $\disptest \in \SpaceDisp_0$ and $q \in \SpacePress$, respectively.
+    The weak form of the mixed problem consists in finding $
+    \UnkVariables = [\disp,p] : (0,T) \longrightarrow \SpaceTotal, $
+    such that the initial conditions are satisfied and, for all
+    $\TestFunctions = [\disptest,q] \in \SpaceTotal_0$,
+    \begin{equation}
+    \left(\mathcal{D}_t(\UnkVariables), \TestFunctions \right)
+    + \Bmixed(\UnkVariables,\TestFunctions)
+    = \mathcal{F}(\TestFunctions).
+    \label{eq:variational_in_compact_form_mixed}
+    \end{equation}
+    The semilinear form $\Bmixed : \SpaceTotal \times \SpaceTotal_0 \rightarrow \mathbb{R}$ is given by
+    \begin{align}
+    \Bmixed(\UnkVariables,\TestFunctions)
+    :=\;
+    &\left( \stress^{\mathrm{dev}}, \nabla^{\mathrm{s}} \disptest \right)
+    + \left( p\,\Identity, \nabla^{\mathrm{s}} \disptest \right)
+    - \left( \dfrac{p}{\kappa}, q \right)
+    + \left( \dfrac{d\VolPsi(J)}{dJ}, q \right),
+    \label{eq:bilinear_form_mixed}
+    \end{align}
+    while $\mathcal{F} : \SpaceTotal_0 \rightarrow \mathbb{R}$ defined as $\mathcal{F}(\TestFunctions) := \langle \rho \boldsymbol{b}, \disptest \rangle + \langle \t, \disptest \rangle_{\varphi(\partial\Omega_{\rm N})}$ is the linear functional representing external contributions.
+
+
+
+
+            
+
+\subsubsection{Linearization and Galerkin spatial discretization} \label{sec:linearization_mixed}
+    The solution of the mixed variational problem \eqref{eq:variational_in_compact_form_mixed} requires a consistent linearization to handle the nonlinearities arising from both the large-deformation kinematics and the constitutive response. Following the strategy introduced in Section \ref{subsec:linearized_formulation_general}, we apply the Newton--Raphson method by linearizing the system around the last known state $\hat{\UnkVariables}$. 
+    The fully linearized problem can then be expressed as follows: given  $\hat{\UnkVariables}$, find the correction 
+    $\delta \UnkVariables=[\delta \disp, \delta p]:]0,T[\longrightarrow\SpaceTotal_0$ such that
+    \begin{equation}
+        \left(\mathcal{D}_t\left( \delta \UnkVariables \right),\TestFunctions \right )+ \DerBmixedLIN (\hat{\UnkVariables};\delta \UnkVariables,\TestFunctions) 
+        = \mathcal{F}\left(\TestFunctions\right)-(\mathcal{D}_t(\hat{\UnkVariables}),\TestFunctions ) -\Bmixed(\hat{\UnkVariables},\TestFunctions) 
+        \label{eq:linearization_mixed}
+    \end{equation}
+    for all $\TestFunctions \in \SpaceTotal_0$, where
+    \begin{align*}
+        \DerBmixedLIN(\hat{\UnkVariables}; \delta \UnkVariables, \TestFunctions)=& 
+        \left( \nabla \delta \disp \cdot (\hat{\stress}^{\text{dev}}+\hat{p}\Identity), \nabla \disptest \right) 
+        + \left(  (\mathbbm{c}^{\text{dev}}+\hat{p}(\Identity \otimes \Identity -2\mathbb{I})):\nabla^{\rm{s}} \delta \disp, \nabla^{\rm{s}} \disptest \right) \\
+        &+\left( \delta p ,\nabla \cdot \disptest \right) - \left( \dfrac{\delta p}{\kappa}, q\right) + \left( f(J) \nabla \cdot \delta \disp, q\right),
+    \end{align*}
+    where $\Identity$ is the identity matrix, $(\Identity \otimes \Identity)_{abcd}=\delta_{ab}\delta_{cd}$ and $\mathbb{I}_{abcd}=\delta_{ac}\delta_{bd}$ are fourth-order tensors, $\delta_{ab}$ is the Kronecker delta, and $f(J)$ is a function obtained form the linearization of $\dfrac{d\VolPsi(J)}{dJ}$.
+    For clarity, $\hat{\stress}^{\text{dev}}=\stress^{\text{dev}}(\hat{\boldsymbol{u}})$ denotes the stress evaluated at the previous equilibrium, 
+    and $\mathbbm{c}^{\text{dev}}$ is the known deviatoric part of the spatial tangent modulus. 
+    
+    
+    Finally, following Section~\ref{sec:spatial-discretization}, we construct conforming finite element spaces $\SpaceDisp_h \subset \SpaceDisp$,  $\SpacePress_h \subset \SpacePress$ for the displacement and pressure, respectively, and define $\SpaceTotal_h=\SpaceDisp_h \times \SpacePress_h$.  
+    The space whose functions vanish on the Dirichlet boundary is $\SpaceDisp_{h,0} \subset \SpaceDisp_0$, 
+    and therefore $\SpaceTotal_{h,0}=\SpaceDisp_{h,0} \times \SpacePress_h$. 
+    The discretized problem reads: for a given $t^{n+1}$ and a fixed iteration, find $\delta \UnkVariables_h \in \SpaceTotal_{h,0}$ such that
+    \begin{equation}
+        \left(\mathcal{D}_t\left( \delta \UnkVariables_h \right),\TestFunctions_h \right) + \DerBmixedLIN (\hat{\UnkVariables}_h;\delta \UnkVariables_h,\TestFunctions_h) 
+        = \mathcal{F}\left(\TestFunctions_h\right)-(\mathcal{D}_t(\hat{\UnkVariables}_h),\TestFunctions_h) -\Bmixed
+        (\hat{\UnkVariables}_h,\TestFunctions_h)     
+        \label{eq:galerkin_in_compact_form}
+    \end{equation}
+    for all $\TestFunctions_h = [\boldsymbol{w}_h, q_h] \in \SpaceTotal_{h,0}$.         
+    
+\subsubsection{Stabilized formulation} \label{subsec:StabilizedFormulation}
+
+    We adopt the Variational Multiscale (VMS) framework to ensure the stability of the mixed formulation, particularly when using equal-order interpolation for displacement and pressure. The continuous solution $\UnkVariables$ is decomposed into a resolved component $\UnkVariables_h$, belonging to the finite element space, and a subgrid-scale component $\tilde{\UnkVariables}$ that cannot be captured by the mesh; namely, $\UnkVariables = \UnkVariables_h + \tilde{\UnkVariables}$. In this work, the subgrid scales are assumed to be quasi-static, meaning their dynamic evolution is not explicitly tracked, which keeps the total number of degrees of freedom identical to the standard Galerkin approach.
+    
+    \noindent Applying the VMS methodology to our linearized problem, we seek $\delta \UnkVariables_h \in \SpaceTotal_{h,0}$ and subscales $\tilde{\UnkVariables} \in \tilde{\SpaceTotal}$ such that
+    \begin{align}
+        (\mathcal{D}_t(\delta \UnkVariables_h),\TestFunctions_h) + \DerBmixedLIN(\hat{\UnkVariables}_h;\delta \UnkVariables_h,\TestFunctions_h) 
+        &+ \sum_K \langle \tilde{\UnkVariables}, \mathcal{L}^*(\hat{\UnkVariables}_h;\TestFunctions_h)\rangle_K \nonumber \\
+        &= \mathcal{F}(\TestFunctions_h) - (\mathcal{D}_t(\hat{\UnkVariables}_h),\TestFunctions_h) - \Bmixed(\hat{\UnkVariables}_h,\TestFunctions_h),
+    \end{align}
+    where $\tilde{\UnkVariables}$ is approximated in each element as
+    \begin{equation}
+        \tilde{\UnkVariables} \approx \boldsymbol{\tau}_K \tilde{P}[\mathcal{R}_h],
+    \end{equation}
+    with $\mathcal{R}_h$ the FE residual, defined as 
+    $\mathcal{R}_h=\mathfrak{F}-\D_t(\hat{\UnkVariables}_h)-\L(\hat{\UnkVariables}_h)-\D_t\left(\delta\UnkVariables_h\right)-\DerL(\hat{\UnkVariables}_h;\delta\UnkVariables_h)$ and $\tilde{P}$ a projection onto the subscale space. The operators are defined as follows:
+    \begin{align*}
+        \mathcal{L}^*(\hat{\UnkVariables};\TestFunctions)&:=\\
+        &\left(\begin{array}{c}
+         -\nabla \cdot (\nabla \disptest \cdot( \hat{\stress}^{\text{dev}}+\hat{p}\Identity ))-\nabla \cdot (\nabla^{\rm{s}} \disptest: (\mathbbm{c}^{\text{dev}}+\hat{p}\left( \Identity \otimes \Identity -2\mathbb{I}))\right) + \nabla q
+         \\
+        - \dfrac{q}{\kappa} + f(J) \nabla \cdot \disptest 
+        \end{array}\right),\\
+        \mathcal{L}(\UnkVariables)&:=\left(\begin{array}{c}
+            - \nabla  \cdot \left(\stress^{\text{dev}}+p\Identity\right)\\
+            \dfrac{p}{\kappa}- \dfrac{d\VolPsi(J)}{dJ} \\
+            % \dfrac{dG}{dJ}
+            \end{array}\right)\label{eq:L_operator}\text{;} \quad
+            \mathcal{D}_t\left(\UnkVariables\right):=\left(\begin{array}{c}
+            \rho \temp\\
+            {0}
+            \end{array}\right) \text{;} \quad \mathfrak{F}:=\left(\begin{array}{c}
+            \rho \boldsymbol{b}\\
+            {0}
+            \end{array}\right) \\
+        \DerL(\hat{\UnkVariables};\delta\UnkVariables)&:=\nonumber\\
+        &\left(\begin{array}{c}
+        -\nabla \cdot (\nabla \delta \disp \cdot ( \hat{\stress}^{\text{dev}}+\hat{p}\Identity ))-\nabla \cdot \left( (\mathbbm{c}^{\text{dev}}+\hat{p}(\Identity \otimes \Identity -2\mathbb{I})):\nabla^{\rm{s}} \delta \disp\right) - \nabla \delta p \\
+         -\dfrac{\delta p}{\kappa}+\nabla \cdot \delta \disp
+        \end{array}\right)
+    \end{align*}
+    For the Newtonian fluid case, the stabilization parameters are adapted to reflect the viscous nature of the flow \cite{codina2000stabilization}
+    \begin{align}
+        \tau_1 = \left(c_1 \frac{2\mu}{h_K^2\delta t} + c_2\rho\frac{|\boldsymbol{v}|}{h_K \delta t}\right)^{-1}, \quad
+        \tau_2 = \frac{h^2}{\tau_1},
+    \end{align}
+    where $\mu$ is the dynamic viscosity,  $h_K$ is the characteristic element length (in 2D, the square root of the element area; in 3D, the cubic root of the element volume) and $\delta t$ is the time step size. 
+    The stabilization matrix $\boldsymbol{\tau}_K$ is computed element-wise. 
+    %The coefficients $c_1$ and $c_2$ are user-defined parameters; in this work, we set $c_1=c_2=1$.
+    Depending on the choice of $\tilde{P}$, the method can be Algebraic Sub-Grid Scales (ASGS, $\tilde{P}=\Identity$) or Orthogonal Sub-Grid Scales (OSGS, $\tilde{P} = \Identity-P_h$), see \cite{castanar2020stabilized} for details. In the numerical examples presented in this work, the ASGS variant is adopted due to its lower computational cost.
+    
+    This brief summary highlights only the aspects relevant for the Newtonian fluid case; the complete derivation and implementation details are provided in \cite{castanar2020stabilized,cervera2010mixeda}.
+    This VMS approach effectively bypasses the Babuška--Brezzi condition and mitigates volumetric locking, providing a robust foundation for the MPM discretization.
+
+%-----------------------------------------
+%
+% Algoritm and linearization
+%
+%-----------------------------------------
+    \section{Computational Implementation \label{sec:Algorithm}}
+
+    This section outlines the integrated numerical procedure used to solve the governing equations for both the irreducible and mixed formulations. Since the core MPM architecture and the stabilized mixed framework have been extensively documented in previous works \cite{iaconeta2019stabilized,moreno2025mixed}, we focus here on the specific coupling of these techniques for Newtonian flows.
+    
+    The solution strategy follows a standard MPM computational cycle (see Section \ref{sec:MPM-scheme}), which is enhanced by a monolithic Newton--Raphson scheme to handle the nonlinearities arising from the large-deformation kinematics and the rate-dependent constitutive law. For each time step, the following key components are integrated:
+    
+    \begin{itemize}
+        \item \textbf{Time Integration:} The second-order Newmark scheme is employed to update the nodal kinematics. The nodal displacements and velocities at the current configuration are determined through a predictor-corrector sequence, ensuring temporal consistency.
+        \item \textbf{Non-linear Solver:} Within each time step, the linearized systems derived in Section \ref{subsec:Irr_Linearization} (irreducible formulation) or Section  \ref{subsec:StabilizedFormulation} (mixed formulation) are solved iteratively. This ensures that the momentum balance and, in the mixed case, the stabilized incompressibility constraint are satisfied to a prescribed tolerance.
+        \item \textbf{Stabilization and Projections:} In the mixed \up case, the ASGS stabilization terms are evaluated at the material points and mapped to the background grid. For the OSGS variant, the projection of the residual is updated at the beginning of each time step as an additional preprocessing step \cite{castanar2020stabilized}.
+    \end{itemize}
+    
+    The convergence of the iterative process is monitored using the $L_2$-norm of the residual vector. Once equilibrium is reached, the material point properties (coordinates, velocities, and stresses) are updated, and the grid is reset for the subsequent time step.
+
+    \LM{The proposed formulations and solution procedures have been implemented within Kratos Multiphysics \cite{kratos1,kratos2,kratos3,KratosGithub}, an open-source framework designed for the development of multiphysics simulation applications. In particular, the implementation builds upon the existing Material Point Method application available in Kratos, which provides the core computational infrastructure for particle–grid transfer operations, background-grid assembly, nonlinear solution strategies, and the update of material-point variables. This modular architecture facilitates the integration of the irreducible and mixed formulations within a common numerical environment and enables their extension to more complex coupled and multiphysics problems.}
+
+%-----------------------------------------
+%
+% Numerical examples
+%
+%-----------------------------------------
+\section{Numerical examples} \label{sec:NumericalExamples}
+
+
+In this section, a series of numerical benchmarks is presented to assess the performance of the proposed stabilized mixed \up formulation compared to the standard irreducible approach. The examples have been selected to challenge the robustness of the method in scenarios involving large deformations, complex free-surface evolution, and the nearly incompressible limit. 
+
+Through these benchmarks, we aim to demonstrate that the stabilized mixed formulation effectively mitigates the volumetric locking and pressure oscillations typical of the irreducible scheme when high bulk moduli are employed. All simulations are performed using the ASGS stabilization variant within the MPM framework, as described in the previous sections.
+
+\subsection{Rotating square patch}
+
+    This two-dimensional benchmark is a classical test case for assessing the stability and pressure accuracy of particle-based methods. It has been extensively used to evaluate corrective schemes in SPH \cite{oger2016sph,morikawa2023corrected} and, more recently, to test novel MPM developments \cite{chandra2024stabilized}. Originally proposed by Colagrossi \cite{colagrossi2005meshless}, the problem follows the evolution of an initially square fluid patch subject to a centrifugal force field. 
+    
+    Despite its simple geometry, it lacks an analytical solution and presents a significant numerical challenge: the coexistence of large boundary deformations, a free surface, and a central region under negative pressure (suction). These features make it particularly suitable for evaluating the stability of the mixed formulation and its ability to handle the nearly incompressible limit without numerical artifacts.
+
+\subsubsection{Setup}
+
+    Let us introduce the setup of the problem. The geometry consists of a square patch of fluid with side length $L=1\ \rm{m}$, as shown in Figure \ref{fig:rotating_geometry}, which is initially set into rotation with a prescribed angular velocity.
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.35\linewidth]{MixedMPM/Paper Newtonian material/Figures_Square/square_scheme.png} \hspace{1cm}
+        \includegraphics[width=0.35\linewidth]{MixedMPM/Paper Newtonian material/Figures_Square/square_triangmesh.png}
+        \caption{Rotating square patch. Left: geometry. Right: detail of the initial square illustrating the criss-cross triangular background grid.}
+        \label{fig:rotating_geometry}
+    \end{figure}
+    \noindent The initial condition imposed on the material points is a velocity field corresponding to a body rotation with angular velocity $\omega = 1\ \rm{rad/s}$:
+    \begin{align}
+        v^0_x(x_p,y_p) &= \ \ \omega y_p, \\
+        v^0_y(x_p,y_p) &= -\omega x_p ,
+    \end{align}
+    where $x_p$ and $y_p$ denote the initial particle coordinates.
+    
+    Regarding the fluid properties, the density is $\rho = 1\ \mathrm{kg/m^3}$ and the dynamic viscosity is set to zero ($\mu = 0\ \mathrm{Pa \cdot s}$) to test the formulation in the inviscid limit. The nearly incompressible behavior is enforced via a penalty approach using a bulk modulus $\kappa$. In this benchmark, we distinguish two scenarios to evaluate the performance of each formulation:
+    \begin{itemize}
+        \item For the irreducible formulation, a moderately large bulk modulus of $\kappa = 10^5\ \rm{Pa}$ is adopted. This value is chosen to ensure numerical stability, as higher values typically lead to severe volumetric locking in the standard displacement-based scheme.
+        \item For the mixed \up formulation, a much higher value of $\kappa = 10^{12}\ \rm{Pa}$ is employed. This allows for a much stricter enforcement of the incompressibility constraint, demonstrating the ability of the stabilized mixed solver to handle the nearly-incompressible limit without locking or pressure oscillations.
+    \end{itemize}
+
+
+    \noindent Finally, the spatial and temporal discretizations adopted in this example are detailed.
+    The table \ref{tab:square_discretizations} summarizes the spatial discretizations used in this example. Triangular meshes are employed for time evolution analyses, while quadrilateral meshes are used for pressure jump comparisons at the boundaries. Time step sizes $\delta t = 0.0025~\text{s}$ or $0.001~\text{s}$ are chosen depending on stability and accuracy requirements, ensuring temporal stability, as detailed in the next section.
+    
+    \begin{table}[h!]
+    \centering
+    
+    \begin{tabular}{lcc}
+    \hline
+    \textbf{Mesh type} & \textbf{ $h$} & \textbf{ppe}\\
+    \hline
+    Criss-cross triangles & 0.05 m & 3, 6, 12, 16\\
+    Quadrilaterals       & 0.05 m & 9, 16, 36 \\
+    \hline
+    \end{tabular}
+    \label{tab:meshes}
+    \caption{Rotating square patch: Spatial discretizations employed.} \label{tab:square_discretizations}
+    \end{table}
+
+
+\subsubsection{Results}
+
+% comentarios generales
+
+    Firstly, Figure \ref{fig:rotating_square_patch} shows the evolution of the fluid patch at four different time instants, together with the corresponding pressure field distribution. Due to the prescribed initial velocity field, the initially square fluid domain undergoes a progressive deformation while rotating, leading to increasingly distorted configurations over time. This test represents a demanding benchmark for the numerical formulation, as the material experiences large deformations without changes in volume. Therefore, an accurate and stable method is required to properly capture both the kinematics and the pressure field throughout the simulation.
+    
+    \begin{figure}
+        \centering
+        \includegraphics[scale=0.22]{MixedMPM/Paper Newtonian material/Figures_Square/wt05.png}
+        \includegraphics[scale=0.22]{MixedMPM/Paper Newtonian material/Figures_Square/wt1.png}
+        \includegraphics[scale=0.22]{MixedMPM/Paper Newtonian material/Figures_Square/wt2.png}
+        \includegraphics[scale=0.22]{MixedMPM/Paper Newtonian material/Figures_Square/wt4.png}\\
+        \includegraphics[scale=0.27]{MixedMPM/Paper Newtonian material/Figures_Square/legend-viridis.png}
+        \caption{Rotating square patch. Evolution of pressure field at different snapshots, $\omega t$ = 0.5, 1, 2 and 4 s. A sequential viridis colormap is used to show temporal evolution in the center.}
+        \label{fig:rotating_square_patch}
+    \end{figure}
+    
+    \noindent It is also worth noting the evolution of the pressure field during the deformation process. At the initial stages, a negative pressure is observed in the central region of the domain, gradually approaching zero towards the free boundaries. This distribution is consistent with the rotational motion imposed by the initial velocity field, where a pressure gradient is required to balance the centripetal acceleration of the material points. As the simulation progresses and the fluid patch undergoes large deformations, the pressure field progressively redistributes and tends to homogenize, with the central pressure approaching zero. This behavior reflects the evolving dynamic equilibrium associated with the changing geometry and velocity field.
+    
+
+     In Figure~\ref{fig:rotating_comparison} a comparison between different formulations is performed at time $\omega t = 0.3$ s. A diverging \textit{coolwarm} colormap is employed to clearly highlight the differences among the formulations. The comparison is conducted at an early stage of the simulation since the unstabilized mixed formulation exhibits a numerical breakdown shortly afterwards and cannot be advanced further in time. Although the pressure field predicted by the unstabilized formulation appears initially regular, spurious oscillations rapidly develop and progressively deteriorate the solution. For the sake of a consistent visual comparison, the same pressure scale is used in all three cases. In the irreducible formulation, where pressure is not an independent variable, it is post-processed from the Cauchy stress tensor by computing its volumetric contribution as $p = \frac{1}{2}\,\mathrm{tr}(\boldsymbol{\sigma})$, which is the quantity represented in the figure. It can be observed that the stabilized mixed formulation yields a significantly smoother and more robust pressure field, free of the oscillations present in the other approaches.
+
+
+\begin{figure}[h!]
+    \centering
+    
+    \begin{subfigure}{0.3\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{MixedMPM/Paper Newtonian material/Figures_Square/irreducible.png}
+        \caption{Irreducible formulation}
+        \label{fig:rot_irred}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.3\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{MixedMPM/Paper Newtonian material/Figures_Square/mixed-up-nostab.png}
+        \caption{Mixed (unstabilized)}
+        \label{fig:rot_mixed_unstab}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.32\linewidth}
+        \centering
+        \includegraphics[width=\linewidth]{MixedMPM/Paper Newtonian material/Figures_Square/mixed-up.png}
+        \caption{Mixed (stabilized)}
+        \label{fig:rot_mixed_stab}
+    \end{subfigure}
+
+    \includegraphics[width=0.5\linewidth]{MixedMPM/Paper Newtonian material/Figures_Square/legend-colorwarm.png}
+    
+    \caption{Rotating square patch: Comparison between formulations at $\omega t=0.3$ using quadrilateral elements ($h=0.05$ m, ppe=36).}
+    \label{fig:rotating_comparison}
+\end{figure}
+
+In Figure~\ref{fig:rotating_press_comparison_literature}, a comparison between the results obtained in the present study and those reported in the literature at time $\omega t = 1$ s is presented. In this case, a classical rainbow colormap is adopted in order to match previously published figures and facilitate visual comparison. The works of Oger et al.~(2016)~\cite{oger2016sph} and Morikawa et al.~(2024)~\cite{morikawa2023corrected}, which employ the SPH method, exhibit a noticeable pressure jump at the boundaries. In contrast, MPM-based approaches, such as those reported by Chandra et al.~(2024)~\cite{chandra2024stabilized} and the formulation presented in this study, show a significantly smoother pressure distribution in this regard.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{MixedMPM/Paper Newtonian material/Figures_Square/comparison_pressure_jump2.png}
+    \caption{Rotating square patch: pressure distribution comparison at $\omega t$=1. }
+    %Quadrilateral elements with 36 ppe. 
+    \label{fig:rotating_press_comparison_literature}
+\end{figure}
+
+
+Finally, following \cite{oger2016sph, morikawa2023corrected, chandra2024stabilized}, we analyse the time evolution of the pressure at the centre of the domain, located at $(0,0)$. The pressure is evaluated at this point using the background grid solution.  First, we compare the pressure obtained with the mixed \up formulation and the irreducible formulation. It is worth noting that the mixed \up formulation without stabilization could not be computed beyond $t = 0.3\,\mathrm{s}$ under the current numerical setting. As in the previous example, for the irreducible formulation the pressure is recovered as
+$p = \frac{1}{2}\,\mathrm{tr}(\boldsymbol{\sigma}).$
+However, this formulation fails to reproduce the initial pressure distribution (as it is shown in Figure \ref{fig:rotating_comparison}) and yields only small oscillations around zero at the centre of the domain. 
+
+Figure~\ref{fig:rotating_pressure_evolution} presents several comparisons performed at this location using triangular criss-cross elements. In all cases, a smoothing procedure was applied in order to alleviate spurious oscillations. 
+
+\noindent Figure~\ref{fig:rotating_pressure_evolution}  (left) shows the effect of discretization refinement for a fixed background grid size $h = 0.05\,\mathrm{m}$ and different numbers of particles per element (ppe). As expected, lower ppe values lead to stronger oscillations and less accurate results. Increasing the number of particles per element yields a converged and smoother pressure evolution. Finally Figure~\ref{fig:rotating_pressure_evolution} (right) compares the present results with those reported in the literature. A good agreement is observed between our method, the SPH results of \cite{oger2016sph, morikawa2023corrected}, and the MPM results of Chandra et al.~\cite{chandra2024stabilized}, not only in the convergence of the pressure to zero, but also in the overall evolution of the curve.
+
+\begin{figure}
+    \centering
+
+     \includegraphics[width=0.475\linewidth]{MixedMPM/Paper Newtonian material/Figures_Square/pressure_evolution_ppe_TRI.pdf}
+     \includegraphics[width=0.475\linewidth]{MixedMPM/Paper Newtonian material/Figures_Square/pressure_evolution_literature.pdf}
+
+    \caption{Rotating square patch: pressure evolution at the patch center using triangular criss-cross elements. Left: Comparison between different ppe = 3, 6, 12 and 16. Right: Comparison with literature.}
+    \label{fig:rotating_pressure_evolution}
+\end{figure}
+
+\subsection{Dam Break 2D}
+
+This benchmark is employed to validate the proposed formulation against the experimental measurements provided by Lobovský et al.~\cite{lobovsky2014experimental}. Beyond validation, this test case serves to evaluate the stability and accuracy of both the irreducible and mixed formulations in a scenario involving high-energy impact and complex topological changes in the free surface. The analysis focuses on three key aspects: the evolution of the water column height, the front position over time, and the pressure history at specific sensor locations on the impact wall.
+
+
+\subsubsection{Setup}
+    The problem geometry and the initial configuration are depicted in Figure~\ref{fig:Dam Break geometry}. The domain consists of a rigid container of length $3.22~\text{m}$, containing an initial water column of length $L = 1.2~\text{m}$ and height $H = 0.6~\text{m}$. At $t = 0~\text{s}$, the fluid is released and begins to flow under the action of gravity ($g = 9.81~\text{m/s}^2$).
+    
+    The fluid is modeled as water with density $\rho = 1000~\text{kg}/\text{m}^3$ and dynamic viscosity $\mu = 0.00101~\text{Pa·s}$. Consistent with the previous benchmark, the incompressibility constraint is handled differently for each formulation, such as it was indicated in the previous numerical example.
+    
+    The spatial discretization consists of a background grid of criss-cross triangular elements with a characteristic size of $h = 0.05~\text{m}$, with an initial distribution of 33 particles per element (ppe). A constant time step of $\delta t = 0.001~\text{s}$ is adopted. To monitor the pressure evolution during the fluid impact, two sensors are placed on the right-hand wall: Sensor 1 is located at the bottom corner ($y = 0.003~\text{m}$), and Sensor 4 is positioned at a height of $y = 0.163~\text{m}$.
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.475\linewidth]{MixedMPM/Paper Newtonian material/Figures_DamBreak/dam_break_scheme_sensors.png}
+        \includegraphics[width=0.45\linewidth]{MixedMPM/Paper Newtonian material/Figures_DamBreak/dam_break_mesh.png}
+        \caption{Dam Break 2D. Left: Geometry including the location of Sensor 4 at a height of y=0.163 m above the bottom. Right: Discretization employed: criss-cross triangle elements of size $h=0.05$ m.}
+        \label{fig:Dam Break geometry}
+    \end{figure}
+
+\subsubsection{Results}
+
+    We now present the main results of the benchmark case. The objective is to highlight the advantages of the stabilized mixed \up formulation in the simulation of the dam-break problem, in comparison with the irreducible approach. The discussion focuses on the qualitative and quantitative differences observed in the pressure field, which constitutes the primary distinction between the two formulations.
+    
+    Figure~\ref{fig:dambreak_snapshots_pressure_displacement} illustrates the evolution of the dam-break process at several time instants, displaying the displacement and pressure fields up to $t = 2.5$~s. The snapshots capture the initial collapse of the water column, the subsequent propagation towards the downstream wall, and the impact characterized by a significant pressure peak at the lower-right corner. Following the impact, a reflected wave is generated, interacting with the remaining fluid mass and leading to complex free-surface dynamics. The global fluid motion is accurately captured throughout the simulation, remaining stable even as the flow becomes highly transient and non-linear, in close agreement with experimental measurements and previously reported numerical studies \cite{chandra2024stabilized}.
+
+
+\begin{figure}[htbp]
+    \centering
+    
+    % --- Row 1 ---
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{MixedMPM/Paper Newtonian material/Figures_DamBreak/dam-break-mixed-5.png}
+         \includegraphics[width=\linewidth]{MixedMPM/Paper Newtonian material/Figures_DamBreak/dam-break-press-14.png}
+        \includegraphics[width=\linewidth]{MixedMPM/Paper Newtonian material/Figures_DamBreak/dam-break-press-17.png}
+        \includegraphics[width=\linewidth]{MixedMPM/Paper Newtonian material/Figures_DamBreak/dam-break-press-25.png}
+        \includegraphics[width=\linewidth]{MixedMPM/Paper Newtonian material/Figures_DamBreak/Pressure-legend.png}
+        \caption{Pressure distribution}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+         \includegraphics[width=\linewidth]{MixedMPM/Paper Newtonian material/Figures_DamBreak/dam-break-disp-05.png}
+         \includegraphics[width=\linewidth]{MixedMPM/Paper Newtonian material/Figures_DamBreak/dam-break-disp-14.png}
+        \includegraphics[width=\linewidth]{MixedMPM/Paper Newtonian material/Figures_DamBreak/dam-break-disp-17.png}
+        \includegraphics[width=\linewidth]{MixedMPM/Paper Newtonian material/Figures_DamBreak/dam-break-disp-25.png}
+        \includegraphics[width=\linewidth]{MixedMPM/Paper Newtonian material/Figures_DamBreak/Displacement-legend.png}
+        \caption{Displacement distribution}
+    \end{subfigure}
+    
+    
+    \caption{Dam Break 2D: Snapshots of pressure (left column) and displacement magnitude (right column) at $t = 0.5, 1.4, 1.7, 2.5\,\mathrm{s}$.}
+    \label{fig:dambreak_snapshots_pressure_displacement}
+
+\end{figure}
+
+Regarding the pressure distribution, the stabilized mixed formulation yields a spatially smooth and physically consistent field. As expected, the highest pressure values are concentrated near the bottom boundary due to hydrostatic effects and at the impact zone during the fluid-wall interaction. In contrast, the irreducible formulation exhibits significant spurious pressure oscillations, particularly in regions characterized by steep gradients and high impact velocities. Despite these numerical artifacts in the pressure field, the irreducible approach captures the overall flow kinematics with reasonable accuracy, as illustrated in Figure~\ref{fig:dambreak_snapshots_pressure_formulations}. Consequently, the irreducible formulation may remain a viable option when the primary objective is to track the global motion of the fluid, provided that the bulk modulus $\kappa$ is sufficiently reduced to ensure numerical stability. However, for applications requiring precise load evaluation or coupling with structural solvers, the stabilized mixed formulation proves to be essential to recover a reliable pressure state.
+\begin{figure}[htbp]
+\centering
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+         \includegraphics[width=\linewidth]{MixedMPM/Paper Newtonian material/Figures_DamBreak/dam-break-mixed-5.png}
+         %\includegraphics[width=\linewidth]{MixedMPM/Paper Newtonian material/Figures_DamBreak/dam-break-mixed-14.png}
+        \caption{Mixed Formulation}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}{0.48\textwidth}
+        \centering
+        \includegraphics[width=\linewidth]{MixedMPM/Paper Newtonian material/Figures_DamBreak/dam-break-irr-5.png}
+        % \includegraphics[width=\linewidth]{MixedMPM/Paper Newtonian material/Figures_DamBreak/dam-break-irr-14.png}
+        \caption{Irreducible Formulation}
+    \end{subfigure}
+    
+    \includegraphics[width=0.5\linewidth]{MixedMPM/Paper Newtonian material/Figures_DamBreak/Pressure-legend.png}
+    
+    \caption{Dam Break 2D: Snapshots of pressure distribution using irreducible formulation (right column) and stabilized mixed formulation (left column) at $t = 0.5, 1.4\,\mathrm{s}$.}
+    \label{fig:dambreak_snapshots_pressure_formulations}
+\end{figure}
+
+A quantitative assessment of the free-surface evolution is presented in Figure~\ref{fig:dam-break2D-elevation-front}, where the time history of both the column height and the front position are compared against experimental data. Both MPM formulations accurately reproduce the front propagation and the collapsing column elevation. The agreement with the experimental measurements is highly satisfactory, especially considering that the spatial discretization is relatively coarse. This demonstrates the inherent capability of the MPM to track complex moving boundaries and large topological changes without the need for interface-tracking algorithms or extremely fine meshes.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.48\linewidth]{MixedMPM/Paper Newtonian material/Figures_DamBreak/elevation_tracking.pdf}
+    \includegraphics[width=0.48\linewidth]{MixedMPM/Paper Newtonian material/Figures_DamBreak/front_tracking.pdf}
+    \caption{Dam Break 2D: Comparison with elevation of column of water and displacement of the front.}
+    \label{fig:dam-break2D-elevation-front}
+\end{figure}
+
+
+Finally, the quantitative pressure analysis presented in Figure~\ref{fig:dam-break2D-sensors-comparison} highlights the superior performance of the stabilized mixed formulation. The evaluation of impact pressures at discrete locations along the downstream wall is a demanding task that requires a stable, non-oscillatory, and physically consistent pressure field. In this regard, the time history of the pressure at Sensor~1 and Sensor~4 is compared against the experimental data from \cite{lobovsky2014experimental}. 
+
+The mixed formulation provides a remarkably consistent pressure signal, accurately capturing the impact peak and the subsequent relaxation phases in close agreement with the experimental measurements. Conversely, the irreducible approach fails to provide a reliable signal for this purpose, as the inherent pressure oscillations and the sensitivity to the penalty parameter mask the physical response. These results confirm that the proposed stabilized mixed MPM is a robust tool for fluid-structure interaction (FSI) applications and industrial scenarios where precise pressure monitoring is essential.
+
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=\linewidth]{MixedMPM/Paper Newtonian material/Figures_DamBreak/pressure_comparison.pdf}
+    \caption{Dam Break 2D: Comparison with pressure sensors stabilized mixed MPM with experimental results. }
+    \label{fig:dam-break2D-sensors-comparison}
+\end{figure}
+
+
+In summary, the results presented in this benchmark demonstrate that while both formulations capture the global kinematic features of the dam-break problem with similar accuracy, the stabilized mixed \up approach is indispensable when a reliable and non-oscillatory representation of the pressure field is required. This distinction is critical in impact-dominated scenarios, where the ability to provide stable pressure predictions is a prerequisite for any quantitative validation against experimental data and for future applications in fluid-structure interaction.
+
+\subsection{Dam Break with an obstacle 3D}
+
+This benchmark considers the interaction of a three-dimensional dam-break wave with a prismatic obstacle, providing a rigorous test for the formulation's ability to handle complex 3D free-surface dynamics and fluid-structure interaction. We reproduce the experimental setup described by Aureli et al. \cite{aureli2015experimental}, which serves as a comprehensive reference due to the availability of detailed laboratory measurements and comparisons with multiple numerical techniques, such as SPH and Finite Volume methods. This case is particularly demanding as it involves the sudden expansion of the fluid through a narrow gate, followed by a high-velocity impact on a rigid body.
+
+
+\subsubsection{Setup}
+
+The geometrical configuration of the facility and the obstacle is illustrated in Figure \ref{fig:DamBreak3D_geometry}. The experimental tank is $2.60$~m long and $1.20$~m wide, divided into two main compartments by a transverse separating wall. A central gate of $0.30$~m in width allows the fluid to flow from the upstream reservoir into the downstream floodplain upon release. 
+
+The initial water depth in the reservoir is $H = 0.10$~m. A prismatic obstacle, representing an isolated building, is placed $0.51$~m downstream from the gate. The obstacle has a rectangular cross-section with dimensions $0.30~\text{m} \times 0.155~\text{m}$ and a height of $0.20~\text{m}$, ensuring it remains partially unsubmerged during the initial stages of the impact.
+
+
+\begin{figure}
+    \centering
+     \includegraphics[width=0.7\linewidth]{MixedMPM/Paper Newtonian material/Figures_Aurelie/sketch3D_full.png}
+    \caption{3D dam-break with obstacle: geometry (source: \cite{aureli2015experimental}).}
+    \label{fig:DamBreak3D_geometry}
+\end{figure}
+
+
+\noindent Regarding the fluid properties, the water is modeled with a density $\rho = 1000~\text{kg/m}^3$ and a dynamic viscosity $\mu = 0.00101~\text{Pa·s}$. To strictly enforce the incompressibility constraint in this 3D mixed formulation, a bulk modulus of $\kappa = 2 \times 10^{12}~\text{Pa}$ is adopted. Slip boundary conditions are prescribed on all solid boundaries (walls and obstacle).
+
+\noindent The spatial discretization is based on an unstructured tetrahedral background grid with a characteristic element size of $h = 0.03$~m. The initial distribution of material points is set to 16 particles per element (PPE) within the fluid domain. Temporal discretization is performed with a constant time step of $\delta t = 0.001$~s, which satisfies the stability requirements for the high-velocity flow expected during the gate opening.
+
+\subsubsection{Results}
+
+The primary objective of this benchmark is to validate the predictive capability of the proposed 3D stabilized mixed formulation against the experimental data and numerical results reported by Aureli et al. \cite{aureli2015experimental}. The performance of the method is evaluated through two complementary analyses. First, a qualitative study is conducted to examine the overall flow dynamics, focusing on the free-surface evolution, the velocity field, and the complex wave interaction with the obstacle. Second, a quantitative assessment is performed by comparing the time history of the water elevation and the hydrodynamic forces exerted on the obstacle faces with laboratory measurements. This dual approach allows for a comprehensive evaluation of both the kinematic accuracy and the pressure-based loading predicted by the mixed MPM formulation.
+
+
+% Qualitative results
+Figure \ref{fig:Dambreak3D_GeneralEvolution} illustrates the transient evolution of the three-dimensional dam-break flow at four key time instants. At $t = 0.32$~s and $t = 0.38$~s, the fluid is seen emerging from the narrow gate, forming a characteristic water "tongue" that accelerates toward the obstacle. During this stage, the rapid expansion of the fluid from the reservoir into the floodplain is captured, showing the high-velocity jet-like behavior caused by the central opening.
+
+The snapshots at $t = 0.52$~s and $t = 0.60$~s depict the interaction with the prismatic block. As the water front reaches the obstacle, a significant vertical run-up is observed on the front face, while the flow simultaneously begins to bifurcate and wrap around the vertical walls. The stabilized mixed formulation accurately captures these highly non-linear topological changes and the subsequent wave diffraction patterns without numerical instabilities. The colormap is indexed to the water depth: the deep blue represents the initial reservoir elevation of $0.1$~m, while the lighter tones highlight the thinning of the fluid layer as it spreads and bypasses the obstacle. This qualitative evolution shows an excellent agreement with the experimental flow patterns reported in \cite{aureli2015experimental}.
+
+
+\setlength{\fboxrule}{0.4pt}
+\setlength{\fboxsep}{0pt}
+\begin{figure}
+    \centering
+    \begin{subfigure}{0.3\linewidth}
+        \centering
+        \fbox{\includegraphics[width=\linewidth,trim=0 4cm 0 0, clip]{MixedMPM/Paper Newtonian material/Figures_Aurelie/General_Evolution32.png}}
+        \caption{$t=0.32\,s$}
+    \end{subfigure}
+    \begin{subfigure}{0.3\linewidth}
+        \centering
+        \fbox{\includegraphics[width=\linewidth,trim=0 4cm 0 0, clip]{MixedMPM/Paper Newtonian material/Figures_Aurelie/General_Evolution38.png}}
+        \caption{$t=0.38\,s$}
+    \end{subfigure}
+    \\
+    \begin{subfigure}{0.3\linewidth}
+        \centering
+        \fbox{\includegraphics[width=\linewidth,trim=0 4cm 0 0, clip]{MixedMPM/Paper Newtonian material/Figures_Aurelie/General_Evolution52.png}}
+        \caption{$t=0.52\,s$}
+    \end{subfigure}
+    \begin{subfigure}{0.3\linewidth}
+        \centering
+        \fbox{\includegraphics[width=\linewidth,trim=0 4cm 0 0, clip]{MixedMPM/Paper Newtonian material/Figures_Aurelie/General_Evolution60.png}}
+        \caption{$t=0.60\,s$}
+    \end{subfigure}
+    % \begin{subfigure}{0.25\linewidth}
+    %     \centering
+    %     \fbox{\includegraphics[width=\linewidth,trim=0 4cm 0 0, clip]{MixedMPM/Paper Newtonian material/Figures_Aurelie/General_Evolution71.png}}
+    %     \caption{$t=0.71\,s$}
+    % \end{subfigure}
+    % \begin{subfigure}{0.25\linewidth}
+    %     \centering
+    %     \fbox{\includegraphics[width=\linewidth,trim=0 4cm 0 0, clip]{MixedMPM/Paper Newtonian material/Figures_Aurelie/General_Evolution82.png}}
+    %     \caption{$t=0.82\,s$}
+    % \end{subfigure}
+    \caption{3D dam-break with obstacle: general evolution of the water at different times. The contour map shows the fluid height.}
+    \label{fig:Dambreak3D_GeneralEvolution}
+\end{figure}
+
+Figure \ref{fig:DamBreak3D_ShapeOfWave} presents a comparative analysis of the wave evolution along the longitudinal plane of symmetry between the proposed stabilized mixed MPM (right) and the Finite Volume results obtained with FLUENT \cite{aureli2015experimental} (left). The sequence covers the early stages of the impact at $t = 0.32, 0.52, 0.60, 0.68,$ and $0.74$~s. 
+
+A remarkable agreement is observed in both the velocity magnitudes and the spatial distribution of the velocity field throughout the process. Up to $t = 0.52$~s, both models accurately capture the acceleration of the fluid tongue and its initial contact with the obstacle. From $t = 0.60$~s onwards, the simulation successfully predicts the formation of a reflected wave; a backward-propagating bore generated by the stagnation of the flow against the front face of the block. This complex phenomenon, which involves a sudden conversion of kinetic energy into potential energy, is captured by the mixed MPM formulation with high fidelity, showing a wave profile and a velocity structure that closely match the reference solution.
+\begin{figure}
+    \centering
+    \includegraphics[width=0.55\linewidth]{MixedMPM/Paper Newtonian material/Figures_Aurelie/Velocity_field.png}
+    \caption{3D dam-break with obstacle: comparison of the velocity distribution field between Fluent 3D and stabilized MPM.}
+    \label{fig:DamBreak3D_ShapeOfWave}
+\end{figure}
+
+% \begin{figure}
+%     \centering
+%     \includegraphics[width=0.75\linewidth]{MixedMPM/Paper Newtonian material/Figures_Aurelie/height_comparison.png}
+%     \caption{3D dam-break with obstacle: MPM vs Shallow Water. Height Comparison at $t=0.38\ \textbf{s}$ and $t=0.71\ \textbf{s}$.}
+%     \label{fig:Dambreak3D_HegihtComparison}
+% \end{figure}
+
+% Quantitative results
+Finally, Figure~\ref{fig:Dambreak3D_ImpactForces} provides a quantitative comparison of the hydrodynamic forces acting on the front face of the obstacle. Our stabilized mixed MPM results are plotted against experimental measurements, the average of multiple laboratory trials, and various numerical predictions (SPH, Shallow Water, and Finite Volume) reported in \cite{aureli2015experimental}. 
+
+The formulation accurately captures the precise instant of impact and the initial force surge, showing a magnitude that is remarkably consistent with the experimental data. While the overall force evolution follows the physical trend, a second force peak is observed in the numerical results, which appears slightly higher than the experimental average. This discrepancy can be attributed to several factors: the relatively coarse spatial discretization, which may not fully resolve the energy dissipation during the wave's return, and the simplified slip boundary conditions on the obstacle's surface. Nevertheless, the mixed \up formulation provides a coherent and reliable estimation of the loading, outperforming simpler models like the Shallow Water approach and remaining competitive with more computationally intensive SPH and Finite Volume simulations. The ability to recover the force through the integral of nodal reactions, without the pressure noise typical of the irreducible MPM, confirms the robustness of the proposed framework for 3D engineering applications.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.85\linewidth]{MixedMPM/Paper Newtonian material/Figures_Aurelie/Smooth_Forces_DamBreak_all.pdf}
+    %\includegraphics[width=0.5\linewidth]{MixedMPM/Paper Newtonian material/Figures_Aurelie/Smooth_Forces_DamBreak.png}
+    \caption{Dam Break 3D with obstacle: Forces impact evolution. Comparison between the result obtained by our study (Numerical 3D MPM stabilized) and the reported by Aureli et al. \cite{aureli2015experimental}}
+    \label{fig:Dambreak3D_ImpactForces}
+\end{figure}
+
+   
+   
+%---------------------------------------------------
+%
+% Conclusions
+%
+%---------------------------------------------------
+% \section{Conclusions} \label{sec:Conclusions}
+
+% This work develops a mixed \up formulation within the Material Point Method (MPM) framework for the simulation of incompressible fluid flows, employing a solid mechanics perspective in which the fluid behavior is represented through an appropriate constitutive law. The main goal was to overcome the limitations of the classical irreducible formulation, such as pressure oscillations and volumetric locking, by introducing a stabilized mixed approach using Variational Multiscale (VMS) techniques.
+
+% The proposed formulation was tested on several benchmark cases. The first case was the Rotating Square, an academic example where the main differences between the two formulations are highlighted. Results were also compared with those reported in the literature, where other numerical techniques were employed. The second case involved a 2D Dam Break. The aim was to compare the mixed \textbf{u}-p formulation with experimental results in a simplified, realistic scenario. The third case considered a 3D Dam Break, where the objective was to demonstrate the strength of the method in capturing forces on an obstacle in a more complex, realistic setting.
+
+
+% Overall, the results demonstrate that the mixed VMS-stabilized formulation provides a robust and flexible tool for simulating incompressible flows in a particle-based Lagrangian framework. The method successfully enforces the divergence-free condition, maintains stability with equal-order interpolations, and yields accurate predictions for both flow evolution and force magnitudes.
+
+% Despite its advantages, the current study is limited to  single-phase fluids, and the use of the FLIP mapping technique, which may introduce numerical errors and could be improved by alternative particle-to-grid algorithms, such as TPIC. Future work will explore extensions. Moreover, the present implementation provides a foundation for the monolithic coupling of solid, granular, and fluid problems, enabling fully integrated multiphysics simulations.
+
+
+
+\section{Conclusions} \label{sec:Conclusions}
+
+In this work, a stabilized mixed \up formulation has been developed and integrated within the Material Point Method (MPM) framework to simulate incompressible Newtonian flows. By adopting a solid mechanics perspective and representing the fluid through a rate-dependent constitutive law, the proposed approach addresses the inherent limitations of the classical irreducible MPM. Specifically, the introduction of Variational Multiscale (VMS) stabilization techniques effectively mitigates the spurious pressure oscillations and volumetric locking typically encountered in displacement-based formulations near the incompressible limit.
+
+The robustness and accuracy of the formulation were rigorously assessed through a series of increasingly complex benchmarks:
+\begin{itemize}
+    \item The \textbf{Rotating Square} test demonstrated the method's ability to maintain a stable and physically consistent pressure field under pure rotation and suction, even in the strictly incompressible regime ($\kappa = 10^{12}$ Pa), where the irreducible formulation fails.
+    \item The \textbf{2D Dam Break} validated the solver against experimental measurements, proving that while both formulations can track the global flow kinematics, only the stabilized mixed approach provides the pressure stability required for reliable point-wise sensor comparison.
+    \item The \textbf{3D Dam Break with an obstacle} showcased the formulation's performance in a large-scale, impact-dominated engineering scenario. The results confirmed that the method accurately predicts hydrodynamic loading and complex 3D free-surface topological changes, remaining competitive with established Finite Volume and SPH solvers.
+\end{itemize}
+
+Overall, the results demonstrate that the VMS-stabilized mixed MPM is a robust, accurate, and flexible tool for fluid dynamics in a Lagrangian framework. The formulation successfully enforces the divergence-free constraint using equal-order interpolations for both displacement and pressure, providing a clear advantage for industrial applications where precise force evaluation is paramount.
+
+
+While the present study has focused on single-phase Newtonian fluids using the standard FLIP mapping, several avenues for future research remain open. The integration of more advanced particle-to-grid transfer schemes, such as Taylor least-squares or APIC/TPIC, could further improve energy conservation and reduce grid-crossing noise. \LM{A further natural extension is the incorporation of a velocity–pressure (\vp) formulation derived directly from the Navier–Stokes equations into the same MPM framework. This would enable a systematic comparison between displacement–pressure and velocity–pressure descriptions and help identify their relative advantages in terms of stability, accuracy, computational efficiency, and compatibility with different time-integration schemes.} Furthermore, the monolithic nature of the proposed framework provides a solid foundation for the seamless coupling of fluid, granular, and solid materials, paving the way for fully integrated multiphysics simulations of complex fluid–structure interaction problems.
+
+\section*{Code availability}
+For this work, the open-source multiphysics software \textit{KRATOS} \cite{kratos1,kratos2,kratos3} has been used, which is written in C++ and offers a Python interface. The current version can be obtained from \cite{KratosGithub}.
+
+
+\section*{Acknowledgments}
+The authors would like to acknowledge Alessandro Contri for his valuable contribution in initiating the analysis of displacement-based formulations for Newtonian fluids.
+
+Part of this work was carried out while L. Moreno was supported by the Research Training Group 2075 (GRK 2075), funded by the German Research Foundation (DFG).
+
+This study received funding from the European Union - project MONUGEO - Modern numerical methods for high-fidelity simulation of geohazards. HORIZONMSCA-2023-SE-01 - G.A. n. 101182721 01/03/2025-28/02/2029 and from - Next Generation EU National Recovery and Resilience Plan [NRRP], Mission 4, Component 2, Investment 1.3–D.D. 1243 2/8/2022, PE0000005 Extended Partnership “RETURN : Multi- Risk sciEnce for resilienT commUnities underR a changiNg climate”;
+
+\section*{Credit authorship contribution statement}
+
+
+\textbf{Laura Moreno:} Conceptualization, Methodology, Software, Validation, Formal analysis, Investigation, Writing - Original Draft, Writing - Review \& Editing, Visualization. 
+\textbf{Gioele De Zotti:} Software, Validation, Investigation (3D benchmark), Writing - Review \& Editing.
+\textbf{Antonia Larese:} Conceptualization,  Methodology, Supervision, Project administration, Funding acquisition, Writing - Review \& Editing. 
+
+
+\bibliographystyle{unsrt} 
+\bibliography{bibliography_hyper,bibliography_newtonian}
+
+
+    
+\end{document}

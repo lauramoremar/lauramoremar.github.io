@@ -1,0 +1,3 @@
+El objetivo general de esta línea es desarrollar nuevas formulaciones y técnicas que permitar reproducir de manera precisa eventos hidrológicos extremos con precisión usando modelos deterministas y tridimensionales, de modo que seamos capaces de capturar bien todos los elementos que entran en juego.
+
+Mi investigación, en particular se ha centrado hasta el momento en desarrollar formulaciones mixtas que permitan reproducir materiales incompresibles (como el agua etc) presentes en este tipo de escenarios.

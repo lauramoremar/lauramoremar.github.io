@@ -1,0 +1,1126 @@
+\documentclass[11pt,english]{article}
+\usepackage[utf8]{inputenc}
+%\usepackage[T1]{fontenc}
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=2.5cm,bmargin=2.5cm,lmargin=2cm,rmargin=2cm}
+\usepackage{authblk}
+\pagestyle{plain}
+\usepackage{babel}
+\usepackage{float}
+\usepackage{units}
+\usepackage{amssymb,amsfonts}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{color,soul}
+\usepackage{xcolor}
+\usepackage{esint}
+\usepackage{setspace}
+\usepackage{rotfloat}
+\usepackage{textcomp}
+\usepackage{algorithm}
+\usepackage{algcompatible}
+\usepackage{booktabs}
+\usepackage{stmaryrd} 
+\usepackage{wasysym}
+\usepackage{algpseudocode}
+\usepackage{thmtools}
+\usepackage{bbm}
+\usepackage{cancel}
+\usepackage{lineno} 
+
+
+\usepackage[unicode=true,
+ bookmarks=true,bookmarksnumbered=false,bookmarksopen=false,
+ breaklinks=false,pdfborder={0 0 0},pdfborderstyle={},backref=false,colorlinks=false]
+ {hyperref}
+\allowdisplaybreaks
+ 
+\hypersetup{
+ pdfborderstyle=}
+\makeatletter
+\providecommand{\tabularnewline}{\\}
+\@ifundefined{date}{}{\date{}}
+\usepackage{babel}
+
+\@ifundefined{showcaptionsetup}{}{%
+\PassOptionsToPackage{caption=false}{subfig}}
+\usepackage{subfig}
+\makeatother
+
+\newcommand{\LM}[1]{\textcolor{blue}{#1}}
+%\newcommand{\AL}[1]{\textcolor{red}{#1}}
+
+\usepackage{marginnote}
+\newcommand{\AL}[1]{\marginnote{\textbf{AL}:\textcolor{red}{#1}}}
+\newcommand{\ALin}[1]{\marginnote{\textbf{AL}} \textbf{\textcolor{red}{#1}}}
+
+\newcommand{\INDSTATE}[1][1]{\State \hspace{#1\algorithmicindent}}
+
+%\def\InitialDomain{\Omega_{0}}
+%\def\DeformedDomain{\Omega}
+\def\InitialDomain{\Omega}
+\def\DeformedDomain{\varphi(\InitialDomain)}
+\def\disp{\boldsymbol{u}}
+\def\disptest{\boldsymbol{w}}
+\def\stress{\boldsymbol{\sigma}}
+\def\stressdev{\boldsymbol{\sigma}^{\rm{dev}}}
+\def\Identity{\mathbf{I}}
+\def\SpaceDisp{\boldsymbol{\mathcal{V}}}
+\def\SpacePress{\mathcal{Q}}
+\def\SpaceTotal{\boldsymbol{\mathcal{W}}}
+\def\TestFunctions{\boldsymbol{V}}
+\def\UnkVariables{\boldsymbol{U}}
+\def\F{\mathbf{F}}
+\def\DevPsi{\Psi_{\rm{dev}}}
+\def\VolPsi{\Psi_{\rm{vol}}}
+\def\DevS{\mathbf{S}^{\text{dev}}}
+\def\DerB{B_{\text{lin}}}
+\def\DerG{\mathcal{G}_{\text{d}}}
+\def\D{\mathcal{D}}
+\def\L{\mathcal{L}}
+\def\DerD{\mathcal{D}_{\text{d}}}
+\def\DerL{\mathcal{L}_{\text{lin}}}
+%\def\a{\rho \dfrac{\partial^2 \disp_h^*}{\partial t^2}}
+\def\a{\boldsymbol{a}}
+\def\GradMat{\nabla_{X}}
+%\def\GradMat{\text{Grad}}
+%\def\DerB{L}
+\def\mp{\textit{mp}}
+\def\t{\boldsymbol{t}}
+\def\temp{\dfrac{\partial^2 \disp}{\partial t^2}}
+
+
+
+\title{A mixed stabilized MPM formulation for incompressible hyperelastic materials using Variational Subgrid-Scales}
+
+
+\begin{document}
+    
+    \author{Laura Moreno$^{1}$, Roland Wuechner$^{1}$ and Antonia Larese$^{2,3}$ \\
+    {\footnotesize{}{}$^{1}$ Institute of Structural Analysis, Technische Universit\"at Braunschweig, %Beethovenstra{\ss}e 51, 
+    Braunschweig, 38106, Germany}\\
+    {\footnotesize{}{}$^{2}$ Department of Mathematics "Tullio Levi Civita", Università degli Studi di Padova, 35121 Italy}\\
+    %Torre Archimede, via Trieste 63,  Padova, 35121, Italy}\\
+    {\footnotesize{}{}$^{3}$ Institute for Advanced Study, Technical University of Munich, %Lichtenbergstra{\ss}e 2a,
+    Garching, 85748, Germany}}
+     
+     
+    \maketitle
+
+    \linenumbers
+    
+    \begin{abstract}
+	The Material Point Method (MPM) stands as a continuum-based particle technique designed for addressing large deformation problems. 
+    However, the treatment of incompressible materials using MPM remains underexplored. This study focuses on adapting established techniques from the Finite Element Method (FEM) to address incompressibility within MPM for dynamic hyperelastic problems. Firstly, we introduce a mixed displacement-pressure formulation to tackle incompressibility. Secondly, we employ two different stabilization techniques rooted in the Variational Multiscale Method (VMS) to enable the utilization of equivalent low-order spaces for approximating both primary unknowns. The efficacy of these formulations is  compared with alternative stabilization techniques and validated across various two- and three-dimensional benchmark problems to assess its accuracy and robustness. 
+    \end{abstract}
+
+\maketitle
+\noindent{{\bf {Keywords}}:  Material Point Method (MPM), Particle Methods, Mixed formulations, Incompressible hyperelasticity, Large Deformations, Stabilization methods,  Variational Subgrid Scale Method (VMS)}
+
+
+%---------------------------------------------------
+%
+% Introduction
+%
+%---------------------------------------------------
+
+\section{Introduction}
+
+
+%------------------------------------------
+% Incompressibility
+%------------------------------------------
+Incompressible or nearly incompressible materials are found in a variety of real-world engineering problems ranging from solid mechanics to fluid dynamics \cite{zienkiewicz2005finite}, as well as in some polymeric materials that can sustain finite strains without volume changes \cite{holzapfel2002nonlinear}.
+However, the numerical simulation of such materials remains a challenge in computational mechanics \LM{as a general consensus have not yet been achieved and many of the proposed solutions still lack a deep and comprehensive mathematical formulation.}
+
+%------------------------------------------
+% Irreducible formulations
+%------------------------------------------
+Classical displacement-based formulations, in which the primary variable is the displacement (u) field and the stress field is obtained \textit{a posteriori} through differentiation, exhibit performance issues  when the incompressible limit is reached. These includes pressure instabilities, highly oscillatory results, volumetric locking, etc  \cite{belytschko2000nonlinear}. In other words, these standard formulations fail when the Poisson's ratio $\nu$ approaches 0.5 \cite{zienkiewicz2005finite}.
+
+Nevertheless, these issues have been extensively analyzed by different researchers in the last decades and many possible solutions exist. For example the family of selective reduced integration methods, such as the B-bar \cite{hughes1980generalization} or F-bar methods \cite{de1996design} or the mean dilatation finite element method \cite{nagtegaal1974numerically}. All these methods can successfully avoid the volumetric locking \cite{hughes2012finite} providing  widely used schemes often present in many commercial codes. 
+Unfortunately, these methods are classically designed to use \LM{structured} quadrilateral finite elements in two dimensions and hexahedral elements in the three-dimensional case, but are often not prepared to use tetrahedral elements. \LM{The tetrahedral elements is often the better choice for practical engineering applications as it offers greater flexibility in meshing complex geometries.} 
+
+%\AL{ma non c'è qualche ragione più seria per escludere FBAR e B BAR?)}
+
+% Yes: These techniques are not suitable for application on simplicial meshes.
+% There are drawbacks of using hexahedral meshes... (Scovazzi2016, Ilaria)
+
+%-----------------------------------------
+% Mixed formulation - infsup condition - stabilizations
+%-----------------------------------------
+An alternative to obtain a robust formulation is to adopt a mixed approach \cite{franca1988new}. 
+\LM{If we examine the incompressible, static and infinitesimal strain case in solid mechanics, we arrive at an elliptic problem that is equivalent to the Stokes equations in fluid mechanics \cite{hughes1986new}. Therefore this makes sense to extend the mixed velocity/pressure ($\boldsymbol{v}$-$p$) formulation used in fluid mechanics to the displacement and pressure ($\boldsymbol{u}$-$p$) framework in solid mechanics. }
+
+It was first proposed  by Hughes and coworkers in 1987 \cite{hughes1987new} and extended later by other authors. An example is given by the work by Maniatty \cite{maniatty2001stabilized} where the authors apply  this approach to  nonlinear elasto-visco-plastic materials in static regime. 
+
+However, as for Stokes problem, most of available mixed formulations in solid mechanics commonly use \LM{equal order interpolations} for both fields, and therefore these do not satisfy the Ladyzhensaya-Babuska-Brezzi (LBB) condition \cite{brezzi2012mixed} (also known as \textit{inf-sup} condition) that ensure existence and unicity of the  solution of the problem. \LM{Note that this issue does not arise if we use higher-order elements (with reduced integration); however, this significantly increases the degrees of freedom and, consequently, the computational cost \cite{rank2005high}.} For this reason much interest has been focused on the development of so-called stabilized procedures to compensate the violation of the \textit{inf-sup} condition \cite{babuvska1971error}.
+Among others, we can mention the work of Masud et al. \cite{nakshatrala2008finite} where the authors stabilized the v-p problem by using bubble functions in order to avoid ``tuneable''  parameters in the computations. In \cite{masud2013framework} they also extended these mixed formulation to nonlinear hyperelasticity, but   using the Variational MultiScale (VMS)  stabilization technique. VMS consists in splitting the solution of the continuous problem into a component that can be solved by the FE space, and another, called the grid subscale. The objective is to approximate the value of this subscale analitically as will be explained later. \LM{One of the many benefits is that the method enables high-order, equal-order interpolations in FEM.}
+A succesful example of the use of VMS to incompressible nonlinear elasticity and elastoplasticity was proposed by Chiumenti and coworkers \cite{chiumenti2002stabilized}. The authors used the orthogonal subscales method (OSGS) applied to a displacement pressure mixed formulation ($\boldsymbol{u}$-$p$) , extending the original method introduced by Codina for fluid dynamics problems \cite{codina2000stabilization}.
+Moreover, other researchers proposed alternative mixed  finite element methods  with nodal finite element spaces for strain ($\boldsymbol{u}$-$\boldsymbol{\varepsilon}$), or stress ($\boldsymbol{u}$-$\boldsymbol{\sigma}$). This implies an increment of unknowns per node while improving accuracy of the results. As an example, the works of Cervera et al. \cite{cervera2010mixeda,cervera2010mixedb} investigate the idea of stabilizing the tensor of nodal stresses using the VMS approach and the OSGS method for solving static problems. Also the work \cite{cervera2015mixed} presents the application of a stabilized mixed strain/displacement ($\boldsymbol{u}$-$\boldsymbol{\varepsilon}$) for  nonlinear solid mechanics problems involving compressible and incompressible plasticity. In the context of the three-field formulations we found the work of Simo et al. \cite{simo1985variational}, which introduced a non linear version of a three-field Hu-Washizu Variational principle, where displacement, pressure and the Jacobian of the deformation gradient are independent field variables.
+
+In the context of Lagrangian frameworks, we found a recent work of Lee et al. \cite{lee2014development} in which a new first-order mixed formulation was developed. It used an additional variable, a nodally interpolated deformation gradient and Lagrange multipliers. The tests presented in this work show a second order convergence for the stresses. In case of assuming incompressibility, the  determinant of the Jacobian must be  also added as variable. In this case the authors used a combination of the streamline upwind/Petrov-Galerkin (SUPG) stabilization \cite{hughes1987new}. On the other hand, Aguirre et al. \cite{aguirre2014vertex} stabilize the problem by means of approximate Riemann solvers for nodal finite volumes.
+More recently, we can found interesting stabilized formulation for dealing with transient simulation. Among others, the work of \LM{Scovazzi et al. \cite{scovazzi2016simple,abboud2021variational}} in which a new approach is proposed for stabilizing linear tetrahedral finite elements in case of nearly incompressible transient solid mechanics using a mixed formulation. In this work the momentum equation is complemented by an equation for the evolution of the pressure field. Also, in the context of the VMS displacement/pressure ($\boldsymbol{u}$-$p$) formulation we found the work of Castañar et al. \cite{castanar2020stabilized} for simulating an hyperelastic material model in which the strain energy function can be decomposed in deviatoric and volumetric parts. In this work we have extended this last VMS u-p approach to be usable in a different discretization technique, as explained below. The choice of VMS among the other available stabilization technique is justified by its accuracy and low dissipation effects if compared with classical methods.
+
+
+
+%------------------------------------------
+% FEM vs other methods for solving the incompressible hyperelastic problem
+%------------------------------------------
+Note that almost all the works presented up to now, employ the Finite Element Method (FEM). 
+%In the literature we can find different discretization techniques for solving incompressible solid mechanics problems in large deformation regime. 
+It is a fact that FEM became attractive due to its ability to handle low or high-order approximations, and to easily deal with complex geometries and nonlinear constitutive models. However, for solving large-deformation problems in solid mechanics, it may cause the mesh to suffer excessive distortion, resulting in significant accuracy loss or even compromising the FEM calculation. A possible solution to the above problem is represented by the use of the so called \textit{Continuum-based Particle Methods}. 
+They are a series of techniques that are well-suited for the solution of problems involving large displacement, large deformation and history-dependent materials. 
+We can highlight different methods within this family. For instance, within the group of mesh-based Galerkin approaches we find the called Particle Finite Element Method (PFEM), introduced by Idelsohn et al. \cite{idelsohn2004particle}. Essentially, PFEM is a Lagrangian FEM with remeshing. It was originally developed for free surface flows and breaking waves, but has  demonstrated its potential in several  fields, including non-linear problems \cite{cremonesi2020state} not only in fluid dynamics but also in solid mechanics \cite{oliver2007particle} and geomechanics \cite{carbonell2022geotechnical}. The first disadvantage of PFEM is the frequent requirement for remeshing. This leads to a loss of conservation properties and a significant computational burden, as remeshing is typically a non-parallel procedure. Alternatively, we find also the mesh-free discretization techniques, and in particular the widely used Smoothed Particle Hydrodynamics (SPH) \cite{gingold1977smoothed,gray2001sph}. While SPH is intriguing in the realm of fracture mechanics and mechanics of multi-phase media \cite{bui2008lagrangian, shutov2019application}, it also has certain limitations. These include low accuracy in approximating discontinuous functions and the need to suppress non-physical instabilities through the introduction of artificial viscosity, among others. \LM{We must highlight the work of Salis et al. \cite{salis2024lagrangian}, which offers a comparative analysis of these two Lagrangian particle models, SPH and PFEM.}
+On the other hand, we also find the family of Particle-In-Cell methods (PIC) \cite{harlow1964particle}, which are based on particles that move in a computational mesh while carrying the fields of a problem. The underlying mesh (or grid) is used in order to compute an approximate solution that is projected and stored on the particles, allowing for the easy discarding and reconstruction of the background mesh at each time step. 
+%------------------------------------------
+% The Material Point Method
+%------------------------------------------
+In the mid 90s, the application of PIC to solid mechanics leds to the Material Point Method (MPM) \cite{sulsky1995application} in which the constitutive equations are managed at a  particle level. MPM exhibits several characteristics that enable to avoid many of the typical drawbacks of other particle methods. It combines a Lagrangian description of the continuum, which is discretized as a set of material points that store  historical variables  with a fixed background grid used for finite element method calculation \cite{zhang2016material}. The features of this method allow to track easily the deformation of the body avoiding the need for remeshing. Therefore, MPM is very attractive for solving problems with very large deformations \cite{wikeckowski2004material} or for using complex constitutive laws \cite{fern2016role, fern2019material}.
+
+%------------------------------------------
+% MPM incompressibility
+%------------------------------------------
+Nevertheless, the computation of incompressible mechanics problems it is not sufficiently explored yet as MPM is more commonly used in compressible regimes. The same apply for mixed MPM formulations as usually irreducible formulations are presented.  
+An incompressible MPM formulation for granular flows can be found in the work of Kularathna et al. \cite{kularathna2017implicit} in which the Chorin projection \cite{chorin1968numerical} is used as stabilization method, but considering a velocity-pressure ($\boldsymbol{v}$-$p$) approximation. Additionally it is worth mentioning the work of \cite{zhang2017incompressible} that solves the incompressible material problem for a free flow by splitting the solution of the momentum equation into two steps. 
+Some procedures for the treatment of locking issues can be found in the literature. 
+Finally, an incompressible hyperelastic MPM mixed ($\boldsymbol{u}$-$p$) formulation was proposed by Iaconeta et. al. \cite{iaconeta2019stabilized}. The authors used the Polynomial Pressure Projection (PPP) \cite{dohrmann2004stabilized} to stabilise the formulation. Unfortunately PPP only resulted to be effective in static regime.
+
+
+%------------------------------------------
+% Novelty of the paper
+%------------------------------------------
+The goal of this work is to develop a robust mixed formulation to simulate  transient incompressible solid mechanics problems using  MPM, since there is a clear lack of literature on the subject.  While it is true that recently, an application of VMS to the Navier-Stokes formulation discretized using MPM was presented by Chandra et al \cite{chandra2024stabilized}. \LM{This work employs only algebraic subgrid subscales and not orthogonal ones.} Additionally it is limited to incompressible fluids. Here, on the contrary, we will show how the latter approach is crucial, for example, in cases where singularities occur in the solution. Furthermore, we will present the details of the general stabilization framework in the context of MPM  for solid mechanics materials, ensuring the reproducibility and reusability of the presented formulation also for different materials. 
+ 
+
+The idea is to give a first approach to extend it in future works to other constitutive laws and regimes, such as incompressible granular flows or non Newtonian fluid flows. 
+
+
+In this paper we present a VMS approach for simulating incompressible solid materials in both, static and transient regimes following the strategy developed by \cite{castanar2020stabilized}. Here, a deviatoric and volumetric decomposition of the strain energy function is done in order to impose the incompressibility constraint on hyperelastic materials in a natural way.  The mixed formulation is defined in terms of displacements and pressures ($\boldsymbol{u}$-$p$). Both fields are approximated with piecewise linear functions.  This strategy will allow solving mechanical problems in the regime of large displacements and large deformations. This method is accurate and robust, and it is demonstrated using a wide range of examples with large deformations that are particularly difficult to simulate. Concerning to the temporal discretization, an implicit Newmark time integration scheme is also used. All the implementations have been performed using the open source code Kratos Multiphysics \cite{kratos1} written in C++ and python.
+
+
+%------------------------------------------
+% Organization of the paper
+%------------------------------------------
+The paper is organized as follow:  Section \ref{sec:HyperelasticProblem} introduces the governing equations, the variational formulation of the problem and the linearization considered.  Section \ref{sec:numerical-approximation} presents in detail the Material Point Method and the discretizations considered. In Section \ref{sec:StabilizedFormulation} the stabilization based on the VMS approach is described for the MPM. The algorithm implemented is detailed and discussed in  Section \ref{sec:Algorithm}. Finally, the numerical results are presented in Section \ref{sec:NumericalExamples}, in which firstly the study of the mesh convergence is presented, considering a manufactured solution for different stabilizations. Next, in Section \ref{sec:Results_Cooks} the two-dimensional \textit{Cook's membrane} benchmark is performed for the static and the dynamic case, comparing the results with other works. Lastly, the three-dimensional bending beam is reproduced in Section \ref{sec:BendingBeam} for validating the formulation in a  bending dominated problem and in Section \ref{sec:Results_Twisting} the twisting column test is reproduced in order to show the robustness of the stabilization in a very challenging deformation problem. The conclusions are summarized in the Section \ref{sec:Conclusions}.
+
+%------------------------------------------
+%
+% Section 1: Hyperelastic solid mechanics problem
+%
+%------------------------------------------
+
+\section{Hyperelastic solid mechanics problem} \label{sec:HyperelasticProblem}
+
+%------------------------------------------
+% Governing equations
+%-------------------------------------------
+\subsection{Governing equations}
+    Let $\InitialDomain$ be an open, bounded domain in $\mathbb{R}^{d}$, where $d\in \{2,3\}$ is the number of space dimensions. Let $\mathcal{B}$ be a continuum body being formed by an infinite set of material points inside $\mathbb{R}^d$ which moves from an original position to its current position at time $t$. The region occupied by the body is $\InitialDomain$, called the initial configuration.
+    We assume the existence of a one-to-one mapping function $\varphi$ which characterizes the motion (deformation) $\varphi: \InitialDomain \longrightarrow \mathbb{R}^d $. Moreover we can define the vector of material coordinates $\mathbf{X}$, and the  vector of spatial coordinates  $\mathbf{x}$ . 
+   Therefore the function $\varphi$ maps each point $\mathbf{X}$ into a spatial point: 
+   $\mathbf{x}=\varphi \left(\mathbf{X},t\right), \forall \mathbf{X} \in \InitialDomain, \ t \geq 0$.
+    The boundary of the reference configuration and the current configuration are $\partial \InitialDomain$ and $\varphi(\partial \InitialDomain)$ respectively.
+    The time analysis is denoted by the interval $]0,T[$, being $T$ the final time.
+    
+ Let $\mathfrak{D}_{\rm{s}} =\{\mathbf{x}\vert\mathbf{x} \in\varphi \left( \InitialDomain,t\right), 0<t<T\}$ be the space-time domain where the problem is defined.   Taking into account the definitions described above, the boundary value problem for mixed solid dynamics written in an updated Lagrangian formulation framework, consists in finding a displacement field $\disp:\mathfrak{D}_{\rm{s}}\longrightarrow {\mathbb R}^d$ and a pressure $p:\mathfrak{D}_{\rm{s}}\longrightarrow {\mathbb R}$ such that:
+    \begin{align}
+        \rho \temp-\nabla \cdot \stress  &= \rho \boldsymbol{b} && \text{ in } \varphi \left( \InitialDomain,t \right), \; t\in]0,T[, \label{eq:momentum}\\
+        \dfrac{p}{\kappa}-(J-1) &=0 && \text{ in } \varphi \left( \InitialDomain, t\right), \; t\in]0,T[, \label{eq:mass}\\
+        \disp &=\bar{\disp} && \text{ on } \varphi \left( \partial \Omega_{\rm{D}},t \right), \; t\in]0,T[,\label{eq:DirichletBC}\\
+        \stress \cdot \boldsymbol{n} &= \t && \text{ on } \varphi \left( \partial \Omega_{\rm{N}},t \right), \; t\in]0,T[, \label{eq:NeumannBC}
+    \end{align}
+            %               \dfrac{p}{\kappa}-\dfrac{dG}{dJ} &=0 && \text{ in } \varphi \left( \InitialDomain \right), \; t\in]0,T[, \label{eq:mass}\\
+   In these equations, $\rho$ is the density of the current configuration, given by the relation $\rho=\displaystyle{\dfrac{\rho_0}{J}}$, where $\rho_0$ is the density of the initial configuration, $J$ is the determinant of the deformation gradient $\mathbf{F} = \dfrac{\partial \mathbf{x}}{\partial\mathbf{X}}$ and $\boldsymbol{b}$ represents the body force.
+   The Cauchy stress tensor $\stress$ can be decomposed into deviatoric and volumetric components $\stress=\stressdev+p\Identity$ where $p$ is the pressure and $\Identity$ the identity matrix. 
+   On the other side, $\kappa$ is the bulk modulus, defined as $\kappa=\displaystyle{\dfrac{E}{3(1-2{\nu})}}$
+   , where $E$ is  the Young's modulus and $\nu$ is the Poisson's ratio of the material.
+   % $G(J)$ is a volumetric function which will be explicitly defined later, and 
+   
+The problem is completed with the definition of proper Dirichlet (Eq. \ref{eq:DirichletBC}) and Neumann (Eq. \ref{eq:NeumannBC}),  boundary conditions being $\bar{\boldsymbol{u}}$, $\boldsymbol{n}$ and $\t$ the prescribed displacement, \LM{the outer normal and the normal Cauchy traction vector respectively}.
+ The governing equations must be supplied with the initial conditions of the form $\disp = \disp^{0}$ and $\boldsymbol{v} = \boldsymbol{v}^{0}$  in $\InitialDomain$ at $t=0$ for the displacement and velocities.
+   
+   Let us now define some notation useful \LM{for Section \ref{sec:StabilizedFormulation}, in which the stabilization is developed}. Calling  $\UnkVariables=[\disp,p]$, and $\mathfrak{F}=[\rho\boldsymbol{b},0]$ and defining,
+    \begin{equation}
+        \mathcal{L}(\UnkVariables):=\left(\begin{array}{c}
+        - \nabla  \cdot \left(\stress^{\text{dev}}+p\Identity\right)\\
+        \dfrac{p}{\kappa}- (J-1) \\
+        % \dfrac{dG}{dJ}
+        \end{array}\right)\label{eq:L_operator} \ \text{and} \quad
+        \mathcal{D}_t\left(\UnkVariables\right):=\left(\begin{array}{c}
+        \rho \temp\\
+        {0}
+        \end{array}\right)
+    \end{equation}
+   we may write \eqref{eq:momentum}-\eqref{eq:mass} as
+   \begin{equation}
+        \mathcal{D}_{t}\left(\boldsymbol{U}\right)+\mathcal{L}(\UnkVariables)=\mathfrak{F}. \label{eq:strong_form_operators}
+    \end{equation}
+ 
+    
+    
+   %------------------------------------------
+   %
+   % Hyperelasticity
+   %
+   %-------------------------------------------
+   \subsection{Hyperelasticity}
+   %(see \cite{Holzapfel,Belytschko,Bonet})
+   The isotropic hyperelastic models postulate the existence of a Helmholtz free-energy function (or strain energy function) $\Psi \left (\mathbf{C} \right )$  such that $\mathbf{S}=2\dfrac{\partial \Psi \left( \mathbf{C} \right)}{\partial \mathbf{C}},$ where $\mathbf{S}$ is the Second Piola-Kirchhoff (PK2) stress tensor, and $\mathbf{C}=\mathbf{F}^T\mathbf{F}$ is the right Cauchy-Green tensor. Once the PK2 stress tensor $\mathbf{S}$ is obtained, the Cauchy stress tensor $\stress$ can be computed from the relation $\stress = \dfrac{1}{J} \mathbf{F} \mathbf{S} \mathbf{F}^\mathrm{T}$.
+The definition of $\Psi \left (\mathbf{C} \right )$ will depend on the material law considered.
+Note that we can decouple the  strain energy function as $\Psi \left( \mathbf{C} \right) = \DevPsi(\bar{\mathbf{C}}) + \VolPsi(J)$ where $\bar{\mathbf{C}}=J^{-2/3}\mathbf{C}$ is the volume-preserving part of  $\mathbf{C}$. Therefore we can express the tensor $\mathbf{S}$ as:
+    \begin{equation}
+        \mathbf{S}:=2\dfrac{\partial \Psi }{\partial\mathbf{C}}=2\dfrac{\partial \DevPsi}{\partial\mathbf{C}}+2\dfrac{\partial \VolPsi}{\partial\mathbf{C}}=2\dfrac{\partial \DevPsi}{\partial\mathbf{C}}+\dfrac{d \VolPsi}{dJ} J \mathbf{C}^{-1} \label{eq:PK2-decomposition}
+    \end{equation}
+    So we can identify $\mathbf{S}^{\rm{dev}}=2\dfrac{\partial \DevPsi}{\partial\mathbf{C}}$ and $p=\dfrac{d \VolPsi}{dJ}$. In this work we have employed the Neo-Hookean model as the deviatoric model due to simplicity reasons. It is defined as $\DevPsi(\bar{\boldsymbol{I}}_1)=\dfrac{\mu}{2}\left(\bar{\boldsymbol{I}}_1 - 3\right)$
+where $\bar{\boldsymbol{I}}_1$ is the first principal invariant defined by $\bar{\boldsymbol{I}}_1=\rm{tr}\left(\bar{\mathbf{C}}\right)$, and $\mu$ is the shear modulus, defined as $\mu=\dfrac{E}{2(1+\nu)}$.
+On the other side, \LM{ the volumentric model considered is the quadratic one \cite{horgan2009volumetric} that is written as} $\VolPsi(J)=\dfrac{\kappa}{2} \left( J -1\right)^2$ and which implies that $ \quad \dfrac{d\VolPsi(J)}{dJ}=\kappa \left(J - 1 \right)$.
+Let us define some notation useful for next sections, in particular for the linearization section. \LM{We define $\mathbb{C}=2\dfrac{\partial \mathbf{S}}{\partial \mathbf{C}}$ as the material tangent constitutive tensor, and $\mathbbm{c}$ the spatial tangent constitutive tensor defined as $\mathbbm{c}=J^{-1} \mathbf{F} \mathbf{F} \mathbb{C} \mathbf{F}^{\rm{T}}  \mathbf{F}^{\rm{T}}$}.
+%Note that the equation \eqref{eq:mass} is directly obtained from this expression, where $\VolPsi(J)=\kappa G(J)$, and therefore $\dfrac{dG(J)}{dJ}=J-1.$
+   %------------------------------------------
+   %
+   % Incompressibility
+   %
+   %-------------------------------------------
+   \subsection{Incompressibility}
+In this work we consider the incompressibility of the material, a fact that is easily imposed in our equations. In particular, equation \eqref{eq:mass}  allows us to additionally simulate the incompressibility limit in the materials, as detailed in \cite{castanar2020stabilized}. Note that the incompressibility limit occurs when Poisson's ratio $\nu \rightarrow 0.5$ and then $\kappa \rightarrow \infty$. In that case the equation \eqref{eq:mass} implies directly that $$ J-1=0 \Leftrightarrow J=1.$$
+%\Leftrightarrow  \dfrac{dG}{dJ}=0
+
+   %------------------------------------------
+   %
+   % Variational formulation of the problem
+   %
+   %-------------------------------------------
+    \subsection{Variational formulation}
+    The variational formulation of the problem defined by the set of equations \eqref{eq:momentum}-\eqref{eq:NeumannBC} is obtained following the same procedure as for the classical FEM. Let us now introduce some new notation to properly set up the formulation.
+    
+\LM{Let $\DeformedDomain$ be the deformed domain where a problem needs to be solved. Given a set $\omega\subset \DeformedDomain$, $L^{2}(\omega)$ is the space of square integrable functions in $\omega$. The $L^{2}$ inner product in $\omega$ (for scalars, vectors and tensors) is denoted by $(\cdot,\cdot)_{\omega}$ and the integral over $\omega$ of the product of two general functions is written as $\langle\cdot,\cdot\rangle_{\omega}$.} 
+     
+    Note that the subscript will be omitted when $\omega=\DeformedDomain$. Regarding the definition of the spaces, we consider $\SpaceDisp$ and $\SpacePress$ the proper functional spaces where the displacement and pressure are well defined for each time $t \in \left(0,T\right)$.  We denote $\SpaceDisp_0$ the functions in $\SpaceDisp$ which vanish in the Dirichlet boundary $\varphi(\partial\Omega_D)$. Hence we take $\SpaceTotal:=\SpaceDisp\times\SpacePress$ and $\SpaceTotal_0:=\SpaceDisp_0\times\SpacePress$. 
+    \LM{The variational statement of the problem is derived by testing the equations \eqref{eq:momentum} and \eqref{eq:mass} against arbitrary tests functions, $\disptest \in \SpaceDisp_0$ and $q \in \SpacePress$ respectively.}
+    Therefore, the weak form of the problem consists in finding $\UnkVariables=[\disp,p]:]0,T[\longrightarrow\SpaceTotal$, such the initial conditions are satisfied, and for all $\TestFunctions=[\boldsymbol{w},q] \in \SpaceTotal_0$,
+    \begin{equation}
+        \left(\mathcal{D}_t\left(\UnkVariables\right),\TestFunctions \right)+ B\left(\UnkVariables,\TestFunctions\right)= \mathcal{F}\left(\TestFunctions\right)   \label{eq:variational_in_compact_form}
+    \end{equation}
+where:
+    \begin{align}
+        \left(\mathcal{D}_t\left(\UnkVariables\right),\TestFunctions \right) := & \left(\rho\dfrac{\partial^2\disp}{\partial t^2},\disptest\right)\\
+        B\left(\UnkVariables,\TestFunctions\right) := &\left(\mathcal{L}\left(\UnkVariables\right),\TestFunctions \right)= \left( \stress^{\rm{dev}}, \nabla^{\rm{s}} \disptest\right) + \left(  p \Identity, \nabla^{\rm{s}} \disptest\right) -\left( \dfrac{p}{k}, q\right) + \left(J-1, q\right) \label{eq:bilinear_form}\\
+        \mathcal{F}\left(\TestFunctions\right) := & \left\langle\mathfrak{F},\TestFunctions\right\rangle=\left\langle \rho \boldsymbol{b},\disptest \right\rangle + \left\langle \t,\disptest \right\rangle_{\varphi(\partial\Omega_{\rm{N}})},
+    \end{align}
+    where that $B\left(\UnkVariables,\TestFunctions\right)$ is a semilinear form defined on $\SpaceTotal\times\SpaceTotal_0$ and $\mathcal{F}$ is a linear form defined on $\SpaceTotal_0$.
+    
+   %------------------------------------------
+   %
+   % Linearization of the problem
+   %
+   %-------------------------------------------
+    \subsection{Linearization of the problem} \label{sec:linearization}
+The linearization of the problem employs a classical Newton-Raphson iterative procedure, commonly utilized for solving nonlinear problems.  In this case, the variational problem \eqref{eq:variational_in_compact_form} exhibits both, material and geometrical nonlinearities, and therefore this methodology is suitable. The operators $B$ and $\mathcal{D}_t$ can be linearized through a Taylor expansion truncated after the first derivative, which is evaluated at the last known equilibrium configuration $\hat{\UnkVariables}=[\hat{\disp},\hat{p}]$.  These approximations allows to compute the correction unknowns $\delta \UnkVariables=[\delta\disp,\delta p]$, where $\delta\disp \approx \boldsymbol{u} - \hat{\disp}$ and $\delta p \approx p - \hat{p}$.  In particular, for the operator $B\left(\UnkVariables,\TestFunctions\right)$ we have the next expression:
+    \begin{equation}
+        B\left(\UnkVariables,\TestFunctions\right) \approx B(\hat{\UnkVariables},\TestFunctions) + \DerB(\hat{\UnkVariables};\delta \UnkVariables, \TestFunctions)  + o(\delta \UnkVariables), \label{eq:lin_bilinear}
+    \end{equation}
+where the bilinear term $\DerB(\hat{\UnkVariables}; \delta \UnkVariables, \TestFunctions)$ is computed doing the directional derivative of $B$ at $\hat{\boldsymbol{u}}$ in the direction of   $\delta \disp$ and also the directional derivative of $B$ at $\hat{p}$ in the direction of $\delta p$. It results in this expression:
+    \begin{align*}
+        \DerB(\hat{\UnkVariables}; \delta \UnkVariables, \TestFunctions)=& \left( \nabla \delta \disp \cdot (\hat{\stress}^{\text{dev}}+\hat{p}\Identity), \nabla \disptest \right) + \left(  (\mathbbm{c}^{\text{dev}}+\hat{p}\left( \Identity \otimes \Identity -2\mathbb{I})\right):\nabla^{\rm{s}} \delta \disp, \nabla^{\rm{s}} \disptest \right) \nonumber\\
+        &+\left( \delta p ,\nabla \cdot \disptest \right) - \left( \dfrac{\delta p}{k}, q\right) + \left(\nabla \cdot \delta \disp, q\right),
+    \end{align*}
+where $\Identity$ is the identity matrix, $(\Identity \otimes \Identity)_{abcd}=\delta_{ab}\delta_{cd}$ and $\mathbb{I}_{abcd}=\delta_{ac}\delta_{bd}$ are fourth order tensors, being $\delta_{ab}$ the delta of Dirac. Note that now, this linear operator is defined in the space $\SpaceTotal_0\times\SpaceTotal_0$. For clarity, we have expressed $\hat{\stress}^{\text{dev}}=\stress^{\text{dev}}(\hat{\boldsymbol{u}})$ as the known stress computed at the last known equilibrium configuration, and  $\mathbbm{c}^{\text{dev}}$ is a four-order tensor which is the deviatoric part of the spatial tangent modulus, also known.  Analogously, for the dynamic term, we have: 
+% Finally, the function $\text{f}(\hat{\disp})$ can be explicitily obtained from $\dfrac{dG}{dJ}$.
+$$\mathcal{D}_t(\UnkVariables)=\mathcal{D}_t(\hat{\UnkVariables} + \delta \UnkVariables )\approx \mathcal{D}_t(\hat{\UnkVariables}) + \mathcal{D}_t\left(\delta \UnkVariables\right) + o(\delta \UnkVariables),$$ where $\mathcal{D}_t\left(\delta \UnkVariables\right)$
+must be discretized temporally following an implicit or an explicit temporal scheme.
+Considering the above, the fully linearized problem of \eqref{eq:variational_in_compact_form} can be expressed as follows: given  $\hat{\UnkVariables}$ as solution of the last equilibrium configuration, find the correction $\delta \UnkVariables=[\delta \disp, \delta p]:]0,T[\longrightarrow\SpaceTotal_0$ such that
+    \begin{equation}
+        \left(\mathcal{D}_t\left( \delta \UnkVariables \right),\TestFunctions \right )+ \DerB (\hat{\UnkVariables};\delta \UnkVariables,\TestFunctions) = \mathcal{F}\left(\TestFunctions\right)-(\mathcal{D}_t(\hat{\UnkVariables}),\TestFunctions ) -B(\hat{\UnkVariables},\TestFunctions)   \label{eq:variational_in_compact_form_linearized}
+    \end{equation}
+      for all $\TestFunctions \in \SpaceTotal_0$. Let us introduce the operator $\DerL$, useful \LM{in Section \ref{sec:StabilizedFormulation}}: 
+    \begin{align}
+        &\DerL(\hat{\UnkVariables};\delta\UnkVariables):=\nonumber\\
+        &\left(\begin{array}{c}
+        -\nabla \cdot (\nabla \delta \disp \cdot ( \hat{\stress}^{\text{dev}}+\hat{p}\Identity ))-\nabla \cdot \left( (\mathbbm{c}^{\text{dev}}+\hat{p}\left( \Identity \otimes \Identity -2\mathbb{I})\right):\nabla^{\rm{s}} \delta \disp\right) - \nabla \delta p \\
+         -\dfrac{\delta p}{\kappa}+\nabla \cdot \delta \disp
+        \end{array}\right).\label{eq:Lin_operator}
+    \end{align}
+    %\text{f}(\hat{\disp}) 
+This is obtained by integrating by parts the bilinear operator $\DerB(\hat{U};\delta \UnkVariables,\TestFunctions)=(\DerL(\hat{U};\delta \UnkVariables),\TestFunctions)$. Therefore the fully linearized problem can be expressed also as follows:
+   \begin{equation*}
+        (\mathcal{D}_t\left( \delta \UnkVariables \right)+ \DerL(\hat{\UnkVariables};\delta \UnkVariables),\TestFunctions) = (\mathfrak{F}-\mathcal{L}(\hat{\UnkVariables}) -\mathcal{D}_t(\hat{\UnkVariables}),\TestFunctions).
+    \end{equation*}
+    
+    
+%---------------------------------------------------
+%
+% Numerical approximation: the Material Point Method
+%
+%---------------------------------------------------
+    
+    \section{Numerical approximation: the Material Point Method} \label{sec:numerical-approximation}
+    %---------------------------------------------------
+	%
+	% The MPM scheme
+	%
+	%---------------------------------------------------
+    \subsection{The MPM scheme} \label{sec: MPM-scheme}
+    Let us now briefly present the Material Point Method (MPM), which is the framework in which this work is developed. The MPM is a particle-based method, which combines the use of a Lagrangian description (represented by material points) with a discretization of the computational domain (defined by an Eulerian grid). This feature allows tracking the deformation of the body and retrieving history-dependent material information at each time instant of the simulation. In this work, the classical interpolation procedure with linear shape functions and an implicit Newmark time integration scheme has been considered. The general algorithm is composed by three different phases \cite{sulsky1995application} which will be briefly described:
+    
+    \begin{enumerate}
+         \item The \textit{initialization phase}. In this stage, the connectivity is defined for the material points, and initial conditions are imposed on the nodes of the \textit{background mesh} through a projection of the material point information from the previous $t^j$ time step. 
+        \item The \textit{UL-FEM calculation phase}. The classical FEM problem is solved on the nodes of the \textit{background mesh} using and Updated Lagrangian approach. Remark that in the MPM the material points are chosen as integration points and their volumes as the corresponding weights.
+        \item The \textit{convective phase}. The nodal information at time $t^{n+1}$ is interpolated back to the material points, and the position of the material points is updated. Finally, the underformed FE grid is recovered.
+    \end{enumerate}
+
+ More details concerning the MPM algorithm can be found in \cite{iaconeta2019discrete,iaconeta2019stabilized}.
+
+	%-----------------------------------------
+	%
+	% Spatial MPM discretization
+	%
+	%-----------------------------------------
+    
+    \subsection{Spatial MPM discretization} \label{sec:spatial-discretization}
+
+    First, let us point out that the spatial discretization of the equations closely mirrors the conventional Galerkin approach employed in the Finite Element Method (FEM). However, significant distinctions exist: the Finite Element mesh precisely corresponds to the background mesh, while the material points serve as the integration points. Importantly, these material points may not inherently reside at optimal positions within each element, as expounded upon in the preceding section.
+  
+    Now, let us introduce some of notation. We denote $\mathcal{P}_h$ as the finite element partition of the domain, corresponding to the background mesh. The diameter of an element $K\in\mathcal{P}_h$ is denoted by $h_K$ and the diameter on the finite element partition by $h=\max\{h_K|K\in\mathcal{P}_h\}$. We can now construct conforming finite element spaces $\SpaceDisp_h \subset \SpaceDisp$,  $\SpacePress_h \subset \SpacePress$ for the displacement and pressure respectively, and $\SpaceTotal_h=\SpaceDisp_h \times \SpacePress_h$.  The space whose functions vanish on the Dirichlet boundary is $\SpaceDisp_{h,0} \subset \SpaceDisp_0$, and therefore $\SpaceTotal_{h,0}=\SpaceDisp_{h,0} \times \SpacePress_h$. The problem \eqref{eq:variational_in_compact_form} discretized can be written as follows: for a given $t^{n+1}$ and a fixed iteration, find $\delta \UnkVariables_h \in \SpaceTotal_{h,0}$ such that:
+     \begin{equation}
+        \left(\mathcal{D}_t\left( \delta \UnkVariables_h \right),\TestFunctions_h \right) + \DerB (\hat{\UnkVariables}_h;\delta \UnkVariables_h,\TestFunctions_h) = \mathcal{F}\left(\TestFunctions_h\right)-(\mathcal{D}_t(\hat{\UnkVariables}_h),\TestFunctions_h) -B(\hat{\UnkVariables}_h,\TestFunctions_h)     \label{eq:galerkin_in_compact_form}
+    \end{equation}
+     for all $\TestFunctions_h = [\boldsymbol{w}_h, q_h] \in \SpaceTotal_{h,0}$. Note that we consider the usual FE function $\boldsymbol{v}_h(x)=\sum^{n_g}_{I=1}N_I(x) \boldsymbol{v}_I$, where $N_I$ is the shape function for the node $I$, $\boldsymbol{v}_I$ is the function evaluated in the coordinates of the node $I$ and $n_g$ is the global number of nodes.     
+Now, as it was introduced previously, the particularities of the MPM must be highlighted. 
+First, in this method the mass density field has the expression $\rho(x)=\sum^{n_{\mp}}_{ \mp=1} m_{\mp}\delta(x-x_{\mp})$, where $\delta(\cdot)$ is the Dirac delta function and $m_{\mp}$ is the mass of the particle, $n_{\mp}$ is the total number of particles. Secondly, the volume integrals are evaluated as the sum of values of the integrand at each particle multiplied by the particle's volume $V_{\mp}$. \LM{This issue may introduce some quadrature errors, which have been analyzed and studied in some works \cite{steffen2008analysis}.}
+%In other words, the integral over a domain $\Omega$ can be expressed as follows: $$\int_{\Omega} f(x) =\sum^{n_{\mp}}_{\mp=1} f(x_{\mp})V_{\mp}, $$
+%      where $x_{\mp}$ are the coordinates of the material point $\mp$ and $n_{\mp}$ is the total number of particles. Note that $V_{\mp}= \dfrac{m_{\mp}}{\rho(x_{\mp})}$.
+Finally, the FE functions are evaluated on the particles.  
+
+
+	%-----------------------------------------
+	%
+	% Temporal discretization
+	%
+	%-----------------------------------------
+
+	\subsection{Temporal discretization}
+    The temporal scheme considered here is the implicit one. In the MPM framework is more usual to find explicit time integrations (see for example \cite{mast2012mitigating,li2014sloshing}) or  semi-implicit approaches (see \cite{zhang2017incompressible,li2022immersed}) as they are easy to implement, efficient and stable for short-duration dynamic problems. The main drawback is that extremely small time steps are required to obtain an accurate solution. \LM{But we have two additional reasons for using it: the first is that, for low strain rates, it is more efficient to use an implicit time integration scheme \cite{Vaucorbeil2020material25}. The second reason is that, in the presence of incompressibility constraints, standard explicit schemes become practically useless, as the time step approaches zero when the bulk modulus tends to infinity.}
+    Although there are other possibilities for the discretization in time, we will restrict ourselves to the Newmark-$\beta$ equations, \LM{as employed in other MPM works \cite{xie2023implicit}}.
+     Let us consider a partition of the interval $\left[0,T\right]$ into $N$ subintervals of constant size $\delta t$. Taking into account this time integrator formula, the updated acceleration $\boldsymbol{a}^{n+1}$ and velocity $\boldsymbol{v}^{n+1}$ are given by:
+     \begin{align*}
+         &\boldsymbol{a}^{n+1} \approx \dfrac{1}{\beta \delta t^2} \{\boldsymbol{u}^{n+1}-\boldsymbol{u}^n -\delta t\boldsymbol{v}^n-\dfrac{\delta t^2}{2}\left( 1-2\beta\right)\boldsymbol{a}^n \} \nonumber \\
+         &\boldsymbol{v}^{n+1} \approx \boldsymbol{v}^{n} + (1-\gamma)\delta t \boldsymbol{a}^n + \gamma\delta t\boldsymbol{a}^{n+1}
+     \end{align*}
+     where $\beta$ and $\gamma$ are parameters that can be vary, but when $\beta=\dfrac{1}{4}$ and $\gamma=\dfrac{1}{2}$, the method is implicit, unconditionally stable and second order accurate.
+
+     
+
+
+     \subsection{Algebraic system} \label{sec:algebraic}
+With the ideas presented in previous sections in mind, we can write the equation \eqref{eq:galerkin_in_compact_form} expressed in algebraic form as this equation system:
+     
+\begin{align}
+    M \rho \dfrac{\partial}{\partial^2 t} \delta \boldsymbol{u} + (K^G+K^M) \delta \boldsymbol{u} + B \delta p &= \boldsymbol{\rm{F}}^{u} \label{eq:algebraic_mom}\\
+     B^{*}\delta \boldsymbol{u} + \dfrac{1}{\kappa} M \delta p   & = \boldsymbol{\rm{F}}^{p} \label{eq:algebraic_cons}
+\end{align}
+
+where the matrices can be specified as:
+
+\begin{tabular}{ll}
+    $B_{IJ}=\displaystyle\sum^{n_{\mp}}_{\mp=1} V_{\mp}  N_I(x_{\mp}) \nabla N_J({x_{\mp})} $, \quad $B^*_{IJ}=\displaystyle\sum^{n_{\mp}}_{\mp=1} V_{\mp}  N_I(x_{\mp}) \nabla  N_J (x_{\mp})$, \\ 
+    $M_{IJ}=\displaystyle\sum^{n_{\mp}}_{\mp=1} V_{\mp} N_I(x_{\mp}) N_J(x_{\mp})$, \\ 
+    $K^G_{IJ}=\displaystyle \sum^{n_{\mp}}_{p=1}  V_{\mp} \nabla N_I ({x_{\mp}}) 
+          (\hat{\stress}^{\text{dev}}+\hat{p}\Identity) (x_{\mp}) \nabla N_J (x_{\mp})$,
+    \\
+    $K^M_{IJ}= \displaystyle\sum^{n_{\mp}}_{\mp=1}  V_{\mp} \nabla  N_I (x_{\mp}) (\mathbbm{c}^{\text{dev}}+\hat{p}\left( \Identity \otimes \Identity -2\mathbb{I})\right)(x_{\mp}) \nabla N_J (x_{\mp})$,  
+    \\ 
+    $\boldsymbol{\rm{F}}^u_{I}=\displaystyle\sum^{n_{\mp}}_{\mp=1} V_{\mp} (\hat{\stress}^{\text{dev}}+\hat{p}\Identity)(x_{\mp}) \nabla N_I(x_{\mp}) + \sum^{n_{\mp}}_{\mp=1} V_{\mp} \rho (\boldsymbol{b} +\boldsymbol{a})  N_I (x_{\mp})$ , 
+    \\ 
+    $\boldsymbol{\rm{F}}^p_{J}=\displaystyle\sum^{n_{\mp}}_{\mp=1} V_{\mp} \left(\dfrac{\hat{p}}{\kappa} -(J-1)\right) (x_{\mp}) \nabla N_I(x_{\mp})$ ,
+    \\ 
+\end{tabular}\\
+where $K^G$ is the geometric stiffness matrix, $K^M$ the material stiffness matrix. Note that in the set of equations \eqref{eq:algebraic_mom} - \eqref{eq:algebraic_cons}, $\delta \boldsymbol{u}$ and $\delta p$ represents the global nodal solution. In the local system, $\delta \boldsymbol{u}_J$, $\delta p_J$ are the nodal unknowns.  Therefore, the global system can be written as follows:
+\begin{gather}
+    \begin{bmatrix}
+        A_{11} & A_{12}\\
+        A_{21}  & A_{22} 
+    \end{bmatrix}
+    \begin{bmatrix}
+        \delta \boldsymbol{u}\\  \delta p
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \boldsymbol{\rm{F}}^u\\ \boldsymbol{\rm{F}}^p
+    \end{bmatrix}
+    \label{eq:Algebraic-MPM}
+\end{gather}
+where $A_{11}=\rho M\dfrac{\partial}{\partial^2 t}  + K^G + K ^M$,  $A_{12}=B $,   $A_{21}=B ^*$ and $A_{22}= \dfrac{1}{\kappa}M$.  We need to remark two aspects: the first one is that the main matrix associated to the problem is not symmetric in general \LM{(the equality $B = B^*$ is not necessarily satisfied in case of choosing other volumetric model to describe hyperelasticity as it is pointed out in \cite{castanar2020stabilized}, for example Simo-Taylor model \cite{simo1985variational})}. The second one is that the block $A_{22}$ would be exactly a null matrix in the fully incompressible problem. In the subsequent sections, the consequences of this null-matrix will be explained.
+
+
+%-----------------------------------------
+%
+% Stabilized MPM formulation
+%
+%-----------------------------------------
+
+\section{Stabilized MPM formulation for incompressible materials}\label{sec:StabilizedFormulation}
+
+First of all, let us underline the necessity of stabilizing the MPM formulation delineated previously for incompressible materials. The constitutive equation presented, complements the momentum equation thanks to the deviatoric/volumetric decomposition of the deformation energy function \cite{sansour2008physical}. It has the advantage of adequately imposing the incompressibility constraint on hyperelastic materials in a natural way. However, the resulting system is unstable, presenting a saddle-point structure, and violating the inf-sup condition by choosing interpolations of equal order (see system \eqref{eq:Algebraic-MPM}, where the $A_{22}$ block would be a zero matrix). Note that in the case of compressible materials the problem is well defined, and no stabilization techniques are needed. \LM{It is important to note that, since MPM is based on the classical FEM framework for solving the problem at each time step, the VMS approach allows for equal-order interpolations, just as in FEM.}
+     
+     This section presents two different formulations to stabilise the problem, both based on the Variational Multi-Scales (VMS) method, (extensively described in \cite{hughes1998variational}), and developed for an incompressible solid mechanics in the FEM framework by \cite{castanar2020stabilized}. This type of stabilizations have good advantages compared to other methods in terms of robustness and accuracy \cite{codina2008analysis,cervera2003mixed}.
+     \LM{Although non-residual approaches have proven effective \cite{castillo2014,moreno2019logarithmic}, the two stabilization methods we will describe in this work are both residual-based, which represents the classical approach in VMS. The study of non-residual VMS stabilizations for MPM could be an interesting line of research}.\\
+     Let us briefly describe the main idea of the VMS methods. It consists in splitting the solution of the continuous problem $\boldsymbol{U}$ into two parts: the $\boldsymbol{U}_h$ component that can be solved by the FE space, and the remainder $\tilde{\boldsymbol{U}}$, which will be called the grid subscale. Note that the final number of degrees of freedom is the same as that of the Galerkin method.  The idea is to replace the bilinear form, in the above expression $\DerB$, by another one to improve the stability properties.\\ 
+ 	We apply these ideas to our formulation. Let $\SpaceTotal=\SpaceTotal_h \oplus \tilde{\SpaceTotal}$, where $\tilde{\SpaceTotal}$ is the space which complete $\SpaceTotal_h$ in the continuous space $\SpaceTotal$.
+    The VMS method leads to find $\delta \UnkVariables_h \in \SpaceTotal_{h,0}$ and $\tilde{\UnkVariables} \in \tilde{\SpaceTotal}$, where the space $\tilde{\SpaceTotal}$ will be approximated by a finite-dimensional space. The elements of this space are denoted by $\tilde{\UnkVariables}\equiv\left[\tilde{\disp},\tilde{p} \right]$ and they are called subgrid scales.  \LM{Note that, for simplicity, we will treat the subscales as quasi-static. However, incorporating dynamic subscales could provide benefits, especially when dealing with small time steps relative to the mesh size \cite{castillo2019dynamic,moreno2020solution}.} We can, therefore, write the linearized problem as
+    \begin{align}
+        \left(\mathcal{D}_t\left( \delta \UnkVariables_h \right),\TestFunctions_h \right) + \DerB (\hat{\UnkVariables}_h;\delta \UnkVariables_h,\TestFunctions_h) &+ \sum_K \langle \tilde{\UnkVariables}, \mathcal{L}^*(\hat{\UnkVariables}_h;\boldsymbol{V}_h)\rangle_K \\ \nonumber
+        &= \mathcal{F}\left(\TestFunctions_h\right) -(\mathcal{D}_t(\hat{\UnkVariables}_h),\TestFunctions_h) -B(\hat{\UnkVariables}_h,\TestFunctions_h),  \label{eq:stabilized_in_compact_form}
+    \end{align}
+    where the operator $ \mathcal{L}^*$ is the formal adjoint of the linearized operator $\DerL$ defined in \eqref{eq:Lin_operator} and $\tilde{\UnkVariables}$ is the sub-grid scale, which needs to be approximated, without considering boundary conditions. As it was mentioned previously,  we will consider the sub-scales to be quasi-static, therefore we have assumed that $\dfrac{\partial^2 \tilde{\disp}}{\partial t^2} \approx \boldsymbol{0}$. The methodology is classical, therefore we do not explain all the details and only the main definitions are described here (for more details, see for example \cite{castanar2020stabilized}).
+    In our work, the adjoint operator considered is:
+    \begin{align}
+        &\mathcal{L}^*(\hat{\UnkVariables};\TestFunctions):=
+        \left(\begin{array}{c}
+         -\nabla \cdot (\nabla \disptest \cdot( \hat{\stress}^{\text{dev}}+\hat{p}\Identity ))-\nabla \cdot (\nabla^{\rm{s}} \disptest: (\mathbbm{c}^{\text{dev}}+\hat{p}\left( \Identity \otimes \Identity -2\mathbb{I}))\right) + \nabla q
+         \\
+        - \dfrac{q}{\kappa} + \nabla \cdot \disptest 
+        \end{array}\right)% \label{eq:Adjoint_operator_linearized}
+        %\text{f}(\hat{\disp})
+    \end{align}
+which is obtained integrating by parts the linearized main operator of the problem:  
+$\DerB(\hat{\UnkVariables}; \tilde{\UnkVariables},\TestFunctions_h) =  (\DerL(\hat{\UnkVariables};\tilde{\UnkVariables}),\TestFunctions_h)=(\mathcal{L}^*(\hat{\UnkVariables},\TestFunctions_h),\tilde{\UnkVariables}).$  Taking  $\tilde{P}$ the $L^2$ projection onto the space of subscales \LM{(the projections considered will be detailed later)}, the approximation we consider for the sub-grid scales within each element is $ \tilde{\UnkVariables} \approx \boldsymbol{\tau}_K\tilde{P}\left[ \mathcal{R}_h\right] $ where $\mathcal{R}_h$ is the residual of the problem, defined as 
+    \begin{align*}
+        \mathcal{R}_h&=\mathfrak{F}-\D_t(\hat{\UnkVariables}_h)-\L(\hat{\UnkVariables}_h)-\D_t\left(\delta\UnkVariables_h\right)-\DerL(\hat{\UnkVariables}_h;\delta\UnkVariables_h).
+    \end{align*}
+    On the other hand, $\boldsymbol{\tau}_K$ is a diagonal matrix that depends on $K$ and the main operator of the problem (in this case $\mathcal{L}_{\text{lin}}$).  
+    This matrix is defined as $\boldsymbol{\tau}_K=\text{diag}(\tau_1 \Identity_d ,\tau_2)$, called the stabilization parameter matrix, which is a diagonal matrix. 
+    The stabilization parameters $\tau_1$ and $\tau_2$ are obtained explicitly from the study of the behaviour from a Fourier analysis, as is done in \cite{codina2002stabilized} for a transient incompressible flow. In this work we have chosen the stabilization parameters considered for the linear elastic case, as in \cite{cervera2010mixeda}:
+        \begin{align}
+            \tau_1=c_1\dfrac{h_K^2}{2\mu}\ \text{and}\  \tau_2=2c_2\mu, \label{eq:stab_parameters}
+        \end{align}
+    where $\mu$ is the shear modulus defined by the material properties and $h_K$ corresponds to the characteristic element length calculated in the two-dimensional case as the square root of a element area, and in three-dimensional case as the cubic root of the element volume. Note that $\boldsymbol{\tau}_K$ is computed in each element. Moreover, $c_1$ and $c_2$ are algorithmic parameters that need to be determined. \LM{In this work, we set $c_1=c_2=1$ following the approach used and validated through numerical testing in \cite{cervera2003mixed}.} With these ideas in mind, we can formulate the following problem \eqref{eq:stabilized_in_compact_form}: find $\delta \UnkVariables_h\in\SpaceTotal_h$ such that
+    \begin{align}
+        \left(\mathcal{D}_t\left( \delta \UnkVariables_h \right),\TestFunctions_h \right) &+ \DerB (\hat{\UnkVariables}_h;\delta \UnkVariables_h,\TestFunctions_h) +  S(\hat{\UnkVariables}_h;\delta \UnkVariables_h),\boldsymbol{V}_h) \nonumber \\ 
+        &= \mathcal{F}\left(\TestFunctions_h\right)  -(\mathcal{D}_t(\hat{\UnkVariables}_h),\TestFunctions_h) -B(\hat{\UnkVariables}_h,\TestFunctions_h)  + R(\hat{\UnkVariables}_h;\boldsymbol{V}_h) \label{eq:stabilized_in_compact_form2}
+    \end{align}
+where
+\begin{align*}
+    S(\hat{\UnkVariables}_h;\delta \UnkVariables_h,\boldsymbol{V}_h) &= \sum_K \boldsymbol{\tau}_K\langle\tilde{P}[
+    -\D_t\left(\delta\UnkVariables_h\right)-\DerL(\hat{\UnkVariables}_h;\delta\UnkVariables_h) 
+    ], \mathcal{L}^*(\hat{\UnkVariables};\boldsymbol{V}_h)\rangle_K\\ R(\hat{\UnkVariables}_h;\boldsymbol{V}_h) &= - \sum_K \boldsymbol{\tau}_K\langle\tilde{P}[\mathfrak{F}-\D_t(\hat{\UnkVariables}_h)-\L(\hat{\UnkVariables}_h) ], \mathcal{L}^*(\hat{\UnkVariables}; \boldsymbol{V}_h)\rangle_K
+\end{align*}
+   for all $\TestFunctions_h \in \SpaceTotal_h$. Note that the operator $S(\hat{\UnkVariables}_h;\delta \UnkVariables_h,\boldsymbol{V}_h)$ corresponds to the stabilization terms located in the left-hand-side (LHS) of the equation, while the $R(\hat{\UnkVariables}_h;\boldsymbol{V}_h)$ are the located at the right-hand-side of the equation (RHS). 
+   In these equations, $\tilde{P}$ is the projection restricted to the appropriate components of the FE residual onto the space of sub-grid scales. 
+   For defining this projection we consider two possibilities. If we consider $\tilde{P}=\Identity$, the the method is called Algebraic Sub-Grid Scales (ASGS). Otherwise, in case of $\tilde{P}=P^{\bot}_h = \Identity-P_h$, the method is named Orthogonal Sub-Grid Scales (OSGS), where $P_h$ is the $L^2$ projection onto the appropriate finite element space.  Note that independently of the choice of the projection $\tilde{P}$, the method is consistent.  
+   
+   Now we can write explicitly the stabilization terms, naming $S_1$, $S_2$ as $S = S_1 + S_2$ and $R_1$, $R_2$  as $R = R_1 + R_2$ with the subindex 1 indicates the terms associated to the momentum equation and the subindex 2 the related to the constitutive equation. In this work, linear elements have been considered, so some simplifications can be considered, such as neglecting the second order terms. This results in the definition of the operators as follows:
+    \begin{align*}
+        S_1(\hat{\UnkVariables}_h;\delta \UnkVariables_h,\TestFunctions_h)&=
+        \sum_K\tau_1\left\langle \tilde{P}\left[-\rho \dfrac{\partial^2 \delta \disp_h }{\partial t^2}+ \left(\nabla \delta \disp_h \cdot \nabla  \hat{p}_h \right)\right.+ \left(\nabla \hat{p}_h\left( \Identity \otimes \Identity -2\mathbb{I}\right):\nabla^{\rm{s}} \delta \disp_h \right) + \nabla \delta p_h \right],\nonumber\\
+        & \qquad -\left(\nabla \disptest_h \cdot \nabla   \hat{p}_h \right)- \nabla q_h - \left(\nabla^{\rm{s}} \disptest_h: \nabla  \hat{p}_h\left( \Identity \otimes \Identity -2\mathbb{I}\right)\right) \biggr>_K\\
+        S_2(\hat{\UnkVariables}_h;\delta \UnkVariables_h,\TestFunctions_h)&=\sum_K\tau_2\left\langle\tilde{P}\left[\dfrac{\delta p_h}{\kappa}- \nabla \cdot \delta \disp_h\right], \nabla \cdot \disptest_h - \dfrac{q_h}{\kappa}  \right\rangle_K\\
+        R_1(\hat{\UnkVariables}_h;\TestFunctions_h)&=\sum_K\tau_1\left\langle \tilde{P}\left[-\rho\boldsymbol{b}_h- \rho\a_h-\nabla \hat{p}_h\right]
+        ,\right. \nonumber\\
+        & \qquad  -\left(\nabla \disptest_h \cdot \nabla  \hat{p}_h \right)- \nabla q_h - \left(\nabla^{\rm{s}} \disptest_h: \nabla \hat{p}_h\left( \Identity \otimes \Identity -2\mathbb{I}\right)\right) \Bigr>_K\\
+        R_2(\hat{\UnkVariables}_h;\TestFunctions_h )&=\sum_K\tau_2\left\langle\tilde{P}\left[-\dfrac{\hat{p}_h}{\kappa}+(J-1) \right], \nabla \cdot \disptest_h - \dfrac{q_h}{\kappa}  \right\rangle_K.
+    \end{align*}
+
+Remind that $\a$ is the acceleration that is known for a previous time step and $\hat{\UnkVariables}_h$ is the solution at the previous equilibrium configuration. \LM{Therefore, the stabilized problem can also be expressed as an algebraic system:}
+
+\begin{align}
+    M \rho \dfrac{\partial}{\partial^2 t} \delta \boldsymbol{u} + (K^G+K^M) \delta \boldsymbol{u} + B \delta p + \tau_1 (B^G+B^M) \rho \dfrac{\partial}{\partial^2 t}\delta \boldsymbol{u}  &\\ 
+    \nonumber +\tau_1 (K^{GG}+K^{GM}+K^{MG}+K^{MM})\delta \boldsymbol{u}  + \tau_2 K \delta \boldsymbol{u}   &\\
+    \nonumber - \tau_1(K^{G'}+K^{M'}) \delta p + \tau_2 B \delta p &= \boldsymbol{\rm{F}}^{u}+ \boldsymbol{\rm{F}}^{s,u} \\
+     B^{*}\delta \boldsymbol{u} + \dfrac{1}{\kappa} M \delta p + \tau_1 B \rho \dfrac{\partial}{\partial^2 t} \delta \boldsymbol{u} + \tau_1 (B^G - B^M) \delta \boldsymbol{u} &\\
+     \nonumber + \dfrac{\tau_2}{\kappa}B' \delta \boldsymbol{u} - \tau_1 K \delta p - \dfrac{\tau_2}{\kappa} M \delta p & = \boldsymbol{\rm{F}}^{p}+\boldsymbol{\rm{F}}^{s,p}
+\end{align}
+\LM{where the matrices $M, K^G, K^M, B, B^*$ were specified in the section \ref{sec:algebraic}, and the remainder can be written as follows:}
+
+\begin{tabular}{ll}
+    $B^G_{IJ}=\displaystyle\sum^{n_{\mp}}_{\mp=1} V_{\mp}  \nabla N_I({x_{\mp}) \nabla \hat{p}_h(x_{\mp})} N_J(x_{\mp})  $,\\
+    $B^M_{IJ}=\displaystyle\sum^{n_{\mp}}_{\mp=1} V_{\mp}  \nabla N_I(x_{\mp}) (\nabla\hat{p}_h\left( \Identity \otimes \Identity -2\mathbb{I}\right) )(x_{\mp}) N_J(x_{\mp})  $, \\ 
+    $K^{GG}_{IJ}=\displaystyle \sum^{n_{\mp}}_{p=1}  - V_{\mp} \nabla N_I ({x_{\mp}}) \hat{p}_h(x_{\mp})  \nabla N_J (x_{\mp}) \hat{p}_h(x_{\mp})$,\\
+    $K^{GM}_{IJ}=\displaystyle \sum^{n_{\mp}}_{p=1}  - V_{\mp}  \nabla N_I (x_{\mp}) (\nabla\hat{p}_h\left( \Identity \otimes \Identity -2\mathbb{I}\right))(x_{\mp}) \nabla N_J ({x_{\mp}}) \hat{p}_h(x_{\mp}) $,
+    \\
+     $K^{MM}_{IJ}=\displaystyle \sum^{n_{\mp}}_{p=1}  - V_{\mp} \nabla N_I (x_{\mp}) (\nabla\hat{p}_h\left( \Identity \otimes \Identity -2\mathbb{I}\right) )(x_{\mp}) (\nabla\hat{p}_h\left( \Identity \otimes \Identity -2\mathbb{I}\right) )(x_{\mp}) \nabla N_J ({x_{\mp}})   $,
+     \\
+      $K^{MG}_{IJ}=\displaystyle \sum^{n_{\mp}}_{p=1}  - V_{\mp}  \nabla N_I (x_{\mp}) \hat{p}_h(x_{\mp}) (\nabla\hat{p}_h\left( \Identity \otimes \Identity -2\mathbb{I}\right) ) \nabla N_J ({x_{\mp}})   $,
+      \\
+    $K^{G'}_{IJ}= \displaystyle\sum^{n_{\mp}}_{\mp=1}  V_{\mp} \nabla  N_I (x_{\mp}) \hat{p}_h(x_{\mp}) \nabla N_J (x_{\mp})$,  
+        \\
+    $K^{M'}_{IJ}= \displaystyle\sum^{n_{\mp}}_{\mp=1}  V_{\mp} \nabla  N_I (x_{\mp}) (\nabla\hat{p}_h\left( \Identity \otimes \Identity -2\mathbb{I}\right) )(x_{\mp})\nabla N_J (x_{\mp})$,  
+    \\ 
+    $B'=\displaystyle\sum^{n_{\mp}}_{\mp=1}  V_{\mp}   N_I (x_{\mp}) \nabla N_J (x_{\mp})$, \ $K = \displaystyle\sum^{n_{\mp}}_{\mp=1}  V_{\mp} \nabla  N_I (x_{\mp}) \nabla  N_J (x_{\mp})$
+    \\
+    $\boldsymbol{\rm{F}}^{s,u}_{I}=\tau_1 \displaystyle\sum^{n_{\mp}}_{\mp=1}   \rho V_{\mp}  (\boldsymbol{b} +\boldsymbol{a} +\nabla \hat{p}_h)(x_{\mp})  (-\nabla N_I (x_{\mp}) \nabla \hat{p}_h(x_{\mp}))$ + \\
+    $ \quad + \tau_1 \displaystyle\sum^{n_{\mp}}_{\mp=1}   \rho V_{\mp}  (\boldsymbol{b} +\boldsymbol{a} +\nabla \hat{p}_h)(x_{\mp}) \nabla N_I(x_{\mp}) (\nabla\hat{p}_h\left( \Identity \otimes \Identity -2\mathbb{I}\right) )(x_{\mp}) $\\
+    $\quad + \tau_2 \displaystyle\sum^{n_{\mp}}_{\mp=1} V_{\mp} \left(-\dfrac{\hat{p}}{\kappa} +(J-1)\right) (x_{\mp}) \nabla N_I(x_{\mp})$ , 
+    \\ 
+    $\boldsymbol{\rm{F}}^{s,p}_{I}=\displaystyle
+    \tau_1 \sum^{n_{\mp}}_{\mp=1} \rho V_{\mp}  (\boldsymbol{b} +\boldsymbol{a} +\nabla \hat{p}_h)(x_{\mp}) \nabla N_I(x_{\mp})$\\ 
+    $\quad + \tau_2
+    \sum^{n_{\mp}}_{\mp=1} V_{\mp} \left(\dfrac{\hat{p}}{\kappa} -(J-1)\right) (x_{\mp}) N_I(x_{\mp})$.
+    \\ 
+\end{tabular}\\
+
+\noindent{} \LM{Note that for simplicity in the notation, only we have detailed the ASGS case (considering $\tilde{P}=\Identity$). For the OSGS case, we only need to add residual projections terms to the right hand side vectors $\boldsymbol{\rm{F}}^{s,p}$ and  $\boldsymbol{\rm{F}}^{s,u}$.
+As we have shown in the previous section, again, the global stabilized system can be expressed as:}
+\begin{gather}
+    \begin{bmatrix}
+        A_{s,11}  & A_{s,12}\\
+        A_{s,21}  & A_{s,22}
+    \end{bmatrix}
+    \begin{bmatrix}
+        \delta \boldsymbol{u}\\  \delta p
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \boldsymbol{\rm{F}}_{s,u}\\ \boldsymbol{\rm{F}}_{s,p}
+    \end{bmatrix}
+    \label{eq:Algebraic-Stabilized-MPM3}
+\end{gather}
+\LM{where the subscript $s$ indicates the matrices including the contributions of the stabilization terms. }
+\LM{Where $A_{s,..} = A_{..} + A^{s}_{..}$ and $ \boldsymbol{\rm{F}}_{s,.}=\boldsymbol{\rm{F}}^{.} + \boldsymbol{\rm{F}}^{s,.}$  being $A_{..}$ and $\boldsymbol{\rm{F}}^{.}$ the contribution that come from the Galerkin procedure (see \eqref{eq:Algebraic-MPM}) and $A^{s}_{..}$ and $\boldsymbol{\rm{F}}^{s,.}$ those deriving by the stabilization matrix given}
+
+\begin{tabular}{ll}
+$A^s_{11}= \tau_1 (\rho \dfrac{\delta^2}{\delta t} (B^G+B^M) + (K^{GG}+K^{GM}+K^{MG}+K^{MM})) + \tau_2 K$, \\
+$A^s_{12}=-\tau_1 (K^{G'}+K^{M'}) + \tau_2 B$,\\
+$A^s_{21}=-\tau_1 (\rho \dfrac{\delta^2}{\delta t}B + B^G - B^M) + \tau_2 \dfrac{1}{\kappa} B'$,\\
+$A^s_{22}=-\tau_1 K - \tau_2 \dfrac{1}{\kappa} M$.
+\end{tabular}
+
+
+\noindent{} \LM{Therefore, we can rewrite the system as}
+\begin{gather}
+    \begin{bmatrix}
+        A_{11}+A^s_{11}  & A_{12}+A^s_{12}\\
+        A_{21}+A^s_{21}  & A_{22}+A^s_{22}
+    \end{bmatrix}
+    \begin{bmatrix}
+        \delta \boldsymbol{u}\\  \delta p
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+        \boldsymbol{\rm{F}}^{u} + \boldsymbol{\rm{F}}^{s,u}\\ \boldsymbol{\rm{F}}^{p} +\boldsymbol{\rm{F}}^{s,p}.
+    \end{bmatrix}
+    \label{eq:Algebraic-Stabilized-MPM2}
+\end{gather}
+
+\noindent Comparing the expression \eqref{eq:Algebraic-Stabilized-MPM3} with the algebraic structure that comes from the Galerkin approach  \eqref{eq:Algebraic-MPM}, we can observe that now, the block $A_{s,22}\neq \boldsymbol{0}$ in both cases. \LM{We can observe that we have the presence of the the stiffness matrix $K$ multiplied by $\tau_1$}, that is different to zero even in fully incompressible cases (in which $\kappa \rightarrow \infty$).
+
+
+
+
+%-----------------------------------------
+%
+% Algoritm and linearization
+%
+%-----------------------------------------
+  
+ \section{Algorithm and linearization} \label{sec:Algorithm}
+ 
+This section presents the algorithm employed in this work, as well as some important observations about the linearization process. The main MPM scheme is shown in the Algorithm \ref{alg:GeneralAlgorithm}, already described from a general perspective in Section \ref{sec: MPM-scheme}. 
+   
+   \begin{algorithm}[h!]
+  \footnotesize
+    \caption{General algorithm for the mixed MPM using VMS. \label{alg:GeneralAlgorithm}}
+    \label{euclid}
+    \begin{algorithmic}[1] % The number tells where the line numbering should start
+     \State \textbf{read} initial condition $\boldsymbol{u}_{\mp}^0$
+     \State \textbf{set} $p_{\mp}^0=0$, $P^0_u=\boldsymbol{0}$, $P^0_p=0$
+    \For{$j=0,1...,m-1$} \textit{(Temporal loop)}
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        % 1. Initialization phase
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \State \Comment{1. Initialization phase}
+        %\State Initial data located on the material points: $m_{\mp}$, $\boldsymbol{u}^j_{\mp}$, $p^j_{\mp}$... 
+        %\State \textbf{calculation} of initial nodal conditions.
+        \State \textbf{clear} nodal info and recover undeformed background mesh.
+        \State \textbf{mapping} of nodal data projecting the solution from the previous time step:
+            % %\State \hspace{\algorithmicindent} \textbf{for}{\ $p=1:N_{\mp}$}
+            % \State \hspace{\algorithmicindent} $\boldsymbol{q}^j_I=\sum_{p} N_I m_{\mp} \boldsymbol{v}^j_{\mp}, \quad  \boldsymbol{f}^j_I=\sum_{p} N_I m_{\mp} \boldsymbol{a}^j_{\mp}$
+            % \State \hspace{\algorithmicindent} $l^j_I=\sum_{p} N_I m_{\mp} p^j_{\mp}, \quad  m_I=\sum_{p} N_I m_{\mp}$
+            % %\State \hspace{\algorithmicindent} \textbf{end for}
+            
+            % %\State \hspace{\algorithmicindent} \textbf{for}{\ $I=1:N_I$}
+            % \State \hspace{\algorithmicindent}   $ \Rightarrow \boldsymbol{v}^j_I=\dfrac{\boldsymbol{q}^j_I}{m_I}, \quad \boldsymbol{a}^j_I=\dfrac{\boldsymbol{f}^j_I}{m_I}, \quad p^j_I=\dfrac{l^j_I}{m_I},$
+
+            \State \hspace{\algorithmicindent}   $ \Rightarrow \boldsymbol{u}^j_I=\dfrac{\sum^{n_{\mp}}_{\mp=1} N_I(x_{\mp}) m_{\mp} \boldsymbol{u}^j_{\mp}}{m_I}, \quad p^j_I=\dfrac{\sum^{n_{\mp}}_{\mp=1} N_I(x_{\mp}) m_{\mp} p^j_{\mp}}{m_I},$
+            \State \hspace{\algorithmicindent}  where $m_I=\sum^{n_{\mp}}_{\mp=1} N_I(x_{\mp}) m_{\mp}$. Analogously for $\boldsymbol{v}^j_I$ and $\boldsymbol{a}^j_I$.
+            
+         \If{$\tilde{P}=P^{\perp}_h$} (OSGS)
+        \State \textbf{mapping} residual projections $P_u$ and $P_p$ from nodal values. 
+        \EndIf
+            \State \textbf{set} FE functions $\boldsymbol{u}^{j}_h$, $p^{j}_h$ from nodal values $\boldsymbol{u}^{j}_I$, $p^{j}_I$.
+            %\State \hspace{\algorithmicindent} \textbf{end for}
+        
+        \State \textbf{predictor} of Newmark method: 
+        \State \hspace{\algorithmicindent} $\delta \boldsymbol{u}^{j+1}_h=0$, $p^{j+1}_h=p^{j}_h$. 
+        \State \hspace{\algorithmicindent} computing prediction also for $\boldsymbol{v}^{j+1}_h$ and $\boldsymbol{a}^{j+1}_h$.
+        % by using $\delta \boldsymbol{u}_I=0$ and $p_I=\tilde{p_I}$.
+        %\State \textbf{define} connectivity for each material point 
+        \State \Comment{2. UL-FEM calculation phase}
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        % 2. UL-FEM calculation phase
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \State \textbf{set} $k=0$ 
+        \State \textbf{set} $\delta \boldsymbol{u}^{j+1,0}_h=\delta \boldsymbol{u}^{j+1}_h$,  $p^{j+1,0}_h=p^{j+1}_h$
+        \If{$\tilde{P}=P^{\perp}_h$} (OSGS)
+        \State \textbf{set} $P^{j+1,0}_u=P^{j+1}_u$ and $P^{j+1,0}_p=P^{j+1}_p$. 
+        \EndIf
+       %  \algstore{some_name}
+          %   \end{algorithmic}
+%\end{algorithm}
+
+
+%\begin{algorithm}
+%\begin{algorithmic}
+     %  \algrestore{some_name} 
+        \While{not converged}
+            \State $k\leftarrow k+1$
+            \State \textbf{compute} stabilization parameters: $\tau_1^{j+1,k}$ and $\tau_2^{j+1,k}$ 
+            %with $\boldsymbol{u}^{j+1,i-1}$ and $p^{j+1,i-1}$
+            \State \textbf{evaluation} of local residual (RHS) and Jacobian matrix (LHS).
+            \State \textbf{assemble} RHS and LHS to globals.
+            \State \textbf{solve} the general equations \eqref{eq:stabilized_in_compact_form2} for $\delta \textbf{u}_h^{j+1,k}$ and $\delta p_h^{j+1,k}$.
+            \State \textbf{corrector} of Newmark method: 
+            \State \hspace{\algorithmicindent}
+            $\delta \boldsymbol{u}_h^{j+1,k}+=\delta \boldsymbol{u}_h^{j+1,k-1}$
+            %$\delta \boldsymbol{u}_h^{j+1,k}=\delta \boldsymbol{u}_h^{j+1,k-1} + \delta \boldsymbol{u}_h^{j+1,k}$
+            \State \hspace{\algorithmicindent} $p_h^{j+1,k} \ \ += p_h^{j+1,k-1}$. 
+            %$p_h^{j+1,k} = \delta p_h^{j+1,k} + p_h^{j+1,k-1}$. 
+            \State computing correction for $\boldsymbol{v}^{j+1}_h$ and $\boldsymbol{a}^{j+1}_h$.
+            \State \textbf{check} convergence
+             \If{$\tilde{P}=P^{\perp}_h$} (OSGS)
+                \State \textbf{compute} projections
+                \State $P^{k}_u=P_h\left[ -\rho\boldsymbol{b}- \rho\boldsymbol{a}^{j+1,k}_h-\nabla p_h^{j+1,k}\right]$ and $P^{k}_p=P_h\left[ -\dfrac{p_h^{j+1,k}}{\kappa}+(J^{j+1,k}-1)\right]$
+            \EndIf
+        \EndWhile
+        \State \textbf{compute} the displacements $\boldsymbol{u}_h^{j+1,k}=\delta \boldsymbol{u}_h^{j+1,k}+\boldsymbol{u}_h^{j}$
+        \State \textbf{set} converged values
+        \State \hspace{\algorithmicindent} $\boldsymbol{u}_h^{j+1}=\boldsymbol{u}_h^{j+1,k}$
+        \State \hspace{\algorithmicindent} $p_h^{j+1}=p_h^{j+1,k}$
+        \State \textbf{set} nodal values $\boldsymbol{u}_I^{j+1}$, $p_I^{j+1}$ from FE functions $\boldsymbol{u}_h^{j+1}$, $p_h^{j+1}$.
+       
+        \State \Comment{3. Convective phase}
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        % 3. Convective phase
+        %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+        \State \textbf{interpolate} nodal information into the mp: 
+        \State \hspace{\algorithmicindent} $\boldsymbol{u}^{j+1}_{\mp} = \sum^{n_I}_{I=1} N_I(x_{\mp}) \boldsymbol{u}^{j+1}_I, \quad  p_{\mp}^{j+1}=\sum^{n_I}_{I=1} N_I(x_{\mp}) p_I^{j+1}$
+        \If{$\tilde{P}=P^{\perp}_h$} (OSGS)
+        \State \textbf{interpolate} residual projections $P_u$ and $P_p$ into the mp. 
+        \EndIf
+        % \quad P^{j+1}_{u,mp}, \quad P^{j+1}_{p,mp}
+        \State \textbf{update} the kinematics and the position on the mp.
+    \EndFor \textit{(End temporal loop)}
+    \end{algorithmic}
+\end{algorithm}
+
+Here the particular characteristics of the mixed formulation and the calculation of the stabilization terms are also included, employing some extra details. \LM{The mass matrices considered in the implemented algorithm are lumped, therefore we are avoiding problems related to the consistent mass matrices \cite{love2006unconditionally}.} Regarding the notation followed, it is the same indicated in Section \ref{sec:spatial-discretization}: the subscripts $\mp$ and $I$, refer to the variables assigned to the material points and computational nodes respectively, while the $n_{\mp}$ denotes the total number of particles per geometrical element, $x_{\mp}$ are the local coordinates of the material point $\mp$ and $N_I(x_{\mp})$ is the shape function evaluated at the position of the material point relative to the node $I$. The mass of the particle $\mp$ is denoted by $m_{\mp}$, $m_I$ is the lumped grid mass matrix and $n_I$ denotes the total number of nodes per geometrical element.
+   Note that the initial nodal pressure must be inizialized as well in the convection phase. The pressure on the material points is updated in addition to the material point displacement, velocity and acceleration, such as it is indicated in \cite{iaconeta2019stabilized}.
+
+Regarding the treatment of non-linearities, in the Section \ref{sec:linearization} the weak form of the equations have been linearized  using the Newton-Raphson's scheme. Therefore, for each internal iteration to compute the solution in each time step, the equations defined by the expression \eqref{eq:stabilized_in_compact_form2} are computed. In particular:
+       \begin{itemize}
+           \item The non-linear terms have been linearized using the Taylor expansion with a quadratic truncation error together with the Newton-Raphson's scheme, considering $\hat{\boldsymbol{u}}$ and $\hat{p}$ known fields obtained from the previous iteration of the current time step.
+           \item The orthogonal projection of any function $f$ has been approximated as $P_h^{\perp}[f^k]\approx f^k - P_h[f^{k-1}]$, the superscript being the step counter or iteration counter.
+           \begin{enumerate}
+
+           	\item If the projection is done at the previous time step, we have to compute the residual at the nodes and then interpolate it to the material points and store it as a global variable. Therefore, in the next time step, this information will be mapped back to the nodes again.
+           \item In case of the computation at previous iteration, it is done in the \textit{UL-FEM calculation phase} and no significant changes  in the algorithm would be considered. However in our algorithm we have also stored the projection into the nodes in order to initialize the next time step with this value.
+           \end{enumerate}
+       \end{itemize}
+  
+ 
+   Finally, concerning the temporal Newmark algorithm, apart from the primary variables (displacement and pressure), also the velocity $\boldsymbol{v}_h$ and acceleration $\boldsymbol{a}_h$ have to be predicted and corrected.
+%-----------------------------------------
+%
+% Numerical examples
+%
+%-----------------------------------------
+    
+    \section{Numerical examples} \label{sec:NumericalExamples}
+     
+    In this section, the formulation is validated across various examples to show the advantages of the MPM stabilizations explained previously. Firstly, we present a convergence test employing a manufactured solution. Subsequently, we address the two-dimensional \textit{Cook's membrane problem}  in both static and dynamic scenarios to compare different stabilizations and investigate the mesh refinement's impact concerning the number of material points per element. Section \ref{sec:BendingBeam} explores the resolution of the three-dimensional problem involving a bending beam to assess the formulation's robustness in scenarios dominated by bending. Lastly, Section \ref{sec:Results_Twisting} tackles the twisting problem, a highly challenging example characterized by extreme deformations on a column.
+    
+    
+%---------------------------------------------------
+%
+% Numerical example: Manufactured solution
+%
+%---------------------------------------------------
+    
+    \subsection{Manufactured solution} \label{sec:Results_Manufactured}
+    The first numerical results correspond to the convergence study of the stabilized formulations implemented using MPM. For this example, the exact solution is defined by the following set of equations:
+    \begin{align*}
+        u_x(x,y)&=k(x+y)^2 \exp(x+y),\\
+        u_y(x,y)&=-k(x+y)^2 \exp(x+y),\\
+        p(x,y)&=\dfrac{E}{3}\sin(2\pi x) \cos(2\pi y),
+    \end{align*}
+    where $x$ and $y$ components of the displacement are indicated with a subscript, $p$ is the pressure and $k=0.01\ \rm{m}^{-1}$ is a constant. Note that the chosen displacement field results in incompressible motion ($J=1$). The Young's modulus considered is $E=10$ MPa. Consequently, the forcing terms added to the general equations are: 
+    \begin{align*}
+        \boldsymbol{f}_u &= - \nabla \cdot \boldsymbol{\sigma}_{\rm exact},\\
+        \boldsymbol{f}_{p} &= 0,
+    \end{align*}
+    The forcing terms are  explicitly derived by substituting the exact solution into the general equations without including the time derivatives, thereby mitigating the introduction of additional temporal errors. Consequently, the term $\boldsymbol{\sigma}_{\rm exact}$ is computed using the volumetric decomposition defined in \eqref{eq:PK2-decomposition}. The computational domain is considered as an unit square $\Omega=[0,1]\times[0,1]\ \rm{m}^2$, and the background space discretized using structured linear (P1) elements with element sizes ranging from $h= 0.2$ m to $h= 0.03125$ m (see the Figure \ref{fig:ManufacturedMesh}). Figure \ref{fig:ManufacturedPress} illustrates the pressure distribution of this manufactured solution. Three different stabilizations are considered to study mesh convergence: PPP, ASGS and OSGS. ASGS and OSGS are the stabilizations developed in this work, while PPP (Polynomial Pressure Projection) was introduced by Dohrmann and Bochev \cite{dohrmann2004stabilized} and also utilized by Iaconeta et al. \cite{iaconeta2019stabilized} for stabilizing the mixed formulation. PPP modified the mixed variational equation using $L^2$ polynomial pressure projection.
+    
+    
+    \begin{figure}[h]
+        \centering
+         \includegraphics[scale=0.3]{Figures_Manufact/system_of_coordinates.png} 
+        \subfloat[Background mesh h=0.2 (m)]{
+        \includegraphics[scale=0.22]{Figures_Manufact/Manufactured_mesh.png} \label{fig:ManufacturedMesh}} 
+        \hspace{1cm}
+        \subfloat[Pressure distribution]{
+        \includegraphics[scale=0.22]{Figures_Manufact/Manufactured_press.png} \label{fig:ManufacturedPress}}
+        \caption{Convergence test. One structured background mesh discretization and the pressure distribution solution.}
+    \end{figure}
+
+Finally,   Figure \ref{fig:ManufacturedConvergence} presents the convergence plots for the displacement and the pressure using the $L^2$- norm. For meshes composed of linear elements, an optimal convergence rate of 2 for displacements and 1 for pressure is expected.
+Notably, the \textit{super convergence} phenomenon is observed in the pressure field, where a quadratic convergence rate is  consistently demonstrated across all three  stabilizations considered in this study.
+
+    \begin{figure}[h]
+        \centering
+        \includegraphics[scale=0.55]{Figures_Manufact/L2error_disp.eps} 
+        \includegraphics[scale=0.55]{Figures_Manufact/L2error_press.eps}
+        \caption{Convergence test. Discrete $L^2$- errors for displacements and pressure using a manufactured solution with linear elements (P1) in the background mesh. PPP, ASGS and OSGS methods have been employed.}
+        \label{fig:ManufacturedConvergence}
+    \end{figure}
+
+%---------------------------------------------------
+%
+% Numerical example: Cook's membrane
+%
+%---------------------------------------------------
+    
+    
+    \subsection{Cook's membrane} \label{sec:Results_Cooks}
+    
+    The Cook's membrane serves as a standard two-dimensional benchmark \cite{cook1974improved}, notably valuable for evaluating formulations and implementations. While typically introduced in static scenarios \cite{chiumenti2002stabilized}, literature also documents its dynamic variant \cite{rossi2016implicit}. This study encompasses examination across both regimes.
+    
+    %------------------------------------------------
+    %
+    % Setup
+    %
+    %------------------------------------------------
+  
+    \subsubsection{Setup}
+    The problem geometry comprises a clamped panel on the left, where displacement is constrained to zero, and a vertical load  is applied to the right side. The other two boundaries of the material domain remain free. 
+    
+    \begin{figure}[ht]
+        \centering
+        \includegraphics[scale=0.3]{Figures_Manufact/system_of_coordinates.png} 
+        \subfloat[Geometry (m).]{
+        \includegraphics[scale=0.4]{Figures_Cooks/Cooks_scheme.png} \label{fig:CooksMembraneGeometry}} 
+        \subfloat[Background mesh.]{
+        \includegraphics[scale=0.29]{Figures_Cooks/Cooks_membrane_background_mesh2.png} \label{fig:CooksMembraneDynamicMesh}}
+        \caption{Cook's membrane problem setup for the dynamic case.}
+    \end{figure}
+    
+    \LM{
+    In order to conduct a comprehensive study, comparing the results with those in the literature, different geometry sizes, properties, and discretizations were considered for both the static and dynamic cases:}
+    \begin{itemize}
+    	\item %In the static case the background mesh chosen is exactly limited by the domain considered. Note that in this case the material points acts as integration points. 
+    	Static case:
+    	\begin{itemize}
+    		\item[-] \LM{Properties:  These are $\rho=1\ \rm{kg/m^{3}}$ for the density, the Poisson's ration is $\nu=0.5$ and the Young's modulus is $\rm{E}=70\ \rm{Pa}$. The vertical load considered is of $\boldsymbol{t}=(0,0.0625)$ Pa. 
+    		\item[-] Geometry: It is ten times larger than the one considered in the dynamic cases: the size of the clamped boundary is 44 m, and the smaller side is 16 m.
+    		\item[-] Discretization: five different strutuctured refinements have been considered  with element sizes $h=$ \{4, 2, 1, 0.5 and 0.25\} (m) (equivalently: 8, 16, 32, 64 and 128 elements per size). A fixed number of 3 material points per element has been employed. The background mesh is confined to the material domain, with material points acting solely as integration points. Consequently, the loading condition is directly imposed on the conforming left boundary.}
+    	\end{itemize} 
+    	
+    	\item 	
+    	Dynamic case:
+     
+    	    	\begin{itemize}
+        
+    		\item[-] \LM{Properties: Density and Possion's ratio are the same that for the static case. The Young's modulus is $\rm{E}=250\ \rm{Pa}$. In this case the vertical load considered is of $\boldsymbol{t}=(0,6.25)$ Pa. }
+    		\item[-] \LM{Geometry:  The sizes of the model are specified in Figure \ref{fig:CooksMembraneGeometry}.}
+    		\item[-] \LM{Discretization: an element size of $h=0.1\ \text{m}$ is used,  with varying numbers of material points per element. Here, the background mesh does not align with the material domain. The loading condition is directly applied to the material points, due to the non-conforming nature of this boundary \cite{chandra2021} (Figure \ref{fig:CooksMembraneDynamicMesh}).}
+    		\end{itemize}
+
+    \end{itemize}
+    
+    %------------------------------------------------
+    %
+    % Results
+    %
+    %------------------------------------------------
+    
+    \subsubsection{Results}
+   Initially, the analysis will focus on the static Cook's membrane case. Figure \ref{fig:CooksConvergence} depicts the convergence assessment for the vertical displacement at point A (refer to Figure \ref{fig:CooksMembraneGeometry}) using various stabilization methods. It is noteworthy that in the absence of stabilization, the convergence rate is lower compared to the other cases. All stabilized formulations (including those proposed employing ASGS and OSGS, as well as the previously introduced PPP \cite{iaconeta2019stabilized}) exhibit an absence of volume locking. \LM{These results have been compared with several papers found in the literature, either using FEM (see \cite{rodriguez2016particle}) or MPM \cite{iaconeta2019stabilized}. In all cases, the reported solution for the y-displacement at the top-right corner (point A) is 0.275 m.} 
+    \begin{figure}[ht]
+        \centering
+        \subfloat[]{
+        \includegraphics[scale=0.35]{Figures_Cooks/Cooks_membrane_convergence2.eps}} \hspace{0.25cm}
+        \subfloat[]{
+        \includegraphics[scale=0.35]{Figures_Cooks/Cooks_membrane_convergence_logarithmic2.eps}}
+        \caption{Cook's membrane static problem. Convergence of the vertical displacement $u_y\text{(m)}$ at point A. \label{fig:CooksConvergence}}
+    \end{figure}
+    Figure \ref{fig:CooksPressure} compares the pressure fields obtained with each stabilization method under consideration. Notably, in the absence of stabilization, discernible pressure jumps are detected between elements of the background mesh. Conversely, in stabilized scenarios, the pressure field is effectively captured, although with some variances observed among methods. Particularly remarkable is the OSGS stabilization (Figure \ref{fig:CooksPressureOSGS}), which adeptly captures pressure peaks in the corner, a characteristic attributed to its propensity for accurately capturing singularities in the solution. \LM{This phenomenon was also reported in the work by Castanar et al. \cite{castanar2020stabilized} for the dynamic case using FEM.} Regarding the number of internal iteration, in general while the OSGS needs a large number of iterations (8 in this case) for achieving the convergence, the ASGS that here converges using 4 internal iterations.
+        \begin{figure}[ht]
+            \centering
+            \subfloat[No stabilization]{
+            \includegraphics[scale=0.19]{Figures_Cooks/Cooks_press_none_grid.png} \label{fig:CooksPressureNONE}} 
+            \subfloat[PPP]{
+            \includegraphics[scale=0.19]{Figures_Cooks/Cooks_press_ppp_grid.png} \label{fig:CooksPressurePPP}} 
+            \subfloat[ASGS]{
+            \includegraphics[scale=0.19]{Figures_Cooks/Cooks_press_asgs_grid.png} \label{fig:CooksPressureASGS}} 
+            \subfloat[OSGS]{
+            \includegraphics[scale=0.19]{Figures_Cooks/Cooks_press_osgs_grid.png} 
+            \label{fig:CooksPressureOSGS}} 
+            \includegraphics[scale=0.28]{Figures_Cooks/legend_pressure_cooks.png} 
+            \caption{Cook's membrane static problem. Pressure solution for the mesh $h=0.15 \text{m}$ on the nodes of the background mesh. \label{fig:CooksPressure}}
+        \end{figure}
+
+   
+Let us now analyse the dynamic case. The plots in Figure \ref{fig:CooksDynamicPlots} illustrate the temporal evolution at point A. It is outstanding that the non-stabilized formulation exhibits breakdown within a few time steps; hence, it is not depicted here.
+        \begin{figure}[ht!]
+            \centering
+            \subfloat[y-displacement with $mp=33$, $h=0.1$ m.]{
+            \includegraphics[scale=0.315]{Figures_Cooks/Cooks_dynamic_stab_comparison.eps} \label{fig:CooksDynamicStab}}
+            \subfloat[Pressure with $mp=33$ and $h=0.1$ m.]{ \includegraphics[scale=0.315]{Figures_Cooks/Cooks_dynamic_stab_comparison_pressure.eps} \label{fig:CooksDynamicStabPress}} \\
+            \subfloat[y-displacement with ASGS  and  $h=0.1$ m.]{ \includegraphics[scale=0.315]{Figures_Cooks/Cooks_dynamic_particle_comparison.eps}\label{fig:CooksDynamicMP}}
+            \subfloat[y-displacement with ASGS and  $mp=33$.]{
+            \includegraphics[scale=0.315]{Figures_Cooks/Cooks_dynamic_mesh_comparison_mp33.eps}\label{fig:CooksDynamicMesh33}}
+            \caption{Cook's membrane dynamic problem. Evolution in time of the point A=(4.8,6,0) m, considering time step $dt=0.025$ s. \label{fig:CooksDynamicPlots}}
+        \end{figure}
+        
+        Before proceeding with the analysis, allow us to provide a brief explanation of the \textit{cell-crossing} instability \cite{Vaucorbeil2020material25} in the MPM. This instability arises due to the movement of material points from one element to another, occasionally resulting in an imbalance of internal forces at a node. This phenomenon can induce unphysical oscillations and yield inaccurate outcomes. Generally, mitigating the \textit{cell-crossing effect} can be achieved by employing a greater number of material points and/or smaller time steps. Numerous studies have addressed this issue through alternative techniques. For instance, Tielen et al. \cite{tielen2017high} investigate the combination of quadratic B-spline basis functions with a reconstruction-based quadrature rule. Additionally, Guilkey et al. \cite{guilkey2006computational} propose not to reset the grid configuration at the end of each time step. The resultant algorithm closely resembles the classical Updated Lagrangian Finite Element Method (UL-FEM), yet exhibits significantly reduced mesh distortion owing to the initial mesh comprising elements with right-angle corners.
+        
+	This error is evident in Figure \ref{fig:CooksDynamicStab}: ideally, the minimum and maximum displacement peaks should remain consistent throughout each oscillation cycle; however, a distortion becomes apparent over time. This issue is notably mitigated by increasing the number of material points, as illustrated in Figure \ref{fig:CooksDynamicMP}, where the element size remains fixed at $h=0.1\ \text{m}$. As depicted, solution convergence is attained upon employing a sufficient number of material points per element.
+        
+	Moreover, in Figure \ref{fig:CooksDynamicStab}, a comparison between different stabilizations is conducted, with the number of material points set to 33. Here, it is observed that both ASGS and OSGS stabilizations more accurately capture the minimum peak over time compared to the PPP stabilization, \LM{when contrasting the results with those obtained by \cite{castanar2020stabilized} in FEM. In the FEM case, the minimum peak reaches values lower than 0.2, around 0.15 m.} While the y-displacement at point A yields nearly identical results between the new stabilizations, discernible differences are evident in pressure evolutions. From this, it can be concluded that VMS-type stabilizations mitigate the ``cell-crossing'' error more effectively in comparison to the PPP method.
+	
+	It is noteworthy to observe that despite addressing the cell-crossing error, the y-displacement solution aligns with results from other studies employing FEM \cite{rossi2016implicit,castanar2020stabilized}. Additionally, mesh convergence can be reported, as evidenced in Figure \ref{fig:CooksDynamicMP}.
+          
+       
+        Let us now address another consequence of the \textit{cell-crossing} instabilities. In Figure \ref{fig:CooksDynamicMesh33}, the number of material points per element is set to 33, with varying element sizes for the mesh. Notably, when the mesh size is fixed at $h=0.1$ m, distortions are observed in the minimum peaks of the solution. This observation may seem counterintuitive, as spatial refinement typically leads to more accurate solutions. Molinos et al. \cite{molinos2021} have previously documented this effect. In his study, Molinos investigated the appropriate ratio between the number of material points and mesh size required to accurately reproduce a case without such distortions. In the current example (refer to Figure \ref{fig:CooksDynamicMesh33}), it is observed that employing a smaller number of material points (for example, 12 instead of 33) circumvents this instability. This suggests that 12 material points for a mesh size of $h=0.1$ m falls within the ``stable region'', representing a favorable ratio between the number of particles and mesh size.
+      
+     
+    Lastly, we must address the pressure oscillations illustrated in Figure \ref{fig:CooksDynamicStabPress}. Despite the Newmark scheme being second-order accurate for $\beta=\frac{1}{4}$ and $\gamma=\frac{1}{2}$, it does not inherently introduce numerical dissipation, which would typically aid in mitigating high-frequency oscillations of unphysical modes. Consequently, the time evolution of the pressure field, as depicted in Figure \ref{fig:CooksDynamicStabPress}, exhibits non-smooth behavior. This issue can be ameliorated by employing a BDF2 scheme, which has been shown to dissipate nonphysical modes while preserving model accuracy \LM{(see \cite{castanar2020stabilized})}. Additionally, the Generalized-$\alpha$ methods \cite{chung1993time} are noted in the literature for controlling numerical dissipation. However, it is observed that the oscillations are considerably mitigated when employing ASGS or OSGS stabilizations, in contrast to PPP, as the former methods introduce more dissipation compared to the latter.
+    
+%---------------------------------------------------
+%
+% Numerical example: 3D Bending beam
+%
+%---------------------------------------------------
+
+    \subsection{3D bending beam} \label{sec:BendingBeam}
+    Let us now introduce the first three-dimensional example utilizing the presented stabilizations. The primary aim of this example is to demonstrate the formulation's capability to address bending-dominated problems for incompressible materials.
+    
+    %------------------------------------------------
+    %
+    % Setup
+    %
+    %------------------------------------------------
+    
+    \subsubsection{Setup}
+    The initial geometry adopted in this study is consistent with that used in previous literature \cite{lee2014,scovazzi2016simple,castanar2020stabilized}. The geometry is a parallelepiped with dimensions $1\times1\times 6\ \text{m}$ as illustrated in Figure \ref{fig:BendingBeamGeometry}. 
+    \begin{figure}[ht!]
+        \centering
+        \subfloat[Geometry. ]{
+        \includegraphics[scale=0.325]{Figures_Beams/Beam_setup.pdf} \label{fig:BendingBeamGeometry}} 
+        \subfloat[Mesh.]{
+        \includegraphics[scale=0.22]{Figures_Beams/Column_mesh.png}
+        \label{fig:BendingBeamMesh}}
+        \caption{Beam problem setup.\label{fig:BendingBeamSetup}}
+    \end{figure}
+    Initially the beam is stress-free, with the initial displacements set to zero $\boldsymbol{u}^0(x,y,z)=\boldsymbol{0}$. The bottom face is clamped, imposing zero displacements $\boldsymbol{u}(x,y,z)=\boldsymbol{0}$. All boundary conditions are specified by zero tractions. The movement of the beam is induced by the following initial velocity condition
+    $$ \boldsymbol{v}^0(x,y,z)=\left( \dfrac{5}{3}z,0,0\right)^T\ \text{m/s}.$$ The origin is located at the center of the base of the column and the initial velocity is represented by several arrows of varying lengths in Figure \ref{fig:BendingBeamGeometry}.
+    Regarding the material properties, these are: density $\rho=1100\ \text{kg}/\text{m}^3$, Young's modulus of $\text{E}=1.7\times10^7\ \text{Pa}$, and Poisson ration $\nu=0.5$.
+    The background mesh is unstructured,  as shown in Figure \ref{fig:BendingBeamMesh}. Three different meshes were used, varying the element size and the number of particles per element as  summarized in  Table \ref{tab:BeamMeshes}. The time step used in all cases is $\delta t=0.001$ s.
+    
+    \begin{table}[ht!]
+        \begin{centering}
+            \begin{tabular}{ccc}
+                %\toprule 
+                \hline
+                \textbf{Case}  &\textbf{ element size} $\boldsymbol{h}$\textbf{(m) }& \textbf{mp} \textbf{per element} \tabularnewline
+                %\toprule
+                \hline
+                1  & 0.25  & 12 \tabularnewline
+                2  & 0.1667  & 12 \tabularnewline
+                3  & 0.1667 & 24 \tabularnewline
+                4  & 0.1667  & 48 \tabularnewline
+                5  & 0.125 & 12   \tabularnewline
+                %\bottomrule 
+                \hline
+            \end{tabular}
+        \par\end{centering}
+        \caption{Meshes considered in the study.}
+        \label{tab:BeamMeshes}
+    \end{table}
+    
+    %------------------------------------------------
+    %
+    % Results
+    %
+    %------------------------------------------------
+    
+    \subsubsection{Results}
+    Figure \ref{fig:BeamPressureDistribution} depicts the deformation of the beam and the distribution of pressure at three different time instants, considering the first case described in Table \ref{tab:BeamMeshes}. It is remarkable that in this visualization, the solution is plotted over the material points rather than the background mesh elements. For this study, only the ASGS stabilization has been employed, as the results obtained are very similar to those achieved using the OSGS stabilization.
+    
+    It is remarkable that the pressure field distribution is effectively captured by the implemented formulation and is consistent with findings from other studies \cite{scovazzi2016simple, castanar2020stabilized}. Additionally, it is observed that the PPP stabilization was unable to solve the problem under the same configuration. From this, it can be concluded that VMS demonstrates greater robustness than PPP in solving three-dimensional problems dominated by bending.
+
+    \begin{figure}[ht!]
+        \centering
+        \subfloat[$t=0.5$ s]{
+        \includegraphics[scale=0.275]{Figures_Beams/Bending_t05.png}}
+        \hspace{0.75cm}
+        \subfloat[$t=1.0$ s]{\includegraphics[scale=0.275]{Figures_Beams/Bending_t1.png}}
+        \subfloat[$t=1.5$ s]{\includegraphics[scale=0.275]{Figures_Beams/Bending_t15.png}}
+       \includegraphics[scale=0.275]{Figures_Beams/Bending_Legend.png}
+        \caption{Bending beam problem. Distribution of the pressure field using the ASGS stabilization, $h=0.25$ m and 12 mp. \label{fig:BeamPressureDistribution}}
+    \end{figure}
+    
+Let us now present the time evolution of point A, as depicted in Figure \ref{fig:BendingBeamGeometry}, focusing on the first component of the displacements. This temporal evolution is plotted for three different mesh sizes and three different numbers of material points per element in Figure \ref{fig:BendingBeamTracking}. It is important to note that the solution has been computed up to $T=3$ s.
+
+    \begin{figure}[ht!]
+        \centering
+        \subfloat[Mesh comparison with $mp=12$.]{        \includegraphics[scale=0.275]{Figures_Beams/Bending_beam_tracking_mesh.eps} \label{fig:BendingBeamTrackMesh}}
+        \subfloat[Number of mp per element with $h=0.16$ m.]{        \includegraphics[scale=0.275]{Figures_Beams/Bending_beam_tracking_particle.eps} \label{fig:BendingBeamTrackParticles}} \\
+        \hspace{0.25cm}\subfloat[Zoom Figure \ref{fig:BendingBeamTrackMesh}.]{        \includegraphics[scale=0.275]{Figures_Beams/Bending_beam_tracking_mesh_zoom2.eps} \label{fig:BendingBeamTrackMeshzoom2}}
+        \subfloat[Zoom Figure \ref{fig:BendingBeamTrackParticles}.]{
+        \includegraphics[scale=0.275]{Figures_Beams/Bending_beam_tracking_particle_zoom2.eps} \label{fig:BendingBeamTrackParticleszoom2}} 
+        \caption{Bending beam problem. Evolution in time at point A with coordinates (0.5,0.5,6) m for the first component of the displacements for three mesh refinements and three different material points per element, using the ASGS stabilization.  \label{fig:BendingBeamTracking}}
+    \end{figure}
+    
+
+ Once again, to examine the impact of mesh refinement, we have maintained the number of material points at 12 and conducted experiments with three different mesh sizes. The trajectory of point A in these scenarios is depicted in Figure \ref{fig:BendingBeamTrackMesh}. \LM{Notably, there are no significant variations observed between the considered refinements, and the solution closely aligns with other FEM reference works \cite{scovazzi2016simple,castanar2020stabilized}. In the case of the work by Scovazzi et al. \cite{scovazzi2016simple}, we also compare three different meshes, reporting similar behavior.}  However, there exists a difference in the frequency of oscillations among the refinements. This discrepancy is evident in Figure \ref{fig:BendingBeamTrackMeshzoom2}, which illustrates the field's evolution between $t=2$ s and $t=2.5$ s. Based on this observation window, it can be inferred that a finer mesh yields a solution with lower-frequency oscillations.
+ 
+To investigate the influence of the number of material points per element, we have maintained the element size at 0.16 m (cases 2-4 in Table \ref{tab:BeamMeshes}) and varied the number of material points per element. The results are presented in Figure \ref{fig:BendingBeamTrackParticles}. Notably, differences are readily discernible in the zoomed-in view depicted in Figure \ref{fig:BendingBeamTrackParticleszoom2}. Here, variations in the maximum peak are apparent as the number of material points increases, indicating spatial convergence. This phenomenon can be attributed to the reduction of the \textit{cell-crossing} instability with an increase in the number of particles, or simply to the better accuracy associated with a higher number of material points.
+    
+%---------------------------------------------------
+%
+% Numerical example: 3D Twisting column test
+%
+%---------------------------------------------------
+    
+    \subsection{3D twisting column test} \label{sec:Results_Twisting}
+    The final example is the three-dimensional twisting column test, widely conducted in literature \cite{aguirre2014vertex,scovazzi2016simple,castanar2020stabilized,gil2014stabilised}, to assess formulations under heavy deformations in incompressible regimes.
+    
+    %------------------------------------------------
+    %
+    % Setup
+    %
+    %------------------------------------------------
+    
+    \subsubsection{Setup}
+The configuration is nearly identical to that of the previous example. In this case, the torsional motion is implemented with the following initial velocity condition:
+        $$ \boldsymbol{v}^0(x,y,z)=100\sin\left(\dfrac{\pi z}{12}\right)\left( y,-x,0\right)^T\ \text{m/s}.$$
+  The bottom side is fixed, with displacements set to zero, while the remaining boundaries are free.  The initial motion is illustrated in Figure \ref{fig:TwistingSetup}.
+    \begin{figure}[ht!]
+        \centering
+        % \subfloat[Geometry]{
+        \includegraphics[scale=0.325]{Figures_Twisting/Twisting_setup.pdf}
+        \caption{Twisting problem setup.\label{fig:TwistingSetup}}
+    \end{figure}
+The material properties are identical to those in the previous example: density $\rho=1100\ \text{kg}/\text{m}^3$, Young's modulus of $\text{E}=1.7\times10^7\ \text{Pa}$, and Poisson ratio $\nu=0.5$.
+    The meshes employed are also taken from the previous example. The mesh details are illustrated in Figure \ref{fig:BendingBeamSetup} and summarized in  Table \ref{tab:BeamMeshes}. The time step employed for all cases is $\delta t=0.001$ s.
+
+    %------------------------------------------------
+    %
+    % Results
+    %
+    %------------------------------------------------
+    
+    \subsubsection{Results}
+    
+      \begin{figure}[ht!]
+        \centering
+        \subfloat[$h=0.25$ m]{
+        \includegraphics[scale=0.25]{Figures_Twisting/Twisting_h025.png}}
+        \hspace{1cm}
+        \subfloat[$h=0.166$ m]{\includegraphics[scale=0.25]{Figures_Twisting/Twisting_h016.png}}
+        \hspace{1cm}
+        \subfloat[$h=0.125$ m]{\includegraphics[scale=0.25]{Figures_Twisting/Twisting_h0125.png}}
+        \hspace{1cm}
+        \includegraphics[scale=0.25]{Figures_Twisting/Twisting_legend.png}
+        \caption{Pressure distribution at $t=0.1$ s for three different background meshes with $mp=12$ per element. \label{fig:TwistingPressure_mp12}}
+    \end{figure}
+    
+    Firstly, it is important to highlight that, similar to the previous example, the Polynomial Pressure Projection (PPP) stabilization fails to reproduce the desired outcome. \LM{We must emphasize that the implementation of the Polynomial Pressure Projection (PPP) that we have used was validated by Iaconeta et al. (2019). Although PPP was able to compute the static and dynamic Cook's membrane case in previous sections, this method fails after a few time steps for the three-dimensional example.} However, the Variational Multiscale (VMS) stabilization achieves convergence, indicating its robustness in handling large deformation problems in three-dimensional scenarios.
+    
+    Concerning the results, we begin by presenting the distribution of the pressure field across the column in Figure \ref{fig:TwistingPressure_mp12} at time $t=0.1$ s for the three mesh refinements. It is evident that there exists a strong dependence between the overall number of material points and the deformation and pressure solution. \LM{Note that although the number of material points per element remains constant, the global number of material points has varied significantly. This variation is explained by the fact that the initial location of the material points depends directly on the element size of the background mesh.}
+  
+    These discrepancies are further accentuated in Figure \ref{fig:TwistingTracking}. These plots seek to present both the sensitivity of mesh refinement and the sensitivity of the number of material points (mp) per element. The time evolution at point A (illustrated in Figure \ref{fig:TwistingSetup} and situated at $(0.5,0.5,6)$) for each displacement component is depicted. Note that each row in Figure \ref{fig:TwistingTracking} corresponds to a specific displacement component.
+
+    \begin{figure}[ht!]
+            \centering
+            \subfloat[$mp=12$]{
+            \includegraphics[scale=0.375]{Figures_Twisting/Twisting_Mesh_ux.eps} \label{fig:TwistingMesh_ux}}
+            \subfloat[$h=0.16$]{
+            \includegraphics[scale=0.375]{Figures_Twisting/Twisting_Particles_ux.eps} \label{fig:TwistingParticle_ux}} \\
+            \hspace{0.0cm}\subfloat[$mp=12$]{
+            \includegraphics[scale=0.375]{Figures_Twisting/Twisting_Mesh_uy.eps}}
+            \hspace{-0.65cm}\subfloat[$h=0.16$]{
+            \includegraphics[scale=0.375]{Figures_Twisting/Twisting_Particles_uy.eps}} \\
+            \hspace{0.0cm} \subfloat[$mp=12$]{
+            \includegraphics[scale=0.375]{Figures_Twisting/Twisting_Mesh_uz.eps}}
+            \subfloat[$h=0.16$]{
+            \includegraphics[scale=0.375]{Figures_Twisting/Twisting_Particles_uz.eps} \label{fig:TwistingParticles_uz}}
+            \caption{Evolution in time for the three components of the displacement for the point A = $(0.5,0.5,6)$\label{fig:TwistingTracking}}
+    \end{figure}
+    
+   
+    Starting the analysis by comparing the different mesh refinements (first column of Figure \ref{fig:TwistingTracking}), significant differences are observed between the cases, particularly in the behavior of the first and second displacement components. Specifically, for the coarse mesh, the solution exhibits significant distortion compared to the reference solution. Additionally, the maximum peaks are poorly captured in this case. Despite these shortcomings, the convergence of the mesh is clearly evident.
+      
+    
+    In the plots displayed in the second column of Figure \ref{fig:TwistingTracking}, the mesh size is fixed at $h=0.16$ m, while the evolution is tracked for different numbers of material points per element. In this scenario, significant variations are observed up to the time $t=0.15$ s. These variations may be attributed to the \textit{cell-crossing} effect discussed earlier. Notably, the minimum peak of $u_z$(m) is attained in the case where a greater number of material points ($mp$) per element has been employed (see Figure \ref{fig:TwistingParticles_uz}). \LM{Note that convergence for the finer mesh ($h=0.125$ m) with $mp=12$ is not achieved due to the aforementioned effect. However, the peak response is accurately captured when the number of material points per element is increased.}
+   
+   Now, let us to compare the evolution of the first component of the displacement,  $u_x$ (m), particularly focusing on the peak occurring at $t=0.1$. This comparison is depicted in Figure \ref{fig:TwistingMesh_ux} and \ref{fig:TwistingParticle_ux}. We observe that increasing the number of material points does not result in variations in the maximum value, whereas different solutions are obtained with varying element sizes. From this observation, we can infer that in this case, the error arises from the background mesh discretization rather than the \textit{cell-crossing} effect.
+
+   \LM{If we contrast these plots with the solutions reported by Scovazzi et al. \cite{scovazzi2016simple} and Castañar et al. \cite{castanar2020stabilized}, we find some differences. Although the overall pattern is very similar, it is true that in this study, starting from 0.25 seconds, the plots show a delay. While the values of the peaks (the maximum and minimum displacements ) reached, are close, they occur a bit later after 0.25 seconds. This is a very extreme example, and therefore, the reason for this delay is probably due to the cell crossing error.}
+    
+     \begin{figure}[ht!]
+        \centering
+        \subfloat[$t=0.01$]{
+        \includegraphics[scale=0.3]{Figures_Twisting/Twistingt001.png}}
+        \subfloat[$t=0.02$]{\includegraphics[scale=0.3]{Figures_Twisting/Twistingt002.png}}
+        \subfloat[$t=0.03$]{\includegraphics[scale=0.3]{Figures_Twisting/Twistingt003.png}}
+        \subfloat[$t=0.04$]{\includegraphics[scale=0.3]{Figures_Twisting/Twistingt004.png}}
+        \subfloat[$t=0.05$]{\includegraphics[scale=0.3]{Figures_Twisting/Twistingt005.png}} 
+        \subfloat[$t=0.06$]{
+        \includegraphics[scale=0.3]{Figures_Twisting/Twistingt006.png}}
+        \subfloat[$t=0.07$]{\includegraphics[scale=0.3]{Figures_Twisting/Twistingt007.png}}
+        \subfloat[$t=0.1$]{\includegraphics[scale=0.3]{Figures_Twisting/Twistingt01.png}}\\
+        \includegraphics[scale=0.4]{Figures_Twisting/Twisting_LegendH.png}
+        \caption{Norm of the displacements in several times (s) for mesh $h=0.125$ m. \label{fig:TwistingEvolution}}
+    \end{figure}
+    
+    Lastly, Figure \ref{fig:TwistingEvolution} illustrates the shapes assumed by the material points throughout the simulated time. This test is particularly demanding due to the substantial deformation of the column, especially considering an incompressible material. Therefore, the notable accuracy and robustness of the results are evident.  The solution has been compared with other studies \cite{scovazzi2016simple, castanar2020stabilized}, leading to the conclusion that the displacements have been accurately captured with the implemented MPM formulation.
+      
+%---------------------------------------------------
+%
+% Conclusions
+%
+%---------------------------------------------------
+
+\section{Conclusions} \label{sec:Conclusions}
+In this paper, two stabilizations methods based on the Variational Subgrid-Scales (VMS), namely the Algebraic Subgrid Scale (ASGS) and Orthogonal Subgrid Scale (OSGS) have been employed to solve a mixed   incompressible hyperelastic problem in the Material Point Method (MPM) framework. While this formulation has demonstrated favorable results in Finite Element Method (FEM), as evidenced in existing literature, this study marks the first application of such stabilization techniques in the context of solid dynamics using implicit MPM. 
+\LM{
+We have chosen a hyperelastic material to compare our results with those obtained in the literature using FEM. Our intention is to provide an initial approach that could, in the future, be extended to other constitutive laws, such as Mohr-Coulomb (suitable for modeling granular flows) in incompressible regimes, where MPM shows a clear advantage over FEM.}
+
+Regarding the formulation employed, it is the standard in the case of solid dynamics. The main equations presents geometrical and material non-linearities. Thus, the solution process involves linearizing the equations followed by stabilizing the linearized problem. Although the formulation development bears resemblance to the Finite Element Method (FEM) case, certain modifications in the primary Material Point Method (MPM) algorithm are imperative. Firstly, the integration points are now represented by the material points, which are in motion, unlike the traditional Gauss points. Secondly, the treatment of orthogonal projections in the Orthogonal Subgrid Scale (OSGS) stabilization warrants careful consideration, as it necessitates the storage of additional information within the material points.
+
+The proposed formulation underwent rigorous testing using multiple benchmarks for validation, along with one test for verification. Initially, the formulation was verified through a manufactured problem, demonstrating consistent and robust results. Notably, it exhibited quadratic $L^2$-convergence for the linear elements in displacement and superconvergence in the pressure field.
+
+
+The validation have been assessed by various incompressible numerical examples, employing linear elements in both two-dimensional and three-dimensional cases. This served a dual purpose: comparing classical benchmarks with existing literature and examining particularly challenging problems that pose difficulties in reproducibility. In the two-dimensional case, the renowned benchmark in solid mechanics, the \textit{Cook's Membrane}, was chosen. It was tested for both static and dynamic cases, the latter being less explored in literature.  For both cases the formulation shows a good accuracy and robustness, despite of the problems arising from the method, such as cell crossing. These issues were meticulously analyzed by varying two discretizations: the number of material points per element and the element size of the background mesh. \LM{In this example, we can also compare the two new stabilization techniques that have been developed. In general, the accuracy between them is quite similar. However, while ASGS requires fewer inner iterations to converge in each time step than OSGS, the latter is more effective at capturing singularities.}
+ 
+Finally, we validated two three-dimensional problems: the first aimed at studying bending-dominated scenarios, and the second has reproduced torsion forces over a column. The latter is particularly challenging to compute numerically, due to many numerical methods unable to fully solve the problem. The combination of a robust formulation with MPM enables the calculation of challenging cases like this, obviating the need for remeshing or using other techniques such as front tracking to obtain the solution.
+
+
+\section*{Code availability}
+For this work, the open-source multiphysics software \textit{KRATOS}\cite{kratos1,kratos2,kratos3} has been used, which is written in C++ and offers a Python interface. The current version can be obtained from \cite{KratosGithub}.
+
+
+\section*{Acknowledgments}
+L. Moreno acknowledges the support received from the Research Training Group 2075 (GRK 2075) funding by the German Research Foundation (DFG). Prof. Larese greatly aknowledge the support of TUM-IAS through her Hans Fischer Fellowship.
+This study received funding also from the European Union - Next Generation EU National Recovery and Resilience Plan [NRRP], Mission 4, Component 2, Investment 1.3–D.D. 1243 2/8/2022, PE0000005 Extended Partnership “RETURN : Multi- Risk sciEnce for resilienT commUnities underR a changiNg climate” and Mission 4, Component 2, Investment 1.5 - Call for tender No. 3277 of 30 dicembre 2021  ECS00000043, No. 1058 of June 23, 2023, CUP C43C22000340006, ``iNEST: Interconnected Nord-Est Innovation Ecosystem'', PRIN 2022 - 2022PXYYK5 - Reduced order models of hydraulic protection systems for extreme water hazards  - Hydro-ROM, CUP C53D23001800006.
+
+\section*{Credit authorship contribution statement}
+Laura Moreno: Conceptualization, Software, Simulations, Validation, Writing. Roland Wüchner: Conceptualization, Writing – review 
+editing. Antonia Larese: Conceptualization, Writing – original draft and review, Validation, Supervision.
+
+
+\bibliographystyle{unsrt} 
+\bibliography{bibliography.bib}
+    
+\end{document}
