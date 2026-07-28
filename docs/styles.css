@@ -1,5 +1,29 @@
 /* css styles */
 
+/* Home page */
+.home-research-cta {
+  align-items: center;
+  background: #287b82;
+  border: 1px solid #287b82;
+  border-radius: 9px;
+  box-shadow: 0 6px 16px rgba(40, 123, 130, 0.16);
+  color: #fff;
+  display: inline-flex;
+  font-size: 0.88rem;
+  font-weight: 700;
+  margin: 0.15rem 0 1.1rem;
+  padding: 0.58rem 0.9rem;
+  text-decoration: none;
+  transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.home-research-cta:hover {
+  background: #1f6268;
+  border-color: #1f6268;
+  color: #fff;
+  transform: translateY(-1px);
+}
+
 /* Research areas landing page */
 .research-intro {
   max-width: 980px;
