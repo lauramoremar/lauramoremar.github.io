@@ -10,7 +10,7 @@ toc: false
 
 On 27 July 2026, **Lucas Peydró Ferrando**, a student from the Bachelor's Degree in Physics at the University of Alicante, successfully defended an undergraduate thesis that I co-supervised, receiving a grade of **9.9 out of 10**.
 
-The thesis, entitled *Simulación Numérica de las olas generadas por deslizamientos mediante el método del punto material: aplicación al caso de Lituya Bay*, investigates the numerical simulation of large waves generated when landslides impact bodies of water. These events are particularly challenging to model because of the complex interaction between the sliding material and the water, the large deformation of the terrain, and the evolution of free surfaces.
+The thesis, entitled *Simulación Numérica de las olas generadas por deslizamientos mediante el método del punto material: aplicación al caso de Lituya Bay*, investigates the numerical simulation of large waves generated when landslides impact bodies of water. These events are particularly challenging to model because of the complex interaction between the sliding material and the water, the large deformation of the terrain, and the evolution of free surfaces. [Read the full thesis in the University of Alicante Repository (RUA) →](https://rua.ua.es/entities/publication/4e988e36-a8d7-469e-a3f6-223cb0eae9dc)
 
 The work focuses on the well-known 1958 Lituya Bay event in Alaska, a widely studied benchmark for landslide-generated waves. A two-dimensional model was constructed using the **Material Point Method (MPM)**, a numerical technique especially suited to problems involving large deformations. The study included the definition of the physical properties of the problem and the analysis of both the landslide evolution and the resulting wave.
 

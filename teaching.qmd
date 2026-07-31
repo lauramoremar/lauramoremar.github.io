@@ -64,7 +64,7 @@ Master in Mathematical Engineering, University of Padova · Co-supervised with A
 
 #### 3.2. Bachelor theses supervised
 
-**Lucas Peydró Ferrando** — *Simulación Numérica de las olas generadas por deslizamientos mediante el método del punto material: aplicación al caso de Lituya Bay*  
+**Lucas Peydró Ferrando** — *Simulación Numérica de las olas generadas por deslizamientos mediante el método del punto material: aplicación al caso de Lituya Bay* [[Link](https://rua.ua.es/entities/publication/4e988e36-a8d7-469e-a3f6-223cb0eae9dc)]\
 BSc in Physics, University of Alicante · July 2026
 
 
@@ -96,4 +96,3 @@ Projects and training in university teaching, digital learning environments, ass
 Publications and outputs related to teaching innovation and university learning.
 
 1. Vargas Alemañy, J. A.; Vigo Aguiar, I.; Sayol España, J. M.; Moreno Martínez, L.; García García, D.  **“Autocorrección en Cálculo Numérico: Mejora del Aprendizaje Autónomo y Optimización de la Evaluación Continua.”**  *Redes de Investigación e Innovación en Docencia Universitaria. Volumen 2025*, pp. 367–376. Instituto de Ciencias de la Educación, University of Alicante, 2025. ISBN 978-84-09-76835-6. [[Full text](https://rua.ua.es/entities/publication/9c521ee6-697f-4b19-9fbe-6e964fccf582)]
-
