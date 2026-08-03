@@ -687,6 +687,7 @@ body:has(.mpm-page) #title-block-header .subtitle {
 .mpm-work-status { border-radius: 999px; display: inline-block; font-size: 0.67rem; font-weight: 750; letter-spacing: 0.05em; margin-bottom: 0.8rem; padding: 0.3rem 0.55rem; text-transform: uppercase; }
 .mpm-work-status.published { background: #e5f3ec; color: #2e7355; }
 .mpm-work-status.preparation { background: #f5efe2; color: #84642a; }
+.mpm-work-status.submitted { background: #f5efe2; color: #84642a; }
 .mpm-related-small { background: #f8fbfa; }
 .mpm-related-grid a { color: var(--mpm-teal); font-weight: 650; text-decoration: none; }
 .mpm-muted { color: #718387 !important; font-size: 0.88rem; }

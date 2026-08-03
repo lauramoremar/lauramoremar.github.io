@@ -4,11 +4,20 @@ title: "Publications"
 
 <!-- **Accepted** -->
 
-<!--## Submitted -->
+## Submitted
+
+An implicit MPM framework for incompressible Newtonian fluids: Irreducible and stabilized mixed formulations. [[Preprint]](/assets/docs/artweb010-lm.pdf)\
+Moreno L., De Zotti G. & Larese A.\
+Submitted to *Computer Methods in Applied Mechanics and Engineering*, August 2026.
 
 ## Published
 
 ### 2026
+
+**10.-** Rainfall-triggered debris flows: The July 10, 2018, event at Cerro del Quinceo and its simulation using the material point method.\
+Rodríguez Velázquez M. Á., Moreno Martínez L., Chávez Negrete C., Domínguez Sánchez C. & Domínguez Mota F. J.\
+*Ingeniería Investigación y Tecnología*, Vol. 27, No. 3 (2026), 1–9.\
+[Article](https://www.revistaingenieria.unam.mx/numeros/v27n3-04.php) · DOI: 10.22201/fi.25940732e.2026.27.3.021
 
 **9.-** Study of Stabilized Mixed Formulations for Fluid-Structure Interaction Problems within a Variational Multiscale Framework. [[Post-print]](/assets/docs/artweb009-lm-preprint.pdf)\
 Castañar I., Moreno L. & Codina R.\
