@@ -37,7 +37,7 @@ toc: false
     <h2>Fluid–Structure Interaction &amp; Hemodynamics</h2>
     <p>Coupled simulation of fluids and deformable structures, connecting numerical formulation development with cardiovascular flow problems.</p>
     <div class="research-tags"><span>FSI</span><span>Hemodynamics</span><span>Coupled problems</span><span>FEM</span></div>
-    <span class="research-link research-link-muted">Detailed research page in preparation</span>
+    <a class="research-link" href="research_fsi-hemodynamics.qmd">Explore this research <span aria-hidden="true">→</span></a>
   </div>
 </article>
 
