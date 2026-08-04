@@ -19,7 +19,7 @@ resources:
   <section class="fsi-hero">
     <div class="fsi-hero-copy">
       <p class="fsi-kicker">Coupled multiphysics research</p>
-      <p class="fsi-lead">I develop finite element formulations for fluid–structure interaction, with particular emphasis on complex fluid rheology, accurate stress transmission, and cardiovascular applications.</p>
+      <p class="fsi-lead">We develop finite element formulations for fluid–structure interaction, with particular emphasis on complex fluid rheology, accurate stress transmission, and cardiovascular applications.</p>
       <div class="fsi-tags"><span>Fluid–structure interaction</span><span>Hemodynamics</span><span>Mixed formulations</span><span>Viscoelasticity</span><span>FEM</span></div>
     </div>
     <figure class="fsi-hero-media">
@@ -61,7 +61,7 @@ resources:
     <div class="fsi-work-intro">
       <div>
         <p>Many FSI models assume a Newtonian fluid, but fluids with microstructure can store and release elastic energy. Their additional stress evolution makes the coupled problem substantially harder, particularly when elastic effects dominate.</p>
-        <p>I developed and implemented a partitioned finite element framework coupling an Oldroyd-B viscoelastic fluid with a hyperelastic solid. A VMS-stabilized log-conformation formulation controls the exponential growth of elastic stresses and extends the range of regimes that can be solved robustly.</p>
+        <p>We developed and implemented a partitioned finite element framework coupling an Oldroyd-B viscoelastic fluid with a hyperelastic solid. A VMS-stabilized log-conformation formulation controls the exponential growth of elastic stresses and extends the range of regimes that can be solved robustly.</p>
       </div>
       <aside class="fsi-facts"><p class="fsi-focus-label">Technical focus</p><span>Oldroyd-B rheology</span><span>Log-conformation</span><span>VMS stabilization</span><span>Hyperelastic walls</span><span>Partitioned coupling</span></aside>
     </div>
