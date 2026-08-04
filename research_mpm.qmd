@@ -6,7 +6,7 @@ page-layout: full
 toc: false
 resources:
   - valfredda2D.mp4
-  - assets/research-mpm/twisting/twist.mp4ome"
+  - assets/research-mpm/twisting/twist.mp4
   - assets/research-mpm/dam_break/dam_break.mp4
 ---
 
@@ -192,7 +192,7 @@ resources:
           <span class="mpm-work-status submitted">Submitted · August 2026</span>
           <h3>An implicit MPM framework for incompressible Newtonian fluids: Irreducible and stabilized mixed formulations</h3>
           <p>Laura Moreno, Gioele De Zotti, and Antonia Larese.</p>
-          <p class="mpm-muted">Submitted to <em>Computer Methods in Applied Mechanics and Engineering</em>.</p>
+          <p class="mpm-muted">Submitted to <em>Computational Particle Mechanics</em>.</p>
           <p><a href="assets/docs/artweb010-lm.pdf">Preprint</a></p>
         </article>
         <article>

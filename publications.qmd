@@ -8,7 +8,7 @@ title: "Publications"
 
 An implicit MPM framework for incompressible Newtonian fluids: Irreducible and stabilized mixed formulations. [[Preprint]](/assets/docs/artweb010-lm.pdf)\
 Moreno L., De Zotti G. & Larese A.\
-Submitted to *Computer Methods in Applied Mechanics and Engineering*, August 2026.
+Submitted to *Computational Particle Mechanics*, August 2026.
 
 ## Published
 
