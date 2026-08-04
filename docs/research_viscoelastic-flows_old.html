@@ -69,8 +69,22 @@ gtag('js', new Date());
 gtag('config', 'G-67M1JQ9KKG', { 'anonymize_ip': true});
 </script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -263,55 +277,55 @@ gtag('config', 'G-67M1JQ9KKG', { 'anonymize_ip': true});
 </div>
 <div class="callout-body-container">
 <p>Momentum equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \rho \frac{\partial \boldsymbol{u}}{\partial t} + \rho \boldsymbol{u} \cdot \nabla \boldsymbol{u} - \nabla \cdot \mathbf{T} + \nabla p = \boldsymbol{f}
-\]</span></p>
+</span></p>
 <p>Continuity equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \nabla \cdot \boldsymbol{u} = 0
-\]</span></p>
+</span></p>
 <p>Constitutive equation</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \frac{1}{2 \eta_p} \big(1 + \mathfrak{h}(\boldsymbol{\sigma}) \big) \cdot \boldsymbol{\sigma} - \nabla^s \boldsymbol{u} + \frac{\lambda}{2 \eta_p} \left( \frac{\partial \boldsymbol{\sigma}}{\partial t} + \boldsymbol{u} \cdot \nabla \boldsymbol{\sigma} - \boldsymbol{\sigma} \cdot \nabla \boldsymbol{u} + (\nabla \boldsymbol{u})^{T} \cdot \boldsymbol{\sigma} \right) = \mathbf{0}
-\]</span></p>
+</span></p>
 </div>
 </div>
 </div>
-<p>where the unknowns are the velocity <span class="math inline">\(\boldsymbol{u}\)</span>, pressure <span class="math inline">\(p\)</span> and the extra stress tensor <span class="math inline">\(\boldsymbol{\sigma}\)</span>. The Deviatoric stress tensor is denoted by <span class="math inline">\(\mathbf{T}\)</span>, <span class="math inline">\(\eta_p\)</span> is the polymer viscosity coefficient and <span class="math inline">\(\lambda\)</span> is the relaxation time. The expression of <span class="math inline">\(\mathfrak{h}(\boldsymbol{\sigma})\)</span> depends on the model chosen. In general <span class="math inline">\(\mathfrak{h}(\boldsymbol{\sigma})=0\)</span>, which corresponds to the Oldroyd-B model.</p>
-<p>Also, note that <span class="math inline">\(\mathbf{T}\)</span> adopts different forms, depending of the fluid flow to simulate:</p>
+<p>where the unknowns are the velocity <span class="math inline">\boldsymbol{u}</span>, pressure <span class="math inline">p</span> and the extra stress tensor <span class="math inline">\boldsymbol{\sigma}</span>. The Deviatoric stress tensor is denoted by <span class="math inline">\mathbf{T}</span>, <span class="math inline">\eta_p</span> is the polymer viscosity coefficient and <span class="math inline">\lambda</span> is the relaxation time. The expression of <span class="math inline">\mathfrak{h}(\boldsymbol{\sigma})</span> depends on the model chosen. In general <span class="math inline">\mathfrak{h}(\boldsymbol{\sigma})=0</span>, which corresponds to the Oldroyd-B model.</p>
+<p>Also, note that <span class="math inline">\mathbf{T}</span> adopts different forms, depending of the fluid flow to simulate:</p>
 <ul>
-<li><p>Newtonian viscous fluids: <span class="math inline">\(\mathbf{T} = 2 \eta \nabla^s \boldsymbol{u}\)</span></p></li>
-<li><p>Polymeric fluids: <span class="math inline">\(\mathbf{T} = 2 \eta_s \nabla^s \boldsymbol{u} + \boldsymbol{\sigma}\)</span></p></li>
+<li><p>Newtonian viscous fluids: <span class="math inline">\mathbf{T} = 2 \eta \nabla^s \boldsymbol{u}</span></p></li>
+<li><p>Polymeric fluids: <span class="math inline">\mathbf{T} = 2 \eta_s \nabla^s \boldsymbol{u} + \boldsymbol{\sigma}</span></p></li>
 </ul>
-<p>where <span class="math inline">\(\eta_s\)</span> is the solvent viscosity for viscoelastic fluid flows. Note that <span class="math inline">\(\eta_s+\eta_p=\eta\)</span>, that is the usual viscosity employed for Newtonian fluids.</p>
+<p>where <span class="math inline">\eta_s</span> is the solvent viscosity for viscoelastic fluid flows. Note that <span class="math inline">\eta_s+\eta_p=\eta</span>, that is the usual viscosity employed for Newtonian fluids.</p>
 </section>
 <section id="the-weissenberg-number" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="the-weissenberg-number"><span class="header-section-number">2.3</span> The Weissenberg Number</h2>
 <p>The Weissenberg number (<strong>We</strong>) is a dimensionless quantity that compares <strong>elastic</strong> and <strong>viscous</strong> effects in viscoelastic fluid flows. It is defined as:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \mathrm{We} = \frac{\lambda U}{L}
-\]</span></p>
-<p>Where <span class="math inline">\(\lambda\)</span> is relaxation time, <span class="math inline">\(U\)</span> is the characteristic velocity and <span class="math inline">\(L\)</span> characteristic length.</p>
+</span></p>
+<p>Where <span class="math inline">\lambda</span> is relaxation time, <span class="math inline">U</span> is the characteristic velocity and <span class="math inline">L</span> characteristic length.</p>
 <p>The physical interpretation is:</p>
 <ul>
-<li>If <strong><span class="math inline">\(\mathrm{We}\)</span> is small</strong>: Viscous effects dominate, elastic behavior is negligible.<br>
+<li>If <strong><span class="math inline">\mathrm{We}</span> is small</strong>: Viscous effects dominate, elastic behavior is negligible.<br>
 </li>
-<li>If <strong><span class="math inline">\(\mathrm{We}\)</span> is large</strong> (typically <span class="math inline">\(\mathrm{We} &gt; 1\)</span>): Elastic effects become significant, leading to <strong>complex flow behavior</strong> and <strong>numerical difficulties</strong>.</li>
+<li>If <strong><span class="math inline">\mathrm{We}</span> is large</strong> (typically <span class="math inline">\mathrm{We} &gt; 1</span>): Elastic effects become significant, leading to <strong>complex flow behavior</strong> and <strong>numerical difficulties</strong>.</li>
 </ul>
 </section>
 <section id="weak-formulation" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="weak-formulation"><span class="header-section-number">2.4</span> Weak Formulation</h2>
-<p>The weak form of the problem consists in finding <span class="math inline">\(\boldsymbol{U} = [\boldsymbol{u}, p, \boldsymbol{\sigma}] : ]0, t_{\rm f}[ \longrightarrow \boldsymbol{\mathcal{X}} := \boldsymbol{\mathcal{V}}_0 \times \boldsymbol{\mathcal{Q}} \times \boldsymbol{\Upsilon}\)</span>, such that the initial conditions are satisfied and:</p>
-<p><span class="math display">\[
+<p>The weak form of the problem consists in finding <span class="math inline">\boldsymbol{U} = [\boldsymbol{u}, p, \boldsymbol{\sigma}] : ]0, t_{\rm f}[ \longrightarrow \boldsymbol{\mathcal{X}} := \boldsymbol{\mathcal{V}}_0 \times \boldsymbol{\mathcal{Q}} \times \boldsymbol{\Upsilon}</span>, such that the initial conditions are satisfied and:</p>
+<p><span class="math display">
 \left(\rho \dfrac{\partial \boldsymbol{u}}{\partial t}, \boldsymbol{v}\right)
 + (\boldsymbol{\sigma}, \nabla^{s} \boldsymbol{v})
 + 2 (\eta_{s} \nabla^{s} \boldsymbol{u}, \nabla^{s} \boldsymbol{v})
 + \langle \rho \boldsymbol{u} \cdot \nabla \boldsymbol{u}, \boldsymbol{v} \rangle
 - (p, \nabla \cdot \boldsymbol{v})
 = \langle \boldsymbol{f}, \boldsymbol{v} \rangle,
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 (q, \nabla \cdot \boldsymbol{u}) = 0,
-\]</span> <span class="math display">\[
+</span> <span class="math display">
 \dfrac{1}{2 \eta_{p}} (\boldsymbol{\sigma}, \boldsymbol{\chi})
 - (\nabla^{s} \boldsymbol{u}, \boldsymbol{\chi})
 + \dfrac{\lambda}{2 \eta_{p}} \left(
@@ -320,42 +334,42 @@ gtag('config', 'G-67M1JQ9KKG', { 'anonymize_ip': true});
 - \boldsymbol{\sigma} \cdot \nabla \boldsymbol{u}
 - (\nabla \boldsymbol{u})^{T} \cdot \boldsymbol{\sigma},
 \boldsymbol{\chi} \right) = 0,
-\]</span></p>
-<p>for all <span class="math inline">\(\boldsymbol{V} = [\boldsymbol{v}, q, \boldsymbol{\chi}] \in \boldsymbol{\mathcal{X}}\)</span>, where it is assumed that <span class="math inline">\(\boldsymbol{f}\)</span> is such that <span class="math inline">\(\langle \boldsymbol{f}, \boldsymbol{v} \rangle\)</span> is well defined.</p>
+</span></p>
+<p>for all <span class="math inline">\boldsymbol{V} = [\boldsymbol{v}, q, \boldsymbol{\chi}] \in \boldsymbol{\mathcal{X}}</span>, where it is assumed that <span class="math inline">\boldsymbol{f}</span> is such that <span class="math inline">\langle \boldsymbol{f}, \boldsymbol{v} \rangle</span> is well defined.</p>
 <p>In compact form, the problem can be written as:</p>
-<p><span class="math display">\[ \mathcal{G}(\boldsymbol{U}, \boldsymbol{V})
+<p><span class="math display"> \mathcal{G}(\boldsymbol{U}, \boldsymbol{V})
 + B(\boldsymbol{u}; \boldsymbol{U}, \boldsymbol{V})
-= L(\boldsymbol{V}),\]</span></p>
-<p>for all <span class="math inline">\(\boldsymbol{V} \in \boldsymbol{\mathcal{X}}\)</span>, where:</p>
-<p><span class="math inline">\(\mathcal{G}(\boldsymbol{U}, \boldsymbol{V}) = \left(\rho \dfrac{\partial \boldsymbol{u}}{\partial t}, \boldsymbol{v}\right) + \dfrac{\lambda}{2 \eta_{0}} \left(\dfrac{\partial \boldsymbol{\sigma}}{\partial t}, \boldsymbol{\chi} \right),\)</span></p>
-<p><span class="math inline">\(\begin{aligned} B(\hat{\boldsymbol{u}}; \boldsymbol{U}, \boldsymbol{V}) =\ &amp; 2 (\eta_{s} \nabla^{s} \boldsymbol{u}, \nabla^{s} \boldsymbol{v}) + \langle \rho \hat{\boldsymbol{u}} \cdot \nabla \boldsymbol{u}, \boldsymbol{v} \rangle + (\boldsymbol{\sigma}, \nabla^{s} \boldsymbol{v}) \\ &amp; - (p, \nabla \cdot \boldsymbol{v}) + (q, \nabla \cdot \boldsymbol{u}) + \dfrac{1}{2 \eta_{p}} (\boldsymbol{\sigma}, \boldsymbol{\chi}) - (\nabla^{s} \boldsymbol{u}, \boldsymbol{\chi}) \\ &amp; + \dfrac{\lambda}{2 \eta_{p}} \left( \hat{\boldsymbol{u}} \cdot \nabla \boldsymbol{\sigma} - \boldsymbol{\sigma} \cdot \nabla \hat{\boldsymbol{u}} - (\nabla \hat{\boldsymbol{u}})^{T} \cdot \boldsymbol{\sigma}, \boldsymbol{\chi} \right), \end{aligned}\)</span></p>
-<p><span class="math inline">\(L(\boldsymbol{V}) = \langle \boldsymbol{f}, \boldsymbol{v} \rangle.\)</span></p>
+= L(\boldsymbol{V}),</span></p>
+<p>for all <span class="math inline">\boldsymbol{V} \in \boldsymbol{\mathcal{X}}</span>, where:</p>
+<p><span class="math inline">\mathcal{G}(\boldsymbol{U}, \boldsymbol{V}) = \left(\rho \dfrac{\partial \boldsymbol{u}}{\partial t}, \boldsymbol{v}\right) + \dfrac{\lambda}{2 \eta_{0}} \left(\dfrac{\partial \boldsymbol{\sigma}}{\partial t}, \boldsymbol{\chi} \right),</span></p>
+<p><span class="math inline">\begin{aligned} B(\hat{\boldsymbol{u}}; \boldsymbol{U}, \boldsymbol{V}) =\ &amp; 2 (\eta_{s} \nabla^{s} \boldsymbol{u}, \nabla^{s} \boldsymbol{v}) + \langle \rho \hat{\boldsymbol{u}} \cdot \nabla \boldsymbol{u}, \boldsymbol{v} \rangle + (\boldsymbol{\sigma}, \nabla^{s} \boldsymbol{v}) \\ &amp; - (p, \nabla \cdot \boldsymbol{v}) + (q, \nabla \cdot \boldsymbol{u}) + \dfrac{1}{2 \eta_{p}} (\boldsymbol{\sigma}, \boldsymbol{\chi}) - (\nabla^{s} \boldsymbol{u}, \boldsymbol{\chi}) \\ &amp; + \dfrac{\lambda}{2 \eta_{p}} \left( \hat{\boldsymbol{u}} \cdot \nabla \boldsymbol{\sigma} - \boldsymbol{\sigma} \cdot \nabla \hat{\boldsymbol{u}} - (\nabla \hat{\boldsymbol{u}})^{T} \cdot \boldsymbol{\sigma}, \boldsymbol{\chi} \right), \end{aligned}</span></p>
+<p><span class="math inline">L(\boldsymbol{V}) = \langle \boldsymbol{f}, \boldsymbol{v} \rangle.</span></p>
 </section>
 <section id="spatial-discretization-using-the-finite-element-method" class="level2" data-number="2.5">
 <h2 data-number="2.5" class="anchored" data-anchor-id="spatial-discretization-using-the-finite-element-method"><span class="header-section-number">2.5</span> Spatial discretization using the Finite Element Method</h2>
 <p>The <strong>Galerkin finite element method</strong> consists in seeking an approximate solution within a finite-dimensional subspace of the original infinite-dimensional function space. Given a weak formulation of the problem, the solution is approximated by projecting it onto a finite element space constructed from piecewise polynomial basis functions defined over a mesh of the computational domain.<br>
 </p>
 <p>In this framework, the trial and test functions are chosen from the same finite element space, ensuring consistency and stability under appropriate conditions.&nbsp;</p>
-<p>In general, the finite element partition of the domain <span class="math inline">\(\Omega\)</span> is denoted by <span class="math inline">\(\mathcal{T}_{h} = \{K\}\)</span>. Likewise, the diameter of an element <span class="math inline">\(K \in \mathcal{T}_{h}\)</span> is denoted by <span class="math inline">\(h_{K}\)</span>, and the diameter of the partition is defined as <span class="math inline">\(h = \max\{h_{K} \mid K \in \mathcal{T}_{h}\}.\)</span> From <span class="math inline">\(\mathcal{T}_{h}\)</span> we construct conforming finite element spaces for the velocity, the pressure, and the elastic stress: <span class="math inline">\(\boldsymbol{\mathcal{V}}_{h} \subset \boldsymbol{\mathcal{V}}\)</span>, <span class="math inline">\(\mathcal{Q}_{h} \subset \mathcal{Q}\)</span>, and <span class="math inline">\(\boldsymbol{\Upsilon}_{h} \subset \boldsymbol{\Upsilon}\)</span>, respectively.</p>
-<p>Therefore, defining <span class="math inline">\(\boldsymbol{\mathcal{X}}_{h} := \boldsymbol{\mathcal{V}}_{h} \times \mathcal{Q}_{h} \times \boldsymbol{\Upsilon}_{h},\)</span> the Galerkin finite element approximation of the standard problem consists in finding <span class="math inline">\(\boldsymbol{U}_{h} : ]0, t_{\mathrm{f}}[ \longrightarrow \boldsymbol{\mathcal{X}}_{h},\)</span> such that:</p>
-<p><span class="math display">\[
+<p>In general, the finite element partition of the domain <span class="math inline">\Omega</span> is denoted by <span class="math inline">\mathcal{T}_{h} = \{K\}</span>. Likewise, the diameter of an element <span class="math inline">K \in \mathcal{T}_{h}</span> is denoted by <span class="math inline">h_{K}</span>, and the diameter of the partition is defined as <span class="math inline">h = \max\{h_{K} \mid K \in \mathcal{T}_{h}\}.</span> From <span class="math inline">\mathcal{T}_{h}</span> we construct conforming finite element spaces for the velocity, the pressure, and the elastic stress: <span class="math inline">\boldsymbol{\mathcal{V}}_{h} \subset \boldsymbol{\mathcal{V}}</span>, <span class="math inline">\mathcal{Q}_{h} \subset \mathcal{Q}</span>, and <span class="math inline">\boldsymbol{\Upsilon}_{h} \subset \boldsymbol{\Upsilon}</span>, respectively.</p>
+<p>Therefore, defining <span class="math inline">\boldsymbol{\mathcal{X}}_{h} := \boldsymbol{\mathcal{V}}_{h} \times \mathcal{Q}_{h} \times \boldsymbol{\Upsilon}_{h},</span> the Galerkin finite element approximation of the standard problem consists in finding <span class="math inline">\boldsymbol{U}_{h} : ]0, t_{\mathrm{f}}[ \longrightarrow \boldsymbol{\mathcal{X}}_{h},</span> such that:</p>
+<p><span class="math display">
 \underbrace{\mathcal{G}(\boldsymbol{U}_{h}, \boldsymbol{V}_{h})}_{\text{Temporal terms}} +
 \underbrace{B(\boldsymbol{u}_{h}; \boldsymbol{U}_{h}, \boldsymbol{V}_{h})}_{\text{Bilinear form}}
 = L(\boldsymbol{V}_{h}),
-\]</span></p>
-<p>for all <span class="math inline">\(\boldsymbol{V}_{h} \in \boldsymbol{\mathcal{X}}_{h}\)</span>.</p>
+</span></p>
+<p>for all <span class="math inline">\boldsymbol{V}_{h} \in \boldsymbol{\mathcal{X}}_{h}</span>.</p>
 <p>The resulting system is a set of algebraic equations that can be efficiently solved using numerical linear algebra techniques.</p>
 </section>
 <section id="stabilization" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="stabilization"><span class="header-section-number">2.6</span> Stabilization</h2>
 <p>In incompressible flow problems, using equal-order interpolation for velocity and pressure in finite element methods <strong>often leads to numerical instabilities due to the violation of the inf-sup</strong> (or Ladyzhenskaya–Babuška–Brezzi) <strong>condition</strong>. This condition is essential to ensure the well-posedness of the continuous and discrete problems, namely the existence and uniqueness of the solution.</p>
 <p>To address this, stabilization techniques are introduced, modifying the formulation slightly to recover stability without compromising accuracy. Among the various available strategies, we adopt the <strong>Variational Multiscale (VMS) method</strong>. VMS techniques are robust, residual-based, and provide a systematic framework that enhances stability and ensures mesh-convergent solutions.</p>
-<p>The key idea in Variational Multiscale Methods (VMS) is to decompose the solution and test space into <em>coarse (resolved)</em> and <em>fine (unresolved)</em> scales: <span class="math display">\[
+<p>The key idea in Variational Multiscale Methods (VMS) is to decompose the solution and test space into <em>coarse (resolved)</em> and <em>fine (unresolved)</em> scales: <span class="math display">
 \boldsymbol{U} = \boldsymbol{U}_h + \boldsymbol{U}', \quad \boldsymbol{V} = \boldsymbol{V}_h + \boldsymbol{V}',
-\]</span> where <span class="math inline">\(\boldsymbol{U}_h, \boldsymbol{V}_h \in \boldsymbol{\mathcal{X}}_{h}\)</span> (finite-dimensional space), and <span class="math inline">\(\boldsymbol{U}', \boldsymbol{V}' \in \boldsymbol{\mathcal{X}}'\)</span> (the complementary fine-scale space).</p>
-<p>Inserting the decomposition into the variational formulation and requiring it to hold for all <span class="math inline">\(\boldsymbol{V}_h \in \boldsymbol{\mathcal{X}}_{h}\)</span> and <span class="math inline">\(\boldsymbol{V}' \in \boldsymbol{\mathcal{X}}'\)</span>, we obtain a coupled system for the resolved and unresolved scales. Then, the fine scales <span class="math inline">\(\boldsymbol{U}'\)</span> are approximated (typically in terms of the residual of the coarse-scale equation), leading to a modified coarse-scale problem of the form: <span class="math display">\[
+</span> where <span class="math inline">\boldsymbol{U}_h, \boldsymbol{V}_h \in \boldsymbol{\mathcal{X}}_{h}</span> (finite-dimensional space), and <span class="math inline">\boldsymbol{U}', \boldsymbol{V}' \in \boldsymbol{\mathcal{X}}'</span> (the complementary fine-scale space).</p>
+<p>Inserting the decomposition into the variational formulation and requiring it to hold for all <span class="math inline">\boldsymbol{V}_h \in \boldsymbol{\mathcal{X}}_{h}</span> and <span class="math inline">\boldsymbol{V}' \in \boldsymbol{\mathcal{X}}'</span>, we obtain a coupled system for the resolved and unresolved scales. Then, the fine scales <span class="math inline">\boldsymbol{U}'</span> are approximated (typically in terms of the residual of the coarse-scale equation), leading to a modified coarse-scale problem of the form: <span class="math display">
 \mathcal{G}(\boldsymbol{U}_{h}, \boldsymbol{V}_{h})+B(\boldsymbol{u}_h;\boldsymbol{U}_h, \boldsymbol{V}_h) + S(\boldsymbol{U}_h, \boldsymbol{V}_h) = L(\boldsymbol{V}_h) \quad \forall \boldsymbol{V}_h \in \boldsymbol{\mathcal{X}}_{h},
-\]</span> where the stabilization operator <span class="math inline">\(S(\cdot, \cdot)\)</span> accounts for the effect of the unresolved scales.</p>
+</span> where the stabilization operator <span class="math inline">S(\cdot, \cdot)</span> accounts for the effect of the unresolved scales.</p>
 <p>This framework provides a systematic and physically motivated way to derive stabilized formulations, especially effective for problems with dominant advection or incompressibility constraints.</p>
 <!--  How to obtain the formulation? See A Simple Example with the Stokes Equations (link) -->
 <!-- Insert the viscoelastic flui flow porblem stabilized here? It is said only the stabilization terms (the others are defined in previous sections) -->
@@ -375,27 +389,27 @@ gtag('config', 'G-67M1JQ9KKG', { 'anonymize_ip': true});
 <p>In 2004, Fattal and Kupferman provided a key insight by identifying two main sources of instability associated with this problem:</p>
 <ol type="1">
 <li><p>Inadequate approximations for representing the polymeric stress tensor, which can lead to unphysical results or numerical blow-up.</p></li>
-<li><p>The requirement to preserve the positive-definiteness of the conformation tensor. This tensor, denoted by <span class="math display">\[
+<li><p>The requirement to preserve the positive-definiteness of the conformation tensor. This tensor, denoted by <span class="math display">
 \boldsymbol{\tau} = \lambda \dfrac{\boldsymbol{\sigma}}{\eta_p} + \mathbf{I}
-\]</span> must remain positive-definite to ensure physically meaningful solutions. However, standard discretization techniques may violate this condition, leading to instabilities in the numerical simulation.</p></li>
+</span> must remain positive-definite to ensure physically meaningful solutions. However, standard discretization techniques may violate this condition, leading to instabilities in the numerical simulation.</p></li>
 </ol>
 <p>These findings laid the groundwork for the development of more robust numerical schemes, such as the <strong>Log-conformation Reformulation (LCR)</strong>, which aim to overcome these difficulties by reformulating the constitutive equations in a way that inherently preserves the mathematical and physical properties of the model. Therefore, Fattal and Kupferman proposed a reformulation that is essentially <strong>a change of variables</strong>. The original formulation by Fattal and Kupferman considers the next transformation:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boldsymbol{\psi}
 = \log\left( \dfrac{\lambda \boldsymbol{\sigma}}{\eta_p} + \mathbf{I} \right)
-\]</span> This change of variables ensure the conformation tensor remains physically admissible, which requires it to be <strong>symmetric</strong> and <strong>positive-definite</strong> at all times.</p>
+</span> This change of variables ensure the conformation tensor remains physically admissible, which requires it to be <strong>symmetric</strong> and <strong>positive-definite</strong> at all times.</p>
 <p>Following this important discovery, we apply the same change of variables, with some modifications to suit our model:</p>
-<p><span class="math display">\[
+<p><span class="math display">
 \boldsymbol{\psi} = \log\left(\boldsymbol{\tau}\right)
 = \log\left( \dfrac{\lambda_0 \boldsymbol{\sigma}}{\eta_p} + \mathbf{I} \right)
 \quad \longrightarrow \quad
 \boldsymbol{\sigma} = \dfrac{\eta_p}{\lambda_0} \left( \exp(\boldsymbol{\psi}) - \mathbf{I} \right)
-\]</span></p>
-<p>where, <span class="math inline">\(\lambda_0 = \max\{k\lambda, \lambda_{0,\min}\}\)</span>.</p>
+</span></p>
+<p>where, <span class="math inline">\lambda_0 = \max\{k\lambda, \lambda_{0,\min}\}</span>.</p>
 <blockquote class="blockquote">
-<p><strong>Note:</strong> Unlike the original change of variables, <strong>our formulation is non-singular</strong> when the Weissenberg number <span class="math inline">\(\mathrm{We}\)</span> tends to zero, avoiding potential numerical issues in this limit.</p>
+<p><strong>Note:</strong> Unlike the original change of variables, <strong>our formulation is non-singular</strong> when the Weissenberg number <span class="math inline">\mathrm{We}</span> tends to zero, avoiding potential numerical issues in this limit.</p>
 </blockquote>
-<p>By substituting this reformulated variable <span class="math inline">\(\boldsymbol{\psi}\)</span> into the original governing equations, we obtain <strong>a new system of equations</strong> where the primary unknowns are the velocity <span class="math inline">\(\boldsymbol{u}\)</span>, the pressure <span class="math inline">\(p\)</span>, and the transformed tensor <span class="math inline">\(\boldsymbol{\psi}\)</span>.</p>
+<p>By substituting this reformulated variable <span class="math inline">\boldsymbol{\psi}</span> into the original governing equations, we obtain <strong>a new system of equations</strong> where the primary unknowns are the velocity <span class="math inline">\boldsymbol{u}</span>, the pressure <span class="math inline">p</span>, and the transformed tensor <span class="math inline">\boldsymbol{\psi}</span>.</p>
 <p>Considering this new system, we develop a Variational Multiscale (VMS) stabilization strategy <strong>for stabilize the reformulated problem</strong>. Moreover, we design a “split” type stabilization method, which focuses on the essential terms necessary to stabilize the problem efficiently, while still achieving optimal convergence rates.</p>
 <p>This approach significantly improves the robustness and accuracy of the numerical simulations for viscoelastic flows at high Weissenberg numbers.</p>
 </section>
@@ -451,7 +465,7 @@ gtag('config', 'G-67M1JQ9KKG', { 'anonymize_ip': true});
 <h2 data-number="4.1" class="anchored" data-anchor-id="main-concepts-1"><span class="header-section-number">4.1</span> Main Concepts</h2>
 <p>In non-isothermal viscoelastic fluids, the stress no longer depends solely on the deformation and its history, as is the case in isothermal models. Instead, it is also influenced by the temperature and its temporal evolution. This adds a new layer of complexity to the modeling, as <strong>both the thermal and mechanical histories must be taken into account</strong>.</p>
 <ul>
-<li><p>Now, <strong>the parameters used in viscoelastic models</strong>, such as the solvent and polymeric viscosities <span class="math inline">\(\eta_s\)</span>, <span class="math inline">\(\eta_p\)</span>, and the relaxation time <span class="math inline">\(\lambda\)</span>, <strong>become temperature-dependent</strong>. This dependence is commonly modeled using the <strong>principle of time-temperature superposition</strong>, twhich provides a way to relate temperature changes to time-dependent material behavior using an appropriate law.</p></li>
+<li><p>Now, <strong>the parameters used in viscoelastic models</strong>, such as the solvent and polymeric viscosities <span class="math inline">\eta_s</span>, <span class="math inline">\eta_p</span>, and the relaxation time <span class="math inline">\lambda</span>, <strong>become temperature-dependent</strong>. This dependence is commonly modeled using the <strong>principle of time-temperature superposition</strong>, twhich provides a way to relate temperature changes to time-dependent material behavior using an appropriate law.</p></li>
 <li><p>Moreover, <strong>temperature equation must be added to the model</strong>. This equation includes a specific term accounting for <strong>viscous dissipation</strong>, which accounts for the heat generated by internal friction in the fluid. In simple terms: wherever there’s resistance to flow, there’s heat being produced.</p></li>
 </ul>
 <p>The set of the standar equations would be as follows:</p>
@@ -461,7 +475,7 @@ gtag('config', 'G-67M1JQ9KKG', { 'anonymize_ip': true});
 <figcaption class="figure-caption">Set equations</figcaption>
 </figure>
 </div>
-<p>where <span class="math inline">\(\theta\)</span> is the temperature unknown and <span class="math inline">\(\theta_0\)</span> is the referene temperature.</p>
+<p>where <span class="math inline">\theta</span> is the temperature unknown and <span class="math inline">\theta_0</span> is the referene temperature.</p>
 <p>To solve the full problem, we use an <strong>iterative coupling strategy between the thermal and fluid subproblems</strong>, while the fluid equations are treated in a monolithic way, that is, solved all together rather than split into separate steps.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -488,7 +502,7 @@ gtag('config', 'G-67M1JQ9KKG', { 'anonymize_ip': true});
 <figcaption class="figure-caption">Temperature distribution (K)</figcaption>
 </figure>
 </div>
-<p>We can observe that the temperature increases around the cylinder and downstream when considering a fluid flow with <span class="math inline">\(\text{We}= 4\)</span>. Now we can also compare the behaviour of the temperature for fluid flows with different viscoelasticity (different We), and also comparing with a viscous fluid flow.</p>
+<p>We can observe that the temperature increases around the cylinder and downstream when considering a fluid flow with <span class="math inline">\text{We}= 4</span>. Now we can also compare the behaviour of the temperature for fluid flows with different viscoelasticity (different We), and also comparing with a viscous fluid flow.</p>
 <div class="columns">
 <div class="column" style="width:45%;">
 <p><img src="assets/images-temperature/cylinder_TemperWe.png" class="img-fluid"></p>
