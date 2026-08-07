@@ -1,0 +1,181 @@
+\begin{thebibliography}{10}
+
+\bibitem{DoneaALE}
+J.~Donea, A.~Huerta, J.-P. Ponthot, and A.~Rodr\'{\i}guez-Ferran, {\em {\it
+  Arbitrary Lagrangian--Eulerian Methods}, {\rm in Encyclopedia of
+  Computational Mechanics (eds E. Stein, R. Borst and T.J.R. Hughes)}},
+  pp.~1--25.
+\newblock John Wiley \& Sons Ltd., 2004.
+
+\bibitem{badia-codina-2006-1}
+S.~Badia and R.~Codina, ``Analysis of a stabilized finite element approximation
+  of the transient convection-diffusion equation using an {ALE} framework,''
+  {\em {SIAM} Journal on Numerical Analysis}, vol.~44, pp.~2159--2197, 2006.
+
+\bibitem{houzeauxc4}
+G.~Houzeaux and R.~Codina, ``A finite element model for the simulation of lost
+  foam casting,'' {\em International Journal for Numerical Methods in Fluids},
+  vol.~46, pp.~203--226, 2004.
+
+\bibitem{codina-et-al-2009-2}
+R.~Codina, J.~Houzeaux, H.~Coppola-Owen, and J.~Baiges, ``The fixed-mesh {ALE}
+  approach for the numerical approximation of flows in moving domains,'' {\em
+  Journal of Computational Physics}, vol.~228, pp.~1591--1611, 2009.
+
+\bibitem{hughes1}
+T.~Hughes, ``Multiscale phenomena: {Green's} function, the
+  {Dirichlet}-to-{Neumann} formulation, subgrid scale models, bubbles and the
+  origins of stabilized formulations,'' {\em Computer Methods in Applied
+  Mechanics and Engineering}, vol.~127, pp.~387--401, 1995.
+
+\bibitem{codina9}
+R.~Codina, ``Stabilized finite element approximation of transient
+  incompressible flows using orthogonal subscales,'' {\em Computer Methods in
+  Applied Mechanics and Engineering}, vol.~191, pp.~4295--4321, 2002.
+
+\bibitem{codinap1}
+R.~Codina, J.~Principe, O.~Guasch, and S.~Badia, ``Time dependent subscales in
+  the stabilized finite element approximation of incompressible flow
+  problems,'' {\em Computer Methods in Applied Mechanics and Engineering},
+  vol.~196, pp.~2413--2430, 2007.
+
+\bibitem{juntunen-stenberg-09}
+M.~Juntunen and R.~Stenberg, ``Nitsche's method for general boundary
+  conditions,'' {\em Mathematics of Computation}, vol.~78, pp.~1353--1374,
+  2009.
+
+\bibitem{burman-hansbo-2012-1}
+E.~Burman and P.~Hansbo, ``Fictitious domain finite element methods using cut
+  elements: {II}. {A} stabilized {Nitsche} method,'' {\em Applied Numerical
+  Mathematics}, vol.~62, pp.~328--341, 2012.
+
+\bibitem{main-scovazzi-2018}
+A.~Main and G.~Scovazzi, ``The shifted boundary method for embedded domain
+  computations. {Part I}: {Poisson} and {Stokes} problems,'' {\em Journal of
+  Computational Physics}, vol.~372, pp.~972--995, 2018.
+
+\bibitem{badia-et-al-2021}
+S.~Badia, A.~F. Mart\'{\i}n, E.~Neiva, and F.~Verdugo, ``The aggregated
+  unfitted finite element method on parallel tree-based adaptive meshes,'' {\em
+  SIAM Journal on Scientific Computing}, vol.~43, pp.~C203--C234, 2021.
+
+\bibitem{BadiaCodina2007}
+S.~Badia and R.~Codina, ``Algebraic pressure segregation methods for the
+  incompressible {N}avier--{S}tokes equations,'' {\em Archives of Computational
+  Methods in Engineering}, vol.~15, pp.~1--52, 2007.
+
+\bibitem{chorin3}
+A.~Chorin, ``Numerical solution of the {Navier--Stokes} equations,'' {\em
+  Mathematics of Computation}, vol.~22, pp.~745--762, 1968.
+
+\bibitem{guermond-minev-2015}
+J.-L. Guermond and P.~D. Minev, ``High-order time stepping for the
+  incompressible {Navier}--{Stokes} equations,'' {\em SIAM Journal on
+  Scientific Computing}, vol.~37, pp.~A2656 --A2681, 2015.
+
+\bibitem{baiges:siam_jsc17}
+J.~Baiges and C.~Bayona, ``Refficientlib: {A}n {E}fficient {L}oad-{R}ebalanced
+  {A}daptive {M}esh {R}efinement {A}lgorithm for {H}igh-{P}erformance
+  {C}omputational {P}hysics {M}eshes,'' {\em SIAM Journal on Scientific
+  Computing}, vol.~39, no.~2, pp.~65--95, 2017.
+
+\bibitem{boffig1}
+D.~Boffi and L.~Gastaldi, ``Stability and geometric conservation laws for {ALE}
+  formulation,'' {\em Computer Methods in Applied Mechanics and Engineering},
+  vol.~193, pp.~4717--4739, 2004.
+
+\bibitem{cowenc2}
+H.~Coppola-Owen and R.~Codina, ``A finite element model for free surface flows
+  on fixed meshes,'' {\em International Journal for Numerical Methods in
+  Fluids}, vol.~54, pp.~1151--1171, 2007.
+
+\bibitem{baiges-codina-2010-1}
+J.~Baiges and R.~Codina, ``The fixed-mesh {ALE} approach applied to solid
+  mechanics and fluid-structure interaction problems,'' {\em International
+  Journal for Numerical Methods in Engineering}, vol.~81, pp.~1529--1557, 2010.
+
+\bibitem{codina6}
+R.~Codina, ``A stabilized finite element method for generalized stationary
+  incompressible flows,'' {\em Computer Methods in Applied Mechanics and
+  Engineering}, vol.~190, pp.~2681--2706, 2001.
+
+\bibitem{CodinaVMS}
+R.~Codina, S.~Badia, J.~Baiges, and J.~Principe, {\em {\it Variational
+  Multiscale Methods in Computational Fluid Dynamics}, {\rm in Encyclopedia of
+  Computational Mechanics (eds E. Stein, R. Borst and T.J.R. Hughes)}},
+  pp.~1--28.
+\newblock John Wiley \& Sons Ltd., 2017.
+
+\bibitem{codina10}
+R.~Codina, ``Analysis of a stabilized finite element approximation of the
+  {Oseen} equations using orthogonal subscales,'' {\em Applied Numerical
+  Mathematics}, vol.~58, pp.~264--283, 2008.
+
+\bibitem{castillo-codina-2019}
+E.~Castillo and R.~Codina, ``Dynamic term-by-term stabilized finite element
+  formulation using orthogonal subgrid-scales for the incompressible
+  {Navier}-{Stokes} problem,'' {\em Computer Methods in Applied Mechanics and
+  Engineering}, vol.~349, pp.~701--721, 2019.
+
+\bibitem{Guasch-codina-2013}
+O.~Guasch and R.~Codina, ``Statistical behavior of the orthogonal subgrid scale
+  stabilization terms in the finite element large eddy simulation of turbulent
+  flows,'' {\em Computer Methods in Applied Mechanics and Engineering},
+  vol.~261-262, pp.~154--166, 2013.
+
+\bibitem{COLOMES201532}
+O.~Colomés, S.~Badia, R.~Codina, and J.~Principe, ``Assessment of variational
+  multiscale models for the large eddy simulation of turbulent incompressible
+  flows,'' {\em Computer Methods in Applied Mechanics and Engineering},
+  vol.~285, pp.~32--63, 2015.
+
+\bibitem{codina-baiges-2014-1}
+R.~Codina and J.~Baiges, ``Weak imposition of essential boundary conditions in
+  the finite element approximation of elliptic problems with non-matching
+  meshes,'' {\em International Journal for Numerical Methods in Engineering},
+  vol.~104, pp.~624--654, 2015.
+
+\bibitem{baiges-et-al-2012}
+J.~Baiges, R.~Codina, F.~Henke, S.~Shahmiri, and W.~Wall, ``A symmetric method
+  for weakly imposing {D}irichlet boundary conditions in embedded finite
+  element meshes,'' {\em International Journal for Numerical Methods in
+  Engineering}, vol.~90, pp.~636--658, 2012.
+
+\bibitem{CodinaBadia2013}
+R.~Codina and S.~Badia, ``On the design of discontinuous galerkin methods for
+  elliptic problems based on hybrid formulations,'' {\em Computer Methods in
+  Applied Mechanics and Engineering}, vol.~263, pp.~158--168, 2013.
+
+\bibitem{baiges-et-al-2017}
+A.~P. J.~Baiges, R.~Codina and E.~Castillo, ``An adaptive fixed-mesh {ALE}
+  method for free surface flows,'' {\em Computer Methods in Applied Mechanics
+  and Engineering}, vol.~313, pp.~159--188, 2017.
+
+\bibitem{codina11}
+R.~Codina, ``Pressure stability in fractional step finite element methods for
+  incompressible flows,'' {\em Journal of Computational Physics}, vol.~170,
+  pp.~112--140, 2001.
+
+\bibitem{Karypis1997ParmetisPG}
+G.~Karypis, K.~Schloegel, and V.~Kumar, ``Parmetis parallel graph partitioning
+  and sparse matrix ordering library,'' 1997.
+
+\bibitem{bazilevs-et-al-2007}
+Y.~Bazilevs, C.~Michler, V.~Calo, and T.~Hughes, ``Weak {Dirichlet} boundary
+  conditions for wall-bounded turbulent flows,'' {\em Computer Methods in
+  Applied Mechanics and Engineering}, vol.~196, pp.~4853--4862, 2007.
+
+\bibitem{PETScHomePage}
+S.Balay, S.~Abhyankar, M.~F. Adams, J.~Brown, P.~Brune, K.~Buschelman,
+  L.~Dalcin, V.~Eijkhout, W.~D. Gropp, D.~Kaushik, M.~G. Knepley, D.~A. May,
+  L.~C. McInnes, R.~T. Mills, T.~Munson, K.~Rupp, P.~Sanan, B.~F. Smith,
+  S.~Zampini, H.~Zhang, and H.~Zhang, ``{PETS}c {W}eb page,
+  http://www.mcs.anl.gov/petsc,'' 2015.
+
+\bibitem{BiconjugateGradientSolver}
+H.~A.~V. der Vorst, ``{B}i-{CGSTAB}: {A} fast and smoothly converging variant
+  of {B}i-{CG} for the solution of nonsymmetric linear systems,'' {\em SIAM,
+  Journal of Scientific and Statistical Computing}, vol.~13, no.~2, pp.~631 --
+  644, 1992.
+
+\end{thebibliography}

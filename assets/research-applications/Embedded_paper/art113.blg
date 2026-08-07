@@ -1,0 +1,50 @@
+This is BibTeX, Version 0.99d (TeX Live 2017/Debian)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: art113.aux
+The style file: ieeetr.bst
+Database file #1: latexbi.bib
+Warning--entry type for "PETScHomePage" isn't style-file defined
+--line 7897 of file latexbi.bib
+Warning--empty booktitle in Karypis1997ParmetisPG
+You've used 33 entries,
+            1876 wiz_defined-function locations,
+            741 strings with 10337 characters,
+and the built_in function-call counts, 11061 in all, are:
+= -- 1178
+> -- 347
+< -- 0
++ -- 129
+- -- 96
+* -- 741
+:= -- 1463
+add.period$ -- 35
+call.type$ -- 33
+change.case$ -- 31
+chr.to.int$ -- 0
+cite$ -- 34
+duplicate$ -- 559
+empty$ -- 1006
+format.name$ -- 96
+if$ -- 2757
+int.to.chr$ -- 0
+int.to.str$ -- 33
+missing$ -- 34
+newline$ -- 104
+num.names$ -- 33
+pop$ -- 84
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 475
+stack$ -- 0
+substring$ -- 1018
+swap$ -- 293
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 1
+while$ -- 117
+width$ -- 35
+write$ -- 328
+(There were 2 warnings)

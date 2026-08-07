@@ -1,0 +1,21 @@
+\BOOKMARK [1][-]{section.1}{1. Introduction}{}% 1
+\BOOKMARK [1][-]{section.2}{2. The Fixed-mesh ALE method}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{2.1. ALE formulation of the flow equations}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{2.2. Time discretisation}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{2.3. Galerkin finite element approximation}{section.2}% 5
+\BOOKMARK [2][-]{subsection.2.4}{2.4. Fixed-mesh ALE implementation}{section.2}% 6
+\BOOKMARK [1][-]{section.3}{3. Stabilised finite element approximation}{}% 7
+\BOOKMARK [1][-]{section.4}{4. Approximate imposition of boundary conditions}{}% 8
+\BOOKMARK [1][-]{section.5}{5. Artificial compressibility and fractional step scheme}{}% 9
+\BOOKMARK [1][-]{section.6}{6. Adaptive mesh refinement and parallel implementation}{}% 10
+\BOOKMARK [2][-]{subsection.6.1}{6.1. Level set function for the boundary definition}{section.6}% 11
+\BOOKMARK [2][-]{subsection.6.2}{6.2. Algorithmic strategy for the projection step}{section.6}% 12
+\BOOKMARK [2][-]{subsection.6.3}{6.3. Adaptive approach}{section.6}% 13
+\BOOKMARK [1][-]{section.7}{7. Numerical example}{}% 14
+\BOOKMARK [2][-]{figure.caption.2}{7.1. Problem statement}{section.7}% 15
+\BOOKMARK [2][-]{subsection.7.2}{7.2. Numerical strategy}{section.7}% 16
+\BOOKMARK [2][-]{figure.caption.10}{7.3. Numerical results}{section.7}% 17
+\BOOKMARK [2][-]{subsection.7.4}{7.4. Numerical performance}{section.7}% 18
+\BOOKMARK [1][-]{section.8}{8. Conclusions}{}% 19
+\BOOKMARK [1][-]{section*.12}{Acknowledgements}{}% 20
+\BOOKMARK [1][-]{section*.13}{References}{}% 21
