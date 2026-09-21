@@ -32,20 +32,18 @@ My teaching experience includes undergraduate and master’s courses in applied 
 
 **Fundamentos Matemáticos en Ingeniería I**  
 BSc in Aerospace Engineering, University of Alicante  
-Lecturer and course coordinator · 2024–present · [Course guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wcodest=C214&wcodasi=33803&wlengua=C&scaca=2025-26)
+Lecturer and course coordinator · 2024–present · [Course guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wcodest=C214&wcodasi=33803&wlengua=C&scaca=2026-27)
 
-**Matemáticas Básicas**  
-BSc in Sound and Image Engineering, University of Alicante  
-Lecturer · 2024–present · [Course guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=en&wcodasi=20004&scaca=2025-26#)
 
-**Cálculo Diferencial Avanzado** *(upcoming)*  
+**Cálculo Diferencial Avanzado** \
 MSc in Civil Engineering, University of Alicante  
-Lecturer and course coordinator · 2026/2027 (scheduled)
+Lecturer and course coordinator · 2026/2027 · [Course guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=es&wcodasi=49400&scaca=2026-27)
 
 ## 2. Previous teaching {#previous-teaching}
 - *Particle Based Methods in Engineering* — MSc in Civil Engineering, Technical University of Munich (2025/2026)  
   Guest lecture: *Constitutive Modeling of Granular Material and Extensions of MPM Formulations* · 2 hours
 - *Métodos Numéricos en Ciencia de Datos* — BSc in Applied Data Science, Universitat Oberta de Catalunya (2025/2026)  
+- *Matemáticas Básicas* — BSc in Sound and Image Engineering, University of Alicante (2025/2026 - 2025/2026) · [Course guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=en&wcodasi=20004&scaca=2025-26#)
 - *Fundamentos de Matemática Aplicada 2* — BSc in Robotics Engineering, University of Alicante (2024/2025) · [Course guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=es&wcodasi=33706&scaca=2024-25)  
 - *Fundamentos Matemáticos 2* — BSc in Architecture, University of Alicante (2024/2025) · [Course guide](https://cvnet.cpd.ua.es/Guia-Docente/GuiaDocente/Index?wlengua=es&wcodasi=35509&scaca=2024-25)  
 - *Particle Methods* — MSc in Civil Engineering, Technische Universität Braunschweig (2023/2024)  

@@ -6,6 +6,8 @@ description: "A Physics student at the University of Alicante successfully defen
 image: lituya_bay.png
 image-alt: "Topographic map of Lituya Bay showing the landslide area and the wave's line of destruction"
 toc: false
+resources:
+  - Animacion.mp4
 ---
 
 On 27 July 2026, **Lucas Peydró Ferrando**, a student from the Bachelor's Degree in Physics at the University of Alicante, successfully defended an undergraduate thesis that I co-supervised, receiving a grade of **9.9 out of 10**.
@@ -14,8 +16,13 @@ The thesis, entitled *Simulación Numérica de las olas generadas por deslizamie
 
 The work focuses on the well-known 1958 Lituya Bay event in Alaska, a widely studied benchmark for landslide-generated waves. A two-dimensional model was constructed using the **Material Point Method (MPM)**, a numerical technique especially suited to problems involving large deformations. The study included the definition of the physical properties of the problem and the analysis of both the landslide evolution and the resulting wave.
 
+![Lituya Bay, 1958. Schematic of the landslide impact, showing the dimensions of the landslide and the wave run-up. [Fritz et al. (2009)](https://doi.org/10.1007/s00024-008-0435-4).](Esquema_Lituya.PNG){#fig-lituya-schematic fig-alt="Schematic of the 1958 Lituya Bay landslide impact, showing landslide dimensions and wave run-up" width=65%}
+
 The numerical results were compared with experimental data and simulations obtained using other numerical methods. This comparison made it possible to assess the ability of MPM to reproduce the main physical mechanisms of the event, while also examining its current strengths and limitations for geotechnical engineering and natural-hazard applications.
 
 I am very happy with Lucas's work and with the results he achieved. I would particularly like to highlight the rigour with which he approached the study of the numerical methods, his commitment to exploring the world of finite element methods and, more specifically, the Material Point Method, and the care he took in reading and understanding all the research papers I sent him throughout the project. His dedication and scientific curiosity were evident during the development of the thesis. Congratulations, Lucas, on an excellent piece of work!
 
-<!-- Add the simulation video here when available. Suggested filename: lituya-bay-mpm.mp4 -->
+<video controls playsinline preload="metadata" style="width: 100%;" aria-label="MPM simulation of the Lituya Bay landslide-generated wave">
+  <source src="Animacion.mp4" type="video/mp4">
+  Your browser does not support embedded video. <a href="Animacion.mp4">Download the simulation video</a>.
+</video>
