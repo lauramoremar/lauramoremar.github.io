@@ -1106,3 +1106,14 @@ body:has(.apps-page) #title-block-header .subtitle { margin-bottom: 0; }
   .mpm-cycle { grid-template-columns: 1fr; }
   .mpm-example { gap: 1.4rem; margin-bottom: 4rem; }
 }
+/* Focus the CSL news thumbnail on Laura without changing the article photo. */
+.quarto-grid-link[href$="news/2026-10-05-csl-workshop2026/index.html"] .card-img-top {
+  overflow: hidden;
+}
+
+.quarto-grid-link[href$="news/2026-10-05-csl-workshop2026/index.html"] .thumbnail-image {
+  object-fit: cover;
+  object-position: 58% 25%;
+  transform: scale(1.7);
+  transform-origin: 58% 30%;
+}

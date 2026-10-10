@@ -256,7 +256,7 @@
     "href": "cv.html#academic-service-and-professional-memberships",
     "title": "Curriculum Vitae",
     "section": "Academic service and professional memberships",
-    "text": "Academic service and professional memberships\n\nScientific service\n\nCo-organizer of the minisymposium Particle-based methods in applied and industrial sciences, SIMAI 2023 [Link)].\nReviewer for international journals in computational mechanics:\n\nComputer Methods in Applied Mechanics and Engineering (CMAME)\nModeling Earth Systems and Environment\n\n\n\n\nProfessional memberships\n\nMember of the Istituto Nazionale di Alta Matematica “Francesco Severi” (INDAM) - Gruppo Nazionale per il Calcolo Scientifico (GNCS), since 2023\nMember of the Spanish Association for Numerical Methods in Engineering (SEMNI), since 2018."
+    "text": "Academic service and professional memberships\n\nScientific service\n\nCo-moderator of Group H, Emerging methods and future research directions, Computational Simulation Lab Workshop 2026, Technical University of Munich, Germany, 6 October 2026. Read more.\nCo-organizer of the minisymposium Particle-based methods in applied and industrial sciences, SIMAI 2023 [Link)].\nReviewer for international journals in computational mechanics:\n\nComputer Methods in Applied Mechanics and Engineering (CMAME)\nModeling Earth Systems and Environment\n\n\n\n\nProfessional memberships\n\nMember of the Istituto Nazionale di Alta Matematica “Francesco Severi” (INDAM) - Gruppo Nazionale per il Calcolo Scientifico (GNCS), since 2023\nMember of the Spanish Association for Numerical Methods in Engineering (SEMNI), since 2018."
   },
   {
     "objectID": "cv.html#science-outreach",
@@ -396,7 +396,7 @@
     "href": "blog.html",
     "title": "News",
     "section": "",
-    "text": "Research, student supervision, conferences, publications, and other academic updates.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUndergraduate thesis on the 2D simulation of the Lituya Bay megatsunami using MPM\n\n\n\nStudent supervision\n\n\nMPM\n\n\nNatural hazards\n\n\n\nA Physics student at the University of Alicante successfully defended a thesis on landslide-generated waves, receiving a grade of 9.9/10.\n\n\n\nJul 27, 2026\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Research, student supervision, conferences, publications, and other academic updates.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nConnecting academia and industry at the Computational Simulation Lab Workshop 2026\n\n\n\nWorkshops\n\n\nScientific service\n\n\nComputational mechanics\n\n\n\nThree days of exchange at TUM, including co-moderating a discussion on emerging methods and future research directions.\n\n\n\nOct 7, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nUndergraduate thesis on the 2D simulation of the Lituya Bay megatsunami using MPM\n\n\n\nStudent supervision\n\n\nMPM\n\n\nNatural hazards\n\n\n\nA Physics student at the University of Alicante successfully defended a thesis on landslide-generated waves, receiving a grade of 9.9/10.\n\n\n\nJul 27, 2026\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "news/2026-07-27-lituya-bay-tfg/index.html",
@@ -530,5 +530,26 @@
     "title": "Viscoelastic Fluid Flows",
     "section": "4.3 Conclusions",
     "text": "4.3 Conclusions\nThe coupling of viscoelastic fluids with temperature allows us to understand how these fluids heat up, which occurs differently compared to purely viscous fluids. Understanding these temperature distributions can be very beneficial for replicating various industrial processes, making this study particularly relevant. What do you think? Are you familiar with how elasticity can affect temperature in fluid flows?"
+  },
+  {
+    "objectID": "news/2026-10-05-csl-workshop2026/index.html",
+    "href": "news/2026-10-05-csl-workshop2026/index.html",
+    "title": "Connecting academia and industry at the Computational Simulation Lab Workshop 2026",
+    "section": "",
+    "text": "From 5 to 7 October 2026, I attended the Computational Simulation Lab Workshop 2026 at the TUM Institute for Advanced Study in Garching bei München, Germany. Hosted by TUM’s Chair of Structural Analysis, led by Prof. Roland Wüchner, the workshop brought together researchers and industry professionals to exchange ideas and build connections around computational methods in engineering."
+  },
+  {
+    "objectID": "news/2026-10-05-csl-workshop2026/index.html#emerging-methods-and-future-research-directions",
+    "href": "news/2026-10-05-csl-workshop2026/index.html#emerging-methods-and-future-research-directions",
+    "title": "Connecting academia and industry at the Computational Simulation Lab Workshop 2026",
+    "section": "Emerging methods and future research directions",
+    "text": "Emerging methods and future research directions\nOn 6 October, I co-moderated Group H, “Emerging methods and future research directions”, alongside Pierluigi D’Acunto, Qining Tang and Ricky Aristio. It was a rewarding opportunity to help guide a discussion with participants bringing different research interests, professional backgrounds and perspectives.\n\n\n\nThe Group H discussion on emerging methods and future research directions, which I co-moderated on 6 October. Photo: TUM; also shared in the organisers’ Day 2 LinkedIn post."
+  },
+  {
+    "objectID": "news/2026-10-05-csl-workshop2026/index.html#a-conversation-across-academia-and-industry",
+    "href": "news/2026-10-05-csl-workshop2026/index.html#a-conversation-across-academia-and-industry",
+    "title": "Connecting academia and industry at the Computational Simulation Lab Workshop 2026",
+    "section": "A conversation across academia and industry",
+    "text": "A conversation across academia and industry\nWhat I particularly enjoyed was the opportunity to meet people working in computational mechanics in different places and settings. Having both academic and industrial participants in the room made the exchange especially valuable.\n\n\n\nOne of the workshop working groups exchanging ideas in an informal discussion setting. Photo: TUM.\n\n\nOne of the questions that stayed with me was how we transfer knowledge between academia and industry. We do not always use the same language or work towards the same priorities, and a new method developed in a research setting does not automatically address an industrial need. Hearing these different perspectives prompted useful reflection on how we formulate research questions, communicate our results and connect numerical developments with practical applications.\nKratos Multiphysics, the open-source framework to which I contribute as a developer, was another recurring theme throughout the workshop. For me, its use in both academic research and industry made these conversations particularly relevant: shared software offers a concrete setting in which methods, experience and practical needs can meet.\nPooyan Dadvand, one of the main developers of Kratos Multiphysics, presented its past, present and future, offering a particularly relevant connection to the software that I help develop.\n\n\n\nPooyan Dadvand presenting “Past, Present, and Future — Kratos Multiphysics”. Photo: TUM.\n\n\nI came away with new connections and plenty to think about. Many thanks to the organisers, my fellow moderators and everyone who contributed to the discussions!\n\n\n\nFaces of the CSL workshop. From left to right: Harbir Antil, Antonia Larese, Ann-Kathrin Goldbach, Riccardo Rossi, Suneth Warnakulasuriya, Pooyan Dadvand and Roland Wüchner. Photo: TUM.\n\n\nWorkshop website and programme · Download the workshop agenda (PDF) · Kratos Multiphysics"
   }
 ]

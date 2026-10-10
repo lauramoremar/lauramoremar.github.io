@@ -76,6 +76,8 @@ University teaching in applied mathematics, numerical methods and computational 
 
 #### Scientific service
 
+* Co-moderator of Group H, *Emerging methods and future research directions*, Computational Simulation Lab Workshop 2026, Technical University of Munich, Germany, 6 October 2026. [Read more](news/2026-10-05-csl-workshop2026/index.qmd).
+
 * Co-organizer of the minisymposium *Particle-based methods in applied and industrial sciences*, SIMAI 2023 [[Link](https://web.unibas.it/simai2023/index.html))].
 
 * Reviewer for international journals in computational mechanics:
