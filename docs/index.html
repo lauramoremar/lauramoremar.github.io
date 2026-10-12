@@ -30,16 +30,17 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/academicons-1.9.2/all.css" rel="stylesheet">
 <link href="site_libs/quarto-contrib/academicons-1.9.2/size.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -62,6 +63,35 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-latest-news .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-date','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-latest-news'] = new List('listing-latest-news', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-67M1JQ9KKG"></script>
 
 <script type="text/javascript">
@@ -72,11 +102,27 @@ gtag('js', new Date());
 gtag('config', 'G-67M1JQ9KKG', { 'anonymize_ip': true});
 </script>
 
+  <script>window.backupDefine = window.define; window.define = undefined;</script><script src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js"></script>
+  <script>document.addEventListener("DOMContentLoaded", function () {
+ var mathElements = document.getElementsByClassName("math");
+ var macros = [];
+ for (var i = 0; i < mathElements.length; i++) {
+  var texText = mathElements[i].firstChild;
+  if (mathElements[i].tagName == "SPAN") {
+   katex.render(texText.data, mathElements[i], {
+    displayMode: mathElements[i].classList.contains('display'),
+    throwOnError: false,
+    macros: macros,
+    fleqn: false
+   });
+}}});
+  </script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css">
 
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed fullcontent">
+<body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -144,91 +190,135 @@ gtag('config', 'G-67M1JQ9KKG', { 'anonymize_ip': true});
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     
 <!-- main -->
-<div class="quarto-about-trestles page-columns page-full">
-  <div class="about-entity">
-    <img src="laura_photo2024.jpg" class="about-image
-  rounded " style="width: 20em;">
+<main class="content column-page" id="quarto-document-content">
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Laura Moreno</h1>
 </div>
+
+
+
 <div class="quarto-title-meta">
+
+    
+  
+    
   </div>
+  
+
 </header>
-    <div class="about-links">
-  <a href="mailto: laura.morenomartinez@ua.es" class="about-link" rel="" target="">
-     <span class="about-link-text"><i class="fa-solid fa-envelope" aria-label="envelope"></i> Email UA</span>
-  </a>
-  <a href="https://www.linkedin.com/in/lauramoremar/" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="https://github.com/lauramoremar" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">GitHub</span>
-  </a>
-  <a href="https://www.researchgate.net/profile/Laura-Moreno-17" class="about-link" rel="" target="">
-     <span class="about-link-text"><i class="ai  ai-researchgate"></i> ResearchGate</span>
-  </a>
-  <a href="https://scholar.google.com/citations?user=5ziDxTEAAAAJ&amp;hl=es" class="about-link" rel="" target="">
-     <span class="about-link-text"><i class="ai  ai-google-scholar"></i> Google Scholar</span>
-  </a>
-  <a href="https://orcid.org/0000-0002-8163-0877" class="about-link" rel="" target="">
-     <span class="about-link-text"><i class="ai  ai-orcid"></i> ORCID 0000-0002-8163-0877</span>
-  </a>
-  <a href="https://www.scopus.com/authid/detail.uri?authorId=57209293676" class="about-link" rel="" target="">
-     <span class="about-link-text"><i class="ai  ai-scopus"></i> Scopus ID: 57209293676</span>
-  </a>
+
+<div class="home-page">
+<div class="home-hero">
+<div class="home-portrait">
+<p><img src="laura_photo2024.jpg" class="home-photo img-fluid" alt="Laura Moreno Martínez"></p>
+<div class="home-social-links">
+<p><a href="mailto:laura.morenomartinez@ua.es">Email UA</a> <a href="https://www.linkedin.com/in/lauramoremar/">LinkedIn</a></p>
 </div>
-  </div>
-  <div class="about-contents page-columns page-full"><main class="content page-columns page-full" id="quarto-document-content">
-<div class="column-page">
-<section id="bio" class="level2">
-<h2 data-anchor-id="bio">Bio</h2>
+<section id="academic-profiles" class="level3 home-academic-profiles">
+<h3 class="anchored" data-anchor-id="academic-profiles">Academic profiles</h3>
+<ul>
+<li><a href="https://www.researchgate.net/profile/Laura-Moreno-17"><i class="ai  ai-researchgate"></i> ResearchGate</a></li>
+<li><a href="https://scholar.google.com/citations?user=5ziDxTEAAAAJ&amp;hl=es"><i class="ai  ai-google-scholar"></i> Google Scholar</a></li>
+<li><a href="https://orcid.org/0000-0002-8163-0877"><i class="ai  ai-orcid"></i> ORCID 0000-0002-8163-0877</a></li>
+<li><a href="https://www.scopus.com/authid/detail.uri?authorId=57209293676"><i class="ai  ai-scopus"></i> Scopus ID: 57209293676</a></li>
+</ul>
+</section>
+</div>
+<section id="laura-moreno" class="level1 home-intro">
+<h1>Laura Moreno</h1>
 <p>Hello! I’m an <strong>Assistant Professor</strong> in the Department of Applied Mathematics at the University of Alicante (UA), Spain.</p>
 <p><strong>My research</strong> focuses on computational fluid and solid mechanics and the development of numerical methods for complex, highly dynamic phenomena. My work includes viscoelastic flows, fluid–structure interaction, and the Material Point Method (MPM), with applications ranging from hemodynamics to landslides, avalanches, and extreme hydrological events.</p>
 <p><a href="./research.html" class="home-research-cta">Explore my research →</a></p>
+</section>
+</div>
+<section id="latest-news" class="level2 home-latest-news">
+<h2 class="anchored" data-anchor-id="latest-news">Latest news</h2>
+<div id="listing-latest-news" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="Workshops" data-listing-date-sort="1791324000000" data-listing-file-modified-sort="1791801955243" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<a href="./news/2026-10-05-csl-workshop2026/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./news/2026-10-05-csl-workshop2026/image1.png" class="thumbnail-image card-img" style="height: 140px;" alt="Participants in the Group H discussion at the Computational Simulation Lab Workshop 2026">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Computational Simulation Lab Workshop 2026 · TUM
+</h5>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+7 Oct 2026
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="Student supervision,MPM,Natural hazards" data-listing-date-sort="1785103200000" data-listing-file-modified-sort="1791802022075" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3">
+<a href="./news/2026-07-27-lituya-bay-tfg/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img src="./news/2026-07-27-lituya-bay-tfg/Lituya_Bay_overview.jpg" class="thumbnail-image card-img" style="height: 140px;" alt="Aerial view of Lituya Bay after the 1958 tsunami, with areas of destroyed forest along the shore">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Undergraduate thesis on the Lituya Bay megatsunami · UA
+</h5>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+27 Jul 2026
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+<p><a href="./blog.html" class="home-news-link">View all news →</a></p>
+</section>
+<section id="about-me" class="level2 home-about">
+<h2 class="anchored" data-anchor-id="about-me">About me</h2>
 <p>Although my research primarily addresses engineering applications, <strong>I am not an engineer by training</strong>. I studied Mathematics at the University of Alicante and specialized in mathematical modeling and numerical simulation. During my PhD at the Universitat Politècnica de Catalunya, I worked on highly elastic viscoelastic flows. I later joined the University of Padua and TU Braunschweig as a postdoctoral researcher, where I expanded my research towards MPM and extreme-event simulation.</p>
 <p>I have always found it almost magical that <strong>mathematical equations can describe physical processes</strong> with such remarkable accuracy. That sense of wonder drives my curiosity about phenomena that initially seem too complex to predict. What I enjoy most is the entire journey: from mathematical formulation to computational implementation, and finally… seeing the physical behavior emerge in a simulation.</p>
 <p>As an educator, I want my students to see that <strong>mathematics is not separate from everyday life</strong>: it is one of the languages we use to understand the world around us. I teach calculus across several engineering degrees, including aerospace and telecommunications, and I try to show that ideas which initially seem abstract or intimidating become much more approachable when connected to physical phenomena and real engineering problems.</p>
-<div class="columns">
-<div class="column" style="width:65%;">
+<div class="home-kratos">
+<div class="home-kratos-copy">
 <p>I also contribute as a developer to <a href="https://github.com/KratosMultiphysics/Kratos">Kratos Multiphysics</a>, an open-source C++ and Python framework for advanced computational mechanics.</p>
-</div><div class="column" style="width:35%;">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="./assets/images/kratos.png" class="img-fluid figure-img" style="width:70.0%"></p>
-</figure>
+<p><a href="https://github.com/lauramoremar" class="home-news-link">View my GitHub →</a></p>
 </div>
-</div>
+<p><img src="./assets/images/kratos.png" class="img-fluid" alt="Kratos Multiphysics"></p>
 </div>
 </section>
-<section id="contact" class="level2">
-<h2 data-anchor-id="contact">Contact</h2>
-<div class="columns">
-<div class="column" style="width:50%;">
+<section id="contact" class="level2 home-contact">
+<h2 class="anchored" data-anchor-id="contact">Contact</h2>
+<div class="home-contact-details">
+<p><a href="mailto:laura.morenomartinez@ua.es">laura.morenomartinez@ua.es</a></p>
 <p>Departamento de Matemática Aplicada e Ingeniería Aeroespacial (Escuela Politécnica Superior),<br>
 Ctra. San Vicente s/n,<br>
-03690 San Vicente del Raseig, Alicante, Spain<br>
-laura.morenomartinez@ua.es <a href="https://cvnet.cpd.ua.es/Directorio/en/FichaPersona/165893?depende=B167">Directory UA</a></p>
-<p><img src="./assets/images/logo-ua-color_medi.png" class="img-fluid" style="width:50.0%"></p>
-</div><div class="column" style="width:50%;">
+03690 San Vicente del Raseig, Alicante, Spain</p>
+<p><a href="https://cvnet.cpd.ua.es/Directorio/en/FichaPersona/165893?depende=B167">Directory UA</a></p>
+<p><img src="./assets/images/logo-ua-color_medi.png" class="home-ua-logo img-fluid" alt="University of Alicante"></p>
 </div>
-</div>
-<!-- Finally I would also like to mention a **personal project** to which I dedicate my free time. I would like to point out that the gender gap in science, and in particular in engineering, is a fact today, as indicated by the [United Nations](https://www.un.org/en/un-chronicle/lack-gender-equality-science-everyone%E2%80%99s-problem#:~:text=According to%20UNESCO%20Science%20the%20percentage%20could%20be%20much%20higher%20). I believe that the **visibility** of historical women scientists is an important point to encourage girls to pursue careers in science, and in particular in engineering and mathematics. To this end, I manage the  instagram account named [Señoras de Ciencia](https://www.instagram.com/senyorasciencia/) (in spanish, sorry) with a lot of love, although I invest less time on it than I would like to. -->
 </section>
 </div>
+<!-- Finally I would also like to mention a **personal project** to which I dedicate my free time. I would like to point out that the gender gap in science, and in particular in engineering, is a fact today, as indicated by the [United Nations](https://www.un.org/en/un-chronicle/lack-gender-equality-science-everyone%E2%80%99s-problem#:~:text=According to%20UNESCO%20Science%20the%20percentage%20could%20be%20much%20higher%20). I believe that the **visibility** of historical women scientists is an important point to encourage girls to pursue careers in science, and in particular in engineering and mathematics. To this end, I manage the  instagram account named [Señoras de Ciencia](https://www.instagram.com/senyorasciencia/) (in spanish, sorry) with a lot of love, although I invest less time on it than I would like to. -->
 <p><link rel="me" href="https://fosstodon.org/@MikeMahoney218"></p>
 
 
-</main></div>
-</div>
- <!-- /main -->
+
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -249,6 +339,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     

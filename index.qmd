@@ -1,42 +1,78 @@
 ---
 title: "Laura Moreno"
 image: laura_photo2024.jpg
-about: 
-  template: trestles
-  links:
-    - text: "{{< fa envelope >}} Email UA"
-      url: "mailto: laura.morenomartinez@ua.es"
-    - text: LinkedIn
-      icon: linkedin
-      url: "https://www.linkedin.com/in/lauramoremar/"
-    - text: GitHub
-      icon: github
-      url: "https://github.com/lauramoremar"
-    - text: "{{< ai researchgate >}} ResearchGate"  
-      url: https://www.researchgate.net/profile/Laura-Moreno-17
-    - text: "{{< ai google-scholar >}} Google Scholar"
-      url: https://scholar.google.com/citations?user=5ziDxTEAAAAJ&hl=es
-    - text: "{{< ai orcid >}} ORCID 0000-0002-8163-0877"
-      url: https://orcid.org/0000-0002-8163-0877
-    - text: "{{< ai scopus >}} Scopus ID: 57209293676"
-      url: "https://www.scopus.com/authid/detail.uri?authorId=57209293676"  
-    #- text: "{{< ai researcherid >}} RID IZD-6900-2023"
-    #  url: https://www.webofscience.com/wos/author/record/IZD-6900-2023
-    # - text: CV
-    #   url: "cv.pdf"
+listing:
+  id: latest-news
+  contents: news
+  type: grid
+  sort: "date desc"
+  max-items: 3
+  fields: [image, date, title]
+  grid-columns: 3
+  image-height: 140px
+  categories: false
+  sort-ui: false
+  filter-ui: false
+  date-format: "D MMM YYYY"
+toc: false
+page-layout: full
 comments: false
 ---
-::: {.column-page}
 
-## Bio
+::: {.home-page}
+
+::: {.home-hero}
+
+::: {.home-portrait}
+
+![](laura_photo2024.jpg){.home-photo fig-alt="Laura Moreno Martínez"}
+
+::: {.home-social-links}
+
+[Email UA](mailto:laura.morenomartinez@ua.es)
+[LinkedIn](https://www.linkedin.com/in/lauramoremar/)
+
+:::
+
+::: {.home-academic-profiles}
+
+### Academic profiles
+
+- [{{< ai researchgate >}} ResearchGate](https://www.researchgate.net/profile/Laura-Moreno-17)
+- [{{< ai google-scholar >}} Google Scholar](https://scholar.google.com/citations?user=5ziDxTEAAAAJ&hl=es)
+- [{{< ai orcid >}} ORCID 0000-0002-8163-0877](https://orcid.org/0000-0002-8163-0877)
+- [{{< ai scopus >}} Scopus ID: 57209293676](https://www.scopus.com/authid/detail.uri?authorId=57209293676)
+
+:::
+:::
+
+::: {.home-intro}
+
+# Laura Moreno
+
 Hello! I'm an **Assistant Professor** in the Department of Applied Mathematics at the University of Alicante (UA), Spain.
-
 
 **My research** focuses on computational fluid and solid mechanics and the development of numerical methods for complex, highly dynamic phenomena. My work includes viscoelastic flows, fluid–structure interaction, and the Material Point Method (MPM), with applications ranging from hemodynamics to landslides, avalanches, and extreme hydrological events.
 
 [Explore my research →](research.qmd){.home-research-cta}
 
+:::
+:::
 
+::: {.home-latest-news}
+
+## Latest news
+
+::: {#latest-news}
+:::
+
+[View all news →](blog.qmd){.home-news-link}
+
+:::
+
+::: {.home-about}
+
+## About me
 
 Although my research primarily addresses engineering applications, **I am not an engineer by training**. I studied Mathematics at the University of Alicante and specialized in mathematical modeling and numerical simulation. During my PhD at the Universitat Politècnica de Catalunya, I worked on highly elastic viscoelastic flows. I later joined the University of Padua and TU Braunschweig as a postdoctoral researcher, where I expanded my research towards MPM and extreme-event simulation.
 
@@ -44,42 +80,41 @@ I have always found it almost magical that **mathematical equations can describe
 
 As an educator, I want my students to see that **mathematics is not separate from everyday life**: it is one of the languages we use to understand the world around us. I teach calculus across several engineering degrees, including aerospace and telecommunications, and I try to show that ideas which initially seem abstract or intimidating become much more approachable when connected to physical phenomena and real engineering problems.
 
-::: columns
-::: {.column width="65%"}
+::: {.home-kratos}
+
+::: {.home-kratos-copy}
 
 I also contribute as a developer to [Kratos Multiphysics](https://github.com/KratosMultiphysics/Kratos), an open-source C++ and Python framework for advanced computational mechanics.
-:::
 
-::: {.column width="35%"}
-
-![](/assets/images/kratos.png){width=70% fig-align="center"}
+[View my GitHub →](https://github.com/lauramoremar){.home-news-link}
 
 :::
+
+![](/assets/images/kratos.png){fig-alt="Kratos Multiphysics"}
+
 :::
+:::
+
+::: {.home-contact}
 
 ## Contact
 
-::: columns
-::: {.column width="50%"}
+::: {.home-contact-details}
+
+[laura.morenomartinez@ua.es](mailto:laura.morenomartinez@ua.es)
+
 Departamento de Matemática Aplicada e Ingeniería Aeroespacial (Escuela Politécnica Superior),\
 Ctra. San Vicente s/n,\
-03690 San Vicente del Raseig, Alicante, Spain\
-laura.morenomartinez@ua.es
+03690 San Vicente del Raseig, Alicante, Spain
+
 [Directory UA](https://cvnet.cpd.ua.es/Directorio/en/FichaPersona/165893?depende=B167)
 
-![](/assets/images/logo-ua-color_medi.png){width=50%}
+![](/assets/images/logo-ua-color_medi.png){.home-ua-logo fig-alt="University of Alicante"}
 
 :::
-
-::: {.column width="50%"}
-
-
 :::
 :::
 
 <!-- Finally I would also like to mention a **personal project** to which I dedicate my free time. I would like to point out that the gender gap in science, and in particular in engineering, is a fact today, as indicated by the [United Nations](https://www.un.org/en/un-chronicle/lack-gender-equality-science-everyone%E2%80%99s-problem#:~:text=According to%20UNESCO%20Science%20the%20percentage%20could%20be%20much%20higher%20). I believe that the **visibility** of historical women scientists is an important point to encourage girls to pursue careers in science, and in particular in engineering and mathematics. To this end, I manage the  instagram account named [Señoras de Ciencia](https://www.instagram.com/senyorasciencia/) (in spanish, sorry) with a lot of love, although I invest less time on it than I would like to. -->
-
-
-:::
 
 <link rel="me" href="https://fosstodon.org/@MikeMahoney218">

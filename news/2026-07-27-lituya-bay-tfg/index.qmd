@@ -1,22 +1,26 @@
 ---
-title: "Undergraduate thesis on the 2D simulation of the Lituya Bay megatsunami using MPM"
+title: "Undergraduate thesis on the Lituya Bay megatsunami · UA"
 date: 2026-07-27
 categories: [Student supervision, MPM, Natural hazards]
 description: "A Physics student at the University of Alicante successfully defended a thesis on landslide-generated waves, receiving a grade of 9.9/10."
-image: lituya_bay.png
-image-alt: "Topographic map of Lituya Bay showing the landslide area and the wave's line of destruction"
+image: Lituya_Bay_overview.jpg
+image-alt: "Aerial view of Lituya Bay after the 1958 tsunami, with areas of destroyed forest along the shore"
 toc: false
 resources:
   - Animacion.mp4
 ---
 
+![Lituya Bay a few weeks after the 1958 tsunami. Photo: D. J. Miller / USGS, via [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lituya_Bay_overview.jpg) (public domain).](Lituya_Bay_overview.jpg){fig-alt="Historical aerial photograph of Lituya Bay after the 1958 tsunami, showing the areas of destroyed forest along the shore" width=55% fig-align="center" .tfg-history-photo}
+
 On 27 July 2026, **Lucas Peydró Ferrando**, a student from the Bachelor's Degree in Physics at the University of Alicante, successfully defended an undergraduate thesis that I co-supervised, receiving a grade of **9.9 out of 10**.
+
+![Lucas Peydró Ferrando presenting his undergraduate thesis at the University of Alicante on 27 July 2026.](defense-day-Lucas.jpg){fig-alt="Lucas presenting numerical model validation results during his undergraduate thesis defense" width=55% fig-align="center" .tfg-defense-photo}
 
 The thesis, entitled *Simulación Numérica de las olas generadas por deslizamientos mediante el método del punto material: aplicación al caso de Lituya Bay*, investigates the numerical simulation of large waves generated when landslides impact bodies of water. These events are particularly challenging to model because of the complex interaction between the sliding material and the water, the large deformation of the terrain, and the evolution of free surfaces. [Read the full thesis in the University of Alicante Repository (RUA) →](https://rua.ua.es/entities/publication/4e988e36-a8d7-469e-a3f6-223cb0eae9dc)
 
 The work focuses on the well-known 1958 Lituya Bay event in Alaska, a widely studied benchmark for landslide-generated waves. A two-dimensional model was constructed using the **Material Point Method (MPM)**, a numerical technique especially suited to problems involving large deformations. The study included the definition of the physical properties of the problem and the analysis of both the landslide evolution and the resulting wave.
 
-![Lituya Bay, 1958. Schematic of the landslide impact, showing the dimensions of the landslide and the wave run-up. [Fritz et al. (2009)](https://doi.org/10.1007/s00024-008-0435-4).](Esquema_Lituya.PNG){#fig-lituya-schematic fig-alt="Schematic of the 1958 Lituya Bay landslide impact, showing landslide dimensions and wave run-up" width=65%}
+![Lituya Bay, 1958. Schematic of the landslide impact, showing the dimensions of the landslide and the wave run-up. [Fritz et al. (2009)](https://doi.org/10.1007/s00024-008-0435-4).](Esquema_Lituya.PNG){fig-alt="Schematic of the 1958 Lituya Bay landslide impact, showing landslide dimensions and wave run-up" width=65%}
 
 The numerical results were compared with experimental data and simulations obtained using other numerical methods. This comparison made it possible to assess the ability of MPM to reproduce the main physical mechanisms of the event, while also examining its current strengths and limitations for geotechnical engineering and natural-hazard applications.
 
@@ -26,3 +30,4 @@ I am very happy with Lucas's work and with the results he achieved. I would part
   <source src="Animacion.mp4" type="video/mp4">
   Your browser does not support embedded video. <a href="Animacion.mp4">Download the simulation video</a>.
 </video>
+

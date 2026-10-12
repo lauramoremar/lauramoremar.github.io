@@ -1106,14 +1106,61 @@ body:has(.apps-page) #title-block-header .subtitle { margin-bottom: 0; }
   .mpm-cycle { grid-template-columns: 1fr; }
   .mpm-example { gap: 1.4rem; margin-bottom: 4rem; }
 }
-/* Focus the CSL news thumbnail on Laura without changing the article photo. */
-.quarto-grid-link[href$="news/2026-10-05-csl-workshop2026/index.html"] .card-img-top {
-  overflow: hidden;
+/* Let news article photos fill the reading area on phones. */
+@media (max-width: 600px) {
+  .csl-workshop-photo,
+  .tfg-defense-photo,
+  .tfg-history-photo {
+    width: 100% !important; /* Override the figure's inline desktop width. */
+    height: auto;
+  }
 }
 
-.quarto-grid-link[href$="news/2026-10-05-csl-workshop2026/index.html"] .thumbnail-image {
-  object-fit: cover;
-  object-position: 58% 25%;
-  transform: scale(1.7);
-  transform-origin: 58% 30%;
+/* Recent news below the home page profile. */
+.home-latest-news {
+  border-top: 1px solid #dfe7e7;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  padding-bottom: 2rem;
+}
+.home-latest-news h2 { color: #183239; font-size: 1.5rem; margin: 0 0 1.2rem; }
+.home-latest-news .quarto-grid-item { border-radius: 9px; overflow: hidden; }
+.home-latest-news .card-title { font-size: 1rem; line-height: 1.4; }
+.home-latest-news .card-body { padding: 0.9rem; }
+.home-latest-news .listing-date { color: #64767e; font-size: 0.78rem; }
+.home-news-link { color: #176e77; font-size: 0.9rem; font-weight: 650; text-decoration: none; }
+.home-news-link:hover { text-decoration: underline; }
+@media (max-width: 600px) {
+  .home-latest-news .quarto-listing-cols-3 { grid-template-columns: 1fr; }
+}
+
+/* Home: introduction, news, biography and contact. */
+body:has(.home-page) #title-block-header { display: none; }
+.home-page { max-width: 1100px; margin: 0 auto; padding: 1.5rem 0 2rem; }
+.home-hero { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 3rem; align-items: center; margin-bottom: 2.5rem; }
+.home-portrait > p { margin: 0; }
+.home-photo { display: block; width: 100%; height: auto; border-radius: 12px; }
+.home-social-links p { display: flex; flex-wrap: wrap; gap: 0.55rem; justify-content: center; margin: 1rem 0 0; }
+.home-social-links a { border: 1px solid #dfe7e7; border-radius: 6px; color: #315f65; font-size: 0.8rem; padding: 0.35rem 0.55rem; text-decoration: none; }
+.home-social-links a:hover { background: #edf5f4; }
+.home-intro h1 { color: #183239; font-size: clamp(2rem, 4vw, 2.8rem); margin: 0 0 1rem; }
+.home-intro p { line-height: 1.7; }
+.home-about, .home-contact { border-top: 1px solid #dfe7e7; padding-top: 1.5rem; margin-top: 1.5rem; }
+.home-about h2, .home-contact h2 { color: #183239; font-size: 1.5rem; margin: 0 0 1.2rem; }
+.home-about > p { max-width: 900px; line-height: 1.75; }
+.home-kratos { display: grid; grid-template-columns: minmax(0, 1fr) 170px; align-items: center; gap: 2rem; max-width: 900px; margin-top: 1.5rem; }
+.home-kratos img { width: 100%; height: auto; }
+.home-contact-details { font-size: 0.9rem; line-height: 1.65; }
+.home-contact a { overflow-wrap: anywhere; }
+.home-ua-logo { width: 190px; max-width: 100%; height: auto; margin-top: 0.5rem; }
+.home-academic-profiles { margin-top: 1.4rem; }
+.home-academic-profiles h3 { font-size: 1rem; margin: 0 0 1rem; }
+.home-academic-profiles ul { list-style: none; padding: 0; }
+.home-academic-profiles li { margin-bottom: 0.55rem; font-size: 0.8rem; }
+.home-academic-profiles a { color: #315f65; overflow-wrap: anywhere; }
+@media (max-width: 760px) {
+  .home-hero { grid-template-columns: 1fr; gap: 1.5rem; }
+  .home-portrait { width: min(260px, 100%); margin: 0 auto; }
+  .home-kratos { grid-template-columns: 1fr; gap: 0.5rem; }
+  .home-kratos img { max-width: 170px; }
 }
