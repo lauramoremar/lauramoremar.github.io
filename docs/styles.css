@@ -1110,7 +1110,8 @@ body:has(.apps-page) #title-block-header .subtitle { margin-bottom: 0; }
 @media (max-width: 600px) {
   .csl-workshop-photo,
   .tfg-defense-photo,
-  .tfg-history-photo {
+  .tfg-history-photo,
+  .tfg-schematic {
     width: 100% !important; /* Override the figure's inline desktop width. */
     height: auto;
   }

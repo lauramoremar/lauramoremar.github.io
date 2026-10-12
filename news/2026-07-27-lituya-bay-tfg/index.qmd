@@ -20,7 +20,7 @@ The thesis, entitled *Simulación Numérica de las olas generadas por deslizamie
 
 The work focuses on the well-known 1958 Lituya Bay event in Alaska, a widely studied benchmark for landslide-generated waves. A two-dimensional model was constructed using the **Material Point Method (MPM)**, a numerical technique especially suited to problems involving large deformations. The study included the definition of the physical properties of the problem and the analysis of both the landslide evolution and the resulting wave.
 
-![Lituya Bay, 1958. Schematic of the landslide impact, showing the dimensions of the landslide and the wave run-up. [Fritz et al. (2009)](https://doi.org/10.1007/s00024-008-0435-4).](Esquema_Lituya.PNG){fig-alt="Schematic of the 1958 Lituya Bay landslide impact, showing landslide dimensions and wave run-up" width=65%}
+![Lituya Bay, 1958. Schematic of the landslide impact, showing the dimensions of the landslide and the wave run-up. [Fritz et al. (2009)](https://doi.org/10.1007/s00024-008-0435-4).](Esquema_Lituya.PNG){fig-alt="Schematic of the 1958 Lituya Bay landslide impact, showing landslide dimensions and wave run-up" width=65% .tfg-schematic}
 
 The numerical results were compared with experimental data and simulations obtained using other numerical methods. This comparison made it possible to assess the ability of MPM to reproduce the main physical mechanisms of the event, while also examining its current strengths and limitations for geotechnical engineering and natural-hazard applications.
 
