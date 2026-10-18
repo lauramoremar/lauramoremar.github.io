@@ -1,0 +1,352 @@
+\documentclass[letterpaper,english]{article}
+
+\usepackage{currvita}        
+%\usepackage[latin9]{inputenc} % Cargamos el modulo de codificacion de caracteres para que acepte tildes y eñes
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc} 
+%\usepackage{fullpage} 
+\usepackage{wrapfig}
+\usepackage{amsmath,amsfonts,amssymb,amsthm,latexsym,mathrsfs,pdfsync,color,graphicx}
+\usepackage{geometry}
+\usepackage{epstopdf}
+\usepackage{changepage}
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{makeidx}
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{color,colortbl}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{pifont}
+\usepackage[all]{xy}
+\usepackage{mathrsfs}
+\usepackage[hidelinks]{hyperref} 
+\usepackage{lastpage}
+\usepackage{fancyhdr}
+\usepackage{wrapfig}
+\usepackage{lipsum}
+\newenvironment{Figure}
+  {\par\medskip\noindent\minipage{\linewidth}}
+  {\endminipage\par\medskip}
+%\pagestyle{fancy} 
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+
+% Márgenes
+\usepackage{vmargin}
+\setpapersize{A4}
+\setmargins{2.5cm}       % margen izquierdo
+{1.5cm}                  % margen superior
+{16cm}                % anchura del texto
+{24cm}                % altura del texto
+{10pt}                   % altura de los encabezados
+{0.5cm}                  % espacio entre el texto y los encabezados
+{0pt}                    % altura del pie de página
+{1cm}                    % espacio entre el texto y el pie de página
+\usepackage{setspace}
+\date{}
+\cfoot{\thepage\ of \pageref{LastPage}}
+\renewcommand{\headrulewidth}{0pt}
+
+\begin{document}
+
+    \pagestyle{fancy}
+    \setlength{\cvlabelwidth}{35mm}  % Modifica el espacio para las etiquetas de los listados
+
+
+  \begin{multicols}{2}
+
+    \noindent \LARGE{\textbf{Laura Moreno Martínez}}\\
+    \noindent \large{\textbf{Curriculum vitae}}\\
+    \columnbreak
+
+        \begin{Figure}
+           \hspace{4cm} \includegraphics[width=0.5\textwidth]{cv_laura_250103/laura_photo2024.jpg}
+        \end{Figure}
+    \end{multicols}
+
+
+        
+%\vspace{-0.25cm}
+
+
+\begin{cv}{}
+
+\vspace{-2cm}
+ \begin{cvlist}{Personal Information}
+    		\setlength{\itemsep}{-6pt}
+		\item[\footnotesize{First name}] Laura
+		\item[\footnotesize{Family name}] Moreno Martínez
+    	\item [\footnotesize{Scopus}] 57209293676
+    	\item [\footnotesize{ORCID}] 0000-0002-8163-0877
+    	\item [\footnotesize{Research ID}] AFX-6764-2022
+    	\item[\footnotesize{Data of birth}] 16 October 1990
+    	\item[\footnotesize{Email address}] \href{mailto:laura.morenomartinez@ua.es}{laura.morenomartinez@ua.es}
+\end{cvlist}
+
+
+\vspace{0.4cm}
+\noindent\large{\textbf{Scientific career description}}
+\vspace{0.25cm}
+\normalsize
+
+Laura Moreno Martínez is an \textbf{Assistant Professor} in the Department of Applied Mathematics at the University of Alicante. She obtained her \textbf{degree in Mathematics} from the University of Alicante and a Master's in Industrial Mathematics from the University of Santiago de Compostela, where she specialized in the Finite Element Method and numerical simulation of physical phenomena.
+
+In 2021, she earned her \textbf{PhD from the Technical University of Catalonia} (UPC) with a thesis on the simulation of highly elastic viscoelastic flows, funded by a competitive FPI scholarship from the Spanish Ministry of Science and Innovation. She then conducted \textbf{postdoctoral research} at the University of Padua (Italy) and the Technical University of Braunschweig (Germany), focusing on advanced numerical methods, such as the Material Point Method (MPM), applied to large deformation problems and structures under extreme conditions.
+
+She has published \textbf{8 articles in high-impact journals}, 6 of them in Q1-ranked journals, and has presented her research at \textbf{16 conferences}, including 12 international ones. She has participated in 8\textbf{ (national and international) research projects} and continues to collaborate with the international network she has built over the years. She has also supervised a Master's thesis in 2021 and is currently supervising another. 
+Currently, she combines teaching calculus courses for engineering students with active research in computational mechanics of fluids and solids.
+
+
+% \hline
+\begin{cvlist}{Current position}
+     \item[\footnotesize{01/09/2024} - present] \textbf{Assistant Professor}\\
+     Department of Applied Mathematics, EPS, University of Alicante, Spain
+\end{cvlist}
+%\hline
+\begin{cvlist}{Previous positions}
+
+    \item[\footnotesize{18/09/2023} - 31/08/2024] \textbf{Post-doctoral researcher}\\
+    Institute of Structural Analysis, Faculty of Architecture, Civil Engineering and Environmental Sciences, Technical University of Braunschweig, Germany \\
+   \textit{Developing particle techniques to model the constitutional evolution of building materials and structures with respect to aging.}
+   
+    \item[\footnotesize{01/10/2021} - 15/09/2023] \textbf{Post-doctoral researcher}\\
+    Department of Mathematics {”}Tullio Levi Civita”, Università degli Studi di Padova, Italy \\
+    \textit{Studying and implementing Full Order Models using finite elements and particle techniques for multiphysics coupled simulations. }
+    \item[\footnotesize{01/09/2016} - 22/09/2021] \textbf{Pre-doctoral researcher}\\
+    CIMNE, Universitat Politècnica de Catalunya, Barcelona, Spain\\
+    \textit{Developing mathematical and numerical methods to simulate viscoelastic fluid flows with high elasticity in a finite element framework, including thermal effects. These models are implemented in a high-performance computing environment using object-oriented Fortran.}
+    %\vspace{-0.2cm}		
+    \item[\footnotesize{01/12/2015 - 31/08/2016}]	\textbf{Solutions Assistant (SA-N1)}\\ 
+    EVERIS, Barcelona, Spain\\
+    \textit{Providing technical support for a high-tech database system}
+    %\vspace{-0.2cm}	 
+    \item[\footnotesize{01/09/2014 - 28/02/2015}]	\textbf{Research Assistant} \\ 
+    Department of Applied Mathematics, Unidersidade de Santiago de Compostela, Santiago de Compostela, Spain \\
+    \textit{Study and numerical simulation of electromagnetic processes with hysteresis.}
+    %\vspace{-0.4cm}	 
+\end{cvlist}
+%\hline
+\begin{cvlist}{Education}
+    \item[\footnotesize{23/09/2021 - 22/09/2021}] \textbf{Doctor of Philosophy (Ph.D.) in Structural Analysis}\\
+    Department of Civil Engineering, Universitat Politècnica de Catalunya, Barcelona, Spain\\
+    Title: \textit{Numerical modelling of viscoelastic flows based on a log-conformation formulation}.\\
+    Supervisors: Ramon Codina i Rovira and Joan Baiges Aznar.\\
+    Qualification: Excellent \textit{cum laude}.
+	\item[\footnotesize{01/09/2013 - 25/07/2015}] \textbf{M.Sc. Industrial Mathematics}\\
+	Department of Applied Mathematics, Universidade de Santiago de Compostela, Spain\\
+	\textit{Numerical methods in the finite element framework to compute different physical problems related to industry processes.  }
+	%\vspace{-0.2cm}
+	\item[\footnotesize{01/09/2008 - 05/07/2013}] \textbf{M.Sc. Mathematics (5 years degree)}\\
+	Universidad de Alicante, Spain
+	%\vspace{-0.2cm}
+	%\item[\footnotesize{SEP 1999 - JUN 2009}] \textbf{Professional Intermediate-level music qualification in classic guitar}\\
+	%\emph{Professional music conservatory  Ana María Sánchez,
+	%	Elda, Alicante}
+	%\vspace{-0.4cm}	
+\end{cvlist}
+%\hline
+\setlength{\cvlabelwidth}{35mm} 
+\begin{cvlist}{Fellowships and awards}
+    \item[\footnotesize{2023 - 2024}] Post-doc fellowship awarded for the GRK/2 project, TUBS. 
+    \item[\footnotesize{2021 - 2023}] Post-doc fellowship awarded in UNIPD. 
+	\item[\footnotesize{2017 - 2021}] PhD thesis mark with honors (Excellent Cum Laude)
+	\item[\footnotesize{2017 - 2021}]  4-years Spanish government PhD scholarship. FPI: DPI2015-67857-R.  
+	%\vspace{-0.4cm}
+\end{cvlist}
+%\hline
+\vspace{0.25cm}
+\large{\textbf{Participation in research projects}}\\ \\
+\normalsize
+\textbf{a) National and International projects:}
+\begin{enumerate}
+\item \textbf{GRK 2075.} (Research Training Group) Modelling the constitutional evolution of building materials and structures with respect to aging. Funding by German Research Foundation. Participation: 18/10/2023 to 30/09/2024.  
+    \item \textbf{REACT.} Digital Twins Of Civil StRucturEs And Protection Systems In A ClimAte Change PerspecTive. PI: Antonia Larese. Founded by: TUM-IAS, Munich, Germany. From 01/10/2021 to 30/09/2024. (80.000€) Participation: 01/10/2022 to 15/09/2023 
+    \item \textbf{SID2020-NEMESIS.} NumErical MEthods for the SImulation of the impact of extreme hazards on Structures and landscape Founded by: University of Padova PI: Antonia Larese. From 18/11/2020 to 31/12/2022. (39.376,70 €)  Participation: 01/10/2021 to 15/09/2023 
+    \item \textbf{ELASTIC-FLOW.} Aumento de la eficiencia en procesos de mezcla y transmisión de calor utilizando fluidos viscoelásticos en régimen laminar y turbulento. Funded by Spanish Ministry. PI: Ramon Codina and Joan Baiges. Reference: DPI2015-67857-R. From 01/01/2016 to 31/12/2018. (125.840,00 €).  Participation: 01/09/2016 to 22/09/2021
+    \item \textbf{FORJACEMIC.} Investigación de nuevos procesos y aleaciones de aceros microaleados para la forja en caliente de cigüeñales de automoción. Funded by CIE-GALFOR (Innterconecta). PI: Alfred Bermúdez. From 22/10/2013 to 31/12/2014. Participation: 01/09/2014 to 28/02/2015.
+\end{enumerate}
+\textbf{b) Private consulting:}
+\begin{enumerate}
+        \item \textbf{ENIPROGETTI}. Development of a mathematical and numerical model for the sensitivity analysis of the model of the physical channel to the material parameters and to the geometry of the perforation well. Founded by ENI s.p.a. Ref. 2500042110 PI: Mario Putti From 03/05/2022 to 20/10/2022 (50.000 €)
+        \item Numerical analysis to estimate the optical quality degradation generated by the future European Solar Telescope (EST) over WHT (William Hershell Telescope) at Observatorio del Roque de Los Muchachos (ORM). PI: Ramon Codina and Joan Baiges. Participation from 01/03/2020 to 31/08/2020.
+	\item Proyecto de consultoría con el metro de Montreal, EWE+ para el diseño de pantallas ignífugas en el metro de Montreal. Numerical analysis to determine the aerodynamic loads on the tunnel Mont-Royal wall separation. PI: Ramon Codina and Joan Baiges. Participation from 01/03/2020 to 31/08/2020.
+\end{enumerate}
+%\hline
+\setlength{\cvlabelwidth}{1.5cm}
+\begin{cvlist}{Memberships of scientific societies}
+    \item[\footnotesize{Since 2023}] Member of the 
+Istituto Nazionale di Alta Matematica "Francesco Severi" (INDAM) - Gruppo Nazionale per il Calcolo Scientifico (GNCS)
+	\item[\footnotesize{Since 2019}] Member of the Spanish Association for Numerical Methods in Engineering (SEMNI). 
+	\item[\footnotesize{Since 2011}] Member of National Association of Mathematic's Students (ANEM).
+\end{cvlist}
+%\setlength{\cvlabelwidth}{3.5cm}
+%\hline
+\vspace{0.25cm}
+\large{\textbf{Publications}}\\
+\normalsize
+%\textbf{b) Published articles:}
+\begin{enumerate}{}
+    % \item[\footnotesize{SUBMITTED 2021}] Codina R. \& Moreno L. (2021). Stability Analysis of time dependent linearized viscoelastic flow problems using a stabilized finite element formulation in space. \textit{ESAIM. Mathematical Modelling and Numerical Analysis}, Submitted. Impact factor 1.992 (JCR) Q1.
+    \item \textbf{\underline{Moreno L.}}, Wuechner R. \& Larese A. (2025)
+    A mixed stabilized MPM formulation for incompressible hyperelastic materials using Variational Subgrid-Scales.  \textit{Computer Methods in Applied Mechanics and Engineering,} 435, 117621.
+    \textbf{Remark:} Responsible for the development, implementation, validation, and writing of the paper
+    
+    \item Codina R., Baiges J., Castañar I., Martínez-Suárez I., \textbf{\underline{Moreno L.}} \& Parada S. 
+    (2023)
+    An embedded strategy for large scale incompressible flow simulations in moving domains. \textit{Journal of Computational Physics,} 488, 112181.
+    Impact Factor: 4.645 (JCR) Q1. 
+     GS Citations: 1.
+    \textbf{Remark:} In charge for some numerical computations, and the modelization of the problem to solve.
+
+    \item \textbf{\underline{Moreno L.}}, Castañar I., Codina R., Baiges J. \& Cattoni D. 
+    (2023) 
+    Numerical simulation of Fluid-Structure Interaction problems with viscoelastic fluids using a log-conformation reformulation. 
+    \textit{Computer Methods in Applied Mechanics and Engineering,} 410, 115986. 
+    Impact factor 6.756 (JCR) Q1.  
+     GS Citations: 2. 
+    \textbf{Remark:} Study of the fluid-structure interaction problems considering viscoelastic fluid flows with high elasticity. In charge of the theoretical part, numerical aspects, and all the numerical computations.
+    
+    \item \textbf{\underline{Moreno L.}}, Codina R. \& Baiges J. 
+    (2021) 
+    Numerical simulation of non-isothermal viscoelastic fluid flows using a VMS stabilized Finite Element formulation. 
+    \textit{Journal of Non-Newtonian Fluids Mechanics}, 296, 104640. 
+    Impact factor 2.82 (JCR) Q2.
+    GS Citations: 8. 
+    \textbf{Remark:} Study from a physical point of view about the thermal coupling with viscoelastic fluid flow. In charge of all the implementations and the computational simulations.
+    
+    \item Castillo E., \textbf{\underline{Moreno L.}}, Codina R. \& Baiges J. (2021) 
+    Stabilised Variational Multi-Scale Finite Element Formulations for Viscoelastic Fluids. 
+    \textit{Archives of Computational Methods in Engineering}, 28, 1987-2019. 
+    Impact factor 8.171 (JCR) Q1.
+    GS Citations: 12. 
+    \textbf{Remark:} Review about solving the viscoelastic fluid flow problem using the variational multiscale approach. In charge of writing about the work developed in others works.
+    %---------------------------------
+    \item Codina R. \& \textbf{\underline{Moreno L.}} (2021) 
+    Analysis of a stabilized finite element approximation for a linearized logarithm reformulation of the viscoelastic flow problem. 
+    \textit{ESAIM. Mathematical Modelling and Numerical Analysis}, 55, 279-300. 
+    Impact factor 1.992 (JCR) Q1. 
+    GS Citations: 2. 
+    \textbf{Remark:} Numerical analysis of the formulations developed in previous works. In charge of the main demonstrations proved in the paper.
+	%---------------------------------
+    \item \textbf{\underline{Moreno L.}}, Codina R. \& Baiges J. (2020). 
+    Solution of transient viscoelastic flow problems approximated by a term-by-term VMS stabilized finite element formulation using time-dependent subgrid-scales. 
+    \textit{Computer Methods in Applied Mechanics and Engineering}, 367, 113074. 
+    Impact factor  5.763 (JCR) Q1. 
+    GS Citations: 19. 
+    \textbf{Remark:} Development temporal sub-grid scales for the viscoelastic fluid flow formulation to avoid instabilities. In charge of the development, implementation and all the computations.
+	%---------------------------------
+    \item \textbf{\underline{Moreno L.}}, Codina R., Baiges J. \& Castillo E. (2019). 
+    Logarithmic conformation reformulation in viscoelastic flow problems approximated by a VMS-type stabilized finite element formulation. 
+    \textit{Computer Methods in Applied Mechanics and Engineering}, 354, 706-731. 
+    Impact factor  5.763 (JCR) Q1. 
+    GS Citations: 24. 
+    \textbf{Remark:} Development of strategies for solving fluid flows with high elasticity numerically. In charge of the developed formulation, implementation and numerical examples.
+	%---------------------------------
+\end{enumerate}
+%\hline
+\setlength{\cvlabelwidth}{1.7cm}
+\begin{cvlist}{Conferences (last 3 years)}
+
+\item[\footnotesize{JUNE 2024}] \underline{Laura Moreno}, Antonia Larese and Roland Wüchner \textit{Stabilized mixed formulation for an implicit Material Point Method for viscoplastic fluids.}, 9th European Congress on Computational Methods in Applied Sciences and Engineering (ECCOMAS 2024), Lisbon, Portugal, 2-7 June 2024
+
+\item[\footnotesize{APR 2024}]  \underline{Laura Moreno}, Antonia Larese and Roland Wüchner \textit{How to simulate water hazard events,}, Congreso de estudiantes de Física (COEFIS XVI), La Laguna, Tenerife, Spain, 12-14 April 2024. Invited plenary speaker.
+    \item[\footnotesize{MAR 2024}] \underline{Laura Moreno}, Nicolò Crescencio, Veronika Singer, Antonia Larese and Roland Wüchner \textit{A stabilized mixed formulation for simulating incompressible materials in natural water hazards events using the Material Point Method.}, FE im Schnee, Kleinwalsertal, Germany, 17-20th March 2024
+    \item[\footnotesize{FEB 2024}]  \underline{Laura Moreno}, Nicolò Crescencio, Veronika Singer, Antonia Larese and Roland Wüchner. \textit{A stabilized mixed formulation for incompressible materials in the
+Material Point Method for simulating gravitational natural
+hazards}. Norddeutsches Mechanikkolloquium \& Gründungskolloquium, Institut für Akustik und Dynamik. Braunschweig, Germany, 10 February, 2024.
+    \item[\footnotesize{OCT 2023}]  \underline{L. Moreno}, A. Larese and R. Wüchner. \textit{Stabilized mixed formulation for incompressible materials by using VMS in a Material Point Method framework} VIII International Conference in Particle Mechanics (Particles 2023) Milan, Italy, October 9 - 11, 2023.
+    \item[\footnotesize{AUG 2023}]  \underline{L. Moreno}, J. Baiges and R. Codina. \textit{ Numerical modelling of viscoelastic flows with high elasticity.}, 10th International Congress on Industrial and Applied Mathematics (ICIAM 2023) 
+    Waseda University, Tokyo, Japan, August 19 - 25, 2023.
+    \item[\footnotesize{JUNE 2023}]  \underline{L. Moreno}, V.Singer, N. Crescenzio, A. Boerst and A. Larese. \textit{Simulation of Coupled Multiphysics Problems in Large Deformation Regime.}
+     SIAM Conference on Mathematical \& Computational Issues in the Geosciences (GS23),  Radisson Blu Royal Hotel, Bergen, Norway, June 19 - 22, 2023.
+    \item[\footnotesize{SEP 2022}] \underline{L. Moreno}, A. Contri, A. Larese. \textit{A VMS-Stabilized Mixed Formulation for Non-Linear Incompressible Solid Mechanics Problems Using the Implicit Material Point Method.} Congress on Numerical Methods in Engineering (CMN 2022), Las Palmas de Gran Canaria, Spain, September 12th – 15 th 2022
+    \item[\footnotesize{JUN 2022}] \underline{L. Moreno}, A. Contri, A. Larese. \textit{Stabilized mixed formulation for an implicit MPM for viscoplastic fluids by using a variational subgrid-scale framework.} 8th European Congress on Computational Methods in Applied Sciences and Engineering (ECCOMAS 2022), Oslo, Norway, June 5th - 9th 2022.
+\end{cvlist}
+%\hline
+\begin{cvlist}{Teaching}
+   \item[\footnotesize{2024 - 2025}] \textbf{Fundamentos Matemáticos en Ingeniería I}\\
+   Degree: Grado en Ingeniería Aeroespacial\\
+   Department of Applied Mathematics, University of Alicante, Spain\\
+   Lenguage: Spanish\\
+   Teaching type: Lecture (theory and exercises) (120h)
+
+    \item[\footnotesize{2024 - 2025}] \textbf{Matemáticas Básicas}\\
+   Degree: Grado en Ingeniería en Sonido e Imagen en Telecomunicación\\
+   Department of Applied Mathematics, University of Alicante, Spain\\
+   Lenguage: Spanish\\
+   Teaching type: Lecture (theory and exercises) (30h)
+   
+   \item[\footnotesize{2023 - 2024}] \textbf{Particle Mechanics}\\
+    Master in Civil engineering\\
+    Institut für Dinamik und Statik, University of Braunschweig, Germany\\
+    Lenguage: English\\
+    Teaching type: Lecture (theory and exercises) (10h)
+     \item[\footnotesize{2022 - 2023}]  \textbf{Calcolo Numerico}\\
+ Degree: Ingegneria Chimica e dei materiali\\
+ Dipartimento di Matematica, University of Padua, Italy\\
+ Language: Italian\\
+ Teaching type: Laboratorio numerico (24 h)\\
+ Description: Practical exercises of numerical calculus using the software MATLAB.
+	\item[\footnotesize{2022 - 2023}] \textbf{Numerical methods for continuous systems}.\\
+ Master of mathematical engineering\\
+ Dipartimento di Ingengeria Civile, Edile e Ambientale, University of Padua, Italy\\
+Language: English\\
+Teaching type: Mentoring (12 h)\\
+Description: Support in projects, practical exercises and elaboration of educative material.
+\end{cvlist}
+%\hline 
+\vspace{0.25cm}
+\large{\textbf{Supervision}}\\
+\normalsize
+
+\noindent \textbf{Master thesis co-supervisor (1):} An Updated Lagrangian displacement-based formulation for free surface incompressible fluids using MPM (2021), Alessandro Contri.
+\vspace{0.25cm}
+%\hline 
+
+% \noindent \large{\textbf{Courses and workshops}}
+% \normalsize
+% \begin{enumerate}
+%     \item \textit{Kratos Workshop 2022}, in Deltares installations, Delft, Netherlands.  Organized by Deltares company. November 9-10, 2022
+%     \item \textit{Workshop “Numerical Analysis of protected systems”}, in Geobrugg installations, Romanshorn, Switzerland and organized by Geobrugg company. 20/06/2022 - 22/06/2022
+%     \item \textit{Fortran Modernisation Workshop Programme} in Universitat Politècnica de Catalunya BarcelonaTech (Spain) and organized by NAG. 24/07/2017 - 26/07/2017
+%     \item \textit{X Foro de Interacción Matemática Industria} in Universidade de Santiago de Compostela, Spain. 21/11/2014
+% \end{enumerate}
+%\hline
+\vspace{0.25cm}
+\noindent \large{\textbf{Language skills}}\\ \\
+\normalsize
+\textbf{Spanish:} Native,  \textbf{Catalan/Valencian:} Fluent, \textbf{English:} Fluent, \textbf{Italian:} Fluent, \textbf{German:} Beginner.\\
+\vspace{0.25cm}
+
+%\hline 
+% \noindent \large{\textbf{Software Competences}}
+% \normalsize
+% \begin{itemize}
+%     \item \textbf{Languages:} Fortran, C++, Python. 
+% \item \textbf{Mathematical:} Maple, Matlab. 
+% \item \textbf{Parallel computing:} Open MP, MPI. 
+% \item \textbf{Simulation:} ANSYS Fluent, COMSOL Multiphysics, KRATOS Multiphysics.
+% \end{itemize}
+
+% \vspace{0.25cm}
+% %\hline 
+% \vspace{0.25cm}
+%\large{\textbf{International collaborations}}
+%\normalsize
+%\begin{itemize}
+%    \item[-] Prof. Antonia Larese, University of Padua, Italy.
+%    \item[-] Prof. Ramon Codina and Dr. Joan Baiges, CIMNE-UPC, Spain.
+%    \item[-]  Prof. Roland Wuechner, Technical University of Braunschweig, Germany.
+%    \item[-]  Prof K.W. Bletzinger, Chair for Structural Analysis, Technical University of Munich, Germany.
+%    \item[-] Prof. Ernesto Castillo del Barrio, University of Santiago de Chile, Chile.    
+%\end{itemize}
+
+\end{cv}
+
+\end{document}

@@ -1,0 +1,21 @@
+# Notas de actualización — octubre de 2026
+
+Se conserva `cv_5pages.tex` sin modificar. La versión inglesa actualizada mantiene las secciones principales y las diez publicaciones; resume las contribuciones individuales, los indicadores bibliométricos, la docencia y los congresos. Se añade un breve apartado de organización científica y software, relevante para colaboraciones de investigación.
+
+## Criterios y datos que conviene confirmar
+
+- Se conserva REACT y ENIPROGETTI del CV original: no aparecen en el PDF de ANECA.
+- El CV original sitúa el fin del contrato de Padua en septiembre de 2023; ANECA fecha una ayuda/proyecto hasta el 14/10/2023. Se mantiene septiembre de 2023 para el puesto.
+- El CV original sitúa el fin del puesto en Braunschweig en agosto de 2024; ANECA indica 12/07/2024 para proyecto/ayuda. Se mantiene agosto de 2024 para el puesto. Las fechas de ayudas y contratos no se han considerado equivalentes.
+- En SG y SEA4FUTURE se indica participación documentada enero–julio de 2026. No se interpreta el corte de julio como fecha de finalización del proyecto; para SEA4FUTURE se conserva la finalización prevista en diciembre de 2029.
+- Para SID 2020 se utiliza la denominación del PDF de ANECA, sin identificarlo automáticamente con NEMESIS, cuya denominación y fechas en el original difieren.
+- Se corrige la fecha de doctorado a 22/09/2021 y el orden de autores de varios artículos según ANECA.
+- Los niveles de idioma se expresan mediante certificaciones y uso profesional, distinguiendo el curso B2.2 de inglés de una acreditación oficial B2.
+
+## Posible adaptación futura
+
+La versión actual tiene orientación general. Si se conoce la temática del proyecto, bastaría adaptar el párrafo inicial y priorizar los proyectos y congresos más relacionados; no se ha supuesto una temática específica.
+
+## Compilación
+
+Desde esta carpeta: `pdflatex cv_5pages_oct2026.tex` (dos ejecuciones para actualizar el total de páginas). La foto se toma de `../../../laura_photo2024.jpg`.

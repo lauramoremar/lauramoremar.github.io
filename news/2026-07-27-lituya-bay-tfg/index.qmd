@@ -1,5 +1,5 @@
 ---
-title: "Undergraduate thesis on the Lituya Bay megatsunami · UA"
+title: "Undergraduate thesis on numerical simulation of the Lituya Bay megatsunami · UA"
 date: 2026-07-27
 categories: [Student supervision, MPM, Natural hazards]
 description: "A Physics student at the University of Alicante successfully defended a thesis on landslide-generated waves, receiving a grade of 9.9/10."
@@ -26,8 +26,19 @@ The numerical results were compared with experimental data and simulations obtai
 
 I am very happy with Lucas's work and with the results he achieved. I would particularly like to highlight the rigour with which he approached the study of the numerical methods, his commitment to exploring the world of finite element methods and, more specifically, the Material Point Method, and the care he took in reading and understanding all the research papers I sent him throughout the project. His dedication and scientific curiosity were evident during the development of the thesis. Congratulations, Lucas, on an excellent piece of work!
 
+```{=html}
 <video controls playsinline preload="metadata" style="width: 100%;" aria-label="MPM simulation of the Lituya Bay landslide-generated wave">
   <source src="Animacion.mp4" type="video/mp4">
   Your browser does not support embedded video. <a href="Animacion.mp4">Download the simulation video</a>.
 </video>
+```
 
+```{=html}
+<nav class="news-navigation" aria-label="News navigation">
+  <a class="news-navigation-all" href="../../blog.qmd">All news</a>
+  <a class="news-navigation-next" href="../2026-10-05-csl-workshop2026/index.qmd" rel="next">
+    <span class="news-navigation-label">Next news <span aria-hidden="true">→</span></span>
+    <span class="news-navigation-title">Computational Simulation Lab Workshop 2026 · TUM</span>
+  </a>
+</nav>
+```

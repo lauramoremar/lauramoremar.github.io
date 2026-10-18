@@ -36,3 +36,12 @@ I came away with new connections and plenty to think about. Many thanks to the o
 
 [Workshop website and programme](https://www.cee.ed.tum.de/en/st/cs-lab/events/csl-workshop-2026/) · [Download the workshop agenda (PDF)](CSL_Workshop_2026_A.GH.pdf) · [Kratos Multiphysics](https://github.com/KratosMultiphysics/Kratos)
 
+```{=html}
+<nav class="news-navigation" aria-label="News navigation">
+  <a class="news-navigation-previous" href="../2026-07-27-lituya-bay-tfg/index.qmd" rel="prev">
+    <span class="news-navigation-label"><span aria-hidden="true">←</span> Previous news</span>
+    <span class="news-navigation-title">Undergraduate thesis on numerical simulation of the Lituya Bay megatsunami · UA</span>
+  </a>
+  <a class="news-navigation-all" href="../../blog.qmd">All news</a>
+</nav>
+```
